@@ -9,10 +9,10 @@
 #import "Utility.h"
 #import "AppDelegate.h"
 #import <CommonCrypto/CommonDigest.h>
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKUI/ShareSDKUI.h>
+//#import <ShareSDK/ShareSDK.h>
+//#import <ShareSDKUI/ShareSDKUI.h>
 #import <objc/runtime.h>
-#import "JPUSHService.h"
+//#import "JPUSHService.h"
 
 
 
@@ -493,66 +493,66 @@
 
 +(void)share:(NSString*)url withText:(NSString *)text{
 
-
-    //1、创建分享参数（必要）
-    NSArray* imageArray = @[[UIImage imageNamed:@"120x120.png"]];
-
-//     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-//    [shareParams SSDKEnableUseClientShare];
-//    
+//
+//    //1、创建分享参数（必要）
+//    NSArray* imageArray = @[[UIImage imageNamed:@"120x120.png"]];
+//
+////     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+////    [shareParams SSDKEnableUseClientShare];
+////
+////    [shareParams SSDKSetupShareParamsByText:text
+////                                     images:img
+////                                        url:[NSURL URLWithString:url]
+////                                      title:@"龙情狮义"
+////                                       type:SSDKContentTypeWebPage];
+////
+////    [shareParams SSDKSetupWeChatParamsByText:text title:@"龙情狮义" url:[NSURL URLWithString:url] thumbImage:img image:img musicFileURL:nil extInfo:nil fileData:nil emoticonData:nil type:SSDKContentTypeWebPage forPlatformSubType:SSDKPlatformSubTypeWechatSession];
+////    [shareParams SSDKSetupWeChatParamsByText:text title:@"龙情狮义" url:[NSURL URLWithString:url] thumbImage:img image:img musicFileURL:nil extInfo:nil fileData:nil emoticonData:nil type:SSDKContentTypeWebPage forPlatformSubType:SSDKPlatformSubTypeWechatTimeline];
+//
+//
+//
+//    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
 //    [shareParams SSDKSetupShareParamsByText:text
-//                                     images:img
+//                                     images:imageArray
 //                                        url:[NSURL URLWithString:url]
 //                                      title:@"龙情狮义"
-//                                       type:SSDKContentTypeWebPage];
+//                                       type:SSDKContentTypeAuto];
 //
-//    [shareParams SSDKSetupWeChatParamsByText:text title:@"龙情狮义" url:[NSURL URLWithString:url] thumbImage:img image:img musicFileURL:nil extInfo:nil fileData:nil emoticonData:nil type:SSDKContentTypeWebPage forPlatformSubType:SSDKPlatformSubTypeWechatSession];
-//    [shareParams SSDKSetupWeChatParamsByText:text title:@"龙情狮义" url:[NSURL URLWithString:url] thumbImage:img image:img musicFileURL:nil extInfo:nil fileData:nil emoticonData:nil type:SSDKContentTypeWebPage forPlatformSubType:SSDKPlatformSubTypeWechatTimeline];
-    
-    
-    
-    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupShareParamsByText:text
-                                     images:imageArray
-                                        url:[NSURL URLWithString:url]
-                                      title:@"龙情狮义"
-                                       type:SSDKContentTypeAuto];
-    
-    //有的平台要客户端分享需要加此方法，例如微博
-    [shareParams SSDKEnableUseClientShare];
-
-    
-     [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
-                             items:@[@(SSDKPlatformSubTypeWechatSession), @(SSDKPlatformSubTypeWechatTimeline),@(SSDKPlatformSubTypeQQFriend),@(SSDKPlatformTypeSinaWeibo)]
-                       shareParams:shareParams
-               onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
-                   
-                   switch (state) {
-                       case SSDKResponseStateSuccess:
-                       {
-                           UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
-                                                                               message:nil
-                                                                              delegate:nil
-                                                                     cancelButtonTitle:@"确定"
-                                                                     otherButtonTitles:nil];
-                           [alertView show];
-                           break;
-                       }
-                       case SSDKResponseStateFail:
-                       {
-//                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
-//                                                                           message:[NSString stringWithFormat:@"%@",error]
-//                                                                          delegate:nil
-//                                                                 cancelButtonTitle:@"OK"
-//                                                                 otherButtonTitles:nil, nil];
-//                           [alert show];
-                           break;
-                       }
-                       default:
-                           break;
-                   }
-               }
-     ];
+//    //有的平台要客户端分享需要加此方法，例如微博
+//    [shareParams SSDKEnableUseClientShare];
+//
+//
+//     [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+//                             items:@[@(SSDKPlatformSubTypeWechatSession), @(SSDKPlatformSubTypeWechatTimeline),@(SSDKPlatformSubTypeQQFriend),@(SSDKPlatformTypeSinaWeibo)]
+//                       shareParams:shareParams
+//               onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+//
+//                   switch (state) {
+//                       case SSDKResponseStateSuccess:
+//                       {
+//                           UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+//                                                                               message:nil
+//                                                                              delegate:nil
+//                                                                     cancelButtonTitle:@"确定"
+//                                                                     otherButtonTitles:nil];
+//                           [alertView show];
+//                           break;
+//                       }
+//                       case SSDKResponseStateFail:
+//                       {
+////                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+////                                                                           message:[NSString stringWithFormat:@"%@",error]
+////                                                                          delegate:nil
+////                                                                 cancelButtonTitle:@"OK"
+////                                                                 otherButtonTitles:nil, nil];
+////                           [alert show];
+//                           break;
+//                       }
+//                       default:
+//                           break;
+//                   }
+//               }
+//     ];
 }
 
 
@@ -568,16 +568,16 @@
 }
 
 +(void)registerAPNS{
-    if ([JPUSHService registrationID] && [Utility getObjectForkey:KUID]) {
-        NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_AppResgistrationSet];
-        [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
-                                                     headParameter:nil
-                                                     bodyParameter:@{@"data":@{@"registrationId":[JPUSHService registrationID]}}
-                                                      relativePath:url success:^(id responseObject) {
-                                                      } failure:^(NSString *errorMsg) {
-                                                      }];
-        
-    }
+//    if ([JPUSHService registrationID] && [Utility getObjectForkey:KUID]) {
+//        NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_AppResgistrationSet];
+//        [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
+//                                                     headParameter:nil
+//                                                     bodyParameter:@{@"data":@{@"registrationId":[JPUSHService registrationID]}}
+//                                                      relativePath:url success:^(id responseObject) {
+//                                                      } failure:^(NSString *errorMsg) {
+//                                                      }];
+//        
+//    }
 }
 
 

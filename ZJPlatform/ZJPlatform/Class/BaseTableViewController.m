@@ -43,10 +43,10 @@
 
 
 -(void)loadFeildView{
-    feildView = [[[NSBundle mainBundle] loadNibNamed:@"FeildView" owner:self options:nil] lastObject];
-    feildView.center = CGPointMake(self.view.center.x, self.view.center.y - 64 - 64);
-    [self.tableView addSubview:feildView];
-    feildView.hidden = YES;
+//    feildView = [[[NSBundle mainBundle] loadNibNamed:@"FeildView" owner:self options:nil] lastObject];
+//    feildView.center = CGPointMake(self.view.center.x, self.view.center.y - 64 - 64);
+//    [self.tableView addSubview:feildView];
+//    feildView.hidden = YES;
 }
 
 

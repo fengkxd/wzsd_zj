@@ -7,11 +7,11 @@
 //
 
 #import "CustomTabBar.h"
-#import "HomeViewController.h"
-#import "ClassroomViewController.h"
-#import "MessageViewController.h"
-#import "MyViewController.h"
-#import "FindViewController.h"
+#import "HostViewController.h"
+#import "MineCenterViewController.h"
+#import "QuestionsViewController.h"
+#import "SelCourseViewController.h"
+#import "LiveBroadcastViewController.h"
 
 @interface CustomTabBar()
 {
@@ -59,22 +59,22 @@
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
 
-    HomeViewController *vc1 = [[HomeViewController alloc] init];
+    HostViewController *vc1 = [[HostViewController alloc] init];
     MyNavigationController *nav1 = [[MyNavigationController alloc] initWithRootViewController:vc1];
     
     
     
-    ClassroomViewController *vc2 = [[ClassroomViewController alloc] init];
+    SelCourseViewController *vc2 = [[SelCourseViewController alloc] init];
     MyNavigationController *nav2 = [[MyNavigationController alloc] initWithRootViewController:vc2];
 
-    FindViewController *vc3 = [[FindViewController alloc] init];
+    LiveBroadcastViewController *vc3 = [[LiveBroadcastViewController alloc] init];
     MyNavigationController *nav3 = [[MyNavigationController alloc] initWithRootViewController:vc3];
     
     
-    MessageViewController *vc4 = [[MessageViewController alloc] initWithStyle:UITableViewStylePlain];
+    QuestionsViewController *vc4 = [QuestionsViewController init];
     MyNavigationController *nav4 = [[MyNavigationController alloc] initWithRootViewController:vc4];
  
-    MyViewController *vc5 = [[MyViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    MineCenterViewController *vc5 = [[MineCenterViewController alloc] init];
     MyNavigationController *nav5 = [[MyNavigationController alloc] initWithRootViewController:vc5];
 
     self.viewControllers = [NSArray arrayWithObjects:nav1,nav2,nav3,nav4,nav5, nil];

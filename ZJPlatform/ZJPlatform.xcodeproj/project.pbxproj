@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A6131F020633F6A00C8B99B /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6131EF20633F6A00C8B99B /* HostViewController.m */; };
+		1A6131F720633F8000C8B99B /* LiveBroadcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6131F620633F8000C8B99B /* LiveBroadcastViewController.m */; };
+		1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6131FD20633FDF00C8B99B /* MineCenterViewController.m */; };
+		1A61320520633FF900C8B99B /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61320420633FF900C8B99B /* QuestionsViewController.m */; };
+		1A61320C2063400E00C8B99B /* SelCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61320B2063400E00C8B99B /* SelCourseViewController.m */; };
 		1E37D93E20624A61000DAF65 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D93B20624A61000DAF65 /* BaseTableViewController.m */; };
 		1E37D93F20624A61000DAF65 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D93D20624A61000DAF65 /* BaseViewController.m */; };
 		1E37D99820624AAA000DAF65 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D94820624AAA000DAF65 /* AFHTTPSessionManager.m */; };
@@ -60,6 +65,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A6131EE20633F6A00C8B99B /* HostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
+		1A6131EF20633F6A00C8B99B /* HostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
+		1A6131F520633F8000C8B99B /* LiveBroadcastViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveBroadcastViewController.h; sourceTree = "<group>"; };
+		1A6131F620633F8000C8B99B /* LiveBroadcastViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveBroadcastViewController.m; sourceTree = "<group>"; };
+		1A6131FC20633FDF00C8B99B /* MineCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCenterViewController.h; sourceTree = "<group>"; };
+		1A6131FD20633FDF00C8B99B /* MineCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCenterViewController.m; sourceTree = "<group>"; };
+		1A61320320633FF900C8B99B /* QuestionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
+		1A61320420633FF900C8B99B /* QuestionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
+		1A61320A2063400E00C8B99B /* SelCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelCourseViewController.h; sourceTree = "<group>"; };
+		1A61320B2063400E00C8B99B /* SelCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelCourseViewController.m; sourceTree = "<group>"; };
 		1E37D93A20624A61000DAF65 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		1E37D93B20624A61000DAF65 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		1E37D93C20624A61000DAF65 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -174,6 +189,211 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A6131E520633F2100C8B99B /* LiveBroadcast */ = {
+			isa = PBXGroup;
+			children = (
+				1A6131F220633F7600C8B99B /* Controllers */,
+				1A6131F320633F7600C8B99B /* Models */,
+				1A6131F420633F7600C8B99B /* Others */,
+				1A6131F120633F7600C8B99B /* Views */,
+			);
+			path = LiveBroadcast;
+			sourceTree = "<group>";
+		};
+		1A6131E620633F2100C8B99B /* MineCenter */ = {
+			isa = PBXGroup;
+			children = (
+				1A6131FA20633FD300C8B99B /* Controllers */,
+				1A6131F820633FD300C8B99B /* Models */,
+				1A6131F920633FD300C8B99B /* Others */,
+				1A6131FB20633FD300C8B99B /* Views */,
+			);
+			path = MineCenter;
+			sourceTree = "<group>";
+		};
+		1A6131E720633F2100C8B99B /* Questions */ = {
+			isa = PBXGroup;
+			children = (
+				1A61320220633FE900C8B99B /* Controllers */,
+				1A61320020633FE900C8B99B /* Models */,
+				1A6131FF20633FE900C8B99B /* Others */,
+				1A61320120633FE900C8B99B /* Views */,
+			);
+			path = Questions;
+			sourceTree = "<group>";
+		};
+		1A6131E820633F2100C8B99B /* Host */ = {
+			isa = PBXGroup;
+			children = (
+				1A6131ED20633F5600C8B99B /* Controllers */,
+				1A6131EB20633F5600C8B99B /* Models */,
+				1A6131EA20633F5600C8B99B /* Others */,
+				1A6131EC20633F5600C8B99B /* Views */,
+			);
+			path = Host;
+			sourceTree = "<group>";
+		};
+		1A6131E920633F2100C8B99B /* SelCourse */ = {
+			isa = PBXGroup;
+			children = (
+				1A6132072063400100C8B99B /* Controllers */,
+				1A6132082063400200C8B99B /* Models */,
+				1A6132062063400100C8B99B /* Others */,
+				1A6132092063400200C8B99B /* Views */,
+			);
+			path = SelCourse;
+			sourceTree = "<group>";
+		};
+		1A6131EA20633F5600C8B99B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		1A6131EB20633F5600C8B99B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A6131EC20633F5600C8B99B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1A6131ED20633F5600C8B99B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A6131EE20633F6A00C8B99B /* HostViewController.h */,
+				1A6131EF20633F6A00C8B99B /* HostViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1A6131F120633F7600C8B99B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1A6131F220633F7600C8B99B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A6131F520633F8000C8B99B /* LiveBroadcastViewController.h */,
+				1A6131F620633F8000C8B99B /* LiveBroadcastViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1A6131F320633F7600C8B99B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A6131F420633F7600C8B99B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		1A6131F820633FD300C8B99B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A6131F920633FD300C8B99B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		1A6131FA20633FD300C8B99B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A6131FC20633FDF00C8B99B /* MineCenterViewController.h */,
+				1A6131FD20633FDF00C8B99B /* MineCenterViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1A6131FB20633FD300C8B99B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1A6131FF20633FE900C8B99B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		1A61320020633FE900C8B99B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A61320120633FE900C8B99B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1A61320220633FE900C8B99B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A61320320633FF900C8B99B /* QuestionsViewController.h */,
+				1A61320420633FF900C8B99B /* QuestionsViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1A6132062063400100C8B99B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		1A6132072063400100C8B99B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A61320A2063400E00C8B99B /* SelCourseViewController.h */,
+				1A61320B2063400E00C8B99B /* SelCourseViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1A6132082063400200C8B99B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A6132092063400200C8B99B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1E37D94620624AAA000DAF65 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +539,11 @@
 		1EF63152206231B600385293 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				1A6131E820633F2100C8B99B /* Host */,
+				1A6131E520633F2100C8B99B /* LiveBroadcast */,
+				1A6131E620633F2100C8B99B /* MineCenter */,
+				1A6131E720633F2100C8B99B /* Questions */,
+				1A6131E920633F2100C8B99B /* SelCourse */,
 				1E37D9C420624F08000DAF65 /* CustomTabBar.h */,
 				1E37D9C520624F08000DAF65 /* CustomTabBar.m */,
 				1E37D9C620624F08000DAF65 /* MyNavigationController.h */,
@@ -327,68 +552,10 @@
 				1E37D93B20624A61000DAF65 /* BaseTableViewController.m */,
 				1E37D93C20624A61000DAF65 /* BaseViewController.h */,
 				1E37D93D20624A61000DAF65 /* BaseViewController.m */,
-				1EF631532062351E00385293 /* Host(首页) */,
-				1EF6315C2062351E00385293 /* Selcourse(选课) */,
-				1EF6315B2062351E00385293 /* Questions(题库) */,
-				1EF631582062351E00385293 /* Livebroadcast(直播) */,
-				1EF631592062351E00385293 /* MineCenter(我的) */,
 				1EF6315D2062351E00385293 /* Tools */,
 				1EF6315A2062351E00385293 /* OthersThirdLibs */,
 			);
 			path = Class;
-			sourceTree = "<group>";
-		};
-		1EF631532062351E00385293 /* Host(首页) */ = {
-			isa = PBXGroup;
-			children = (
-				1EF631542062351E00385293 /* Controllers */,
-				1EF631552062351E00385293 /* Models */,
-				1EF631562062351E00385293 /* others */,
-				1EF631572062351E00385293 /* Viers */,
-			);
-			path = "Host(首页)";
-			sourceTree = "<group>";
-		};
-		1EF631542062351E00385293 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		1EF631552062351E00385293 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		1EF631562062351E00385293 /* others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = others;
-			sourceTree = "<group>";
-		};
-		1EF631572062351E00385293 /* Viers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Viers;
-			sourceTree = "<group>";
-		};
-		1EF631582062351E00385293 /* Livebroadcast(直播) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Livebroadcast(直播)";
-			sourceTree = "<group>";
-		};
-		1EF631592062351E00385293 /* MineCenter(我的) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "MineCenter(我的)";
 			sourceTree = "<group>";
 		};
 		1EF6315A2062351E00385293 /* OthersThirdLibs */ = {
@@ -406,20 +573,6 @@
 				1E37D99720624AAA000DAF65 /* Toast.m */,
 			);
 			path = OthersThirdLibs;
-			sourceTree = "<group>";
-		};
-		1EF6315B2062351E00385293 /* Questions(题库) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Questions(题库)";
-			sourceTree = "<group>";
-		};
-		1EF6315C2062351E00385293 /* Selcourse(选课) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Selcourse(选课)";
 			sourceTree = "<group>";
 		};
 		1EF6315D2062351E00385293 /* Tools */ = {
@@ -512,6 +665,7 @@
 				1E37D9B220624AAA000DAF65 /* SDWebImageManager.m in Sources */,
 				1E37D99B20624AAA000DAF65 /* AFURLRequestSerialization.m in Sources */,
 				1EF631412062316400385293 /* ViewController.m in Sources */,
+				1A61320520633FF900C8B99B /* QuestionsViewController.m in Sources */,
 				1E37D9AA20624AAA000DAF65 /* UIView+MJExtension.m in Sources */,
 				1E37D9BB20624AAA000DAF65 /* MBProgressHUD.m in Sources */,
 				1E37D9C220624AC1000DAF65 /* NetworkManager.m in Sources */,
@@ -523,6 +677,8 @@
 				1EF6313E2062316400385293 /* AppDelegate.m in Sources */,
 				1E37D99D20624AAA000DAF65 /* AFURLSessionManager.m in Sources */,
 				1E37D99C20624AAA000DAF65 /* AFURLResponseSerialization.m in Sources */,
+				1A61320C2063400E00C8B99B /* SelCourseViewController.m in Sources */,
+				1A6131F020633F6A00C8B99B /* HostViewController.m in Sources */,
 				1E37D9B820624AAA000DAF65 /* UIImageView+HighlightedWebCache.m in Sources */,
 				1E37D99920624AAA000DAF65 /* AFNetworkReachabilityManager.m in Sources */,
 				1E37D9A820624AAA000DAF65 /* UIScrollView+MJExtension.m in Sources */,
@@ -531,6 +687,7 @@
 				1E37D9B620624AAA000DAF65 /* UIImage+MultiFormat.m in Sources */,
 				1E37D9C820624F08000DAF65 /* CustomTabBar.m in Sources */,
 				1E37D99A20624AAA000DAF65 /* AFSecurityPolicy.m in Sources */,
+				1A6131F720633F8000C8B99B /* LiveBroadcastViewController.m in Sources */,
 				1E37D9C920624F08000DAF65 /* MyNavigationController.m in Sources */,
 				1E37D9BC20624AAA000DAF65 /* MBProgressHUD+Add.m in Sources */,
 				1E37D9B720624AAA000DAF65 /* UIImage+WebP.m in Sources */,
@@ -543,6 +700,7 @@
 				1E37D99820624AAA000DAF65 /* AFHTTPSessionManager.m in Sources */,
 				1E37D9B020624AAA000DAF65 /* SDWebImageDownloader.m in Sources */,
 				1E37D9BD20624AAA000DAF65 /* Toast.m in Sources */,
+				1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */,
 				1E37D9B420624AAA000DAF65 /* UIButton+WebCache.m in Sources */,
 				1E37D9A620624AAA000DAF65 /* MJRefreshLegendFooter.m in Sources */,
 				1E37D9AC20624AAA000DAF65 /* NSData+ImageContentType.m in Sources */,

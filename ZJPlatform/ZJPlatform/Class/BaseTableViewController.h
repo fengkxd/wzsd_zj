@@ -19,7 +19,7 @@
 @interface BaseTableViewController : UITableViewController
 
 {
-    FeildView *feildView;
+//    FeildView *feildView;
 
 }
 
