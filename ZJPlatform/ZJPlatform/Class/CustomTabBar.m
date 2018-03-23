@@ -71,7 +71,7 @@
     MyNavigationController *nav3 = [[MyNavigationController alloc] initWithRootViewController:vc3];
     
     
-    QuestionsViewController *vc4 = [QuestionsViewController init];
+    QuestionsViewController *vc4 = [[QuestionsViewController alloc] init];
     MyNavigationController *nav4 = [[MyNavigationController alloc] initWithRootViewController:vc4];
  
     MineCenterViewController *vc5 = [[MineCenterViewController alloc] init];
@@ -118,15 +118,15 @@
         if (i == 0) {
             label.text= @"首页";
         }else if(i == 1){
-            label.text= @"课堂";
+            label.text= @"选课";
             
             
         }else if(i == 2){
-            label.text= @"发现";
+            label.text= @"直播";
         }else if(i == 3){
-            label.text= @"消息";
+            label.text= @"题库";
         }else{
-            label.text= @"我";
+            label.text= @"我的";
 
         }
         UIImage *tempImg = [UIImage imageNamed:[NSString stringWithFormat:@"tabbar_%d.png",i+1]];
