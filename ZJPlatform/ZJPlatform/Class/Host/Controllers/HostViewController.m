@@ -74,7 +74,7 @@
     }else if(section == 1){
         return 190;
     }else if(section == 2){
-        return 80;
+        return 160.0 /750.0 * MainScreenWidth;
     }else if(section > 2 && row == 0){
         return 42;
     }
@@ -146,7 +146,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellid];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, 80)];
+            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, 160.0 /750.0 * MainScreenWidth)];
             imgView.image = [UIImage imageNamed:@"centerBanner.png"];
             [cell.contentView addSubview:imgView];
             
@@ -158,7 +158,7 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
             
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 9.5, 3, 23)];
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 9.5, 0.5, 23)];
             view.backgroundColor = [UIColor colorWithHexString:@"11a2ec"];
             [cell.contentView addSubview:view];
             

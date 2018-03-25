@@ -10,6 +10,8 @@
 
 @interface MyNavigationController ()
 @property (nonatomic,strong) NSArray *AutorotateViewControllers;
+
+@property (nonatomic,strong) NSArray *HiddenBarViewControllers;
 @end
 
 @implementation MyNavigationController
@@ -24,6 +26,8 @@
 
     self.navigationBar.translucent = NO;
     
+    
+    self.HiddenBarViewControllers = @[@"MineCenterViewController"];
 //    self.AutorotateViewControllers = [NSArray arrayWithObjects:@"BankHomeViewController",nil];
 
 }
@@ -37,22 +41,23 @@
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
     [super pushViewController:viewController animated:animated];
 
-    
-//    if ([NSStringFromClass([viewController class]) isEqualToString:@"VideoPlayViewController"]) {
-//        [[UIApplication sharedApplication] setStatusBarHidden:YES];
-//        [self setNavigationBarHidden:YES animated:NO];
-//
-//    }
+    NSString *vcStr = NSStringFromClass([viewController class]);
+    if ([self.HiddenBarViewControllers containsObject:vcStr]) {
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+        [self setNavigationBarHidden:YES animated:NO];
+
+    }
     
 }
 
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated{
-//    if ([NSStringFromClass([[self.viewControllers lastObject] class]) isEqualToString:@"VideoPlayViewController"]) {
-//        [self setNavigationBarHidden:NO animated:NO];
-//        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-//    }
-    return   [super popViewControllerAnimated:animated];
+    NSString *vcStr = NSStringFromClass([[self.viewControllers lastObject] class]);
+    if ([self.HiddenBarViewControllers containsObject:vcStr]) {
+        [self setNavigationBarHidden:NO animated:NO];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        
+    }    return   [super popViewControllerAnimated:animated];
 }
 
 
