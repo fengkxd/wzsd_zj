@@ -18,7 +18,7 @@
     [super viewDidLoad];
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationBar setBarTintColor:MainColor];
+    [self.navigationBar setBarTintColor:MainBlueColor];
     [self.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor whiteColor], NSForegroundColorAttributeName, TitleFont, NSFontAttributeName, nil]];
 
@@ -35,23 +35,23 @@
 
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    [super pushViewController:viewController animated:animated];
 
     
-    [super pushViewController:viewController animated:animated];
-    if ([NSStringFromClass([viewController class]) isEqualToString:@"VideoPlayViewController"]) {
-        [[UIApplication sharedApplication] setStatusBarHidden:YES];
-        [self setNavigationBarHidden:YES animated:NO];
-
-    }
+//    if ([NSStringFromClass([viewController class]) isEqualToString:@"VideoPlayViewController"]) {
+//        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+//        [self setNavigationBarHidden:YES animated:NO];
+//
+//    }
     
 }
 
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated{
-    if ([NSStringFromClass([[self.viewControllers lastObject] class]) isEqualToString:@"VideoPlayViewController"]) {
-        [self setNavigationBarHidden:NO animated:NO];
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    }
+//    if ([NSStringFromClass([[self.viewControllers lastObject] class]) isEqualToString:@"VideoPlayViewController"]) {
+//        [self setNavigationBarHidden:NO animated:NO];
+//        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+//    }
     return   [super popViewControllerAnimated:animated];
 }
 

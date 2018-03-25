@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setTitleView:@"在线选课"];
 }
 
 - (void)didReceiveMemoryWarning {

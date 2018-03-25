@@ -6,8 +6,8 @@
 //  Copyright © 2018年 wzsd. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
-@interface HostViewController : BaseViewController
+@interface HostViewController : BaseTableViewController
 
 @end

@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setTitleView:@"我的题库"];
 }
 
 - (void)didReceiveMemoryWarning {

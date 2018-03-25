@@ -76,6 +76,9 @@
 +(void)share:(NSString*)url withText:(NSString *)text;
 
 
++(UIViewController *)getCurrentRootViewController;
+
+
 @end
 
 

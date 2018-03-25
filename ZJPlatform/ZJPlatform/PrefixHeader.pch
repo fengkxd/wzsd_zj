@@ -46,18 +46,16 @@
 #define MainScreenWidth [UIScreen mainScreen].bounds.size.width
 #define MainScreenheight [UIScreen mainScreen].bounds.size.height
 
-#define MainColor       [UIColor blackColor]
+#define MainBlueColor       [UIColor colorWithHexString:@"00a9ff"]
 
 #define MainYellowColor [UIColor colorWithHexString:@"f5c61d"]
-
-#define BgColor         [Utility colorWithHexString:@"f2f2f2"]
+#define BgColor         [Utility colorWithHexString:@"eeeeee"]
 #define LineColoc       [Utility colorWithHexString:@"cccccc"]
 
-#define TitleFont      [UIFont fontWithName:@"STXihei" size:17]
-#define ContentFont    [UIFont fontWithName:@"STXihei" size:15]
-#define DetailFont     [UIFont fontWithName:@"STXihei" size:13]
-#define SmallFont      [UIFont fontWithName:@"STXihei" size:11]
-
+#define TitleFont      [UIFont fontWithName:@"SourceHanSansSC-Regular" size:17]
+#define ContentFont    [UIFont fontWithName:@"SourceHanSansSC-Regular" size:15]
+#define DetailFont     [UIFont fontWithName:@"SourceHanSansSC-Regular" size:13]
+#define SmallFont      [UIFont fontWithName:@"SourceHanSansSC-Regular" size:12]
 
 
 
@@ -81,13 +79,15 @@
 
 
 
-#define SHOW_LOGIN       [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
+#define SHOW_LOGIN       [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];return;
 
 #define ISVIP  @"ISVIP"
 #define CheckVIP      [[Utility getObjectForkey:ISVIP] integerValue]
 
 
-#define CheckLogin      if (![Utility isLogined]) {[[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil]; return;}
+#define CheckLogin      if (![Utility isLogined]) {SHOW_LOGIN;}
+
+
 
 
 #define kNotification_PAY_SUCCESS           @"kNotification_PAY_SUCCESS"

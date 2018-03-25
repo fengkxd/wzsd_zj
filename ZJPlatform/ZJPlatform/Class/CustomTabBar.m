@@ -12,9 +12,12 @@
 #import "QuestionsViewController.h"
 #import "SelCourseViewController.h"
 #import "LiveBroadcastViewController.h"
+#import "LoginViewController.h"
 
 @interface CustomTabBar()
 {
+    
+    UIView *shadeView;
 }
 @end
 
@@ -82,6 +85,8 @@
     [self hideRealTabBar];
     [self customTabBar];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showlogin) name:kNotification_SHOW_LOGIN object:nil];
+    
 }
 
 
@@ -89,7 +94,7 @@
 
     
     UIView *view = [[UIView  alloc] initWithFrame:CGRectMake(0, 0, MainScreenBounds.size.width, Tabbar_Height)];
-    view.backgroundColor = [UIColor whiteColor];
+    view.backgroundColor = [UIColor colorWithHexString:@"f7f7f7"];
     
     [self.tabBar addSubview:view];
     //创建按钮
@@ -111,7 +116,7 @@
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 22, btn.frame.size.width, 30)];
         label.font = SmallFont;
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor =  [UIColor colorWithHexString:@"000000"];
+        label.textColor =  [UIColor colorWithHexString:@"8d8d8d"];
         [btn addSubview:label];
         label.tag = 11;
         
@@ -139,6 +144,13 @@
         [self.tabBar addSubview:btn];
      }
     
+    shadeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 43)];
+    shadeView.backgroundColor = MainBlueColor;
+    shadeView.alpha = 0.2;
+    shadeView.layer.cornerRadius = 4;
+    shadeView.layer.masksToBounds = YES;
+    [self.tabBar addSubview:shadeView];
+    
     [self selectedTab:[self.buttons objectAtIndex:0]];
 }
 
@@ -149,27 +161,29 @@
 
 
 - (void)selectedTab:(UIButton *)button{
-    
+    if ( (int)button.tag == 4) {
+        [self showlogin];
+    }
     
     if (self.currentBtn) {
-        if ([self.buttons indexOfObject:button] != 0) {
-            CheckLogin;
-        }
         UIImageView *imgView = (UIImageView *)[self.currentBtn viewWithTag:22];
         [imgView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tabbar_%d.png",self.currentSelectedIndex+1]]];
-
+        UILabel *label_ = (UILabel *)[self.currentBtn viewWithTag:11];
+        label_.textColor = [UIColor colorWithHexString:@"8d8d8d"];
     }
+    
     self.currentSelectedIndex = (int)button.tag;
     self.currentBtn = button;
-    
 
+    shadeView.center = self.currentBtn.center;
+    
     UIImageView *imgView_ = (UIImageView *)[self.currentBtn viewWithTag:22];
-    [imgView_ setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tabbar_%d_Selected.png",self.currentSelectedIndex+1]]];
+    [imgView_ setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tabbar_%d_h.png",self.currentSelectedIndex+1]]];
+
+    UILabel *label_ = (UILabel *)[self.currentBtn viewWithTag:11];
+    label_.textColor = MainBlueColor;
+
     
-
-//    UILabel *label_ = (UILabel *)[self.currentBtn viewWithTag:11];
-//    label_.textColor = MainColor;
-
     
     self.selectedIndex = self.currentSelectedIndex;
    
@@ -177,22 +191,18 @@
 
 
 
-//设置标题
--(void)setTitleView:(NSString *)title
-{
-    if (labelTitle == nil) {
-        labelTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 210, 30)];
-        [labelTitle  setText:@" "];
-        [labelTitle setFont:TitleFont];
-        [labelTitle setTextColor:[UIColor whiteColor]];
-        [labelTitle setTextAlignment:NSTextAlignmentCenter];
-        [labelTitle setBackgroundColor:[UIColor clearColor]];
-        self.navigationItem.titleView = labelTitle;
+
+
+-(void)showlogin{
+    LoginViewController *vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+    MyNavigationController *nav = [[MyNavigationController alloc] initWithRootViewController:vc];
+    UIViewController *curVc = [Utility getCurrentRootViewController];
+    if (curVc) {
+        [curVc presentViewController:nav animated:YES completion:nil];
     }
-    labelTitle.text = title;
-
-
 }
+
+
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -210,8 +220,6 @@
 
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    
-    
     return UIInterfaceOrientationMaskPortrait;
 }
 

@@ -12,6 +12,55 @@
 		1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6131FD20633FDF00C8B99B /* MineCenterViewController.m */; };
 		1A61320520633FF900C8B99B /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61320420633FF900C8B99B /* QuestionsViewController.m */; };
 		1A61320C2063400E00C8B99B /* SelCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61320B2063400E00C8B99B /* SelCourseViewController.m */; };
+		1AE2002C206646960035F412 /* SourceHanSansSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2002B206646960035F412 /* SourceHanSansSC-Regular.otf */; };
+		1AE2002F20664EFE0035F412 /* shade@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2002D20664EFE0035F412 /* shade@2x.png */; };
+		1AE2003020664EFE0035F412 /* shade@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2002E20664EFE0035F412 /* shade@3x.png */; };
+		1AE20035206656300035F412 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE20033206656300035F412 /* LoginViewController.m */; };
+		1AE20036206656300035F412 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20034206656300035F412 /* LoginViewController.xib */; };
+		1AE2003A20665BF80035F412 /* back_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2003820665BF80035F412 /* back_black@2x.png */; };
+		1AE2003B20665BF80035F412 /* back_black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2003920665BF80035F412 /* back_black@3x.png */; };
+		1AE20042206663690035F412 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2003C206663690035F412 /* phone@2x.png */; };
+		1AE20043206663690035F412 /* phone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2003D206663690035F412 /* phone@3x.png */; };
+		1AE20044206663690035F412 /* pwd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2003E206663690035F412 /* pwd@2x.png */; };
+		1AE20045206663690035F412 /* pwd@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2003F206663690035F412 /* pwd@3x.png */; };
+		1AE20046206663690035F412 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20040206663690035F412 /* user@2x.png */; };
+		1AE20047206663690035F412 /* user@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20041206663690035F412 /* user@3x.png */; };
+		1AE2004C206713670035F412 /* qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20048206713670035F412 /* qq@2x.png */; };
+		1AE2004D206713670035F412 /* qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20049206713670035F412 /* qq@3x.png */; };
+		1AE2004E206713670035F412 /* wx@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2004A206713670035F412 /* wx@2x.png */; };
+		1AE2004F206713670035F412 /* wx@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2004B206713670035F412 /* wx@3x.png */; };
+		1AE20055206714590035F412 /* CJLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE20052206714590035F412 /* CJLabel.m */; };
+		1AE20056206714590035F412 /* NSString+CJString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE20054206714590035F412 /* NSString+CJString.m */; };
+		1AE2005920676C640035F412 /* call@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2005720676C640035F412 /* call@2x.png */; };
+		1AE2005A20676C640035F412 /* call@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2005820676C640035F412 /* call@3x.png */; };
+		1AE2005E20677FC20035F412 /* RegisterViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2005C20677FC20035F412 /* RegisterViewViewController.m */; };
+		1AE2005F20677FC20035F412 /* RegisterViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2005D20677FC20035F412 /* RegisterViewViewController.xib */; };
+		1AE200632067871B0035F412 /* SetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE200612067871B0035F412 /* SetPwdViewController.m */; };
+		1AE200642067871B0035F412 /* SetPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE200622067871B0035F412 /* SetPwdViewController.xib */; };
+		1AE2006720678FC60035F412 /* HostBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2006620678FC60035F412 /* HostBannerView.m */; };
+		1AE20069206793200035F412 /* HostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20068206793200035F412 /* HostViewController.xib */; };
+		1AE2006D206794970035F412 /* news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2006B206794970035F412 /* news@2x.png */; };
+		1AE2006E206794970035F412 /* news@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2006C206794970035F412 /* news@3x.png */; };
+		1AE2007F206799A40035F412 /* HostIcon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2006F206799A40035F412 /* HostIcon1@2x.png */; };
+		1AE20080206799A40035F412 /* HostIcon1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20070206799A40035F412 /* HostIcon1@3x.png */; };
+		1AE20081206799A40035F412 /* HostIcon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20071206799A40035F412 /* HostIcon2@2x.png */; };
+		1AE20082206799A40035F412 /* HostIcon2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20072206799A40035F412 /* HostIcon2@3x.png */; };
+		1AE20083206799A40035F412 /* HostIcon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20073206799A40035F412 /* HostIcon3@2x.png */; };
+		1AE20084206799A40035F412 /* HostIcon3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20074206799A40035F412 /* HostIcon3@3x.png */; };
+		1AE20085206799A40035F412 /* HostIcon4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20075206799A40035F412 /* HostIcon4@2x.png */; };
+		1AE20086206799A40035F412 /* HostIcon4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20076206799A40035F412 /* HostIcon4@3x.png */; };
+		1AE20087206799A40035F412 /* HostIcon5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20077206799A40035F412 /* HostIcon5@2x.png */; };
+		1AE20088206799A40035F412 /* HostIcon5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20078206799A40035F412 /* HostIcon5@3x.png */; };
+		1AE20089206799A40035F412 /* HostIcon6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE20079206799A40035F412 /* HostIcon6@2x.png */; };
+		1AE2008A206799A40035F412 /* HostIcon6@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2007A206799A40035F412 /* HostIcon6@3x.png */; };
+		1AE2008B206799A40035F412 /* HostIcon7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2007B206799A40035F412 /* HostIcon7@2x.png */; };
+		1AE2008C206799A40035F412 /* HostIcon7@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2007C206799A40035F412 /* HostIcon7@3x.png */; };
+		1AE2008D206799A40035F412 /* HostIcon8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2007D206799A40035F412 /* HostIcon8@2x.png */; };
+		1AE2008E206799A40035F412 /* HostIcon8@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2007E206799A40035F412 /* HostIcon8@3x.png */; };
+		1AE2009120679CBA0035F412 /* banenr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2008F20679CBA0035F412 /* banenr@2x.png */; };
+		1AE2009220679CBA0035F412 /* banenr@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2009020679CBA0035F412 /* banenr@3x.png */; };
+		1AE2009520679DD20035F412 /* centerBanner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2009320679DD20035F412 /* centerBanner@2x.png */; };
+		1AE2009620679DD20035F412 /* centerBanner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2009420679DD20035F412 /* centerBanner@3x.png */; };
 		1E37D93E20624A61000DAF65 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D93B20624A61000DAF65 /* BaseTableViewController.m */; };
 		1E37D93F20624A61000DAF65 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D93D20624A61000DAF65 /* BaseViewController.m */; };
 		1E37D99820624AAA000DAF65 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D94820624AAA000DAF65 /* AFHTTPSessionManager.m */; };
@@ -94,6 +143,61 @@
 		1A61320420633FF900C8B99B /* QuestionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
 		1A61320A2063400E00C8B99B /* SelCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelCourseViewController.h; sourceTree = "<group>"; };
 		1A61320B2063400E00C8B99B /* SelCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelCourseViewController.m; sourceTree = "<group>"; };
+		1AE2002B206646960035F412 /* SourceHanSansSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceHanSansSC-Regular.otf"; sourceTree = "<group>"; };
+		1AE2002D20664EFE0035F412 /* shade@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shade@2x.png"; sourceTree = "<group>"; };
+		1AE2002E20664EFE0035F412 /* shade@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shade@3x.png"; sourceTree = "<group>"; };
+		1AE20032206656300035F412 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		1AE20033206656300035F412 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		1AE20034206656300035F412 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		1AE2003820665BF80035F412 /* back_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_black@2x.png"; sourceTree = "<group>"; };
+		1AE2003920665BF80035F412 /* back_black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_black@3x.png"; sourceTree = "<group>"; };
+		1AE2003C206663690035F412 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
+		1AE2003D206663690035F412 /* phone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@3x.png"; sourceTree = "<group>"; };
+		1AE2003E206663690035F412 /* pwd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pwd@2x.png"; sourceTree = "<group>"; };
+		1AE2003F206663690035F412 /* pwd@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pwd@3x.png"; sourceTree = "<group>"; };
+		1AE20040206663690035F412 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
+		1AE20041206663690035F412 /* user@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@3x.png"; sourceTree = "<group>"; };
+		1AE20048206713670035F412 /* qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qq@2x.png"; sourceTree = "<group>"; };
+		1AE20049206713670035F412 /* qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qq@3x.png"; sourceTree = "<group>"; };
+		1AE2004A206713670035F412 /* wx@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wx@2x.png"; sourceTree = "<group>"; };
+		1AE2004B206713670035F412 /* wx@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wx@3x.png"; sourceTree = "<group>"; };
+		1AE20051206714590035F412 /* CJLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJLabel.h; sourceTree = "<group>"; };
+		1AE20052206714590035F412 /* CJLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJLabel.m; sourceTree = "<group>"; };
+		1AE20053206714590035F412 /* NSString+CJString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CJString.h"; sourceTree = "<group>"; };
+		1AE20054206714590035F412 /* NSString+CJString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CJString.m"; sourceTree = "<group>"; };
+		1AE2005720676C640035F412 /* call@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call@2x.png"; sourceTree = "<group>"; };
+		1AE2005820676C640035F412 /* call@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call@3x.png"; sourceTree = "<group>"; };
+		1AE2005B20677FC20035F412 /* RegisterViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewViewController.h; sourceTree = "<group>"; };
+		1AE2005C20677FC20035F412 /* RegisterViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewViewController.m; sourceTree = "<group>"; };
+		1AE2005D20677FC20035F412 /* RegisterViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewViewController.xib; sourceTree = "<group>"; };
+		1AE200602067871B0035F412 /* SetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPwdViewController.h; sourceTree = "<group>"; };
+		1AE200612067871B0035F412 /* SetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPwdViewController.m; sourceTree = "<group>"; };
+		1AE200622067871B0035F412 /* SetPwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetPwdViewController.xib; sourceTree = "<group>"; };
+		1AE2006520678FC60035F412 /* HostBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostBannerView.h; sourceTree = "<group>"; };
+		1AE2006620678FC60035F412 /* HostBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostBannerView.m; sourceTree = "<group>"; };
+		1AE20068206793200035F412 /* HostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HostViewController.xib; sourceTree = "<group>"; };
+		1AE2006B206794970035F412 /* news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "news@2x.png"; sourceTree = "<group>"; };
+		1AE2006C206794970035F412 /* news@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "news@3x.png"; sourceTree = "<group>"; };
+		1AE2006F206799A40035F412 /* HostIcon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon1@2x.png"; sourceTree = "<group>"; };
+		1AE20070206799A40035F412 /* HostIcon1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon1@3x.png"; sourceTree = "<group>"; };
+		1AE20071206799A40035F412 /* HostIcon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon2@2x.png"; sourceTree = "<group>"; };
+		1AE20072206799A40035F412 /* HostIcon2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon2@3x.png"; sourceTree = "<group>"; };
+		1AE20073206799A40035F412 /* HostIcon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon3@2x.png"; sourceTree = "<group>"; };
+		1AE20074206799A40035F412 /* HostIcon3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon3@3x.png"; sourceTree = "<group>"; };
+		1AE20075206799A40035F412 /* HostIcon4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon4@2x.png"; sourceTree = "<group>"; };
+		1AE20076206799A40035F412 /* HostIcon4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon4@3x.png"; sourceTree = "<group>"; };
+		1AE20077206799A40035F412 /* HostIcon5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon5@2x.png"; sourceTree = "<group>"; };
+		1AE20078206799A40035F412 /* HostIcon5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon5@3x.png"; sourceTree = "<group>"; };
+		1AE20079206799A40035F412 /* HostIcon6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon6@2x.png"; sourceTree = "<group>"; };
+		1AE2007A206799A40035F412 /* HostIcon6@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon6@3x.png"; sourceTree = "<group>"; };
+		1AE2007B206799A40035F412 /* HostIcon7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon7@2x.png"; sourceTree = "<group>"; };
+		1AE2007C206799A40035F412 /* HostIcon7@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon7@3x.png"; sourceTree = "<group>"; };
+		1AE2007D206799A40035F412 /* HostIcon8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon8@2x.png"; sourceTree = "<group>"; };
+		1AE2007E206799A40035F412 /* HostIcon8@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HostIcon8@3x.png"; sourceTree = "<group>"; };
+		1AE2008F20679CBA0035F412 /* banenr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banenr@2x.png"; sourceTree = "<group>"; };
+		1AE2009020679CBA0035F412 /* banenr@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banenr@3x.png"; sourceTree = "<group>"; };
+		1AE2009320679DD20035F412 /* centerBanner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerBanner@2x.png"; sourceTree = "<group>"; };
+		1AE2009420679DD20035F412 /* centerBanner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerBanner@3x.png"; sourceTree = "<group>"; };
 		1E37D93A20624A61000DAF65 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		1E37D93B20624A61000DAF65 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		1E37D93C20624A61000DAF65 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -299,6 +403,8 @@
 		1A6131EC20633F5600C8B99B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1AE2006520678FC60035F412 /* HostBannerView.h */,
+				1AE2006620678FC60035F412 /* HostBannerView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,8 +412,13 @@
 		1A6131ED20633F5600C8B99B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1AE2009320679DD20035F412 /* centerBanner@2x.png */,
+				1AE2009420679DD20035F412 /* centerBanner@3x.png */,
+				1AE2008F20679CBA0035F412 /* banenr@2x.png */,
+				1AE2009020679CBA0035F412 /* banenr@3x.png */,
 				1A6131EE20633F6A00C8B99B /* HostViewController.h */,
 				1A6131EF20633F6A00C8B99B /* HostViewController.m */,
+				1AE20068206793200035F412 /* HostViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -432,6 +543,79 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		1AE200312066561F0035F412 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1AE20032206656300035F412 /* LoginViewController.h */,
+				1AE20033206656300035F412 /* LoginViewController.m */,
+				1AE20034206656300035F412 /* LoginViewController.xib */,
+				1AE2005B20677FC20035F412 /* RegisterViewViewController.h */,
+				1AE2005C20677FC20035F412 /* RegisterViewViewController.m */,
+				1AE2005D20677FC20035F412 /* RegisterViewViewController.xib */,
+				1AE200602067871B0035F412 /* SetPwdViewController.h */,
+				1AE200612067871B0035F412 /* SetPwdViewController.m */,
+				1AE200622067871B0035F412 /* SetPwdViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1AE2003720665BF20035F412 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1AE2005720676C640035F412 /* call@2x.png */,
+				1AE2005820676C640035F412 /* call@3x.png */,
+				1AE20048206713670035F412 /* qq@2x.png */,
+				1AE20049206713670035F412 /* qq@3x.png */,
+				1AE2004A206713670035F412 /* wx@2x.png */,
+				1AE2004B206713670035F412 /* wx@3x.png */,
+				1AE2003C206663690035F412 /* phone@2x.png */,
+				1AE2003D206663690035F412 /* phone@3x.png */,
+				1AE2003E206663690035F412 /* pwd@2x.png */,
+				1AE2003F206663690035F412 /* pwd@3x.png */,
+				1AE20040206663690035F412 /* user@2x.png */,
+				1AE20041206663690035F412 /* user@3x.png */,
+				1AE2003820665BF80035F412 /* back_black@2x.png */,
+				1AE2003920665BF80035F412 /* back_black@3x.png */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1AE20050206714590035F412 /* CJLabel */ = {
+			isa = PBXGroup;
+			children = (
+				1AE20051206714590035F412 /* CJLabel.h */,
+				1AE20052206714590035F412 /* CJLabel.m */,
+				1AE20053206714590035F412 /* NSString+CJString.h */,
+				1AE20054206714590035F412 /* NSString+CJString.m */,
+			);
+			path = CJLabel;
+			sourceTree = "<group>";
+		};
+		1AE2006A206794650035F412 /* Host */ = {
+			isa = PBXGroup;
+			children = (
+				1AE2006F206799A40035F412 /* HostIcon1@2x.png */,
+				1AE20070206799A40035F412 /* HostIcon1@3x.png */,
+				1AE20071206799A40035F412 /* HostIcon2@2x.png */,
+				1AE20072206799A40035F412 /* HostIcon2@3x.png */,
+				1AE20073206799A40035F412 /* HostIcon3@2x.png */,
+				1AE20074206799A40035F412 /* HostIcon3@3x.png */,
+				1AE20075206799A40035F412 /* HostIcon4@2x.png */,
+				1AE20076206799A40035F412 /* HostIcon4@3x.png */,
+				1AE20077206799A40035F412 /* HostIcon5@2x.png */,
+				1AE20078206799A40035F412 /* HostIcon5@3x.png */,
+				1AE20079206799A40035F412 /* HostIcon6@2x.png */,
+				1AE2007A206799A40035F412 /* HostIcon6@3x.png */,
+				1AE2007B206799A40035F412 /* HostIcon7@2x.png */,
+				1AE2007C206799A40035F412 /* HostIcon7@3x.png */,
+				1AE2007D206799A40035F412 /* HostIcon8@2x.png */,
+				1AE2007E206799A40035F412 /* HostIcon8@3x.png */,
+				1AE2006B206794970035F412 /* news@2x.png */,
+				1AE2006C206794970035F412 /* news@3x.png */,
+			);
+			path = Host;
+			sourceTree = "<group>";
+		};
 		1E37D94620624AAA000DAF65 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -535,6 +719,8 @@
 		1EA7D7B22064FBD600E4DD85 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1AE2006A206794650035F412 /* Host */,
+				1AE2003720665BF20035F412 /* Login */,
 				1EA7D7B32064FBEE00E4DD85 /* Home */,
 			);
 			path = images;
@@ -543,6 +729,8 @@
 		1EA7D7B32064FBEE00E4DD85 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1AE2002D20664EFE0035F412 /* shade@2x.png */,
+				1AE2002E20664EFE0035F412 /* shade@3x.png */,
 				1EA7D7BA2064FCE100E4DD85 /* tabbar_1_h@2x.png */,
 				1EA7D7BE2064FCE100E4DD85 /* tabbar_1_h@3x.png */,
 				1EA7D7B62064FCE000E4DD85 /* tabbar_1@2x.png */,
@@ -570,6 +758,7 @@
 		1EF6312D2062316400385293 = {
 			isa = PBXGroup;
 			children = (
+				1AE2002B206646960035F412 /* SourceHanSansSC-Regular.otf */,
 				1EF631382062316400385293 /* ZJPlatform */,
 				1EF631372062316400385293 /* Products */,
 			);
@@ -612,6 +801,7 @@
 		1EF63152206231B600385293 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				1AE200312066561F0035F412 /* Login */,
 				1A6131E820633F2100C8B99B /* Host */,
 				1A6131E520633F2100C8B99B /* LiveBroadcast */,
 				1A6131E620633F2100C8B99B /* MineCenter */,
@@ -634,6 +824,7 @@
 		1EF6315A2062351E00385293 /* OthersThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				1AE20050206714590035F412 /* CJLabel */,
 				1E37D94620624AAA000DAF65 /* AFNetworking */,
 				1E37D95420624AAA000DAF65 /* JSONKit-master */,
 				1E37D95720624AAA000DAF65 /* MJRefresh */,
@@ -718,25 +909,68 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E60BDD3206501A500071817 /* tabbar_1_h@2x.png in Resources */,
+				1AE20043206663690035F412 /* phone@3x.png in Resources */,
 				1E60BDD4206501A500071817 /* tabbar_1_h@3x.png in Resources */,
+				1AE2008E206799A40035F412 /* HostIcon8@3x.png in Resources */,
+				1AE2009620679DD20035F412 /* centerBanner@3x.png in Resources */,
+				1AE20082206799A40035F412 /* HostIcon2@3x.png in Resources */,
 				1E60BDD5206501A500071817 /* tabbar_1@2x.png in Resources */,
+				1AE20086206799A40035F412 /* HostIcon4@3x.png in Resources */,
+				1AE20069206793200035F412 /* HostViewController.xib in Resources */,
+				1AE2003020664EFE0035F412 /* shade@3x.png in Resources */,
+				1AE2008C206799A40035F412 /* HostIcon7@3x.png in Resources */,
+				1AE20081206799A40035F412 /* HostIcon2@2x.png in Resources */,
+				1AE20047206663690035F412 /* user@3x.png in Resources */,
 				1E60BDD6206501A500071817 /* tabbar_1@3x.png in Resources */,
+				1AE20087206799A40035F412 /* HostIcon5@2x.png in Resources */,
 				1E60BDD7206501A500071817 /* tabbar_2_h@2x.png in Resources */,
 				1E60BDD8206501A500071817 /* tabbar_2_h@3x.png in Resources */,
+				1AE20084206799A40035F412 /* HostIcon3@3x.png in Resources */,
 				1E60BDD9206501A500071817 /* tabbar_2@2x.png in Resources */,
+				1AE2006D206794970035F412 /* news@2x.png in Resources */,
+				1AE2004F206713670035F412 /* wx@3x.png in Resources */,
+				1AE2003B20665BF80035F412 /* back_black@3x.png in Resources */,
+				1AE2006E206794970035F412 /* news@3x.png in Resources */,
 				1E60BDDA206501A500071817 /* tabbar_2@3x.png in Resources */,
+				1AE2009120679CBA0035F412 /* banenr@2x.png in Resources */,
 				1E60BDDB206501A500071817 /* tabbar_3_h@2x.png in Resources */,
+				1AE2002F20664EFE0035F412 /* shade@2x.png in Resources */,
 				1E60BDDC206501A500071817 /* tabbar_3_h@3x.png in Resources */,
+				1AE2008B206799A40035F412 /* HostIcon7@2x.png in Resources */,
+				1AE20083206799A40035F412 /* HostIcon3@2x.png in Resources */,
+				1AE2004E206713670035F412 /* wx@2x.png in Resources */,
+				1AE20088206799A40035F412 /* HostIcon5@3x.png in Resources */,
+				1AE2008A206799A40035F412 /* HostIcon6@3x.png in Resources */,
 				1E60BDDD206501A500071817 /* tabbar_3@2x.png in Resources */,
+				1AE2009220679CBA0035F412 /* banenr@3x.png in Resources */,
+				1AE200642067871B0035F412 /* SetPwdViewController.xib in Resources */,
+				1AE20045206663690035F412 /* pwd@3x.png in Resources */,
+				1AE2008D206799A40035F412 /* HostIcon8@2x.png in Resources */,
+				1AE20089206799A40035F412 /* HostIcon6@2x.png in Resources */,
+				1AE2007F206799A40035F412 /* HostIcon1@2x.png in Resources */,
 				1E60BDDE206501A500071817 /* tabbar_3@3x.png in Resources */,
+				1AE2005920676C640035F412 /* call@2x.png in Resources */,
+				1AE2004D206713670035F412 /* qq@3x.png in Resources */,
 				1E60BDDF206501A500071817 /* tabbar_4_h@2x.png in Resources */,
 				1E60BDE0206501A500071817 /* tabbar_4_h@3x.png in Resources */,
+				1AE20044206663690035F412 /* pwd@2x.png in Resources */,
+				1AE20042206663690035F412 /* phone@2x.png in Resources */,
 				1E60BDE1206501A500071817 /* tabbar_4@2x.png in Resources */,
+				1AE20036206656300035F412 /* LoginViewController.xib in Resources */,
+				1AE20085206799A40035F412 /* HostIcon4@2x.png in Resources */,
+				1AE20046206663690035F412 /* user@2x.png in Resources */,
+				1AE2009520679DD20035F412 /* centerBanner@2x.png in Resources */,
 				1E60BDE2206501A500071817 /* tabbar_4@3x.png in Resources */,
+				1AE2003A20665BF80035F412 /* back_black@2x.png in Resources */,
 				1E60BDE3206501A500071817 /* tabbar_5_h@2x.png in Resources */,
 				1E60BDE4206501A500071817 /* tabbar_5_h@3x.png in Resources */,
+				1AE20080206799A40035F412 /* HostIcon1@3x.png in Resources */,
+				1AE2005A20676C640035F412 /* call@3x.png in Resources */,
 				1E60BDE5206501A500071817 /* tabbar_5@2x.png in Resources */,
 				1E60BDE6206501A500071817 /* tabbar_5@3x.png in Resources */,
+				1AE2002C206646960035F412 /* SourceHanSansSC-Regular.otf in Resources */,
+				1AE2004C206713670035F412 /* qq@2x.png in Resources */,
+				1AE2005F20677FC20035F412 /* RegisterViewViewController.xib in Resources */,
 				1EF631492062316400385293 /* LaunchScreen.storyboard in Resources */,
 				1EF631462062316400385293 /* Assets.xcassets in Resources */,
 				1E37D99F20624AAA000DAF65 /* MJRefresh.bundle in Resources */,
@@ -754,15 +988,19 @@
 				1E37D9BA20624AAA000DAF65 /* UIView+WebCacheOperation.m in Sources */,
 				1E37D9A420624AAA000DAF65 /* MJRefreshGifHeader.m in Sources */,
 				1E37D9B220624AAA000DAF65 /* SDWebImageManager.m in Sources */,
+				1AE2005E20677FC20035F412 /* RegisterViewViewController.m in Sources */,
 				1E37D99B20624AAA000DAF65 /* AFURLRequestSerialization.m in Sources */,
 				1EF631412062316400385293 /* ViewController.m in Sources */,
 				1A61320520633FF900C8B99B /* QuestionsViewController.m in Sources */,
+				1AE2006720678FC60035F412 /* HostBannerView.m in Sources */,
 				1E37D9AA20624AAA000DAF65 /* UIView+MJExtension.m in Sources */,
 				1E37D9BB20624AAA000DAF65 /* MBProgressHUD.m in Sources */,
 				1E37D9C220624AC1000DAF65 /* NetworkManager.m in Sources */,
 				1E37D9AE20624AAA000DAF65 /* SDWebImageCompat.m in Sources */,
+				1AE20055206714590035F412 /* CJLabel.m in Sources */,
 				1E37D9B120624AAA000DAF65 /* SDWebImageDownloaderOperation.m in Sources */,
 				1E37D99E20624AAA000DAF65 /* JSONKit.m in Sources */,
+				1AE200632067871B0035F412 /* SetPwdViewController.m in Sources */,
 				1E37D93F20624A61000DAF65 /* BaseViewController.m in Sources */,
 				1E37D9B920624AAA000DAF65 /* UIImageView+WebCache.m in Sources */,
 				1EF6313E2062316400385293 /* AppDelegate.m in Sources */,
@@ -778,6 +1016,7 @@
 				1E37D9B620624AAA000DAF65 /* UIImage+MultiFormat.m in Sources */,
 				1E37D9C820624F08000DAF65 /* CustomTabBar.m in Sources */,
 				1E37D99A20624AAA000DAF65 /* AFSecurityPolicy.m in Sources */,
+				1AE20035206656300035F412 /* LoginViewController.m in Sources */,
 				1A6131F720633F8000C8B99B /* LiveBroadcastViewController.m in Sources */,
 				1E37D9C920624F08000DAF65 /* MyNavigationController.m in Sources */,
 				1E37D9BC20624AAA000DAF65 /* MBProgressHUD+Add.m in Sources */,
@@ -789,6 +1028,7 @@
 				1E37D9A520624AAA000DAF65 /* MJRefreshHeader.m in Sources */,
 				1E37D9AB20624AAA000DAF65 /* MKAnnotationView+WebCache.m in Sources */,
 				1E37D99820624AAA000DAF65 /* AFHTTPSessionManager.m in Sources */,
+				1AE20056206714590035F412 /* NSString+CJString.m in Sources */,
 				1E37D9B020624AAA000DAF65 /* SDWebImageDownloader.m in Sources */,
 				1E37D9BD20624AAA000DAF65 /* Toast.m in Sources */,
 				1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */,

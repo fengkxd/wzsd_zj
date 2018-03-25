@@ -23,7 +23,10 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.navigationController.interactivePopGestureRecognizer.delaysTouchesBegan = YES;
+    
      self.view.backgroundColor = BgColor;
+    
+    
     [self loadFeildView];
 }
 
@@ -40,39 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-// 获取当前处于activity状态的view controller
--(UIViewController *)getCurrentRootViewController {
-    
-    
-    UIViewController *result;
-    
-    UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
-    
-    
-    if (topWindow.windowLevel != UIWindowLevelNormal)
-    {
-        NSArray *windows = [[UIApplication sharedApplication] windows];
-        for(topWindow in windows)
-        {
-            if (topWindow.windowLevel == UIWindowLevelNormal)
-                break;
-        }
-    }
-    
-    
-    UIView *rootView = [[topWindow subviews] objectAtIndex:0];
-    id nextResponder = [rootView nextResponder];
-    if ([nextResponder isKindOfClass:[UIViewController class]])
-        result = nextResponder;
-    else if ([topWindow respondsToSelector:@selector(rootViewController)] && topWindow.rootViewController != nil)
-        result = topWindow.rootViewController;
-    else
-        NSAssert(NO, @"ShareKit: Could not find a root view controller.  You can assign one manually by calling [[SHK currentHelper] setRootViewController:YOURROOTVIEWCONTROLLER].");
-    return result;
-    
-    
-}
 
 
 
@@ -122,7 +92,7 @@
     
     UILabel *labelTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 210, 44)];
     labelTitle.text = title;
-    [labelTitle setFont:[UIFont fontWithName:@"STXihei" size:18]];
+    [labelTitle setFont:TitleFont];
     [labelTitle setTextColor:[UIColor whiteColor]];
     [labelTitle setTextAlignment:NSTextAlignmentCenter];
     [labelTitle setBackgroundColor:[UIColor clearColor]];
