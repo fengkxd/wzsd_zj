@@ -107,7 +107,7 @@
 
     
     
-    CGFloat width = [self widthWithString:leftBtn.titleLabel.text font:DetailFont];
+    CGFloat width = [self widthWithString:leftBtn.titleLabel.text font:Font_13];
     makeView = [[UIView alloc] initWithFrame:CGRectMake((leftBtn.frame.size.width - width) / 2, 39, width, 1)];
     makeView.backgroundColor = MainBlueColor;
     [leftBtn addSubview:makeView];
@@ -131,7 +131,7 @@
     CJLabel *label = [[CJLabel alloc] initWithFrame:CGRectMake(0, MainScreenheight - 64 - 40, MainScreenWidth , 25)];
     label.text = @"未注册用户将自动注册并同意《中教文化服务条款》";
     label.textColor = [UIColor colorWithHexString:@"999999"];
-    label.font = SmallFont;
+    label.font = Font_12;
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     WS(weakSelf);
@@ -166,7 +166,7 @@
 
 
 -(IBAction)clickBtn:(id)sender{
-     CGFloat width = [self widthWithString:[sender titleLabel].text font:DetailFont];
+     CGFloat width = [self widthWithString:[sender titleLabel].text font:Font_13];
     makeView.frame = CGRectMake(([sender frame].size.width - width) / 2, 39, width, 1);
     [sender addSubview:makeView];
     

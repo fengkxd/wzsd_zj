@@ -79,7 +79,7 @@
     CJLabel *label = [[CJLabel alloc] initWithFrame:CGRectMake(0, 250, MainScreenWidth , 25)];
     label.text = @"注册代表您已阅读并同意《中教文化服务条款》";
     label.textColor = [UIColor colorWithHexString:@"999999"];
-    label.font = SmallFont;
+    label.font = Font_12;
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     WS(weakSelf);

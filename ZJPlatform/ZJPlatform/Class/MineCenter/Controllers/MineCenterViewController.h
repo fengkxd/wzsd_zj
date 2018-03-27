@@ -6,8 +6,8 @@
 //  Copyright © 2018年 wzsd. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
-@interface MineCenterViewController : BaseViewController
+@interface MineCenterViewController : BaseTableViewController
 
 @end

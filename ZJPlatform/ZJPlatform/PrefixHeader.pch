@@ -19,6 +19,8 @@
 #import "Utility.h"
 #import "BaseViewController.h"
 #import "NetworkManager.h"
+#import "UILabel+ChangeLineSpaceAndWordSpace.h"
+
 //#import "FeildView.h"
 //#import <UMMobClick/MobClick.h>
 
@@ -40,9 +42,10 @@
 #define LineColoc       [Utility colorWithHexString:@"cccccc"]
 
 #define TitleFont      [UIFont fontWithName:@"SourceHanSansSC-Regular" size:17]
-#define ContentFont    [UIFont fontWithName:@"SourceHanSansSC-Regular" size:15]
-#define DetailFont     [UIFont fontWithName:@"SourceHanSansSC-Regular" size:13]
-#define SmallFont      [UIFont fontWithName:@"SourceHanSansSC-Regular" size:12]
+#define Font_15    [UIFont fontWithName:@"SourceHanSansSC-Regular" size:15]
+#define Font_14     [UIFont fontWithName:@"SourceHanSansSC-Regular" size:14]
+#define Font_13     [UIFont fontWithName:@"SourceHanSansSC-Regular" size:13]
+#define Font_12      [UIFont fontWithName:@"SourceHanSansSC-Regular" size:12]
 
 
 

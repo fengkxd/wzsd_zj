@@ -114,7 +114,7 @@
         btn.tag = i;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 22, btn.frame.size.width, 30)];
-        label.font = SmallFont;
+        label.font = Font_12;
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor =  [UIColor colorWithHexString:@"8d8d8d"];
         [btn addSubview:label];
@@ -161,9 +161,7 @@
 
 
 - (void)selectedTab:(UIButton *)button{
-    if ( (int)button.tag == 4) {
-        [self showlogin];
-    }
+   
     
     if (self.currentBtn) {
         UIImageView *imgView = (UIImageView *)[self.currentBtn viewWithTag:22];
