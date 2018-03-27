@@ -12,29 +12,33 @@
 #import "HostCommendVideoView.h"
 #import "HostFreeVideoView.h"
 #import "HostInformationTableViewCell.h"
+#import "HostSelectedTypeViewController.h"
 
-@interface HostViewController ()
+@interface HostViewController ()<UITextFieldDelegate>
 {
+    
     IBOutlet UITableViewCell *newscell;
     
+    UITextField *mytextField;
+    
+    UIButton *typeBtn;
+    
 }
+
+@property (nonatomic,assign) NSInteger selType;
+
+
 @end
 
 @implementation HostViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
-    
+    [self initTitleView];
     CGFloat bannerHeitght = 310 /750.0 * MainScreenWidth;
 
-    
     HostBannerView *bannerView = [[HostBannerView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, bannerHeitght)];
     self.tableView.tableHeaderView = bannerView;
-    
-    
-    
     
     
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, bannerView.frame.size.height)];
@@ -43,6 +47,70 @@
     
     
 }
+
+
+-(void)selectedType:(UIButton *) btn{
+
+    HostSelectedTypeViewController *vc = [[HostSelectedTypeViewController alloc] init];
+    [vc setHidesBottomBarWhenPushed:YES];
+    NSArray *titles = @[@"一级建造师",@"二级建造师",@"一级消防工程师",@"二级消防工程师",@"造价工程师",@"安全工程师",@"监理工程师",@"建筑八大员",@"BIM",@"MBA"];
+    NSArray *imgNames = @[@"Host_type1.png",@"Host_type1.png",@"Host_type3.png",@"Host_type3.png",@"Host_type5.png",@"Host_type6.png",@"Host_type7.png",@"Host_type8.png",@"Host_type9.png",@"Host_type10.png"];
+    vc.titles = titles;
+    vc.imgNames = imgNames;
+    vc.selRow = self.selType;
+    
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    WS(weakSelf);
+    vc.selectedBlock = ^(NSInteger row) {
+        weakSelf.selType = row;
+        [typeBtn setTitle:[titles objectAtIndex:row] forState:UIControlStateNormal];
+        [typeBtn setImage:[UIImage imageNamed:@"arrow_up.png"] forState:UIControlStateNormal];
+        [Utility changeImageTitleForBtn:typeBtn];
+
+        NSLog(@"%@",[titles objectAtIndex:row]);
+    };
+}
+
+-(void)initTitleView{
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth , 44)];
+    titleView.backgroundColor = [UIColor clearColor];
+    
+    typeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    typeBtn.frame = CGRectMake(0, 6, 100, 32);
+    typeBtn.titleLabel.font = Font_14;
+    [typeBtn setImage:[UIImage imageNamed:@"arrow_up.png"] forState:UIControlStateNormal];
+    typeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    [titleView addSubview:typeBtn];
+    [typeBtn setBackgroundColor:[UIColor colorWithHexString:@"008ade"]];
+    [typeBtn setTitle:@"一级建造师" forState:UIControlStateNormal];
+    [typeBtn addTarget:self action:@selector(selectedType:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [Utility changeImageTitleForBtn:typeBtn];
+    
+    UIView *mytextFieldBgView = [[UIView alloc] initWithFrame:CGRectMake(115, 5, MainScreenWidth - 115 - 25, 32)];
+    mytextFieldBgView.backgroundColor = [UIColor whiteColor];
+    mytextFieldBgView.layer.masksToBounds = YES;
+    mytextFieldBgView.layer.cornerRadius = 4;
+    [titleView addSubview:mytextFieldBgView];
+    
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search.png"]];
+    imgView.frame = CGRectMake(5, 7, 20, 20);
+    [mytextFieldBgView addSubview:imgView];
+    
+    mytextField = [[UITextField alloc] initWithFrame:CGRectMake(34, 0, mytextFieldBgView.frame.size.width - 34, 32)];
+    mytextField.placeholder = @"请输入关键字";
+    mytextField.font = Font_14;
+    mytextField.returnKeyType = UIReturnKeySearch;
+    mytextField.delegate = self;
+    mytextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    
+    [mytextFieldBgView addSubview:mytextField];
+    
+    self.navigationItem.titleView = titleView;
+}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0 || section == 1) {

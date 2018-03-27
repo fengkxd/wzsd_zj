@@ -107,7 +107,7 @@
 
 //设置返回按钮
 - (void)createBackBtn{
-    UIImage *imgBack = [UIImage imageNamed:@"Navigation bar_Arrow_normal.png"];
+    UIImage *imgBack = [UIImage imageNamed:@"back.png"];
     UIButton *_backBtnView =[UIButton buttonWithType:UIButtonTypeCustom];
     
     _backBtnView.frame = CGRectMake(0, 0, 40, 40);

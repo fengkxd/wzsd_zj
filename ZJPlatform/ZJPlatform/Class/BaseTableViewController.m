@@ -24,9 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
-    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars = NO;
     self.modalPresentationCapturesStatusBarAppearance = NO;
@@ -137,7 +134,7 @@
 //设置返回按钮
 - (void)createBackBtn{
     
-    UIImage *imgBack = [UIImage imageNamed:@"Navigation bar_Arrow_normal.png"];
+    UIImage *imgBack = [UIImage imageNamed:@"back.png"];
     UIButton *_backBtnView =[UIButton buttonWithType:UIButtonTypeCustom];
     
     _backBtnView.frame = CGRectMake(0, 2, 40, 40);

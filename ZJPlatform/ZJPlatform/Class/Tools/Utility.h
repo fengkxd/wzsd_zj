@@ -32,12 +32,10 @@
 @interface Utility : NSObject{}
 
 
++(void)changeImageTitleForBtn:(UIButton *)btn;
+
 + (NSString *)decodeURL:(NSString *)str;
-
-
 +(void)registerAPNS;
-
-
 +(UIImage *)resetSizeOfImageData:(UIImage *)source_image maxSize:(NSInteger)maxSize;
 
 

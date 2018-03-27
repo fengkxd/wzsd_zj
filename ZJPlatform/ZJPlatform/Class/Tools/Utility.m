@@ -93,6 +93,17 @@
 @implementation Utility
 
 
++(void)changeImageTitleForBtn:(UIButton *)btn{
+    [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, -btn.imageView.bounds.size.width - 2, 0, btn.imageView.bounds.size.width + 2)];
+    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.titleLabel.bounds.size.width + 2, 0, -btn.titleLabel.bounds.size.width -2)];
+    
+    btn.layer.masksToBounds = YES;
+    btn.layer.cornerRadius = 2;
+}
+
+
+
+
 
 + (BOOL)isLogined
 {
