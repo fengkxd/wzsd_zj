@@ -207,6 +207,21 @@
 		1EF631412062316400385293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF631402062316400385293 /* ViewController.m */; };
 		1EF631462062316400385293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF631452062316400385293 /* Assets.xcassets */; };
 		1EF631492062316400385293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF631472062316400385293 /* LaunchScreen.storyboard */; };
+		694B8E4F206BF0A700DC988E /* TQ_gg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E43206BF0A700DC988E /* TQ_gg@2x.png */; };
+		694B8E50206BF0A700DC988E /* TQ_gg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E44206BF0A700DC988E /* TQ_gg@3x.png */; };
+		694B8E51206BF0A700DC988E /* TQ_item1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E45206BF0A700DC988E /* TQ_item1@2x.png */; };
+		694B8E52206BF0A700DC988E /* TQ_item1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E46206BF0A700DC988E /* TQ_item1@3x.png */; };
+		694B8E53206BF0A700DC988E /* TQ_item2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E47206BF0A700DC988E /* TQ_item2@2x.png */; };
+		694B8E54206BF0A700DC988E /* TQ_item2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E48206BF0A700DC988E /* TQ_item2@3x.png */; };
+		694B8E55206BF0A700DC988E /* TQ_item3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E49206BF0A700DC988E /* TQ_item3@2x.png */; };
+		694B8E56206BF0A700DC988E /* TQ_item3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E4A206BF0A700DC988E /* TQ_item3@3x.png */; };
+		694B8E57206BF0A700DC988E /* TQ_item4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E4B206BF0A700DC988E /* TQ_item4@2x.png */; };
+		694B8E58206BF0A700DC988E /* TQ_item4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E4C206BF0A700DC988E /* TQ_item4@3x.png */; };
+		694B8E59206BF0A700DC988E /* TQ_item7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E4D206BF0A700DC988E /* TQ_item7@2x.png */; };
+		694B8E5A206BF0A700DC988E /* TQ_item7@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E4E206BF0A700DC988E /* TQ_item7@3x.png */; };
+		694B8E5C206BF19C00DC988E /* QuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E5B206BF19C00DC988E /* QuestionsViewController.xib */; };
+		694B8E5F206BFA7F00DC988E /* TQCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 694B8E5E206BFA7F00DC988E /* TQCell1.m */; };
+		694B8E61206BFA8900DC988E /* TQCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 694B8E60206BFA8900DC988E /* TQCell1.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -486,6 +501,22 @@
 		1EF631452062316400385293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EF631482062316400385293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EF6314A2062316400385293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		694B8E43206BF0A700DC988E /* TQ_gg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_gg@2x.png"; sourceTree = "<group>"; };
+		694B8E44206BF0A700DC988E /* TQ_gg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_gg@3x.png"; sourceTree = "<group>"; };
+		694B8E45206BF0A700DC988E /* TQ_item1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_item1@2x.png"; sourceTree = "<group>"; };
+		694B8E46206BF0A700DC988E /* TQ_item1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_item1@3x.png"; sourceTree = "<group>"; };
+		694B8E47206BF0A700DC988E /* TQ_item2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_item2@2x.png"; sourceTree = "<group>"; };
+		694B8E48206BF0A700DC988E /* TQ_item2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_item2@3x.png"; sourceTree = "<group>"; };
+		694B8E49206BF0A700DC988E /* TQ_item3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_item3@2x.png"; sourceTree = "<group>"; };
+		694B8E4A206BF0A700DC988E /* TQ_item3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_item3@3x.png"; sourceTree = "<group>"; };
+		694B8E4B206BF0A700DC988E /* TQ_item4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_item4@2x.png"; sourceTree = "<group>"; };
+		694B8E4C206BF0A700DC988E /* TQ_item4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_item4@3x.png"; sourceTree = "<group>"; };
+		694B8E4D206BF0A700DC988E /* TQ_item7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_item7@2x.png"; sourceTree = "<group>"; };
+		694B8E4E206BF0A700DC988E /* TQ_item7@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_item7@3x.png"; sourceTree = "<group>"; };
+		694B8E5B206BF19C00DC988E /* QuestionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionsViewController.xib; sourceTree = "<group>"; };
+		694B8E5D206BFA7F00DC988E /* TQCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQCell1.h; sourceTree = "<group>"; };
+		694B8E5E206BFA7F00DC988E /* TQCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQCell1.m; sourceTree = "<group>"; };
+		694B8E60206BFA8900DC988E /* TQCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TQCell1.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -704,6 +735,10 @@
 			children = (
 				1A61320320633FF900C8B99B /* QuestionsViewController.h */,
 				1A61320420633FF900C8B99B /* QuestionsViewController.m */,
+				694B8E5B206BF19C00DC988E /* QuestionsViewController.xib */,
+				694B8E5D206BFA7F00DC988E /* TQCell1.h */,
+				694B8E5E206BFA7F00DC988E /* TQCell1.m */,
+				694B8E60206BFA8900DC988E /* TQCell1.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -983,6 +1018,7 @@
 		1EA7D7B22064FBD600E4DD85 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				694B8E42206BF0A700DC988E /* Questions */,
 				1E3196B12068EAD3004B8574 /* MineCenter */,
 				1AE2006A206794650035F412 /* Host */,
 				1AE2003720665BF20035F412 /* Login */,
@@ -1117,6 +1153,25 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		694B8E42206BF0A700DC988E /* Questions */ = {
+			isa = PBXGroup;
+			children = (
+				694B8E43206BF0A700DC988E /* TQ_gg@2x.png */,
+				694B8E44206BF0A700DC988E /* TQ_gg@3x.png */,
+				694B8E45206BF0A700DC988E /* TQ_item1@2x.png */,
+				694B8E46206BF0A700DC988E /* TQ_item1@3x.png */,
+				694B8E47206BF0A700DC988E /* TQ_item2@2x.png */,
+				694B8E48206BF0A700DC988E /* TQ_item2@3x.png */,
+				694B8E49206BF0A700DC988E /* TQ_item3@2x.png */,
+				694B8E4A206BF0A700DC988E /* TQ_item3@3x.png */,
+				694B8E4B206BF0A700DC988E /* TQ_item4@2x.png */,
+				694B8E4C206BF0A700DC988E /* TQ_item4@3x.png */,
+				694B8E4D206BF0A700DC988E /* TQ_item7@2x.png */,
+				694B8E4E206BF0A700DC988E /* TQ_item7@3x.png */,
+			);
+			path = Questions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1177,6 +1232,7 @@
 			files = (
 				1E31972C206B3B86004B8574 /* ForgetPwdNextViewController.xib in Resources */,
 				1EE02E6C2068A55100BFC31B /* play@2x.png in Resources */,
+				694B8E59206BF0A700DC988E /* TQ_item7@2x.png in Resources */,
 				1E3196E6206A1512004B8574 /* arrow_up@3x.png in Resources */,
 				1E60BDD3206501A500071817 /* tabbar_1_h@2x.png in Resources */,
 				1AE20043206663690035F412 /* phone@3x.png in Resources */,
@@ -1188,8 +1244,10 @@
 				1E3196E12069EB94004B8574 /* head_default@2x.png in Resources */,
 				1AE2008E206799A40035F412 /* HostIcon8@3x.png in Resources */,
 				1AE2009620679DD20035F412 /* centerBanner@3x.png in Resources */,
+				694B8E58206BF0A700DC988E /* TQ_item4@3x.png in Resources */,
 				1EE02E632068A13200BFC31B /* videoDefault@2x.png in Resources */,
 				1AE20082206799A40035F412 /* HostIcon2@3x.png in Resources */,
+				694B8E54206BF0A700DC988E /* TQ_item2@3x.png in Resources */,
 				1E60BDD5206501A500071817 /* tabbar_1@2x.png in Resources */,
 				1AE20086206799A40035F412 /* HostIcon4@3x.png in Resources */,
 				1E3196F2206A328E004B8574 /* HostCollectionViewCell.xib in Resources */,
@@ -1204,6 +1262,7 @@
 				1AE20047206663690035F412 /* user@3x.png in Resources */,
 				1E60BDD6206501A500071817 /* tabbar_1@3x.png in Resources */,
 				1E319723206B321D004B8574 /* loginBg@3x.png in Resources */,
+				694B8E53206BF0A700DC988E /* TQ_item2@2x.png in Resources */,
 				1E3196C32068F9C2004B8574 /* mineIcon1@2x.png in Resources */,
 				1AE20087206799A40035F412 /* HostIcon5@2x.png in Resources */,
 				1E3196C42068F9C2004B8574 /* mineIcon1@3x.png in Resources */,
@@ -1220,6 +1279,8 @@
 				1E3196D92069DE4C004B8574 /* setting@2x.png in Resources */,
 				1AE2006E206794970035F412 /* news@3x.png in Resources */,
 				1E60BDDA206501A500071817 /* tabbar_2@3x.png in Resources */,
+				694B8E57206BF0A700DC988E /* TQ_item4@2x.png in Resources */,
+				694B8E5A206BF0A700DC988E /* TQ_item7@3x.png in Resources */,
 				1E3196DE2069E7CA004B8574 /* point@3x.png in Resources */,
 				1AE2009120679CBA0035F412 /* banenr@2x.png in Resources */,
 				1E60BDDB206501A500071817 /* tabbar_3_h@2x.png in Resources */,
@@ -1237,6 +1298,7 @@
 				1AE2004E206713670035F412 /* wx@2x.png in Resources */,
 				1E3196EA206A15D0004B8574 /* search@3x.png in Resources */,
 				1E3196E9206A15D0004B8574 /* search@2x.png in Resources */,
+				694B8E5C206BF19C00DC988E /* QuestionsViewController.xib in Resources */,
 				1AE20088206799A40035F412 /* HostIcon5@3x.png in Resources */,
 				1E3196C72068F9C2004B8574 /* mineIcon3@2x.png in Resources */,
 				1AE2008A206799A40035F412 /* HostIcon6@3x.png in Resources */,
@@ -1247,6 +1309,7 @@
 				1E319703206A3473004B8574 /* Host_type3@2x.png in Resources */,
 				1E319737206B9567004B8574 /* ExamInformationTableViewCell.xib in Resources */,
 				1AE200642067871B0035F412 /* SetPwdViewController.xib in Resources */,
+				694B8E55206BF0A700DC988E /* TQ_item3@2x.png in Resources */,
 				1AE20045206663690035F412 /* pwd@3x.png in Resources */,
 				1AE2008D206799A40035F412 /* HostIcon8@2x.png in Resources */,
 				1AE20089206799A40035F412 /* HostIcon6@2x.png in Resources */,
@@ -1254,6 +1317,7 @@
 				1E3196C82068F9C2004B8574 /* mineIcon3@3x.png in Resources */,
 				1E60BDDE206501A500071817 /* tabbar_3@3x.png in Resources */,
 				1AE2005920676C640035F412 /* call@2x.png in Resources */,
+				694B8E56206BF0A700DC988E /* TQ_item3@3x.png in Resources */,
 				1AE2004D206713670035F412 /* qq@3x.png in Resources */,
 				1E60BDDF206501A500071817 /* tabbar_4_h@2x.png in Resources */,
 				1E60BDE0206501A500071817 /* tabbar_4_h@3x.png in Resources */,
@@ -1272,6 +1336,7 @@
 				1E60BDE2206501A500071817 /* tabbar_4@3x.png in Resources */,
 				1E319711206A40F1004B8574 /* back@2x.png in Resources */,
 				1AE2003A20665BF80035F412 /* back_black@2x.png in Resources */,
+				694B8E61206BFA8900DC988E /* TQCell1.xib in Resources */,
 				1E319717206A44E6004B8574 /* Host_type6@2x.png in Resources */,
 				1E60BDE3206501A500071817 /* tabbar_5_h@2x.png in Resources */,
 				1E319709206A3473004B8574 /* Host_type9@2x.png in Resources */,
@@ -1288,8 +1353,11 @@
 				1E3196B42068EAE0004B8574 /* mineBg@2x.png in Resources */,
 				1AE2002C206646960035F412 /* SourceHanSansSC-Regular.otf in Resources */,
 				1E319705206A3473004B8574 /* Host_type5@2x.png in Resources */,
+				694B8E52206BF0A700DC988E /* TQ_item1@3x.png in Resources */,
 				1AE2004C206713670035F412 /* qq@2x.png in Resources */,
+				694B8E50206BF0A700DC988E /* TQ_gg@3x.png in Resources */,
 				1E3196D52069DE4C004B8574 /* msg@2x.png in Resources */,
+				694B8E51206BF0A700DC988E /* TQ_item1@2x.png in Resources */,
 				1AE2005F20677FC20035F412 /* RegisterViewViewController.xib in Resources */,
 				1EF631492062316400385293 /* LaunchScreen.storyboard in Resources */,
 				1E3196D62069DE4C004B8574 /* msg@3x.png in Resources */,
@@ -1302,6 +1370,7 @@
 				1E37D99F20624AAA000DAF65 /* MJRefresh.bundle in Resources */,
 				1E3196A12068CB60004B8574 /* HostCommendVideoView.xib in Resources */,
 				1E319722206B321D004B8574 /* loginBg@2x.png in Resources */,
+				694B8E4F206BF0A700DC988E /* TQ_gg@2x.png in Resources */,
 				1E3196BA2068F03A004B8574 /* MineCenterHeaderView.xib in Resources */,
 				1E319701206A3473004B8574 /* Host_type1@2x.png in Resources */,
 			);
@@ -1372,6 +1441,7 @@
 				1E37D9B020624AAA000DAF65 /* SDWebImageDownloader.m in Sources */,
 				1E37D9BD20624AAA000DAF65 /* Toast.m in Sources */,
 				1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */,
+				694B8E5F206BFA7F00DC988E /* TQCell1.m in Sources */,
 				1E31972F206B6CCD004B8574 /* ExamInformationViewController.m in Sources */,
 				1E37D9B420624AAA000DAF65 /* UIButton+WebCache.m in Sources */,
 				1E319736206B9567004B8574 /* ExamInformationTableViewCell.m in Sources */,

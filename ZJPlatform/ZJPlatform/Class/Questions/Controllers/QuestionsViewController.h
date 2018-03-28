@@ -10,4 +10,6 @@
 
 @interface QuestionsViewController : BaseViewController
 
+@property (nonatomic, weak) IBOutlet UITableView *mainTable;
+
 @end
