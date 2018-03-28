@@ -10,6 +10,8 @@
 #import "CJLabel.h"
 #import "RegisterViewViewController.h"
 #import "SetPwdViewController.h"
+#import "ForgetPwdViewController.h"
+
 
 @interface LoginViewController ()
 {
@@ -143,11 +145,15 @@
 //        vc.hidesBottomBarWhenPushed = YES;
 //        [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
-
-
-
 }
 
+
+-(IBAction)forgetPwd:(id)sender
+{
+
+    ForgetPwdViewController *vc = [[ForgetPwdViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 // 定义成方法方便多个label调用 增加代码的复用性

@@ -31,8 +31,10 @@
 
 @interface Utility : NSObject{}
 
-
+//左字右图
 +(void)changeImageTitleForBtn:(UIButton *)btn;
+
+
 
 + (NSString *)decodeURL:(NSString *)str;
 +(void)registerAPNS;

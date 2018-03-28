@@ -163,6 +163,17 @@
     return 90;
 }
 
+-(void)clickIcon:(UIButton *)btn{
+
+    NSArray *vcs =@[@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController"];
+
+    UIViewController *vc = [[NSClassFromString([vcs objectAtIndex:btn.tag]) alloc] init];
+    [vc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
@@ -182,6 +193,7 @@
                 NSInteger column = i % 4;
                 UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
                 btn.frame = CGRectMake(column * width, row * h, width, h);
+                btn.tag = i;
                 [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 switch (i) {
                     case 0:
@@ -212,6 +224,8 @@
                     default:
                         break;
                 }
+                
+                [btn addTarget:self action:@selector(clickIcon:) forControlEvents:UIControlEventTouchUpInside];
                 [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"HostIcon%zi.png",i+1]] forState:UIControlStateNormal];
                 [cell.contentView addSubview:btn];
                 [self verticalImageAndTitle:5 withBtn:btn];

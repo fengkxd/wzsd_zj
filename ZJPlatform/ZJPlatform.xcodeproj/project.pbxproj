@@ -120,6 +120,18 @@
 		1E319718206A44E6004B8574 /* Host_type6@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E319714206A44E6004B8574 /* Host_type6@3x.png */; };
 		1E319719206A44E6004B8574 /* Host_type8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E319715206A44E6004B8574 /* Host_type8@2x.png */; };
 		1E31971A206A44E6004B8574 /* Host_type8@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E319716206A44E6004B8574 /* Host_type8@3x.png */; };
+		1E31971E206B2FC5004B8574 /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E31971C206B2FC5004B8574 /* ForgetPwdViewController.m */; };
+		1E31971F206B2FC5004B8574 /* ForgetPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E31971D206B2FC5004B8574 /* ForgetPwdViewController.xib */; };
+		1E319722206B321D004B8574 /* loginBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E319720206B321D004B8574 /* loginBg@2x.png */; };
+		1E319723206B321D004B8574 /* loginBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E319721206B321D004B8574 /* loginBg@3x.png */; };
+		1E319726206B3691004B8574 /* code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E319724206B3691004B8574 /* code@2x.png */; };
+		1E319727206B3691004B8574 /* code@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E319725206B3691004B8574 /* code@3x.png */; };
+		1E31972B206B3B86004B8574 /* ForgetPwdNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E319729206B3B86004B8574 /* ForgetPwdNextViewController.m */; };
+		1E31972C206B3B86004B8574 /* ForgetPwdNextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E31972A206B3B86004B8574 /* ForgetPwdNextViewController.xib */; };
+		1E31972F206B6CCD004B8574 /* ExamInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E31972E206B6CCD004B8574 /* ExamInformationViewController.m */; };
+		1E319732206B6D86004B8574 /* HostInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E319731206B6D86004B8574 /* HostInformationView.m */; };
+		1E319736206B9567004B8574 /* ExamInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E319734206B9567004B8574 /* ExamInformationTableViewCell.m */; };
+		1E319737206B9567004B8574 /* ExamInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E319735206B9567004B8574 /* ExamInformationTableViewCell.xib */; };
 		1E37D93E20624A61000DAF65 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D93B20624A61000DAF65 /* BaseTableViewController.m */; };
 		1E37D93F20624A61000DAF65 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D93D20624A61000DAF65 /* BaseViewController.m */; };
 		1E37D99820624AAA000DAF65 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D94820624AAA000DAF65 /* AFHTTPSessionManager.m */; };
@@ -329,6 +341,23 @@
 		1E319714206A44E6004B8574 /* Host_type6@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Host_type6@3x.png"; sourceTree = "<group>"; };
 		1E319715206A44E6004B8574 /* Host_type8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Host_type8@2x.png"; sourceTree = "<group>"; };
 		1E319716206A44E6004B8574 /* Host_type8@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Host_type8@3x.png"; sourceTree = "<group>"; };
+		1E31971B206B2FC5004B8574 /* ForgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdViewController.h; sourceTree = "<group>"; };
+		1E31971C206B2FC5004B8574 /* ForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdViewController.m; sourceTree = "<group>"; };
+		1E31971D206B2FC5004B8574 /* ForgetPwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPwdViewController.xib; sourceTree = "<group>"; };
+		1E319720206B321D004B8574 /* loginBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBg@2x.png"; sourceTree = "<group>"; };
+		1E319721206B321D004B8574 /* loginBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBg@3x.png"; sourceTree = "<group>"; };
+		1E319724206B3691004B8574 /* code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "code@2x.png"; sourceTree = "<group>"; };
+		1E319725206B3691004B8574 /* code@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "code@3x.png"; sourceTree = "<group>"; };
+		1E319728206B3B86004B8574 /* ForgetPwdNextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdNextViewController.h; sourceTree = "<group>"; };
+		1E319729206B3B86004B8574 /* ForgetPwdNextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdNextViewController.m; sourceTree = "<group>"; };
+		1E31972A206B3B86004B8574 /* ForgetPwdNextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPwdNextViewController.xib; sourceTree = "<group>"; };
+		1E31972D206B6CCD004B8574 /* ExamInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamInformationViewController.h; sourceTree = "<group>"; };
+		1E31972E206B6CCD004B8574 /* ExamInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamInformationViewController.m; sourceTree = "<group>"; };
+		1E319730206B6D86004B8574 /* HostInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostInformationView.h; sourceTree = "<group>"; };
+		1E319731206B6D86004B8574 /* HostInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostInformationView.m; sourceTree = "<group>"; };
+		1E319733206B9567004B8574 /* ExamInformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamInformationTableViewCell.h; sourceTree = "<group>"; };
+		1E319734206B9567004B8574 /* ExamInformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamInformationTableViewCell.m; sourceTree = "<group>"; };
+		1E319735206B9567004B8574 /* ExamInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExamInformationTableViewCell.xib; sourceTree = "<group>"; };
 		1E37D93A20624A61000DAF65 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		1E37D93B20624A61000DAF65 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		1E37D93C20624A61000DAF65 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -559,6 +588,11 @@
 				1E3196EE206A328E004B8574 /* HostCollectionViewCell.h */,
 				1E3196EF206A328E004B8574 /* HostCollectionViewCell.m */,
 				1E3196F0206A328E004B8574 /* HostCollectionViewCell.xib */,
+				1E319730206B6D86004B8574 /* HostInformationView.h */,
+				1E319731206B6D86004B8574 /* HostInformationView.m */,
+				1E319733206B9567004B8574 /* ExamInformationTableViewCell.h */,
+				1E319734206B9567004B8574 /* ExamInformationTableViewCell.m */,
+				1E319735206B9567004B8574 /* ExamInformationTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -575,6 +609,8 @@
 				1AE20068206793200035F412 /* HostViewController.xib */,
 				1E3196EB206A2CC0004B8574 /* HostSelectedTypeViewController.h */,
 				1E3196EC206A2CC0004B8574 /* HostSelectedTypeViewController.m */,
+				1E31972D206B6CCD004B8574 /* ExamInformationViewController.h */,
+				1E31972E206B6CCD004B8574 /* ExamInformationViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -714,6 +750,12 @@
 				1AE200602067871B0035F412 /* SetPwdViewController.h */,
 				1AE200612067871B0035F412 /* SetPwdViewController.m */,
 				1AE200622067871B0035F412 /* SetPwdViewController.xib */,
+				1E31971B206B2FC5004B8574 /* ForgetPwdViewController.h */,
+				1E31971C206B2FC5004B8574 /* ForgetPwdViewController.m */,
+				1E31971D206B2FC5004B8574 /* ForgetPwdViewController.xib */,
+				1E319728206B3B86004B8574 /* ForgetPwdNextViewController.h */,
+				1E319729206B3B86004B8574 /* ForgetPwdNextViewController.m */,
+				1E31972A206B3B86004B8574 /* ForgetPwdNextViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -721,6 +763,10 @@
 		1AE2003720665BF20035F412 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				1E319724206B3691004B8574 /* code@2x.png */,
+				1E319725206B3691004B8574 /* code@3x.png */,
+				1E319720206B321D004B8574 /* loginBg@2x.png */,
+				1E319721206B321D004B8574 /* loginBg@3x.png */,
 				1AE2005720676C640035F412 /* call@2x.png */,
 				1AE2005820676C640035F412 /* call@3x.png */,
 				1AE20048206713670035F412 /* qq@2x.png */,
@@ -1129,6 +1175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E31972C206B3B86004B8574 /* ForgetPwdNextViewController.xib in Resources */,
 				1EE02E6C2068A55100BFC31B /* play@2x.png in Resources */,
 				1E3196E6206A1512004B8574 /* arrow_up@3x.png in Resources */,
 				1E60BDD3206501A500071817 /* tabbar_1_h@2x.png in Resources */,
@@ -1156,6 +1203,7 @@
 				1AE20081206799A40035F412 /* HostIcon2@2x.png in Resources */,
 				1AE20047206663690035F412 /* user@3x.png in Resources */,
 				1E60BDD6206501A500071817 /* tabbar_1@3x.png in Resources */,
+				1E319723206B321D004B8574 /* loginBg@3x.png in Resources */,
 				1E3196C32068F9C2004B8574 /* mineIcon1@2x.png in Resources */,
 				1AE20087206799A40035F412 /* HostIcon5@2x.png in Resources */,
 				1E3196C42068F9C2004B8574 /* mineIcon1@3x.png in Resources */,
@@ -1197,6 +1245,7 @@
 				1AE2009220679CBA0035F412 /* banenr@3x.png in Resources */,
 				1E3196A72068D63F004B8574 /* eyes@2x.png in Resources */,
 				1E319703206A3473004B8574 /* Host_type3@2x.png in Resources */,
+				1E319737206B9567004B8574 /* ExamInformationTableViewCell.xib in Resources */,
 				1AE200642067871B0035F412 /* SetPwdViewController.xib in Resources */,
 				1AE20045206663690035F412 /* pwd@3x.png in Resources */,
 				1AE2008D206799A40035F412 /* HostIcon8@2x.png in Resources */,
@@ -1215,8 +1264,10 @@
 				1E319708206A3473004B8574 /* Host_type7@3x.png in Resources */,
 				1E60BDE1206501A500071817 /* tabbar_4@2x.png in Resources */,
 				1AE20036206656300035F412 /* LoginViewController.xib in Resources */,
+				1E319726206B3691004B8574 /* code@2x.png in Resources */,
 				1AE20085206799A40035F412 /* HostIcon4@2x.png in Resources */,
 				1AE20046206663690035F412 /* user@2x.png in Resources */,
+				1E319727206B3691004B8574 /* code@3x.png in Resources */,
 				1AE2009520679DD20035F412 /* centerBanner@2x.png in Resources */,
 				1E60BDE2206501A500071817 /* tabbar_4@3x.png in Resources */,
 				1E319711206A40F1004B8574 /* back@2x.png in Resources */,
@@ -1228,6 +1279,7 @@
 				1EE02E642068A13200BFC31B /* videoDefault@3x.png in Resources */,
 				1E319707206A3473004B8574 /* Host_type7@2x.png in Resources */,
 				1AE20080206799A40035F412 /* HostIcon1@3x.png in Resources */,
+				1E31971F206B2FC5004B8574 /* ForgetPwdViewController.xib in Resources */,
 				1E3196D72069DE4C004B8574 /* scan@2x.png in Resources */,
 				1AE2005A20676C640035F412 /* call@3x.png in Resources */,
 				1E60BDE5206501A500071817 /* tabbar_5@2x.png in Resources */,
@@ -1249,6 +1301,7 @@
 				1E3196C62068F9C2004B8574 /* mineIcon2@3x.png in Resources */,
 				1E37D99F20624AAA000DAF65 /* MJRefresh.bundle in Resources */,
 				1E3196A12068CB60004B8574 /* HostCommendVideoView.xib in Resources */,
+				1E319722206B321D004B8574 /* loginBg@2x.png in Resources */,
 				1E3196BA2068F03A004B8574 /* MineCenterHeaderView.xib in Resources */,
 				1E319701206A3473004B8574 /* Host_type1@2x.png in Resources */,
 			);
@@ -1290,6 +1343,7 @@
 				1E37D9B820624AAA000DAF65 /* UIImageView+HighlightedWebCache.m in Sources */,
 				1E3196A42068CC8B004B8574 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				1E37D99920624AAA000DAF65 /* AFNetworkReachabilityManager.m in Sources */,
+				1E319732206B6D86004B8574 /* HostInformationView.m in Sources */,
 				1E37D9A820624AAA000DAF65 /* UIScrollView+MJExtension.m in Sources */,
 				1E37D9A020624AAA000DAF65 /* MJRefreshComponent.m in Sources */,
 				1E37D9B520624AAA000DAF65 /* UIImage+GIF.m in Sources */,
@@ -1313,14 +1367,18 @@
 				1E37D9A520624AAA000DAF65 /* MJRefreshHeader.m in Sources */,
 				1E37D9AB20624AAA000DAF65 /* MKAnnotationView+WebCache.m in Sources */,
 				1E37D99820624AAA000DAF65 /* AFHTTPSessionManager.m in Sources */,
+				1E31972B206B3B86004B8574 /* ForgetPwdNextViewController.m in Sources */,
 				1AE20056206714590035F412 /* NSString+CJString.m in Sources */,
 				1E37D9B020624AAA000DAF65 /* SDWebImageDownloader.m in Sources */,
 				1E37D9BD20624AAA000DAF65 /* Toast.m in Sources */,
 				1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */,
+				1E31972F206B6CCD004B8574 /* ExamInformationViewController.m in Sources */,
 				1E37D9B420624AAA000DAF65 /* UIButton+WebCache.m in Sources */,
+				1E319736206B9567004B8574 /* ExamInformationTableViewCell.m in Sources */,
 				1E37D9A620624AAA000DAF65 /* MJRefreshLegendFooter.m in Sources */,
 				1E37D9AC20624AAA000DAF65 /* NSData+ImageContentType.m in Sources */,
 				1E37D9A720624AAA000DAF65 /* MJRefreshLegendHeader.m in Sources */,
+				1E31971E206B2FC5004B8574 /* ForgetPwdViewController.m in Sources */,
 				1E37D93E20624A61000DAF65 /* BaseTableViewController.m in Sources */,
 				1E37D9C320624AC1000DAF65 /* Utility.m in Sources */,
 				1E37D9AD20624AAA000DAF65 /* SDImageCache.m in Sources */,
