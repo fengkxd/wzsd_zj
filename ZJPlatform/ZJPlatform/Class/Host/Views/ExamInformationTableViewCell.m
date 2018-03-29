@@ -12,12 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
- 
-    btn.layer.masksToBounds = YES;
-    btn.layer.cornerRadius = 2;
-    btn.layer.borderColor = [UIColor colorWithHexString:@"00a9ff"].CGColor;
-    btn.layer.borderWidth = 0.5;
-    
+
     if (timeLabel.text.length) {
         [UILabel changeLineSpaceForLabel:timeLabel WithSpace:7];
     }

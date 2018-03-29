@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+//考试资讯
 @interface ExamInformationViewController : BaseViewController
 
 @end

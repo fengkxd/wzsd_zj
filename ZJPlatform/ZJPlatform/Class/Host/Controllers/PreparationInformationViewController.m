@@ -1,30 +1,30 @@
 //
-//  ExamInformationViewController.m
+//  PreparationInformationViewController.m
 //  ZJPlatform
 //
-//  Created by sostag on 2018/3/28.
+//  Created by sostag on 2018/3/29.
 //  Copyright © 2018年 wzsd. All rights reserved.
 //
 
-#import "ExamInformationViewController.h"
+#import "PreparationInformationViewController.h"
+#import "PreparationInformationTableViewCell.h"
 #import "HostInformationView.h"
-#import "ExamInformationTableViewCell.h"
 
-@interface ExamInformationViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface PreparationInformationViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *myTableView;
 }
 
 @end
 
-@implementation ExamInformationViewController
+@implementation PreparationInformationViewController
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createBackBtn];
-    [self setTitleView:@"考试资讯"];
+    [self setTitleView:@"备考资料"];
     myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenheight - 64 ) style:UITableViewStylePlain];
     myTableView.delegate = self;
     myTableView.dataSource = self;
@@ -58,16 +58,16 @@
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    ExamInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExamInformationTableViewCell"];
+    
+    PreparationInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PreparationInformationTableViewCell"];
     if (cell == nil) {
-        [tableView registerNib:[UINib nibWithNibName:@"ExamInformationTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExamInformationTableViewCell"];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"ExamInformationTableViewCell"];
+        [tableView registerNib:[UINib nibWithNibName:@"PreparationInformationTableViewCell" bundle:nil] forCellReuseIdentifier:@"PreparationInformationTableViewCell"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"PreparationInformationTableViewCell"];
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
-
+    
 }
 
 

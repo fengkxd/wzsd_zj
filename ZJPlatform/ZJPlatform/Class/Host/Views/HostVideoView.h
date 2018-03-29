@@ -10,23 +10,18 @@
 #import "Course.h"
 
 
-
 //免费课程
 @interface HostVideoView : UIView
 {
-
     UIImageView *imgView;
     UIButton *btn;
     UILabel *titleLabel;
     UILabel *numlabel;
-
 }
-
 
 
 @property (nonatomic,strong) Course *curCourse;
 @property (nonatomic,assign) id delegate;
-
 
 
 @end

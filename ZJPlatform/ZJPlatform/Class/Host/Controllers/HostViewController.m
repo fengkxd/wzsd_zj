@@ -165,9 +165,10 @@
 
 -(void)clickIcon:(UIButton *)btn{
 
-    NSArray *vcs =@[@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController"];
+    NSArray *vcs =@[@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamGuideViewController",@"PreparationInformationViewController"];
 
-    UIViewController *vc = [[NSClassFromString([vcs objectAtIndex:btn.tag]) alloc] init];
+    BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:btn.tag]) alloc] init];
+    
     [vc setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:vc animated:YES];
 }
