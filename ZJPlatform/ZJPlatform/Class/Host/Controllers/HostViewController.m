@@ -165,7 +165,7 @@
 
 -(void)clickIcon:(UIButton *)btn{
 
-    NSArray *vcs =@[@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamGuideViewController",@"PreparationInformationViewController"];
+    NSArray *vcs =@[@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"TeacherListViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamGuideViewController",@"PreparationInformationViewController"];
 
     BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:btn.tag]) alloc] init];
     
@@ -259,7 +259,6 @@
             [cell.contentView addSubview:view];
             
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(17, 0, 150, 42)];
-            label.textColor = [UIColor blackColor];
             label.font = TitleFont;
             label.textColor = [UIColor colorWithHexString:@"333333"];
             [cell.contentView addSubview:label];

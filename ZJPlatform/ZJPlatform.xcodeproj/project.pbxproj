@@ -173,6 +173,10 @@
 		1E37D9C320624AC1000DAF65 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D9C120624AC1000DAF65 /* Utility.m */; };
 		1E37D9C820624F08000DAF65 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D9C520624F08000DAF65 /* CustomTabBar.m */; };
 		1E37D9C920624F08000DAF65 /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37D9C720624F08000DAF65 /* MyNavigationController.m */; };
+		1E407173206DE5E3002AF062 /* TeacherListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E407172206DE5E3002AF062 /* TeacherListViewController.m */; };
+		1E407177206DE6F3002AF062 /* TeacherListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E407175206DE6F3002AF062 /* TeacherListTableViewCell.m */; };
+		1E407178206DE6F3002AF062 /* TeacherListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E407176206DE6F3002AF062 /* TeacherListTableViewCell.xib */; };
+		1E40717B206E12B8002AF062 /* TeacherDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E40717A206E12B8002AF062 /* TeacherDetailViewController.m */; };
 		1E60BDD3206501A500071817 /* tabbar_1_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA7D7BA2064FCE100E4DD85 /* tabbar_1_h@2x.png */; };
 		1E60BDD4206501A500071817 /* tabbar_1_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA7D7BE2064FCE100E4DD85 /* tabbar_1_h@3x.png */; };
 		1E60BDD5206501A500071817 /* tabbar_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA7D7B62064FCE000E4DD85 /* tabbar_1@2x.png */; };
@@ -463,6 +467,13 @@
 		1E37D9C620624F08000DAF65 /* MyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
 		1E37D9C720624F08000DAF65 /* MyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
 		1E37D9CA20624FBE000DAF65 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		1E407171206DE5E3002AF062 /* TeacherListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherListViewController.h; sourceTree = "<group>"; };
+		1E407172206DE5E3002AF062 /* TeacherListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherListViewController.m; sourceTree = "<group>"; };
+		1E407174206DE6F3002AF062 /* TeacherListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherListTableViewCell.h; sourceTree = "<group>"; };
+		1E407175206DE6F3002AF062 /* TeacherListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherListTableViewCell.m; sourceTree = "<group>"; };
+		1E407176206DE6F3002AF062 /* TeacherListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherListTableViewCell.xib; sourceTree = "<group>"; };
+		1E407179206E12B8002AF062 /* TeacherDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherDetailViewController.h; sourceTree = "<group>"; };
+		1E40717A206E12B8002AF062 /* TeacherDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherDetailViewController.m; sourceTree = "<group>"; };
 		1E6B6990206C81CF00C59967 /* TQCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQCell1.h; sourceTree = "<group>"; };
 		1E6B6991206C81CF00C59967 /* TQCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQCell1.m; sourceTree = "<group>"; };
 		1E6B6992206C81CF00C59967 /* TQCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TQCell1.xib; sourceTree = "<group>"; };
@@ -620,6 +631,9 @@
 				1E9444C4206CED3E003FE3F6 /* PreparationInformationTableViewCell.h */,
 				1E9444C5206CED3E003FE3F6 /* PreparationInformationTableViewCell.m */,
 				1E9444C6206CED3E003FE3F6 /* PreparationInformationTableViewCell.xib */,
+				1E407174206DE6F3002AF062 /* TeacherListTableViewCell.h */,
+				1E407175206DE6F3002AF062 /* TeacherListTableViewCell.m */,
+				1E407176206DE6F3002AF062 /* TeacherListTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -642,6 +656,10 @@
 				1E9444BF206CE119003FE3F6 /* ExamGuideViewController.m */,
 				1E9444C1206CECED003FE3F6 /* PreparationInformationViewController.h */,
 				1E9444C2206CECED003FE3F6 /* PreparationInformationViewController.m */,
+				1E407171206DE5E3002AF062 /* TeacherListViewController.h */,
+				1E407172206DE5E3002AF062 /* TeacherListViewController.m */,
+				1E407179206E12B8002AF062 /* TeacherDetailViewController.h */,
+				1E40717A206E12B8002AF062 /* TeacherDetailViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1369,6 +1387,7 @@
 				1E31970A206A3473004B8574 /* Host_type9@3x.png in Resources */,
 				1E9444C8206CED3E003FE3F6 /* PreparationInformationTableViewCell.xib in Resources */,
 				1EF631462062316400385293 /* Assets.xcassets in Resources */,
+				1E407178206DE6F3002AF062 /* TeacherListTableViewCell.xib in Resources */,
 				1E3196CA2068F9C2004B8574 /* mineIcon4@3x.png in Resources */,
 				1E3196B52068EAE0004B8574 /* mineBg@3x.png in Resources */,
 				1E3196C62068F9C2004B8574 /* mineIcon2@3x.png in Resources */,
@@ -1387,6 +1406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E40717B206E12B8002AF062 /* TeacherDetailViewController.m in Sources */,
 				1E37D9AF20624AAA000DAF65 /* SDWebImageDecoder.m in Sources */,
 				1E37D9BA20624AAA000DAF65 /* UIView+WebCacheOperation.m in Sources */,
 				1E37D9A420624AAA000DAF65 /* MJRefreshGifHeader.m in Sources */,
@@ -1404,6 +1424,7 @@
 				1E37D9BB20624AAA000DAF65 /* MBProgressHUD.m in Sources */,
 				1E9444C0206CE119003FE3F6 /* ExamGuideViewController.m in Sources */,
 				1E37D9C220624AC1000DAF65 /* NetworkManager.m in Sources */,
+				1E407173206DE5E3002AF062 /* TeacherListViewController.m in Sources */,
 				1E37D9AE20624AAA000DAF65 /* SDWebImageCompat.m in Sources */,
 				1AE20055206714590035F412 /* CJLabel.m in Sources */,
 				1E37D9B120624AAA000DAF65 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1457,6 +1478,7 @@
 				1E37D9AC20624AAA000DAF65 /* NSData+ImageContentType.m in Sources */,
 				1E37D9A720624AAA000DAF65 /* MJRefreshLegendHeader.m in Sources */,
 				1E31971E206B2FC5004B8574 /* ForgetPwdViewController.m in Sources */,
+				1E407177206DE6F3002AF062 /* TeacherListTableViewCell.m in Sources */,
 				1E37D93E20624A61000DAF65 /* BaseTableViewController.m in Sources */,
 				1E37D9C320624AC1000DAF65 /* Utility.m in Sources */,
 				1E37D9AD20624AAA000DAF65 /* SDImageCache.m in Sources */,

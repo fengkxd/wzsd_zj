@@ -64,7 +64,6 @@
         [tableView registerNib:[UINib nibWithNibName:@"PreparationInformationTableViewCell" bundle:nil] forCellReuseIdentifier:@"PreparationInformationTableViewCell"];
         cell = [tableView dequeueReusableCellWithIdentifier:@"PreparationInformationTableViewCell"];
     }
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     

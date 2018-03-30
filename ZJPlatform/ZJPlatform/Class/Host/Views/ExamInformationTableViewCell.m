@@ -14,7 +14,7 @@
     [super awakeFromNib];
 
     if (timeLabel.text.length) {
-        [UILabel changeLineSpaceForLabel:timeLabel WithSpace:7];
+        [UILabel changeLineSpaceForLabel:titleLabel WithSpace:7];
     }
     
 }

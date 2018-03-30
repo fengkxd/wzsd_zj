@@ -77,7 +77,7 @@
    
     [btn setTitle:[self.titles objectAtIndex:row] forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:[self.imgNames objectAtIndex:row]] forState:UIControlStateNormal];
-
+    
     
     btn.userInteractionEnabled = NO;
     [self verticalImageAndTitle:5 withBtn:btn];
