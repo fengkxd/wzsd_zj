@@ -11,6 +11,8 @@
 		1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6131FD20633FDF00C8B99B /* MineCenterViewController.m */; };
 		1A61320520633FF900C8B99B /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61320420633FF900C8B99B /* QuestionsViewController.m */; };
 		1A61320C2063400E00C8B99B /* SelCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61320B2063400E00C8B99B /* SelCourseViewController.m */; };
+		1A9491EE2070740300E03D71 /* TeacherVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9491EC2070740300E03D71 /* TeacherVideoTableViewCell.m */; };
+		1A9491EF2070740300E03D71 /* TeacherVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9491ED2070740300E03D71 /* TeacherVideoTableViewCell.xib */; };
 		1AE2002C206646960035F412 /* SourceHanSansSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2002B206646960035F412 /* SourceHanSansSC-Regular.otf */; };
 		1AE2002F20664EFE0035F412 /* shade@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2002D20664EFE0035F412 /* shade@2x.png */; };
 		1AE2003020664EFE0035F412 /* shade@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2002E20664EFE0035F412 /* shade@3x.png */; };
@@ -241,6 +243,9 @@
 		1A61320420633FF900C8B99B /* QuestionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
 		1A61320A2063400E00C8B99B /* SelCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelCourseViewController.h; sourceTree = "<group>"; };
 		1A61320B2063400E00C8B99B /* SelCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelCourseViewController.m; sourceTree = "<group>"; };
+		1A9491EB2070740200E03D71 /* TeacherVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherVideoTableViewCell.h; sourceTree = "<group>"; };
+		1A9491EC2070740300E03D71 /* TeacherVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherVideoTableViewCell.m; sourceTree = "<group>"; };
+		1A9491ED2070740300E03D71 /* TeacherVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherVideoTableViewCell.xib; sourceTree = "<group>"; };
 		1AE2002B206646960035F412 /* SourceHanSansSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceHanSansSC-Regular.otf"; sourceTree = "<group>"; };
 		1AE2002D20664EFE0035F412 /* shade@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shade@2x.png"; sourceTree = "<group>"; };
 		1AE2002E20664EFE0035F412 /* shade@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shade@3x.png"; sourceTree = "<group>"; };
@@ -634,6 +639,9 @@
 				1E407174206DE6F3002AF062 /* TeacherListTableViewCell.h */,
 				1E407175206DE6F3002AF062 /* TeacherListTableViewCell.m */,
 				1E407176206DE6F3002AF062 /* TeacherListTableViewCell.xib */,
+				1A9491EB2070740200E03D71 /* TeacherVideoTableViewCell.h */,
+				1A9491EC2070740300E03D71 /* TeacherVideoTableViewCell.m */,
+				1A9491ED2070740300E03D71 /* TeacherVideoTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1151,9 +1159,9 @@
 				1E37D95720624AAA000DAF65 /* MJRefresh */,
 				1E37D97020624AAA000DAF65 /* SDWebImage */,
 				1E37D99220624AAA000DAF65 /* MBProgressHUD.h */,
-				1E37D99320624AAA000DAF65 /* MBProgressHUD+Add.h */,
-				1E37D99420624AAA000DAF65 /* Toast.h */,
 				1E37D99520624AAA000DAF65 /* MBProgressHUD.m */,
+				1E37D99420624AAA000DAF65 /* Toast.h */,
+				1E37D99320624AAA000DAF65 /* MBProgressHUD+Add.h */,
 				1E37D99620624AAA000DAF65 /* MBProgressHUD+Add.m */,
 				1E37D99720624AAA000DAF65 /* Toast.m */,
 			);
@@ -1323,6 +1331,7 @@
 				1AE20088206799A40035F412 /* HostIcon5@3x.png in Resources */,
 				1E3196C72068F9C2004B8574 /* mineIcon3@2x.png in Resources */,
 				1AE2008A206799A40035F412 /* HostIcon6@3x.png in Resources */,
+				1A9491EF2070740300E03D71 /* TeacherVideoTableViewCell.xib in Resources */,
 				1E3196DA2069DE4C004B8574 /* setting@3x.png in Resources */,
 				1E60BDDD206501A500071817 /* tabbar_3@2x.png in Resources */,
 				1AE2009220679CBA0035F412 /* banenr@3x.png in Resources */,
@@ -1473,6 +1482,7 @@
 				1E6B6993206C81CF00C59967 /* TQCell1.m in Sources */,
 				1E31972F206B6CCD004B8574 /* ExamInformationViewController.m in Sources */,
 				1E37D9B420624AAA000DAF65 /* UIButton+WebCache.m in Sources */,
+				1A9491EE2070740300E03D71 /* TeacherVideoTableViewCell.m in Sources */,
 				1E319736206B9567004B8574 /* ExamInformationTableViewCell.m in Sources */,
 				1E37D9A620624AAA000DAF65 /* MJRefreshLegendFooter.m in Sources */,
 				1E37D9AC20624AAA000DAF65 /* NSData+ImageContentType.m in Sources */,
