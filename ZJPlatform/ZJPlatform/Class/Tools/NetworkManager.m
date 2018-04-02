@@ -151,7 +151,7 @@ static NSMutableDictionary *taskDict;
                             [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
                             failure([responseObject objectForKey:@"errorMessage"]);
 
-                        }else if(errorCode == 9111 && [url hasSuffix:kRequest_IOSPay]){
+                        }else if(errorCode == 9111 ){
                             failure(@"9111"); //支付验证
                         }else{
                             [Toast showWithText:[responseObject objectForKey:@"errorMessage"]];
@@ -254,7 +254,7 @@ static NSMutableDictionary *taskDict;
     if([Utility isNotBlank:[Utility getObjectForkey:USERNAME]] &&
              [Utility isNotBlank:[Utility getObjectForkey:PASSWORD]]){
         NSDictionary *dict = @{@"data":@{@"userName":[Utility getObjectForkey:USERNAME],@"password":[Utility getObjectForkey:PASSWORD]}};
-        NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_LoginByPassword];
+        NSString *url = [NSString stringWithFormat:@"%@",ProxyUrl];
         [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
                                                      headParameter:nil
                                                      bodyParameter:dict
@@ -271,7 +271,7 @@ static NSMutableDictionary *taskDict;
     }else if([Utility isNotBlank:[Utility getObjectForkey:DeriverID]]){
         
         
-        NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_LoginByIos];
+        NSString *url = [NSString stringWithFormat:@"%@%",ProxyUrl];
         NSDictionary *dict = @{@"data":@{@"iosDeriverId":[Utility getObjectForkey:DeriverID]}};
         [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
                             headParameter:nil

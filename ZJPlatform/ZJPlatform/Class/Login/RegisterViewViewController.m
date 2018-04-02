@@ -10,6 +10,14 @@
 #import "CJLabel.h"
 
 @interface RegisterViewViewController ()
+{
+    
+    NSTimer *timer;
+    NSInteger countDown;
+
+}
+
+@property (nonatomic,strong) NSTimer *timer;
 
 @end
 
@@ -94,19 +102,68 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(IBAction)sendMsg:(id)sender{
+    WS(weakSelf);
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_Scaptcha_New];
+    NSDictionary *dict ;
+   
+    countDown = 60;
+    [self clickBtn];
+
+    return;
+    SHOW_HUD;
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
+                                                 headParameter:nil
+                                                 bodyParameter:dict
+                                                  relativePath:url
+                                                       success:^(id responseObject) {
+                                                           HIDDEN_HUD;
+                                                           NSLog(@"验证码发送：%@",responseObject);
+                                                           countDown = 60;
+                                                           [weakSelf clickBtn];
+                                                       } failure:^(NSString *errorMsg) {
+                                                           
+                                                           
+                                                       }];
+    
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+
+
+-(void)clickBtn{
+    [codeBtn setEnabled:NO];
+    [codeBtn setBackgroundColor:[UIColor colorWithHexString:@"dbdbdb"]];
+    [codeBtn setTitle:[NSString stringWithFormat:@"%zi秒重新获取", countDown] forState:UIControlStateDisabled];
+    countDown--;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
 }
-*/
+
+- (void)onTimer {
+    if (countDown > 0) {
+        [codeBtn setBackgroundColor:[UIColor colorWithHexString:@"dbdbdb"]];
+        [codeBtn setTitle:[NSString stringWithFormat:@"%zi秒重新获取", countDown] forState:UIControlStateDisabled];
+        countDown--;
+    } else {
+        countDown = 60;
+        [self.timer invalidate];
+        self.timer = nil;
+        [codeBtn setTitle:@"60秒重新获取" forState:UIControlStateDisabled];
+        [codeBtn setTitle:@"重发验证码" forState:UIControlStateNormal];
+        [codeBtn setEnabled:YES];
+        [codeBtn setBackgroundColor:MainBlueColor];
+    }
+}
+
+
+
+
+
+
+
+
+
 
 @end

@@ -44,20 +44,27 @@
     NSString *vcStr = NSStringFromClass([viewController class]);
     if ([self.HiddenBarViewControllers containsObject:vcStr]) {
         [[UIApplication sharedApplication] setStatusBarHidden:YES];
-        [self setNavigationBarHidden:YES animated:NO];
-
+        [self setNavigationBarHidden:YES animated:YES];
+    }else{
+        if (self.navigationBarHidden == YES) {
+            [self setNavigationBarHidden:NO animated:YES];
+        }
+        
     }
     
 }
 
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated{
-    NSString *vcStr = NSStringFromClass([[self.viewControllers lastObject] class]);
-    if ([self.HiddenBarViewControllers containsObject:vcStr]) {
-        [self setNavigationBarHidden:NO animated:NO];
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-        
-    }    return   [super popViewControllerAnimated:animated];
+    NSString *vcStr = NSStringFromClass([[self.viewControllers firstObject] class]);
+    
+    if ([self.viewControllers count] == 2 && [self.HiddenBarViewControllers containsObject:vcStr]) {
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+        [self setNavigationBarHidden:YES animated:NO];
+
+    }
+    
+    return   [super popViewControllerAnimated:animated];
 }
 
 

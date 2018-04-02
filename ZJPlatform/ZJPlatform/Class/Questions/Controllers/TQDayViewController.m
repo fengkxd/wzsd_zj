@@ -19,8 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"每日一练";
-    
+     [self setTitleView:@"每日一练"];
+
     [self createBackBtn];
 }
 

@@ -9,7 +9,10 @@
 #import "SelCourseViewController.h"
 
 @interface SelCourseViewController ()
-
+{
+    
+    
+}
 @end
 
 @implementation SelCourseViewController
@@ -17,7 +20,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitleView:@"在线选课"];
+    [self initHeaderView];
+    
 }
+
+-(void)initHeaderView{
+    CGFloat width = MainScreenWidth / 3.0;
+    
+    for (NSInteger i = 0; i < 3; i++) {
+        UIButton *btn = [UIButton  buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(i * width, 0, width, 45);
+        if (i == 0) {
+            [btn setTitle:@"科目" forState:UIControlStateNormal];
+        }else if(i == 1){
+            [btn setTitle:@"主讲老师" forState:UIControlStateNormal];
+        }else {
+            [btn setTitle:@"主讲老师" forState:UIControlStateNormal];
+        }
+        btn.titleLabel.font = Font_13;
+        [btn setImage:[UIImage imageNamed:@"arrow_up2.png"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"arrow_up3.png"] forState:UIControlStateSelected];
+        [btn setBackgroundColor:[UIColor whiteColor]];
+        [btn setTitleColor:[UIColor colorWithHexString:@"444444"] forState:UIControlStateNormal];
+
+        [Utility changeImageTitleForBtn:btn];
+
+        [self.view addSubview:btn];
+        
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

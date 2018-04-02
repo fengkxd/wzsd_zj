@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initTitleView];
-    CGFloat bannerHeitght = 310 /750.0 * MainScreenWidth;
+     CGFloat bannerHeitght = 310 /750.0 * MainScreenWidth;
 
     HostBannerView *bannerView = [[HostBannerView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, bannerHeitght)];
     self.tableView.tableHeaderView = bannerView;
@@ -81,7 +81,6 @@
     typeBtn.frame = CGRectMake(0, 6, 100, 32);
     typeBtn.titleLabel.font = Font_14;
     [typeBtn setImage:[UIImage imageNamed:@"arrow_up.png"] forState:UIControlStateNormal];
-    typeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     [titleView addSubview:typeBtn];
     [typeBtn setBackgroundColor:[UIColor colorWithHexString:@"008ade"]];
     [typeBtn setTitle:@"一级建造师" forState:UIControlStateNormal];

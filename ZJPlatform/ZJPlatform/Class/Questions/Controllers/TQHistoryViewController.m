@@ -18,9 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"历年真题";
-    // Do any additional setup after loading the view from its nib.
-    
+     [self setTitleView:@"历年真题"];
+
     [self createBackBtn];
 }
 

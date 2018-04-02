@@ -27,6 +27,15 @@
     
 }
 
+-(void)clickItem:(UIButton *)btn{
+    NSArray *vcs =@[@"ExamInformationViewController",@"MyCourseTableViewController",@"CouponTableViewController",@"TeacherListViewController"];
+    
+    BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:btn.tag]) alloc] init];
+    [vc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
 
 
 - (void)verticalImageAndTitle:(CGFloat)spacing withBtn:(UIButton *)btn
@@ -74,6 +83,7 @@
                 NSInteger column = i % 4;
                 UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
                 btn.frame = CGRectMake(column * width, row * h, width, h);
+                btn.tag = i;
                 [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 switch (i) {
                     case 0:
@@ -91,6 +101,7 @@
                     default:
                         break;
                 }
+                [btn addTarget:self action:@selector(clickItem:) forControlEvents:UIControlEventTouchUpInside];
                 [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"mineIcon%zi.png",i+1]] forState:UIControlStateNormal];
                 [cell.contentView addSubview:btn];
                 [self verticalImageAndTitle:5 withBtn:btn];
