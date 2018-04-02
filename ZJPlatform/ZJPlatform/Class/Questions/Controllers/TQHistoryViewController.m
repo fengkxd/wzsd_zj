@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-     [self setTitleView:@"历年真题"];
+    [self setTitleView:@"历年真题"];
 
     [self createBackBtn];
 }

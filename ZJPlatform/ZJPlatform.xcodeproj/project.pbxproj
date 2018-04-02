@@ -241,6 +241,26 @@
 		1EF631412062316400385293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF631402062316400385293 /* ViewController.m */; };
 		1EF631462062316400385293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF631452062316400385293 /* Assets.xcassets */; };
 		1EF631492062316400385293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF631472062316400385293 /* LaunchScreen.storyboard */; };
+		69234B0A20728246007E7C99 /* TQGGLXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B0820728246007E7C99 /* TQGGLXViewController.m */; };
+		69234B0B20728246007E7C99 /* TQGGLXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69234B0920728246007E7C99 /* TQGGLXViewController.xib */; };
+		69234B0E207285EC007E7C99 /* TQGGLXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B0D207285EC007E7C99 /* TQGGLXCell.m */; };
+		69234B1220728661007E7C99 /* TQGGLXCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1120728661007E7C99 /* TQGGLXCell.xib */; };
+		69234B2120728BEF007E7C99 /* TQ_C@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1320728BED007E7C99 /* TQ_C@2x.png */; };
+		69234B2220728BEF007E7C99 /* TQ_R_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1420728BEE007E7C99 /* TQ_R_bg@3x.png */; };
+		69234B2320728BEF007E7C99 /* TQ_R1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1520728BEE007E7C99 /* TQ_R1@3x.png */; };
+		69234B2420728BEF007E7C99 /* TQ_R@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1620728BEE007E7C99 /* TQ_R@3x.png */; };
+		69234B2520728BEF007E7C99 /* TQ_R1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1720728BEE007E7C99 /* TQ_R1@2x.png */; };
+		69234B2620728BEF007E7C99 /* TQ_D@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1820728BEE007E7C99 /* TQ_D@2x.png */; };
+		69234B2720728BEF007E7C99 /* TQ_F@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1920728BEE007E7C99 /* TQ_F@2x.png */; };
+		69234B2820728BEF007E7C99 /* TQ_C@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1A20728BEE007E7C99 /* TQ_C@3x.png */; };
+		69234B2920728BEF007E7C99 /* TQ_F@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1B20728BEF007E7C99 /* TQ_F@3x.png */; };
+		69234B2A20728BEF007E7C99 /* TQ_A@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1C20728BEF007E7C99 /* TQ_A@2x.png */; };
+		69234B2B20728BEF007E7C99 /* TQ_A@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1D20728BEF007E7C99 /* TQ_A@3x.png */; };
+		69234B2C20728BEF007E7C99 /* TQ_D@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1E20728BEF007E7C99 /* TQ_D@3x.png */; };
+		69234B2D20728BEF007E7C99 /* TQ_R_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B1F20728BEF007E7C99 /* TQ_R_bg@2x.png */; };
+		69234B2E20728BEF007E7C99 /* TQ_R@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69234B2020728BEF007E7C99 /* TQ_R@2x.png */; };
+		69234B3220728D9E007E7C99 /* TQErrorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B3020728D9E007E7C99 /* TQErrorsViewController.m */; };
+		69234B3320728D9E007E7C99 /* TQErrorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69234B3120728D9E007E7C99 /* TQErrorsViewController.xib */; };
 		69468E4720712895007ECDDC /* TQItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 69468E4420712895007ECDDC /* TQItem.m */; };
 		69468E4820712895007ECDDC /* TQItem1.m in Sources */ = {isa = PBXBuildFile; fileRef = 69468E4620712895007ECDDC /* TQItem1.m */; };
 		69468E4E20712BC1007ECDDC /* TQHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69468E4C20712BC1007ECDDC /* TQHistoryViewController.m */; };
@@ -589,6 +609,29 @@
 		1EF631452062316400385293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EF631482062316400385293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EF6314A2062316400385293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69234B0720728246007E7C99 /* TQGGLXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQGGLXViewController.h; sourceTree = "<group>"; };
+		69234B0820728246007E7C99 /* TQGGLXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQGGLXViewController.m; sourceTree = "<group>"; };
+		69234B0920728246007E7C99 /* TQGGLXViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TQGGLXViewController.xib; sourceTree = "<group>"; };
+		69234B0C207285EC007E7C99 /* TQGGLXCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQGGLXCell.h; sourceTree = "<group>"; };
+		69234B0D207285EC007E7C99 /* TQGGLXCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQGGLXCell.m; sourceTree = "<group>"; };
+		69234B1120728661007E7C99 /* TQGGLXCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TQGGLXCell.xib; sourceTree = "<group>"; };
+		69234B1320728BED007E7C99 /* TQ_C@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_C@2x.png"; sourceTree = "<group>"; };
+		69234B1420728BEE007E7C99 /* TQ_R_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_R_bg@3x.png"; sourceTree = "<group>"; };
+		69234B1520728BEE007E7C99 /* TQ_R1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_R1@3x.png"; sourceTree = "<group>"; };
+		69234B1620728BEE007E7C99 /* TQ_R@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_R@3x.png"; sourceTree = "<group>"; };
+		69234B1720728BEE007E7C99 /* TQ_R1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_R1@2x.png"; sourceTree = "<group>"; };
+		69234B1820728BEE007E7C99 /* TQ_D@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_D@2x.png"; sourceTree = "<group>"; };
+		69234B1920728BEE007E7C99 /* TQ_F@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_F@2x.png"; sourceTree = "<group>"; };
+		69234B1A20728BEE007E7C99 /* TQ_C@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_C@3x.png"; sourceTree = "<group>"; };
+		69234B1B20728BEF007E7C99 /* TQ_F@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_F@3x.png"; sourceTree = "<group>"; };
+		69234B1C20728BEF007E7C99 /* TQ_A@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_A@2x.png"; sourceTree = "<group>"; };
+		69234B1D20728BEF007E7C99 /* TQ_A@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_A@3x.png"; sourceTree = "<group>"; };
+		69234B1E20728BEF007E7C99 /* TQ_D@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_D@3x.png"; sourceTree = "<group>"; };
+		69234B1F20728BEF007E7C99 /* TQ_R_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_R_bg@2x.png"; sourceTree = "<group>"; };
+		69234B2020728BEF007E7C99 /* TQ_R@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TQ_R@2x.png"; sourceTree = "<group>"; };
+		69234B2F20728D9E007E7C99 /* TQErrorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQErrorsViewController.h; sourceTree = "<group>"; };
+		69234B3020728D9E007E7C99 /* TQErrorsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQErrorsViewController.m; sourceTree = "<group>"; };
+		69234B3120728D9E007E7C99 /* TQErrorsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TQErrorsViewController.xib; sourceTree = "<group>"; };
 		69468E4320712895007ECDDC /* TQItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQItem.h; sourceTree = "<group>"; };
 		69468E4420712895007ECDDC /* TQItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQItem.m; sourceTree = "<group>"; };
 		69468E4520712895007ECDDC /* TQItem1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQItem1.h; sourceTree = "<group>"; };
@@ -775,6 +818,12 @@
 				69468E5920713464007ECDDC /* TQDayViewController.h */,
 				69468E5A20713464007ECDDC /* TQDayViewController.m */,
 				69468E5B20713464007ECDDC /* TQDayViewController.xib */,
+				69234B0720728246007E7C99 /* TQGGLXViewController.h */,
+				69234B0820728246007E7C99 /* TQGGLXViewController.m */,
+				69234B0920728246007E7C99 /* TQGGLXViewController.xib */,
+				69234B2F20728D9E007E7C99 /* TQErrorsViewController.h */,
+				69234B3020728D9E007E7C99 /* TQErrorsViewController.m */,
+				69234B3120728D9E007E7C99 /* TQErrorsViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1296,6 +1345,9 @@
 				69468E5020713171007ECDDC /* TQHistoryCell.h */,
 				69468E5120713171007ECDDC /* TQHistoryCell.m */,
 				69468E532071317E007ECDDC /* TQHistoryCell.xib */,
+				69234B0C207285EC007E7C99 /* TQGGLXCell.h */,
+				69234B0D207285EC007E7C99 /* TQGGLXCell.m */,
+				69234B1120728661007E7C99 /* TQGGLXCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1317,6 +1369,20 @@
 		694B8E42206BF0A700DC988E /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				69234B1C20728BEF007E7C99 /* TQ_A@2x.png */,
+				69234B1D20728BEF007E7C99 /* TQ_A@3x.png */,
+				69234B1320728BED007E7C99 /* TQ_C@2x.png */,
+				69234B1A20728BEE007E7C99 /* TQ_C@3x.png */,
+				69234B1820728BEE007E7C99 /* TQ_D@2x.png */,
+				69234B1E20728BEF007E7C99 /* TQ_D@3x.png */,
+				69234B1920728BEE007E7C99 /* TQ_F@2x.png */,
+				69234B1B20728BEF007E7C99 /* TQ_F@3x.png */,
+				69234B1F20728BEF007E7C99 /* TQ_R_bg@2x.png */,
+				69234B1420728BEE007E7C99 /* TQ_R_bg@3x.png */,
+				69234B2020728BEF007E7C99 /* TQ_R@2x.png */,
+				69234B1620728BEE007E7C99 /* TQ_R@3x.png */,
+				69234B1720728BEE007E7C99 /* TQ_R1@2x.png */,
+				69234B1520728BEE007E7C99 /* TQ_R1@3x.png */,
 				69468E5520713319007ECDDC /* TQ_pen@@x.png */,
 				69468E5620713319007ECDDC /* TQ_pen@3x.png */,
 				694B8E43206BF0A700DC988E /* TQ_gg@2x.png */,
@@ -1416,6 +1482,7 @@
 				1E3196B02068E27A004B8574 /* HostInformationTableViewCell.xib in Resources */,
 				1E3196E12069EB94004B8574 /* head_default@2x.png in Resources */,
 				1AE2008E206799A40035F412 /* HostIcon8@3x.png in Resources */,
+				69234B0B20728246007E7C99 /* TQGGLXViewController.xib in Resources */,
 				1AE2009620679DD20035F412 /* centerBanner@3x.png in Resources */,
 				694B8E58206BF0A700DC988E /* TQ_item4@3x.png in Resources */,
 				1EE02E632068A13200BFC31B /* videoDefault@2x.png in Resources */,
@@ -1434,8 +1501,10 @@
 				1E31970E206A3473004B8574 /* sel@3x.png in Resources */,
 				1AE2008C206799A40035F412 /* HostIcon7@3x.png in Resources */,
 				1AE20081206799A40035F412 /* HostIcon2@2x.png in Resources */,
+				69234B3320728D9E007E7C99 /* TQErrorsViewController.xib in Resources */,
 				1AE20047206663690035F412 /* user@3x.png in Resources */,
 				1E60BDD6206501A500071817 /* tabbar_1@3x.png in Resources */,
+				69234B2620728BEF007E7C99 /* TQ_D@2x.png in Resources */,
 				1EA88C7D2072234900E23098 /* course_icon4@2x.png in Resources */,
 				1E319723206B321D004B8574 /* loginBg@3x.png in Resources */,
 				694B8E53206BF0A700DC988E /* TQ_item2@2x.png in Resources */,
@@ -1444,20 +1513,24 @@
 				69468E5720713319007ECDDC /* TQ_pen@@x.png in Resources */,
 				1EA88C7B2072234900E23098 /* course_icon2@2x.png in Resources */,
 				1E3196C42068F9C2004B8574 /* mineIcon1@3x.png in Resources */,
+				69234B2920728BEF007E7C99 /* TQ_F@3x.png in Resources */,
 				1E3196D82069DE4C004B8574 /* scan@3x.png in Resources */,
 				1E60BDD7206501A500071817 /* tabbar_2_h@2x.png in Resources */,
 				1E60BDD8206501A500071817 /* tabbar_2_h@3x.png in Resources */,
 				1EA88C852072318700E23098 /* arrow_up2@2x.png in Resources */,
 				1E3196E22069EB94004B8574 /* head_default@3x.png in Resources */,
 				1E31970C206A3473004B8574 /* Host_type10@3x.png in Resources */,
+				69234B2D20728BEF007E7C99 /* TQ_R_bg@2x.png in Resources */,
 				1AE20084206799A40035F412 /* HostIcon3@3x.png in Resources */,
 				1E60BDD9206501A500071817 /* tabbar_2@2x.png in Resources */,
+				69234B2B20728BEF007E7C99 /* TQ_A@3x.png in Resources */,
 				1AE2006D206794970035F412 /* news@2x.png in Resources */,
 				1AE2004F206713670035F412 /* wx@3x.png in Resources */,
 				1AE2003B20665BF80035F412 /* back_black@3x.png in Resources */,
 				1E3196D92069DE4C004B8574 /* setting@2x.png in Resources */,
 				1AE2006E206794970035F412 /* news@3x.png in Resources */,
 				1E60BDDA206501A500071817 /* tabbar_2@3x.png in Resources */,
+				69234B2220728BEF007E7C99 /* TQ_R_bg@3x.png in Resources */,
 				1E3E18EB20720B9600F5B71C /* Coupon_bg2@3x.png in Resources */,
 				694B8E57206BF0A700DC988E /* TQ_item4@2x.png in Resources */,
 				694B8E5A206BF0A700DC988E /* TQ_item7@3x.png in Resources */,
@@ -1468,6 +1541,7 @@
 				1E60BDDB206501A500071817 /* tabbar_3_h@2x.png in Resources */,
 				1AE2002F20664EFE0035F412 /* shade@2x.png in Resources */,
 				1E31970B206A3473004B8574 /* Host_type10@2x.png in Resources */,
+				69234B2520728BEF007E7C99 /* TQ_R1@2x.png in Resources */,
 				1E31971A206A44E6004B8574 /* Host_type8@3x.png in Resources */,
 				69468E542071317E007ECDDC /* TQHistoryCell.xib in Resources */,
 				1E3196C52068F9C2004B8574 /* mineIcon2@2x.png in Resources */,
@@ -1476,6 +1550,7 @@
 				1E319704206A3473004B8574 /* Host_type3@3x.png in Resources */,
 				1E319712206A40F1004B8574 /* back@3x.png in Resources */,
 				1E3196D32069DE4C004B8574 /* headerBg@2x.png in Resources */,
+				69234B2C20728BEF007E7C99 /* TQ_D@3x.png in Resources */,
 				1AE2008B206799A40035F412 /* HostIcon7@2x.png in Resources */,
 				1EA88C892072353100E23098 /* arrow_up3@2x.png in Resources */,
 				1AE20083206799A40035F412 /* HostIcon3@2x.png in Resources */,
@@ -1504,6 +1579,7 @@
 				1E3196C82068F9C2004B8574 /* mineIcon3@3x.png in Resources */,
 				1E60BDDE206501A500071817 /* tabbar_3@3x.png in Resources */,
 				1AE2005920676C640035F412 /* call@2x.png in Resources */,
+				69234B2720728BEF007E7C99 /* TQ_F@2x.png in Resources */,
 				694B8E56206BF0A700DC988E /* TQ_item3@3x.png in Resources */,
 				1AE2004D206713670035F412 /* qq@3x.png in Resources */,
 				1E60BDDF206501A500071817 /* tabbar_4_h@2x.png in Resources */,
@@ -1522,10 +1598,14 @@
 				1E319726206B3691004B8574 /* code@2x.png in Resources */,
 				1AE20085206799A40035F412 /* HostIcon4@2x.png in Resources */,
 				1E3E18EF20720B9600F5B71C /* Coupon_bg1@3x.png in Resources */,
+				69234B2E20728BEF007E7C99 /* TQ_R@2x.png in Resources */,
 				1AE20046206663690035F412 /* user@2x.png in Resources */,
 				1E319727206B3691004B8574 /* code@3x.png in Resources */,
 				1E3E18EE20720B9600F5B71C /* Coupon_bg2@2x.png in Resources */,
 				1EA88C7E2072234900E23098 /* course_icon4@3x.png in Resources */,
+				69234B2420728BEF007E7C99 /* TQ_R@3x.png in Resources */,
+				69234B1220728661007E7C99 /* TQGGLXCell.xib in Resources */,
+				69234B2A20728BEF007E7C99 /* TQ_A@2x.png in Resources */,
 				1AE2009520679DD20035F412 /* centerBanner@2x.png in Resources */,
 				1E60BDE2206501A500071817 /* tabbar_4@3x.png in Resources */,
 				1E3E18EC20720B9600F5B71C /* Coupon_bg1@2x.png in Resources */,
@@ -1546,10 +1626,12 @@
 				1E3196C92068F9C2004B8574 /* mineIcon4@2x.png in Resources */,
 				1E60BDE6206501A500071817 /* tabbar_5@3x.png in Resources */,
 				1E3196B42068EAE0004B8574 /* mineBg@2x.png in Resources */,
+				69234B2820728BEF007E7C99 /* TQ_C@3x.png in Resources */,
 				1AE2002C206646960035F412 /* SourceHanSansSC-Regular.otf in Resources */,
 				1E319705206A3473004B8574 /* Host_type5@2x.png in Resources */,
 				694B8E52206BF0A700DC988E /* TQ_item1@3x.png in Resources */,
 				1AE2004C206713670035F412 /* qq@2x.png in Resources */,
+				69234B2120728BEF007E7C99 /* TQ_C@2x.png in Resources */,
 				694B8E50206BF0A700DC988E /* TQ_gg@3x.png in Resources */,
 				1E3196D52069DE4C004B8574 /* msg@2x.png in Resources */,
 				694B8E51206BF0A700DC988E /* TQ_item1@2x.png in Resources */,
@@ -1566,6 +1648,7 @@
 				1E3196B52068EAE0004B8574 /* mineBg@3x.png in Resources */,
 				69468E4F20712BC1007ECDDC /* TQHistoryViewController.xib in Resources */,
 				1E3196C62068F9C2004B8574 /* mineIcon2@3x.png in Resources */,
+				69234B2320728BEF007E7C99 /* TQ_R1@3x.png in Resources */,
 				1E37D99F20624AAA000DAF65 /* MJRefresh.bundle in Resources */,
 				69BE9DA220720A5D00EA6326 /* TQCell1.xib in Resources */,
 				1E3196A12068CB60004B8574 /* HostCommendVideoView.xib in Resources */,
@@ -1590,6 +1673,7 @@
 				1E37D9B220624AAA000DAF65 /* SDWebImageManager.m in Sources */,
 				1E9444BD206CC01B003FE3F6 /* Course.m in Sources */,
 				1E9444AB206CB4A0003FE3F6 /* LiveBroadcastViewController.m in Sources */,
+				69234B0A20728246007E7C99 /* TQGGLXViewController.m in Sources */,
 				1AE2005E20677FC20035F412 /* RegisterViewViewController.m in Sources */,
 				1E9444B6206CB721003FE3F6 /* MineCenterHeaderView.m in Sources */,
 				1E37D99B20624AAA000DAF65 /* AFURLRequestSerialization.m in Sources */,
@@ -1646,6 +1730,7 @@
 				1E37D9A120624AAA000DAF65 /* MJRefreshConst.m in Sources */,
 				1E37D9A520624AAA000DAF65 /* MJRefreshHeader.m in Sources */,
 				69468E4E20712BC1007ECDDC /* TQHistoryViewController.m in Sources */,
+				69234B3220728D9E007E7C99 /* TQErrorsViewController.m in Sources */,
 				69468E4820712895007ECDDC /* TQItem1.m in Sources */,
 				1E37D9AB20624AAA000DAF65 /* MKAnnotationView+WebCache.m in Sources */,
 				1E37D99820624AAA000DAF65 /* AFHTTPSessionManager.m in Sources */,
@@ -1662,6 +1747,7 @@
 				1E37D9A620624AAA000DAF65 /* MJRefreshLegendFooter.m in Sources */,
 				1E37D9AC20624AAA000DAF65 /* NSData+ImageContentType.m in Sources */,
 				1E37D9A720624AAA000DAF65 /* MJRefreshLegendHeader.m in Sources */,
+				69234B0E207285EC007E7C99 /* TQGGLXCell.m in Sources */,
 				1EA88C6E2072218400E23098 /* MyCourseTableViewController.m in Sources */,
 				1E31971E206B2FC5004B8574 /* ForgetPwdViewController.m in Sources */,
 				1E407177206DE6F3002AF062 /* TeacherListTableViewCell.m in Sources */,

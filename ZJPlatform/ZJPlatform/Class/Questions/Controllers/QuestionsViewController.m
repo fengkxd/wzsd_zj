@@ -9,6 +9,8 @@
 #import "QuestionsViewController.h"
 #import "TQHistoryViewController.h"
 #import "TQDayViewController.h"
+#import "TQGGLXViewController.h"
+
 #import "TQItem.h"
 #import "TQItem1.h"
 
@@ -20,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setTitleView:@"我的题库"];
 }
 
@@ -198,12 +201,17 @@
         TQHistoryViewController *historyVc = [[TQHistoryViewController alloc] initWithNibName:@"TQHistoryViewController" bundle:nil];
         
         [self.navigationController pushViewController:historyVc animated:YES];
+    }else if ([title isEqualToString:@"巩固练习"]){
+        
+        TQGGLXViewController *lxVC = [[TQGGLXViewController alloc] initWithNibName:@"TQGGLXViewController" bundle:nil];
+        
+        [self.navigationController pushViewController:lxVC animated:YES];
+        
     }else{
         
         TQDayViewController *dayVc = [[TQDayViewController alloc] initWithNibName:@"TQDayViewController" bundle:nil];
         
         [self.navigationController pushViewController:dayVc animated:YES];
-        
     }
 }
 
