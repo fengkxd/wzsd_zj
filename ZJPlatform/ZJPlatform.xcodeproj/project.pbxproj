@@ -64,6 +64,7 @@
 		1AE2009620679DD20035F412 /* centerBanner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2009420679DD20035F412 /* centerBanner@3x.png */; };
 		1E0EE8B620734CC9002F5D3E /* SelCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EE8B420734CC9002F5D3E /* SelCourseTableViewCell.m */; };
 		1E0EE8B720734CC9002F5D3E /* SelCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0EE8B520734CC9002F5D3E /* SelCourseTableViewCell.xib */; };
+		1E0EE8B920734D3D002F5D3E /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0EE8B820734D3D002F5D3E /* MobileVLCKit.framework */; };
 		1E31969F2068CA34004B8574 /* HostCommendVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E31969E2068CA34004B8574 /* HostCommendVideoView.m */; };
 		1E3196A12068CB60004B8574 /* HostCommendVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E3196A02068CB60004B8574 /* HostCommendVideoView.xib */; };
 		1E3196A42068CC8B004B8574 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3196A32068CC8B004B8574 /* UILabel+ChangeLineSpaceAndWordSpace.m */; };
@@ -360,6 +361,7 @@
 		1E0EE8B320734CC9002F5D3E /* SelCourseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelCourseTableViewCell.h; sourceTree = "<group>"; };
 		1E0EE8B420734CC9002F5D3E /* SelCourseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelCourseTableViewCell.m; sourceTree = "<group>"; };
 		1E0EE8B520734CC9002F5D3E /* SelCourseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelCourseTableViewCell.xib; sourceTree = "<group>"; };
+		1E0EE8B820734D3D002F5D3E /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
 		1E31969D2068CA34004B8574 /* HostCommendVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostCommendVideoView.h; sourceTree = "<group>"; };
 		1E31969E2068CA34004B8574 /* HostCommendVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostCommendVideoView.m; sourceTree = "<group>"; };
 		1E3196A02068CB60004B8574 /* HostCommendVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HostCommendVideoView.xib; sourceTree = "<group>"; };
@@ -675,6 +677,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E0EE8B920734D3D002F5D3E /* MobileVLCKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1296,6 +1299,7 @@
 		1EF6315A2062351E00385293 /* OthersThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				1E0EE8B820734D3D002F5D3E /* MobileVLCKit.framework */,
 				1AE20050206714590035F412 /* CJLabel */,
 				1E37D94620624AAA000DAF65 /* AFNetworking */,
 				1E37D95420624AAA000DAF65 /* JSONKit-master */,
@@ -1865,6 +1869,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = HQW6ZFK4U3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZJPlatform/Class/OthersThirdLibs",
+				);
 				GCC_PREFIX_HEADER = ZJPlatform/PrefixHeader.pch;
 				INFOPLIST_FILE = ZJPlatform/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1883,6 +1891,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = HQW6ZFK4U3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZJPlatform/Class/OthersThirdLibs",
+				);
 				GCC_PREFIX_HEADER = ZJPlatform/PrefixHeader.pch;
 				INFOPLIST_FILE = ZJPlatform/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
