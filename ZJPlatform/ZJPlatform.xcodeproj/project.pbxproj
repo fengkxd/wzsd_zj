@@ -62,6 +62,8 @@
 		1AE2009220679CBA0035F412 /* banenr@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2009020679CBA0035F412 /* banenr@3x.png */; };
 		1AE2009520679DD20035F412 /* centerBanner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2009320679DD20035F412 /* centerBanner@2x.png */; };
 		1AE2009620679DD20035F412 /* centerBanner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2009420679DD20035F412 /* centerBanner@3x.png */; };
+		1E0EE8B620734CC9002F5D3E /* SelCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EE8B420734CC9002F5D3E /* SelCourseTableViewCell.m */; };
+		1E0EE8B720734CC9002F5D3E /* SelCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0EE8B520734CC9002F5D3E /* SelCourseTableViewCell.xib */; };
 		1E31969F2068CA34004B8574 /* HostCommendVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E31969E2068CA34004B8574 /* HostCommendVideoView.m */; };
 		1E3196A12068CB60004B8574 /* HostCommendVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E3196A02068CB60004B8574 /* HostCommendVideoView.xib */; };
 		1E3196A42068CC8B004B8574 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3196A32068CC8B004B8574 /* UILabel+ChangeLineSpaceAndWordSpace.m */; };
@@ -355,6 +357,9 @@
 		1AE2009020679CBA0035F412 /* banenr@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banenr@3x.png"; sourceTree = "<group>"; };
 		1AE2009320679DD20035F412 /* centerBanner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerBanner@2x.png"; sourceTree = "<group>"; };
 		1AE2009420679DD20035F412 /* centerBanner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerBanner@3x.png"; sourceTree = "<group>"; };
+		1E0EE8B320734CC9002F5D3E /* SelCourseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelCourseTableViewCell.h; sourceTree = "<group>"; };
+		1E0EE8B420734CC9002F5D3E /* SelCourseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelCourseTableViewCell.m; sourceTree = "<group>"; };
+		1E0EE8B520734CC9002F5D3E /* SelCourseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelCourseTableViewCell.xib; sourceTree = "<group>"; };
 		1E31969D2068CA34004B8574 /* HostCommendVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostCommendVideoView.h; sourceTree = "<group>"; };
 		1E31969E2068CA34004B8574 /* HostCommendVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostCommendVideoView.m; sourceTree = "<group>"; };
 		1E3196A02068CB60004B8574 /* HostCommendVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HostCommendVideoView.xib; sourceTree = "<group>"; };
@@ -723,9 +728,7 @@
 		1A6131E920633F2100C8B99B /* SelCourse */ = {
 			isa = PBXGroup;
 			children = (
-				1E9444B9206CBFDA003FE3F6 /* Model */,
-				1E9444BA206CBFDA003FE3F6 /* Others */,
-				1E9444B8206CBFDA003FE3F6 /* Views */,
+				1E0EE8B220734CC9002F5D3E /* Views */,
 				1A6132072063400100C8B99B /* Controllers */,
 			);
 			path = SelCourse;
@@ -954,6 +957,16 @@
 			path = Host;
 			sourceTree = "<group>";
 		};
+		1E0EE8B220734CC9002F5D3E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E0EE8B320734CC9002F5D3E /* SelCourseTableViewCell.h */,
+				1E0EE8B420734CC9002F5D3E /* SelCourseTableViewCell.m */,
+				1E0EE8B520734CC9002F5D3E /* SelCourseTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1E3196B12068EAD3004B8574 /* MineCenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1170,27 +1183,6 @@
 				1E3E18E120720AF300F5B71C /* CouponTableViewCell.xib */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1E9444B8206CBFDA003FE3F6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		1E9444B9206CBFDA003FE3F6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1E9444BA206CBFDA003FE3F6 /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Others;
 			sourceTree = "<group>";
 		};
 		1EA7D7B22064FBD600E4DD85 /* images */ = {
@@ -1654,6 +1646,7 @@
 				1E3196A12068CB60004B8574 /* HostCommendVideoView.xib in Resources */,
 				69468E5D20713464007ECDDC /* TQDayViewController.xib in Resources */,
 				1E319722206B321D004B8574 /* loginBg@2x.png in Resources */,
+				1E0EE8B720734CC9002F5D3E /* SelCourseTableViewCell.xib in Resources */,
 				694B8E4F206BF0A700DC988E /* TQ_gg@2x.png in Resources */,
 				1E319701206A3473004B8574 /* Host_type1@2x.png in Resources */,
 			);
@@ -1708,6 +1701,7 @@
 				1E37D9A820624AAA000DAF65 /* UIScrollView+MJExtension.m in Sources */,
 				1E9444C7206CED3E003FE3F6 /* PreparationInformationTableViewCell.m in Sources */,
 				1E37D9A020624AAA000DAF65 /* MJRefreshComponent.m in Sources */,
+				1E0EE8B620734CC9002F5D3E /* SelCourseTableViewCell.m in Sources */,
 				1E37D9B520624AAA000DAF65 /* UIImage+GIF.m in Sources */,
 				1E37D9B620624AAA000DAF65 /* UIImage+MultiFormat.m in Sources */,
 				1E37D9C820624F08000DAF65 /* CustomTabBar.m in Sources */,
