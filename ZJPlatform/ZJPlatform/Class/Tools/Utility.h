@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+#define UILABEL_LINE_SPACE 7
+
+
 @interface UIColor (Hex)
 + (UIColor *)colorWithHexString:(NSString *)color;
 + (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
@@ -31,10 +35,12 @@
 
 @interface Utility : NSObject{}
 
++(void)setLabelSpace:(UILabel*)label withValue:(NSString*)str withFont:(UIFont*)font;
+//计算UILabel的高度(带有行间距的情况)
++(CGFloat)getSpaceLabelHeight:(NSString*)str withFont:(UIFont*)font withWidth:(CGFloat)width ;
+
 //左字右图
 +(void)changeImageTitleForBtn:(UIButton *)btn;
-
-
 
 + (NSString *)decodeURL:(NSString *)str;
 +(void)registerAPNS;

@@ -6,7 +6,6 @@
 //  Copyright © 2018年 wzsd. All rights reserved.
 //
 
-#define UILABEL_LINE_SPACE 7
 
 #import "TeacherDetailViewController.h"
 #import "TeacherVideoTableViewCell.h"
@@ -162,9 +161,9 @@
         
         
         detailLabel.text = text;
-        detailLabel.frame = CGRectMake(10, 45, MainScreenWidth - 20, [self getSpaceLabelHeight:text withFont:Font_12 withWidth:MainScreenWidth - 20 ] + 5);
+        detailLabel.frame = CGRectMake(10, 45, MainScreenWidth - 20, [Utility getSpaceLabelHeight:text withFont:Font_12 withWidth:MainScreenWidth - 20 ] + 5);
         
-        [self setLabelSpace:detailLabel withValue:text withFont:Font_12];
+        [Utility setLabelSpace:detailLabel withValue:text withFont:Font_12];
         
         return cell;
         
@@ -228,10 +227,10 @@
             label3.font = Font_12;
             label3.numberOfLines = 0;
             label3.textColor = [UIColor colorWithHexString:@"666666"];
-            CGFloat height = [self getSpaceLabelHeight:label3.text withFont:Font_12 withWidth:MainScreenWidth - 25 - 15];
+            CGFloat height = [Utility getSpaceLabelHeight:label3.text withFont:Font_12 withWidth:MainScreenWidth - 25 - 15];
             label3.frame = CGRectMake(25, y, MainScreenWidth - 25 - 15, height);
             [cell.contentView addSubview:label3];
-            [self setLabelSpace:label3 withValue:label3.text withFont:Font_12];
+            [Utility setLabelSpace:label3 withValue:label3.text withFont:Font_12];
             y =  y + height + 2;
         }
 
@@ -256,7 +255,7 @@
         }else if(row == 2){
             text = @"我如果热火个人他会让他如果芦荟胶客人管理计划未来科技果然好了剋为家人活过来看我和人刚看了就喝了五块如果哈伦裤饿我好人更快乐婴儿";
         }
-        return  [self getSpaceLabelHeight:text withFont:Font_12 withWidth:MainScreenWidth - 20] + 68 + 5;
+        return  [Utility getSpaceLabelHeight:text withFont:Font_12 withWidth:MainScreenWidth - 20] + 68 + 5;
 
     }else if(self.selectedBtn.tag == 1){
         NSString *text ;
@@ -268,7 +267,7 @@
         CGFloat y = 50;
         for (NSInteger i = 0; i < [[arr objectAtIndex:row] count]; i++) {
             text = [[arr objectAtIndex:row] objectAtIndex: i];
-            CGFloat height = [self getSpaceLabelHeight:text withFont:Font_12 withWidth:MainScreenWidth - 25 - 15];
+            CGFloat height = [Utility getSpaceLabelHeight:text withFont:Font_12 withWidth:MainScreenWidth - 25 - 15];
             y =  y + height + 2;
         }
 
@@ -281,41 +280,6 @@
 }
 
 
-
--(void)setLabelSpace:(UILabel*)label withValue:(NSString*)str withFont:(UIFont*)font {
-    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-    paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
-    paraStyle.alignment = NSTextAlignmentLeft;
-    paraStyle.lineSpacing = UILABEL_LINE_SPACE; //设置行间距
-    paraStyle.hyphenationFactor = 1.0;
-    paraStyle.firstLineHeadIndent = 0.0;
-    paraStyle.paragraphSpacingBefore = 0.0;
-    paraStyle.headIndent = 0;
-    paraStyle.tailIndent = 0;
-    //设置字间距 NSKernAttributeName:@1.5f
-    NSDictionary *dic = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@1.5f
-                          };
-    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:str attributes:dic];
-    label.attributedText = attributeStr;
-}
-
-
-//计算UILabel的高度(带有行间距的情况)
-
--(CGFloat)getSpaceLabelHeight:(NSString*)str withFont:(UIFont*)font withWidth:(CGFloat)width {
-    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-    paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
-    paraStyle.alignment = NSTextAlignmentLeft;
-    paraStyle.lineSpacing = UILABEL_LINE_SPACE;
-    paraStyle.hyphenationFactor = 1.0;
-    paraStyle.firstLineHeadIndent = 0.0;
-    paraStyle.paragraphSpacingBefore = 0.0;
-    paraStyle.headIndent = 0;
-    paraStyle.tailIndent = 0;
-    NSDictionary *dic = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@1.5f};
-    CGSize size = [str boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
-    return size.height;
-}
 
 
 

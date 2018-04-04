@@ -8,6 +8,8 @@
 
 #import "SelCourseDetailViewController.h"
 #import "MRVLCPlayer.h"
+#import "SelCourseCommentTableViewCell.h"
+
 
 @interface SelCourseDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -172,7 +174,7 @@
     if (section < 2) {
         return 1;
     }
-    return 1;
+    return 5;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
@@ -183,8 +185,17 @@
         return 140;
     }else if(section == 1){
         return 102;
+    }else if(section == 2 && row == 0){
+        return 45;
     }
-    return 1;
+    
+    
+    NSDictionary *dict = @{@"content":@"去几千几万了阿胶了7⃣️文件7⃣️文件额请我看了饥饿离开家去玩了句我起来看饥饿精力看见；离开家离开家了句了"};
+    NSString *content = [dict objectForKey:@"content"];
+    
+    CGFloat height = [Utility getSpaceLabelHeight:content withFont:Font_13 withWidth:MainScreenWidth - 85];
+
+    return 38 + height + 10 + 15 + 10;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -199,37 +210,54 @@
     }else if(section == 1){
         return cell2;
     }else{
-        static NSString *cellId = @"cellId";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
-            
-            for (int i = 0; i < 2 ; i++) {
-                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                btn.frame = CGRectMake(i * MainScreenWidth/2.0, 0, MainScreenWidth/2.0, 44);
-                if (i == 0) {
-                    [btn setTitle:@"课程详情" forState:UIControlStateNormal];
-                    self.selectedBtn = btn;
-                }else{
-                    [btn setTitle:@"课程评论" forState:UIControlStateNormal];
+        if (row == 0) {
+            static NSString *cellId = @"cellId";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
+                
+                for (int i = 0; i < 2 ; i++) {
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    btn.frame = CGRectMake(i * MainScreenWidth/2.0, 0, MainScreenWidth/2.0, 44);
+                    if (i == 0) {
+                        [btn setTitle:@"课程详情" forState:UIControlStateNormal];
+                        self.selectedBtn = btn;
+                    }else{
+                        [btn setTitle:@"课程评论" forState:UIControlStateNormal];
+                    }
+                    btn.titleLabel.font = Font_13;
+                    [btn setTitleColor:[UIColor colorWithHexString:@"444444"] forState:UIControlStateNormal];
+                    [btn setTitleColor:[UIColor colorWithHexString:@"04a7fd"] forState:UIControlStateSelected];
+                    [btn addTarget:self action:@selector(clickItem:) forControlEvents:UIControlEventTouchUpInside];
+                    [cell.contentView addSubview:btn];
                 }
-                btn.titleLabel.font = Font_13;
-                [btn setTitleColor:[UIColor colorWithHexString:@"444444"] forState:UIControlStateNormal];
-                [btn setTitleColor:[UIColor colorWithHexString:@"04a7fd"] forState:UIControlStateSelected];
-                [btn addTarget:self action:@selector(clickItem:) forControlEvents:UIControlEventTouchUpInside];
-                [cell.contentView addSubview:btn];
+                
+                markView = [[UIView alloc] initWithFrame:CGRectZero];
+                markView.backgroundColor = [UIColor colorWithHexString:@"00a9ff"];
+                markView.tag = 11;
+                markView.frame = CGRectMake(self.selectedBtn.frame.origin.x + self.selectedBtn.frame.size.width/2.0 - 14, 43.5, 28, 1.5);
+                [cell.contentView addSubview:markView];
+                
             }
+            cell.separatorInset = UIEdgeInsetsMake(0, -50, 0, 0);
+            return cell;
+        }else{
             
-            markView = [[UIView alloc] initWithFrame:CGRectZero];
-            markView.backgroundColor = [UIColor colorWithHexString:@"00a9ff"];
-            markView.tag = 11;
-            markView.frame = CGRectMake(self.selectedBtn.frame.origin.x + self.selectedBtn.frame.size.width/2.0 - 14, 43.5, 28, 1.5);
-            [cell.contentView addSubview:markView];
-
+            static NSString *cellId = @"SelCourseCommentTableViewCell";
+            SelCourseCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+            if (cell == nil) {
+                cell = [[SelCourseCommentTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
+                
+                
+                
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            NSDictionary *dict = @{@"content":@"去几千几万了阿胶了7⃣️文件7⃣️文件额请我看了饥饿离开家去玩了句我起来看饥饿精力看见；离开家离开家了句了"};
+            [cell loadComment:dict];
+            
+            return cell;
         }
-        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, MainScreenWidth);
-
-        return cell;
+      
     }
     
     return nil;

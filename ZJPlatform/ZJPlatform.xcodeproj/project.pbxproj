@@ -250,6 +250,9 @@
 		1E60BDE4206501A500071817 /* tabbar_5_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA7D7BB2064FCE100E4DD85 /* tabbar_5_h@3x.png */; };
 		1E60BDE5206501A500071817 /* tabbar_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA7D7C62064FCE100E4DD85 /* tabbar_5@2x.png */; };
 		1E60BDE6206501A500071817 /* tabbar_5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA7D7B92064FCE100E4DD85 /* tabbar_5@3x.png */; };
+		1E63E7522074A885008B43E4 /* LiveBroadcastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E63E7502074A885008B43E4 /* LiveBroadcastTableViewCell.m */; };
+		1E63E7532074A885008B43E4 /* LiveBroadcastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E63E7512074A885008B43E4 /* LiveBroadcastTableViewCell.xib */; };
+		1E7C4D2220747AB700D5BE62 /* SelCourseCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7C4D2120747AB700D5BE62 /* SelCourseCommentTableViewCell.m */; };
 		1E9444AB206CB4A0003FE3F6 /* LiveBroadcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9444AA206CB4A0003FE3F6 /* LiveBroadcastViewController.m */; };
 		1E9444B6206CB721003FE3F6 /* MineCenterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9444B4206CB721003FE3F6 /* MineCenterHeaderView.m */; };
 		1E9444B7206CB721003FE3F6 /* MineCenterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9444B5206CB721003FE3F6 /* MineCenterHeaderView.xib */; };
@@ -634,6 +637,11 @@
 		1E563E122073610800AE1A93 /* SelCourseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelCourseDetailViewController.xib; sourceTree = "<group>"; };
 		1E563E15207369AC00AE1A93 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		1E563E16207369AC00AE1A93 /* share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@3x.png"; sourceTree = "<group>"; };
+		1E63E74F2074A885008B43E4 /* LiveBroadcastTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveBroadcastTableViewCell.h; sourceTree = "<group>"; };
+		1E63E7502074A885008B43E4 /* LiveBroadcastTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveBroadcastTableViewCell.m; sourceTree = "<group>"; };
+		1E63E7512074A885008B43E4 /* LiveBroadcastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveBroadcastTableViewCell.xib; sourceTree = "<group>"; };
+		1E7C4D2020747AB700D5BE62 /* SelCourseCommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelCourseCommentTableViewCell.h; sourceTree = "<group>"; };
+		1E7C4D2120747AB700D5BE62 /* SelCourseCommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelCourseCommentTableViewCell.m; sourceTree = "<group>"; };
 		1E9444A9206CB4A0003FE3F6 /* LiveBroadcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveBroadcastViewController.h; sourceTree = "<group>"; };
 		1E9444AA206CB4A0003FE3F6 /* LiveBroadcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveBroadcastViewController.m; sourceTree = "<group>"; };
 		1E9444B3206CB721003FE3F6 /* MineCenterHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCenterHeaderView.h; sourceTree = "<group>"; };
@@ -782,10 +790,10 @@
 		1A6131E520633F2100C8B99B /* LiveBroadcast */ = {
 			isa = PBXGroup;
 			children = (
+				1E63E74E2074A879008B43E4 /* Views */,
 				1E9444AF206CB5A4003FE3F6 /* Others */,
 				1E9444A8206CB4A0003FE3F6 /* Controllers */,
 				1E9444A6206CB4A0003FE3F6 /* Model */,
-				1E9444A7206CB4A0003FE3F6 /* View */,
 			);
 			path = LiveBroadcast;
 			sourceTree = "<group>";
@@ -1064,6 +1072,8 @@
 				1E0EE8B320734CC9002F5D3E /* SelCourseTableViewCell.h */,
 				1E0EE8B420734CC9002F5D3E /* SelCourseTableViewCell.m */,
 				1E0EE8B520734CC9002F5D3E /* SelCourseTableViewCell.xib */,
+				1E7C4D2020747AB700D5BE62 /* SelCourseCommentTableViewCell.h */,
+				1E7C4D2120747AB700D5BE62 /* SelCourseCommentTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1284,18 +1294,21 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		1E63E74E2074A879008B43E4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E63E74F2074A885008B43E4 /* LiveBroadcastTableViewCell.h */,
+				1E63E7502074A885008B43E4 /* LiveBroadcastTableViewCell.m */,
+				1E63E7512074A885008B43E4 /* LiveBroadcastTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1E9444A6206CB4A0003FE3F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		1E9444A7206CB4A0003FE3F6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		1E9444A8206CB4A0003FE3F6 /* Controllers */ = {
@@ -1673,6 +1686,7 @@
 				69234B3320728D9E007E7C99 /* TQErrorsViewController.xib in Resources */,
 				1AE20047206663690035F412 /* user@3x.png in Resources */,
 				1E60BDD6206501A500071817 /* tabbar_1@3x.png in Resources */,
+				1E63E7532074A885008B43E4 /* LiveBroadcastTableViewCell.xib in Resources */,
 				69234B2620728BEF007E7C99 /* TQ_D@2x.png in Resources */,
 				1EA88C7D2072234900E23098 /* course_icon4@2x.png in Resources */,
 				1E319723206B321D004B8574 /* loginBg@3x.png in Resources */,
@@ -1891,6 +1905,7 @@
 				1E9444C3206CECED003FE3F6 /* PreparationInformationViewController.m in Sources */,
 				1E37D9B920624AAA000DAF65 /* UIImageView+WebCache.m in Sources */,
 				1EF6313E2062316400385293 /* AppDelegate.m in Sources */,
+				1E63E7522074A885008B43E4 /* LiveBroadcastTableViewCell.m in Sources */,
 				1E37D99D20624AAA000DAF65 /* AFURLSessionManager.m in Sources */,
 				1E37D99C20624AAA000DAF65 /* AFURLResponseSerialization.m in Sources */,
 				1A61320C2063400E00C8B99B /* SelCourseViewController.m in Sources */,
@@ -1926,6 +1941,7 @@
 				1E37D9A120624AAA000DAF65 /* MJRefreshConst.m in Sources */,
 				1E37D9A520624AAA000DAF65 /* MJRefreshHeader.m in Sources */,
 				69468E4E20712BC1007ECDDC /* TQHistoryViewController.m in Sources */,
+				1E7C4D2220747AB700D5BE62 /* SelCourseCommentTableViewCell.m in Sources */,
 				69234B3220728D9E007E7C99 /* TQErrorsViewController.m in Sources */,
 				69468E4820712895007ECDDC /* TQItem1.m in Sources */,
 				1E37D9AB20624AAA000DAF65 /* MKAnnotationView+WebCache.m in Sources */,
