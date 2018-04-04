@@ -275,9 +275,8 @@
 -(UIButton *)moreButton{
     if (!_moreButton) {
         _moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_moreButton setImage:[UIImage imageNamed:@"xin_normal.png"] forState:UIControlStateNormal];
-        [_moreButton setImage:[UIImage imageNamed:@"xin_slected.png"] forState:UIControlStateSelected];
-
+        [_moreButton setImage:[UIImage imageNamed:@"share.png"] forState:UIControlStateNormal];
+        [_moreButton setImage:[UIImage imageNamed:@"share.png"] forState:UIControlStateSelected];
         _moreButton.bounds = CGRectMake(0, 0, MRVideoControlBarHeight, MRVideoControlBarHeight);
     }
     return _moreButton;
@@ -343,7 +342,7 @@
 {
     if (!_closeButton) {
         _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_closeButton setImage:[UIImage imageNamed:@"Navigation bar_Arrow_normal.png"] forState:UIControlStateNormal];
+        [_closeButton setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
         _closeButton.bounds = CGRectMake(0, 0, MRVideoControlBarHeight, MRVideoControlBarHeight);
     }
     return _closeButton;

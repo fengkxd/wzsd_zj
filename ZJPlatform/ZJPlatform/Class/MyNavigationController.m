@@ -27,7 +27,7 @@
     self.navigationBar.translucent = NO;
     
     
-    self.HiddenBarViewControllers = @[@"MineCenterViewController"];
+    self.HiddenBarViewControllers = @[@"MineCenterViewController",@"SelCourseDetailViewController"];
 //    self.AutorotateViewControllers = [NSArray arrayWithObjects:@"BankHomeViewController",nil];
 
 }
@@ -61,8 +61,12 @@
     if ([self.viewControllers count] == 2 && [self.HiddenBarViewControllers containsObject:vcStr]) {
         [[UIApplication sharedApplication] setStatusBarHidden:YES];
         [self setNavigationBarHidden:YES animated:NO];
-
     }
+    if ([self.HiddenBarViewControllers containsObject:NSStringFromClass([[self.viewControllers lastObject] class])]) {
+        [self setNavigationBarHidden:NO animated:YES];
+    }
+    
+    
     
     return   [super popViewControllerAnimated:animated];
 }

@@ -7,31 +7,270 @@
 //
 
 #import "SelCourseDetailViewController.h"
+#import "MRVLCPlayer.h"
 
-@interface SelCourseDetailViewController ()
+@interface SelCourseDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    MRVLCPlayer *player;
+    CGFloat videoHeight;
+
+    UITableView *myTableView;
+    IBOutlet UITableViewCell *cell1;
+    IBOutlet UITableViewCell *cell2;
+    
+    
+    UIView *markView;
+
+}
+@property (nonatomic,strong) UIButton *selectedBtn;
 
 @end
 
 @implementation SelCourseDetailViewController
 
+
+- (BOOL)prefersStatusBarHidden{
+    return YES;
+}
+
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear: animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+}
+
+
+-(void)initPlayer{
+  
+    videoHeight = 520 /750.0 * MainScreenWidth;
+
+    if (player) {
+        [player stopPlay];
+        [player removeFromSuperview];
+        player =  nil;
+    }
+    player = [[MRVLCPlayer alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, videoHeight)];
+    player.controlView.moreButton.selected = YES;
+   
+
+ 
+    player.mediaURL =  [NSURL URLWithString:@""];
+    player.tag = 22;
+    [player showInView:self.view];
+    WS(weakSelf);
+    player.dismissBlock = ^{
+        [weakSelf stopPlayer];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    };
+    
+    player.moreBlock = ^{
+        [weakSelf showActionSheet];
+    };
+    
+    player.updateWatchNumBlock = ^{
+        [weakSelf updateWatchNum];
+    };
+    
+    
+}
+
+
+
+
+-(void)showActionSheet{
+    
+//    MRVLCPlayer *VLCPlayer = (MRVLCPlayer *)[self.view viewWithTag:22];
+//
+//    if (self.curCourse.isCollect == 0) {
+//        self.curCourse.isCollect = 1;
+//        VLCPlayer.controlView.moreButton.selected = YES;
+//
+//    }else{
+//        self.curCourse.isCollect = 0;
+//        VLCPlayer.controlView.moreButton.selected = NO;
+//
+//    }
+//    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_Related];
+//    NetworkManager *networkManager = [NetworkManager shareNetworkingManager];
+//    [networkManager cancelTask:url];
+//    NSMutableDictionary *dict =[NSMutableDictionary dictionaryWithDictionary:@{@"data":@{@"classes":@"course",@"isRelated":[NSString stringWithFormat:@"%zi",self.curCourse.isCollect],@"id":self.curCourse.courseId,@"type":@"collect"}}];
+//    WS(weakSelf);
+//    [networkManager requestWithMethod:@"POST" headParameter:nil
+//                        bodyParameter:dict
+//                         relativePath:url success:^(id responseObject) {
+//                             //  [weakSelf performSelector:@selector(showToast) withObject:nil afterDelay:0.5];
+//                             if (weakSelf.curCourse.isCollect == 0) {
+//                                 [Toast showWithText:@"取消收藏成功"];
+//                             }else{
+//                                 [Toast showWithText:@"收藏成功"];
+//                             }
+//                         } failure:^(NSString *errorMsg) {
+//                         }];
+    
+    
+}
+
+
+
+-(void)updateWatchNum{
+//    if (!isUpdate) {
+//        isUpdate = YES;
+//        NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kURL_WatchNum];
+//        [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
+//                                                     headParameter:nil
+//                                                     bodyParameter:@{@"data":@{@"courseId":self.curCourse.courseId}}
+//                                                      relativePath:url
+//                                                           success:^(id responseObject) {
+//                                                           } failure:^(NSString *errorMsg) {
+//                                                           }];
+//    }
+}
+
+
+
+
+
+
+-(void)stopPlayer{
+    [player stopPlay];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.backBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+    [self initPlayer];
+    
+    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, videoHeight, MainScreenWidth, MainScreenheight - videoHeight) style:UITableViewStylePlain];
+    myTableView.delegate = self;
+    myTableView.dataSource = self;
+    [self.view addSubview:myTableView];
+    myTableView.tableFooterView = [UIView new];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 0.1;
+    }else if(section == 1){
+        return 10;
+    }
+    return 10;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
 }
-*/
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section < 2) {
+        return 1;
+    }
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+
+    if (section == 0) {
+        return 140;
+    }else if(section == 1){
+        return 102;
+    }
+    return 1;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return nil;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    if (section == 0) {
+        return cell1;
+    }else if(section == 1){
+        return cell2;
+    }else{
+        static NSString *cellId = @"cellId";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
+            
+            for (int i = 0; i < 2 ; i++) {
+                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                btn.frame = CGRectMake(i * MainScreenWidth/2.0, 0, MainScreenWidth/2.0, 44);
+                if (i == 0) {
+                    [btn setTitle:@"课程详情" forState:UIControlStateNormal];
+                    self.selectedBtn = btn;
+                }else{
+                    [btn setTitle:@"课程评论" forState:UIControlStateNormal];
+                }
+                btn.titleLabel.font = Font_13;
+                [btn setTitleColor:[UIColor colorWithHexString:@"444444"] forState:UIControlStateNormal];
+                [btn setTitleColor:[UIColor colorWithHexString:@"04a7fd"] forState:UIControlStateSelected];
+                [btn addTarget:self action:@selector(clickItem:) forControlEvents:UIControlEventTouchUpInside];
+                [cell.contentView addSubview:btn];
+            }
+            
+            markView = [[UIView alloc] initWithFrame:CGRectZero];
+            markView.backgroundColor = [UIColor colorWithHexString:@"00a9ff"];
+            markView.tag = 11;
+            markView.frame = CGRectMake(self.selectedBtn.frame.origin.x + self.selectedBtn.frame.size.width/2.0 - 14, 43.5, 28, 1.5);
+            [cell.contentView addSubview:markView];
+
+        }
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, MainScreenWidth);
+
+        return cell;
+    }
+    
+    return nil;
+}
+
+
+
+-(void)clickItem:(UIButton *)btn{
+
+    self.selectedBtn.selected = NO;
+    self.selectedBtn = btn;
+    self.selectedBtn.selected = YES;
+    
+    markView.frame = CGRectMake(self.selectedBtn.frame.origin.x + self.selectedBtn.frame.size.width/2.0 - 14, 43.5, 28, 1.5);
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

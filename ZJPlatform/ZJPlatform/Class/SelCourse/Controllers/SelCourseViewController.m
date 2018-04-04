@@ -8,6 +8,7 @@
 
 #import "SelCourseViewController.h"
 #import "SelCourseTableViewCell.h"
+#import "SelCourseDetailViewController.h"
 
 @interface SelCourseViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -29,7 +30,6 @@
     myTbaleView.dataSource = self;
     [self.view addSubview:myTbaleView];
     myTbaleView.tableFooterView = [[UIView alloc] init];
-    
 }
 
 -(void)initHeaderView{
@@ -60,6 +60,15 @@
         [self.view addSubview:btn];
         
     }
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    SelCourseDetailViewController *vc = [[SelCourseDetailViewController alloc] initWithNibName:@"SelCourseDetailViewController" bundle:nil];
+    [vc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
