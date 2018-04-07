@@ -17,4 +17,18 @@
     SHOW_LOGIN
 }
 
+
+-(IBAction)showSetting:(id)sender{
+    self.clickSetting();
+}
+
+-(IBAction)showMsg:(id)sender{
+    self.clickMsg();
+}
+
+-(IBAction)showScan:(id)sender{
+    self.clickScan();
+}
+
+
 @end

@@ -8,24 +8,72 @@
 
 #import "MineCenterViewController.h"
 #import "MineCenterHeaderView.h"
+#import "SettingTableViewController.h"
 
 @interface MineCenterViewController ()
-
+{
+    BOOL firstLoad;
+}
 @end
 
 @implementation MineCenterViewController
 
+-(void)showSetting{
+    SettingTableViewController *vc = [[SettingTableViewController alloc] init];
+    [vc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)showScan{
+    
+    
+}
+
+
+-(void)showMsg{
+    
+    
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
+    firstLoad = NO;
+    self.tableView.contentOffset = CGPointMake(0, -20);
     
     MineCenterHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"MineCenterHeaderView" owner:self options:nil] lastObject];
     self.tableView.tableHeaderView = headerView;
-    
     headerView.sourceView.hidden = YES;
     headerView.nameLabel.hidden = YES;
     headerView.loginBtn.hidden = NO;
+  
+    
+    WS(weakSelf);
+    headerView.clickScan = ^{
+        [weakSelf showScan];
+    };
+    headerView.clickMsg = ^{
+        [weakSelf showMsg];
+
+    };
+    headerView.clickSetting = ^{
+        [weakSelf showSetting];
+    };
     
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (firstLoad == NO) {
+        firstLoad = YES;
+        self.tableView.contentOffset = CGPointMake(0, 0);
+    }
+}
+
+
+
 
 -(void)clickItem:(UIButton *)btn{
     NSArray *vcs =@[@"ExamInformationViewController",@"MyCourseTableViewController",@"CouponTableViewController",@"TeacherListViewController"];
@@ -58,7 +106,6 @@
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, - imageSize.width, - (totalHeight - titleSize.height) - 10, 0);
     [btn setBackgroundColor:[UIColor whiteColor]];
 }
-
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -155,7 +202,9 @@
 
 
 
-
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return nil;
+}
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -165,7 +214,14 @@
     return 10;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    return nil;
+}
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.1;
+}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {

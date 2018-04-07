@@ -17,4 +17,9 @@
 @property (nonatomic,strong) IBOutlet UIButton *loginBtn;
 
 
+@property (copy) void (^clickSetting)();
+@property (copy) void (^clickScan)();
+@property (copy) void (^clickMsg)();
+
+
 @end

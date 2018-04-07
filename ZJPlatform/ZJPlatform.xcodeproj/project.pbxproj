@@ -62,6 +62,15 @@
 		1AE2009220679CBA0035F412 /* banenr@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2009020679CBA0035F412 /* banenr@3x.png */; };
 		1AE2009520679DD20035F412 /* centerBanner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2009320679DD20035F412 /* centerBanner@2x.png */; };
 		1AE2009620679DD20035F412 /* centerBanner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2009420679DD20035F412 /* centerBanner@3x.png */; };
+		1AEF717C2077286A003075B6 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEF717B2077286A003075B6 /* SettingTableViewController.m */; };
+		1AEF717F20775915003075B6 /* MyLiveBroadcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEF717E20775915003075B6 /* MyLiveBroadcastViewController.m */; };
+		1AEF718320775989003075B6 /* MyLiveBroadcastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEF718120775989003075B6 /* MyLiveBroadcastTableViewCell.m */; };
+		1AEF718420775989003075B6 /* MyLiveBroadcastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEF718220775989003075B6 /* MyLiveBroadcastTableViewCell.xib */; };
+		1AEF71872078A4E9003075B6 /* MySelCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEF71862078A4E9003075B6 /* MySelCourseViewController.m */; };
+		1AEF718B2078AADC003075B6 /* MySelCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEF71892078AADC003075B6 /* MySelCourseTableViewCell.m */; };
+		1AEF718C2078AADC003075B6 /* MySelCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEF718A2078AADC003075B6 /* MySelCourseTableViewCell.xib */; };
+		1AEF71902078B487003075B6 /* MySelCourseTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEF718E2078B487003075B6 /* MySelCourseTableViewCell2.m */; };
+		1AEF71912078B487003075B6 /* MySelCourseTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEF718F2078B487003075B6 /* MySelCourseTableViewCell2.xib */; };
 		1E0EE8B620734CC9002F5D3E /* SelCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EE8B420734CC9002F5D3E /* SelCourseTableViewCell.m */; };
 		1E0EE8B720734CC9002F5D3E /* SelCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0EE8B520734CC9002F5D3E /* SelCourseTableViewCell.xib */; };
 		1E0EE8B920734D3D002F5D3E /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0EE8B820734D3D002F5D3E /* MobileVLCKit.framework */; };
@@ -400,6 +409,21 @@
 		1AE2009020679CBA0035F412 /* banenr@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banenr@3x.png"; sourceTree = "<group>"; };
 		1AE2009320679DD20035F412 /* centerBanner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerBanner@2x.png"; sourceTree = "<group>"; };
 		1AE2009420679DD20035F412 /* centerBanner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerBanner@3x.png"; sourceTree = "<group>"; };
+		1AEF717A2077286A003075B6 /* SettingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		1AEF717B2077286A003075B6 /* SettingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
+		1AEF717D20775915003075B6 /* MyLiveBroadcastViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLiveBroadcastViewController.h; sourceTree = "<group>"; };
+		1AEF717E20775915003075B6 /* MyLiveBroadcastViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLiveBroadcastViewController.m; sourceTree = "<group>"; };
+		1AEF718020775989003075B6 /* MyLiveBroadcastTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLiveBroadcastTableViewCell.h; sourceTree = "<group>"; };
+		1AEF718120775989003075B6 /* MyLiveBroadcastTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLiveBroadcastTableViewCell.m; sourceTree = "<group>"; };
+		1AEF718220775989003075B6 /* MyLiveBroadcastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyLiveBroadcastTableViewCell.xib; sourceTree = "<group>"; };
+		1AEF71852078A4E9003075B6 /* MySelCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySelCourseViewController.h; sourceTree = "<group>"; };
+		1AEF71862078A4E9003075B6 /* MySelCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySelCourseViewController.m; sourceTree = "<group>"; };
+		1AEF71882078AADC003075B6 /* MySelCourseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySelCourseTableViewCell.h; sourceTree = "<group>"; };
+		1AEF71892078AADC003075B6 /* MySelCourseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySelCourseTableViewCell.m; sourceTree = "<group>"; };
+		1AEF718A2078AADC003075B6 /* MySelCourseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySelCourseTableViewCell.xib; sourceTree = "<group>"; };
+		1AEF718D2078B487003075B6 /* MySelCourseTableViewCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySelCourseTableViewCell2.h; sourceTree = "<group>"; };
+		1AEF718E2078B487003075B6 /* MySelCourseTableViewCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySelCourseTableViewCell2.m; sourceTree = "<group>"; };
+		1AEF718F2078B487003075B6 /* MySelCourseTableViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySelCourseTableViewCell2.xib; sourceTree = "<group>"; };
 		1E0EE8B320734CC9002F5D3E /* SelCourseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelCourseTableViewCell.h; sourceTree = "<group>"; };
 		1E0EE8B420734CC9002F5D3E /* SelCourseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelCourseTableViewCell.m; sourceTree = "<group>"; };
 		1E0EE8B520734CC9002F5D3E /* SelCourseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelCourseTableViewCell.xib; sourceTree = "<group>"; };
@@ -905,12 +929,18 @@
 		1A6131FA20633FD300C8B99B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1AEF71852078A4E9003075B6 /* MySelCourseViewController.h */,
+				1AEF71862078A4E9003075B6 /* MySelCourseViewController.m */,
 				1A6131FC20633FDF00C8B99B /* MineCenterViewController.h */,
 				1A6131FD20633FDF00C8B99B /* MineCenterViewController.m */,
 				1E3E18DC20720A7800F5B71C /* CouponTableViewController.h */,
 				1E3E18DD20720A7800F5B71C /* CouponTableViewController.m */,
 				1EA88C6C2072218400E23098 /* MyCourseTableViewController.h */,
 				1EA88C6D2072218400E23098 /* MyCourseTableViewController.m */,
+				1AEF717A2077286A003075B6 /* SettingTableViewController.h */,
+				1AEF717B2077286A003075B6 /* SettingTableViewController.m */,
+				1AEF717D20775915003075B6 /* MyLiveBroadcastViewController.h */,
+				1AEF717E20775915003075B6 /* MyLiveBroadcastViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1366,6 +1396,15 @@
 				1E3E18DF20720AF300F5B71C /* CouponTableViewCell.h */,
 				1E3E18E020720AF300F5B71C /* CouponTableViewCell.m */,
 				1E3E18E120720AF300F5B71C /* CouponTableViewCell.xib */,
+				1AEF718020775989003075B6 /* MyLiveBroadcastTableViewCell.h */,
+				1AEF718120775989003075B6 /* MyLiveBroadcastTableViewCell.m */,
+				1AEF718220775989003075B6 /* MyLiveBroadcastTableViewCell.xib */,
+				1AEF71882078AADC003075B6 /* MySelCourseTableViewCell.h */,
+				1AEF71892078AADC003075B6 /* MySelCourseTableViewCell.m */,
+				1AEF718A2078AADC003075B6 /* MySelCourseTableViewCell.xib */,
+				1AEF718D2078B487003075B6 /* MySelCourseTableViewCell2.h */,
+				1AEF718E2078B487003075B6 /* MySelCourseTableViewCell2.m */,
+				1AEF718F2078B487003075B6 /* MySelCourseTableViewCell2.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1660,6 +1699,7 @@
 				1E3196DD2069E7CA004B8574 /* point@2x.png in Resources */,
 				1E319719206A44E6004B8574 /* Host_type8@2x.png in Resources */,
 				1E563E0220735FA900AE1A93 /* Player close@2x.png in Resources */,
+				1AEF718420775989003075B6 /* MyLiveBroadcastTableViewCell.xib in Resources */,
 				1E60BDD4206501A500071817 /* tabbar_1_h@3x.png in Resources */,
 				1E3196B02068E27A004B8574 /* HostInformationTableViewCell.xib in Resources */,
 				1E3196E12069EB94004B8574 /* head_default@2x.png in Resources */,
@@ -1825,10 +1865,12 @@
 				1EA88C812072234900E23098 /* course_icon3@2x.png in Resources */,
 				1E563DFE20735FA900AE1A93 /* Pause Icon@2x.png in Resources */,
 				1E3196C92068F9C2004B8574 /* mineIcon4@2x.png in Resources */,
+				1AEF718C2078AADC003075B6 /* MySelCourseTableViewCell.xib in Resources */,
 				1E60BDE6206501A500071817 /* tabbar_5@3x.png in Resources */,
 				1E3196B42068EAE0004B8574 /* mineBg@2x.png in Resources */,
 				69234B2820728BEF007E7C99 /* TQ_C@3x.png in Resources */,
 				1AE2002C206646960035F412 /* SourceHanSansSC-Regular.otf in Resources */,
+				1AEF71912078B487003075B6 /* MySelCourseTableViewCell2.xib in Resources */,
 				1E319705206A3473004B8574 /* Host_type5@2x.png in Resources */,
 				694B8E52206BF0A700DC988E /* TQ_item1@3x.png in Resources */,
 				1AE2004C206713670035F412 /* qq@2x.png in Resources */,
@@ -1878,6 +1920,7 @@
 				1E37D9B220624AAA000DAF65 /* SDWebImageManager.m in Sources */,
 				1E563E0D20735FA900AE1A93 /* MRVideoControlView.m in Sources */,
 				1E9444BD206CC01B003FE3F6 /* Course.m in Sources */,
+				1AEF718B2078AADC003075B6 /* MySelCourseTableViewCell.m in Sources */,
 				1E9444AB206CB4A0003FE3F6 /* LiveBroadcastViewController.m in Sources */,
 				69234B0A20728246007E7C99 /* TQGGLXViewController.m in Sources */,
 				1E563E0E20735FA900AE1A93 /* MRVideoHUDView.m in Sources */,
@@ -1885,8 +1928,11 @@
 				1E563E132073610800AE1A93 /* SelCourseDetailViewController.m in Sources */,
 				1E9444B6206CB721003FE3F6 /* MineCenterHeaderView.m in Sources */,
 				1E37D99B20624AAA000DAF65 /* AFURLRequestSerialization.m in Sources */,
+				1AEF717F20775915003075B6 /* MyLiveBroadcastViewController.m in Sources */,
 				1EF631412062316400385293 /* ViewController.m in Sources */,
+				1AEF71872078A4E9003075B6 /* MySelCourseViewController.m in Sources */,
 				1E31969F2068CA34004B8574 /* HostCommendVideoView.m in Sources */,
+				1AEF717C2077286A003075B6 /* SettingTableViewController.m in Sources */,
 				1E563E0F20735FA900AE1A93 /* MRVLCPlayer.mm in Sources */,
 				1A61320520633FF900C8B99B /* QuestionsViewController.m in Sources */,
 				1AE2006720678FC60035F412 /* HostBannerView.m in Sources */,
@@ -1918,6 +1964,7 @@
 				1E37D9A820624AAA000DAF65 /* UIScrollView+MJExtension.m in Sources */,
 				1E9444C7206CED3E003FE3F6 /* PreparationInformationTableViewCell.m in Sources */,
 				1E37D9A020624AAA000DAF65 /* MJRefreshComponent.m in Sources */,
+				1AEF718320775989003075B6 /* MyLiveBroadcastTableViewCell.m in Sources */,
 				1E0EE8B620734CC9002F5D3E /* SelCourseTableViewCell.m in Sources */,
 				1E37D9B520624AAA000DAF65 /* UIImage+GIF.m in Sources */,
 				1E37D9B620624AAA000DAF65 /* UIImage+MultiFormat.m in Sources */,
@@ -1948,6 +1995,7 @@
 				1E37D99820624AAA000DAF65 /* AFHTTPSessionManager.m in Sources */,
 				1E31972B206B3B86004B8574 /* ForgetPwdNextViewController.m in Sources */,
 				1AE20056206714590035F412 /* NSString+CJString.m in Sources */,
+				1AEF71902078B487003075B6 /* MySelCourseTableViewCell2.m in Sources */,
 				1E37D9B020624AAA000DAF65 /* SDWebImageDownloader.m in Sources */,
 				1E37D9BD20624AAA000DAF65 /* Toast.m in Sources */,
 				1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */,

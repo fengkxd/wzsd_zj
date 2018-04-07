@@ -77,7 +77,7 @@
     QuestionsViewController *vc4 = [[QuestionsViewController alloc] init];
     MyNavigationController *nav4 = [[MyNavigationController alloc] initWithRootViewController:vc4];
  
-    MineCenterViewController *vc5 = [[MineCenterViewController alloc] init];
+    MineCenterViewController *vc5 = [[MineCenterViewController alloc] initWithStyle:UITableViewStyleGrouped];
     MyNavigationController *nav5 = [[MyNavigationController alloc] initWithRootViewController:vc5];
 
     self.viewControllers = [NSArray arrayWithObjects:nav1,nav2,nav3,nav4,nav5, nil];

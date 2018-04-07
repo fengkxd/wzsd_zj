@@ -52,6 +52,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 
+#define WIFI_DOWNLOAD   @"WIFI_DOWNLOAD"
 #define WIFI_PLAY  @"WIFI_PLAY"
 #define MAX_PIC 1024
 
