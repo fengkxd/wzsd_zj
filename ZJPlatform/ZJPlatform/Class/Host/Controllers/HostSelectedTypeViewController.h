@@ -14,10 +14,10 @@
 }
 
 
-@property (nonatomic,strong) NSArray *titles;
-@property (nonatomic,strong) NSArray *imgNames;
+@property (nonatomic,strong) NSArray *datas;
+
 @property (nonatomic,assign) NSInteger selRow;
 
-@property (copy) void (^selectedBlock)(NSInteger row);
+@property (copy) void (^selectedBlock)(void);
 
 @end

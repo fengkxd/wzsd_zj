@@ -105,7 +105,7 @@
 
 -(IBAction)sendMsg:(id)sender{
     WS(weakSelf);
-    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_Scaptcha_New];
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_famousTeacher_queryList];
     NSDictionary *dict ;
    
     countDown = 60;

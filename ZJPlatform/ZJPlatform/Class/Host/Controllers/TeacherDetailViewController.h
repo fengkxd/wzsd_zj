@@ -10,4 +10,6 @@
 
 @interface TeacherDetailViewController : BaseViewController
 
+
+@property (nonatomic,strong) NSDictionary *teachDict;
 @end

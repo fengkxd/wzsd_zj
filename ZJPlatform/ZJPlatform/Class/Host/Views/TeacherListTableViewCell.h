@@ -15,4 +15,6 @@
   IBOutlet  UILabel *detailLabel;
   IBOutlet  UIImageView *imgView;
 }
+
+-(void)loadDict:(NSDictionary *)dict;
 @end

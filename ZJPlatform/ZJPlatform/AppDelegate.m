@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HostSelectedTypeViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,14 +19,47 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
 
+ 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.customTabBar = [[CustomTabBar alloc] init];
-    self.window.rootViewController = self.customTabBar;
-    [self.window makeKeyAndVisible];
     
+    NSDictionary *sel_subject = [Utility objectForKey:Sel_Subject];
+    
+    if (sel_subject == nil) {
+        [self loadSelectTypeVc];
+    }else{
+        
+        [self loadTabbarVc];
+    }
     
     return YES;
 }
+
+
+
+
+-(void)loadTabbarVc{
+    self.customTabBar = [[CustomTabBar alloc] init];
+    self.window.rootViewController = self.customTabBar;
+    [self.window makeKeyAndVisible];
+
+}
+
+
+
+
+-(void)loadSelectTypeVc{
+    HostSelectedTypeViewController *vc = [[HostSelectedTypeViewController alloc] init];
+    [vc setHidesBottomBarWhenPushed:YES];
+    MyNavigationController *nav = [[MyNavigationController alloc] initWithRootViewController:vc];
+    WS(weakSelf);
+    vc.selectedBlock = ^{
+        [weakSelf loadTabbarVc];
+    };
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
+}
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

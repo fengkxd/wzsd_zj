@@ -20,6 +20,8 @@
 #import "BaseViewController.h"
 #import "NetworkManager.h"
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+Add.h"
 
 //#import "FeildView.h"
 //#import <UMMobClick/MobClick.h>
@@ -52,7 +54,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 
-#define WIFI_DOWNLOAD   @"WIFI_DOWNLOAD"
 #define WIFI_PLAY  @"WIFI_PLAY"
 #define MAX_PIC 1024
 
@@ -76,7 +77,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define SHOW_LOGIN       [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];return;
 
 #define ISVIP  @"ISVIP"
-#define CheckVIP      [[Utility getObjectForkey:ISVIP] integerValue]
+#define CheckVIP      [[Utility objectForKey:ISVIP] integerValue]
 
 
 #define CheckLogin      if (![Utility isLogined]) {SHOW_LOGIN;}
@@ -117,16 +118,26 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 
+
+
+#define Sel_Subject  @"Sel_Subject"
+#define Subject_Id   [[Utility objectForKey:Sel_Subject] objectForKey:@"id"]
+#define Subject_Dict @{@"subjects.id":Subject_Id}
+
+
+
+#define PageSize   @"6"
+
 // Block弱引用
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 
 #define KUID   @"KUID"
 
 
+
 #define WX_AppID    @"wx4dd4cc9ff2aacae4"
 #define MobApp_Key  @"1eb712976c0ec"
 #define MobApp_Secret  @"a467ece2cd8238c7888f41a0a72a18e8"
-
 
 
 #ifdef DEBUG

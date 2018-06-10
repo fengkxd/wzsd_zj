@@ -18,22 +18,19 @@
 {
     
     IBOutlet UITableViewCell *newscell;
-    
     UITextField *mytextField;
-    
     UIButton *typeBtn;
     
 }
 
-@property (nonatomic,assign) NSInteger selType;
-
-
+@property (nonatomic,strong) NSDictionary *subjectDict;
 @end
 
 @implementation HostViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self initTitleView];
      CGFloat bannerHeitght = 310 /750.0 * MainScreenWidth;
 
@@ -46,6 +43,7 @@
     [bannerView addSubview:imgView];
     
     
+
 }
 
 
@@ -53,42 +51,40 @@
 
     HostSelectedTypeViewController *vc = [[HostSelectedTypeViewController alloc] init];
     [vc setHidesBottomBarWhenPushed:YES];
-    NSArray *titles = @[@"一级建造师",@"二级建造师",@"一级消防工程师",@"二级消防工程师",@"造价工程师",@"安全工程师",@"监理工程师",@"建筑八大员",@"BIM",@"MBA"];
-    NSArray *imgNames = @[@"Host_type1.png",@"Host_type1.png",@"Host_type3.png",@"Host_type3.png",@"Host_type5.png",@"Host_type6.png",@"Host_type7.png",@"Host_type8.png",@"Host_type9.png",@"Host_type10.png"];
-    vc.titles = titles;
-    vc.imgNames = imgNames;
-    vc.selRow = self.selType;
-    
-    
     [self.navigationController pushViewController:vc animated:YES];
-    
+    __weak HostSelectedTypeViewController *blockVC = vc;
     WS(weakSelf);
-    vc.selectedBlock = ^(NSInteger row) {
-        weakSelf.selType = row;
-        [typeBtn setTitle:[titles objectAtIndex:row] forState:UIControlStateNormal];
-        [typeBtn setImage:[UIImage imageNamed:@"arrow_up.png"] forState:UIControlStateNormal];
-        [Utility changeImageTitleForBtn:typeBtn];
-
-        NSLog(@"%@",[titles objectAtIndex:row]);
+    vc.selectedBlock = ^(void) {
+        [weakSelf initTitleView];
+        [blockVC goBack:nil];
     };
 }
 
 -(void)initTitleView{
+    self.subjectDict = [Utility objectForKey:Sel_Subject];
+    
+    NSString *title = [self.subjectDict objectForKey:@"name"];
+    
+    CGSize size = CGSizeMake(320,2000); //设置一个行高上限
+    NSDictionary *attribute = @{NSFontAttributeName: Font_14};
+    CGFloat width = [title boundingRectWithSize:size options: NSStringDrawingTruncatesLastVisibleLine |NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size.width;
+
+
+    
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth , 44)];
     titleView.backgroundColor = [UIColor clearColor];
-    
     typeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    typeBtn.frame = CGRectMake(0, 6, 100, 32);
+    typeBtn.frame = CGRectMake(0, 6, width + 30, 32);
     typeBtn.titleLabel.font = Font_14;
     [typeBtn setImage:[UIImage imageNamed:@"arrow_up.png"] forState:UIControlStateNormal];
     [titleView addSubview:typeBtn];
     [typeBtn setBackgroundColor:[UIColor colorWithHexString:@"008ade"]];
-    [typeBtn setTitle:@"一级建造师" forState:UIControlStateNormal];
+    [typeBtn setTitle:[self.subjectDict objectForKey:@"name"] forState:UIControlStateNormal];
     [typeBtn addTarget:self action:@selector(selectedType:) forControlEvents:UIControlEventTouchUpInside];
     
     [Utility changeImageTitleForBtn:typeBtn];
     
-    UIView *mytextFieldBgView = [[UIView alloc] initWithFrame:CGRectMake(115, 5, MainScreenWidth - 115 - 25, 32)];
+    UIView *mytextFieldBgView = [[UIView alloc] initWithFrame:CGRectMake(typeBtn.frame.size.width + 15, 5, MainScreenWidth - typeBtn.frame.size.width - 40, 32)];
     mytextFieldBgView.backgroundColor = [UIColor whiteColor];
     mytextFieldBgView.layer.masksToBounds = YES;
     mytextFieldBgView.layer.cornerRadius = 4;
@@ -212,7 +208,7 @@
                         [btn setTitle:@"在线题库" forState:UIControlStateNormal];
                         break;
                     case 5:
-                        [btn setTitle:@"学院社区" forState:UIControlStateNormal];
+                        [btn setTitle:@"中教新闻" forState:UIControlStateNormal];
                         break;
                     case 6:
                         [btn setTitle:@"考试指南" forState:UIControlStateNormal];

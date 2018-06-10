@@ -27,9 +27,25 @@
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
     
-    
+    [self requestTesttitle];
 }
 
+-(void)requestTesttitle{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_testtitle_findGet];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:Subject_Dict relativePath:url
+                                                       success:^(id responseObject) {
+                                                           NSLog(@"%@",responseObject);
+                                                           
+                                                           
+                                                       } failure:^(NSString *errorMsg) {
+                                                           [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                                           [Toast showWithText:@"网络错误"];
+
+                                                       }];
+    
+    
+}
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;

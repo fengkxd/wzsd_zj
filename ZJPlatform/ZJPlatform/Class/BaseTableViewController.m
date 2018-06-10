@@ -84,7 +84,7 @@
 {
     UILabel *labelTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 210, 44)];
     labelTitle.text = title;
-    [labelTitle setFont:[UIFont fontWithName:@"STXihei" size:18]];
+    [labelTitle setFont:[UIFont fontWithName:@"SourceHanSansSC-Regular" size:18]];
     [labelTitle setTextColor:[UIColor whiteColor]];
     [labelTitle setTextAlignment:NSTextAlignmentCenter];
     [labelTitle setBackgroundColor:[UIColor clearColor]];

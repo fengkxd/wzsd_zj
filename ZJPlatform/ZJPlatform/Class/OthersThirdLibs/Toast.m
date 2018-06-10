@@ -47,7 +47,7 @@
         }
         text = [text_ copy];
         
-        UIFont *font = [UIFont fontWithName:@"STXihei" size:14];
+        UIFont *font = [UIFont fontWithName:@"SourceHanSansSC-Regular" size:14];
 //        CGSize textSize = [text sizeWithFont:font
 //                           constrainedToSize:CGSizeMake(280, MAXFLOAT)
 //                               lineBreakMode:NSLineBreakByCharWrapping];

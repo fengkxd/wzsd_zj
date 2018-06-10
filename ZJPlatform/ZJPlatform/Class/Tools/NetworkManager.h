@@ -16,12 +16,28 @@
 //static NSString *const  ProxyUrl                                 =   @"http://39.108.102.49:8007/longshihui/a";
 //static NSString *const  ShareProxy                               =   @"http://39.108.102.49:8007/longshihui";
 
-static NSString *const  ProxyUrl                                  =   @"https://www.szwzsd.com/api";
-static NSString *const  ShareProxy                                =   @"http://app.longqingshiyi.cn/longshihui";
+static NSString *const  ProxyUrl                                  =   @"http://admin.tect365.com.cn/api";
+static NSString *const  ImgProxyUrl                                =   @"http://admin.tect365.com.cn";
 
 
-//验证码发送
-static NSString *const  kRequest_Scaptcha_New                  =      @"/captcha/new";
+#pragma mark
+
+static NSString *const  kRequest_subjects_secondLevel          = @"/subjects/secondLevel";
+
+
+#pragma mark 考试指南
+//获得标题信息
+static NSString *const  kRequest_testtitle_findGet                       =      @"/testtitle/findGet";
+//标题子列表 testvalues/list
+static NSString *const  kRequest_testvalues_list                         =      @"/testvalues/list";
+//子列表详情信息 testvalues/get
+static NSString *const  kRequest_testvalues_get                          =      @"/testvalues/get";
+
+#pragma mark 中教名师
+//名师列表
+static NSString *const  kRequest_famousTeacher_queryList                  =      @"/famousTeacher/queryList";
+
+
 
 
 

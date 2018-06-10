@@ -122,17 +122,17 @@
             cell.textLabel.text = @"仅在WIFI模式下载";
             cell.accessoryType = UITableViewCellAccessoryNone;
        
-            if (mySwitch1 == nil) {
-                mySwitch1 =  [[UISwitch alloc] initWithFrame:CGRectMake(MainScreenWidth - 70, 4, 100, 28)];
-                [mySwitch1 addTarget:self action:@selector(updateSwitchAtIndexPath:) forControlEvents:UIControlEventValueChanged];
-                if ([Utility getObjectForkey:WIFI_DOWNLOAD] &&
-                    [[Utility getObjectForkey:WIFI_DOWNLOAD] boolValue] == NO){
-                    mySwitch1.on = NO;
-                }else{
-                    mySwitch1.on = YES;
-                }
-                [cell.contentView addSubview:mySwitch1];
-            }
+//            if (mySwitch1 == nil) {
+//                mySwitch1 =  [[UISwitch alloc] initWithFrame:CGRectMake(MainScreenWidth - 70, 4, 100, 28)];
+//                [mySwitch1 addTarget:self action:@selector(updateSwitchAtIndexPath:) forControlEvents:UIControlEventValueChanged];
+//                if ([Utility getObjectForkey:WIFI_DOWNLOAD] &&
+//                    [[Utility getObjectForkey:WIFI_DOWNLOAD] boolValue] == NO){
+//                    mySwitch1.on = NO;
+//                }else{
+//                    mySwitch1.on = YES;
+//                }
+//                [cell.contentView addSubview:mySwitch1];
+//            }
         }
     }else if(section == 1){
         cell.textLabel.text = @"仅在WIFI模式播放";
@@ -140,8 +140,8 @@
         if (mySwitch2 == nil) {
             mySwitch2 =  [[UISwitch alloc] initWithFrame:CGRectMake(MainScreenWidth - 70, 4, 100, 28)];
             [mySwitch2 addTarget:self action:@selector(updateSwitchAtIndexPath:) forControlEvents:UIControlEventValueChanged];
-            if ([Utility getObjectForkey:WIFI_PLAY] &&
-                [[Utility getObjectForkey:WIFI_PLAY] boolValue] == NO){
+            if ([Utility objectForKey:WIFI_PLAY] &&
+                [[Utility objectForKey:WIFI_PLAY] boolValue] == NO){
                 mySwitch2.on = NO;
             }else{
                 mySwitch2.on = YES;

@@ -9,15 +9,20 @@
 
 #import "TeacherDetailViewController.h"
 #import "TeacherVideoTableViewCell.h"
+#import <WebKit/WebKit.h>
 
-@interface TeacherDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface TeacherDetailViewController ()<UITableViewDataSource,UITableViewDelegate,WKNavigationDelegate>
 {
     UITableView *myTableView;
     UIView *sectionView;
     
     UIView *markView;
 }
+@property (nonatomic,strong) WKWebView *webView1;
+@property (nonatomic,strong) WKWebView *webView2;
 
+@property (nonatomic,assign) double webViewCellHeight1;
+@property (nonatomic,assign) double webViewCellHeight2;
 
 @property (nonatomic,assign) UIButton *selectedBtn;
 // 0:名师资料 1: 名师成就   2: 名师课堂
@@ -42,7 +47,7 @@
     myTableView.tableHeaderView = headImgView;
     
     
-    
+    [self setTitleView:[self.teachDict objectForKey:@"name"]];
     
 }
 
@@ -111,60 +116,42 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger type = self.selectedBtn.tag;
-    NSInteger row = indexPath.row;
+
     if (type == 0) {
         NSString *cellId = @"cell0";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
             
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 20, 0.5, 14)];
-            view.backgroundColor = MainBlueColor;
-            [cell.contentView addSubview:view];
+            NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+            WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+            WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+            [wkUController addUserScript:wkUScript];
+
+            WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
+            wkWebConfig.userContentController = wkUController;
+            self.webView1 = [[WKWebView alloc] initWithFrame:CGRectMake(10, 10, MainScreenWidth - 20, MainScreenheight - 64 - 45 - 240 /750.0 * MainScreenWidth) configuration:wkWebConfig];
+            NSString *request =  [Utility htmlEntityDecode:[self.teachDict objectForKey:@"description"]];
+
+            // 加载网页
+            [self.webView1 loadHTMLString:request baseURL:nil];
+            self.webView1.scrollView.scrollEnabled = NO;
+            self.webView1.scrollView.bounces = NO;
+            self.webView1.scrollView.showsVerticalScrollIndicator = NO;
+            self.webView1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+            self.webView1.navigationDelegate = self;
+
+            [cell.contentView addSubview:self.webView1];
             
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(17, 0, 150, 54)];
-            label.font = Font_14;
-            label.textColor = MainBlueColor;
-            [cell.contentView addSubview:label];
-            label.tag =  11;
-            
-            
-            UILabel *detailLabel =[[UILabel alloc] initWithFrame:CGRectMake(10, 45, MainScreenWidth - 20, 20)];
-            detailLabel.tag = 22;
-            detailLabel.font = Font_12;
-            [detailLabel setTextColor:[UIColor colorWithHexString:@"656565"]];
-            [cell.contentView addSubview:detailLabel];
-            detailLabel.numberOfLines = 0;
-            
+//            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, MainScreenWidth - 20, MainScreenheight - 64 - 45 - 240 /750.0 * MainScreenWidth)];
+//            label.numberOfLines = 0;
+//            label.text = [Utility htmlEntityDecode:[self.teachDict objectForKey:@"description"]];
+//            [cell.contentView addSubview:label];
+//
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        UILabel *label = (UILabel *)[cell.contentView viewWithTag:11];
-        if (row == 0) {
-            label.text = @"名师简介";
-        }else if(row == 1){
-            label.text = @"教学特点";
-        }else if(row == 2){
-            label.text = @"教学理念";
-        }
 
-        
-        UILabel *detailLabel = (UILabel *)[cell.contentView viewWithTag:22];
-        NSString *text ;
-        if (row == 0) {
-            text = @"rfrewgerg而归而两个空间儿科感觉而干净了金融控股乐基儿老顾客金额利润高科技了惹我个人个人过";
-        }else if(row == 1){
-            text = @"我如果热火个人他会让他今天荣誉军人他已经有人调侃如同一颗容易推开人痛苦他也加入太阳镜儿童婴儿";
-        }else if(row == 2){
-            text = @"我如果热火个人他会让他如果芦荟胶客人管理计划未来科技果然好了剋为家人活过来看我和人刚看了就喝了五块如果哈伦裤饿我好人更快乐婴儿";
-        }
-        
-        
-        detailLabel.text = text;
-        detailLabel.frame = CGRectMake(10, 45, MainScreenWidth - 20, [Utility getSpaceLabelHeight:text withFont:Font_12 withWidth:MainScreenWidth - 20 ] + 5);
-        
-        [Utility setLabelSpace:detailLabel withValue:text withFont:Font_12];
-        
         return cell;
         
 
@@ -182,98 +169,89 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
+            NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+            WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+            WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+            [wkUController addUserScript:wkUScript];
             
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 20, 0.5, 14)];
-            view.backgroundColor = MainBlueColor;
-            [cell.contentView addSubview:view];
+            WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
+            wkWebConfig.userContentController = wkUController;
+            self.webView2 = [[WKWebView alloc] initWithFrame:CGRectMake(10, 10, MainScreenWidth - 20, MainScreenheight - 64 - 45 - 240 /750.0 * MainScreenWidth) configuration:wkWebConfig];
+            NSString *request =  [Utility htmlEntityDecode:[self.teachDict objectForKey:@"honour"]];
             
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(17, 0, 150, 54)];
-            label.font = Font_14;
-            label.textColor = MainBlueColor;
-            [cell.contentView addSubview:label];
-            label.tag =  11;
+            // 加载网页
+            [self.webView2 loadHTMLString:request baseURL:nil];
+            self.webView2.scrollView.scrollEnabled = NO;
+            self.webView2.scrollView.bounces = NO;
+            self.webView2.scrollView.showsVerticalScrollIndicator = NO;
+            self.webView2.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+            self.webView2.navigationDelegate = self;
             
+            [cell.contentView addSubview:self.webView2];
+            
+            cell.accessoryType = UITableViewCellAccessoryNone;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
-        
-        NSArray *arr1 = @[@"19921323",@"wejkw君威科教文软连接 ",@"wejkw君威科教文科教文软连接科教文软连接 科教文软连接 科教文软连接 软连接 "];
-         NSArray *arr2 = @[@"科教",@"wejkw君威科教文软连接 ",@"wejkw君威科教文科教文软连接科教文软连接 科教文软连接 科教文软连接 软连接 "];
-         NSArray *arr3 = @[@"君威科教文科教文软连接科教文软",@"君威科教文科教文软连接科教文软文软连接"];
-        
-        NSArray *arr = @[arr1,arr2,arr3];
-        
-        UILabel *label = (UILabel *)[cell.contentView viewWithTag:11];
-        if (row == 0) {
-            label.text = @"经历背景";
-        }else if(row == 1){
-            label.text = @"出版著作";
-        }else if(row == 2){
-            label.text = @"荣誉头衔";
-        }
-        
-        
-        CGFloat y = 50;
-        for (NSInteger i = 0; i < [[arr objectAtIndex:row] count]; i++) {
-            //●
-            UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(10, y - 5, 15, 22)];
-            label2.textColor = MainBlueColor;
-            label2.font = Font_15;
-            label2.text = @"･";
-            [cell.contentView addSubview:label2];
-            
-            UILabel *label3 = [[UILabel alloc] init];
-            label3.text = [[arr objectAtIndex:row] objectAtIndex: i];
-            label3.font = Font_12;
-            label3.numberOfLines = 0;
-            label3.textColor = [UIColor colorWithHexString:@"666666"];
-            CGFloat height = [Utility getSpaceLabelHeight:label3.text withFont:Font_12 withWidth:MainScreenWidth - 25 - 15];
-            label3.frame = CGRectMake(25, y, MainScreenWidth - 25 - 15, height);
-            [cell.contentView addSubview:label3];
-            [Utility setLabelSpace:label3 withValue:label3.text withFont:Font_12];
-            y =  y + height + 2;
-        }
-
         
         return cell;
     }
 }
 
+
+#pragma mark - WKNavigationDelegate
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    if (webView == self.webView1) {
+        [webView evaluateJavaScript:@"document.body.offsetHeight" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+            // 计算webView高度
+            self.webViewCellHeight1 = [result doubleValue] + 20;
+            // 刷新tableView
+            [self->myTableView reloadData];
+        }];
+
+    }else{
+        if (webView == self.webView2) {
+            [webView evaluateJavaScript:@"document.body.offsetHeight" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+                // 计算webView高度
+                self.webViewCellHeight2 = [result doubleValue] + 20;
+                // 刷新tableView
+                [self->myTableView reloadData];
+            }];
+            
+        }
+
+    }
+}
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // 判断webView所在的cell是否可见，如果可见就layout
+    if (scrollView == self.webView1.scrollView) {
+        [self.webView1 setNeedsLayout];
+
+    }else{
+        [self.webView2 setNeedsLayout];
+
+    }
+
+}
+
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (self.selectedBtn.tag < 2) {
+        return 1;
+    }
     return 3;
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger row = indexPath.row;
-    if (self.selectedBtn.tag == 0) {
-        NSString *text ;
-        if (row == 0) {
-            text = @"rfrewgerg而归而两个空间儿科感觉而干净了金融控股乐基儿老顾客金额利润高科技了惹我个人个人过";
-        }else if(row == 1){
-            text = @"我如果热火个人他会让他今天荣誉军人他已经有人调侃如同一颗容易推开人痛苦他也加入太阳镜儿童婴儿";
-        }else if(row == 2){
-            text = @"我如果热火个人他会让他如果芦荟胶客人管理计划未来科技果然好了剋为家人活过来看我和人刚看了就喝了五块如果哈伦裤饿我好人更快乐婴儿";
-        }
-        return  [Utility getSpaceLabelHeight:text withFont:Font_12 withWidth:MainScreenWidth - 20] + 68 + 5;
-
-    }else if(self.selectedBtn.tag == 1){
-        NSString *text ;
-        NSArray *arr1 = @[@"19921323",@"wejkw君威科教文软连接 ",@"wejkw君威科教文科教文软连接科教文软连接 科教文软连接 科教文软连接 软连接 "];
-        NSArray *arr2 = @[@"科教",@"wejkw君威科教文软连接 ",@"wejkw君威科教文科教文软连接科教文软连接 科教文软连接 科教文软连接 软连接 "];
-        NSArray *arr3 = @[@"君威科教文科教文软连接科教文软",@"君威科教文科教文软连接科教文软文软连接"];
-        
-        NSArray *arr = @[arr1,arr2,arr3];
-        CGFloat y = 50;
-        for (NSInteger i = 0; i < [[arr objectAtIndex:row] count]; i++) {
-            text = [[arr objectAtIndex:row] objectAtIndex: i];
-            CGFloat height = [Utility getSpaceLabelHeight:text withFont:Font_12 withWidth:MainScreenWidth - 25 - 15];
-            y =  y + height + 2;
-        }
-
-        return  y + 15;
-
-    }
+     if (self.selectedBtn.tag == 0) {
+//        return MainScreenheight - 64 - 45 - 240 /750.0 * MainScreenWidth;
+         return self.webViewCellHeight1;
+     }else if(self.selectedBtn.tag == 1){
+//        return MainScreenheight - 64 - 45 - 240 /750.0 * MainScreenWidth;
+         return self.webViewCellHeight2;
+     }
     
     
     return 92;

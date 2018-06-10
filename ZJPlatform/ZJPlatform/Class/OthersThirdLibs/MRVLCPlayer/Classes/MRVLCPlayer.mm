@@ -347,7 +347,7 @@ static const NSTimeInterval kVideoPlayerAnimationTimeinterval = 0.3f;
     [self.controlView.timeLabel setText:[NSString stringWithFormat:@"%@/%@",_player.time.stringValue,kMediaLength.stringValue]];
     WS(weakSelf);
     
-    if ([[Utility getObjectForkey:WIFI_PLAY] boolValue]) {
+    if ([[Utility objectForKey:WIFI_PLAY] boolValue]) {
         AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
         [manager startMonitoring];
         [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {

@@ -69,11 +69,14 @@ static NSMutableDictionary *taskDict;
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     
     
-    session.requestSerializer = [AFJSONRequestSerializer serializer];
+
+    session.requestSerializer = [AFHTTPRequestSerializer serializer];
     session.requestSerializer.timeoutInterval = 15;
+//    [session.requestSerializer setValue:@"text/html;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [session.requestSerializer setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-    
+    session.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    session.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+
     
     if ([method isEqualToString:@"GET"]){   //  GET 方式
         NSURLSessionTask *task = [session GET:url parameters:bodyDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -86,7 +89,11 @@ static NSMutableDictionary *taskDict;
                 if ([responseObject isKindOfClass:[NSData class]]) {
                     id jsonObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                     if ([jsonObject isKindOfClass:[NSDictionary class]]) {
-                        success(jsonObject);
+                        if ([jsonObject objectForKey:@"data"]) {
+                            success([jsonObject objectForKey:@"data"]);
+                        }else{
+                            failure(nil);
+                        }
                     }
                 }else{
                     if ([responseObject isKindOfClass:[NSDictionary class]]) {
@@ -249,11 +256,11 @@ static NSMutableDictionary *taskDict;
 }
 
 
--(void)refreshAccessToken:(void (^)())success
-                  failure:(void (^)())failure{
-    if([Utility isNotBlank:[Utility getObjectForkey:USERNAME]] &&
-             [Utility isNotBlank:[Utility getObjectForkey:PASSWORD]]){
-        NSDictionary *dict = @{@"data":@{@"userName":[Utility getObjectForkey:USERNAME],@"password":[Utility getObjectForkey:PASSWORD]}};
+-(void)refreshAccessToken:(void (^)(void))success
+                  failure:(void (^)(void))failure{
+    if([Utility isNotBlank:[Utility objectForKey:USERNAME]] &&
+             [Utility isNotBlank:[Utility objectForKey:PASSWORD]]){
+        NSDictionary *dict = @{@"data":@{@"userName":[Utility objectForKey:USERNAME],@"password":[Utility objectForKey:PASSWORD]}};
         NSString *url = [NSString stringWithFormat:@"%@",ProxyUrl];
         [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
                                                      headParameter:nil
@@ -268,11 +275,11 @@ static NSMutableDictionary *taskDict;
                                                       } failure:^(NSString *errorMsg) {
                                                           failure();
                                                       }];
-    }else if([Utility isNotBlank:[Utility getObjectForkey:DeriverID]]){
+    }else if([Utility isNotBlank:[Utility objectForKey:DeriverID]]){
         
         
-        NSString *url = [NSString stringWithFormat:@"%@%",ProxyUrl];
-        NSDictionary *dict = @{@"data":@{@"iosDeriverId":[Utility getObjectForkey:DeriverID]}};
+        NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,ProxyUrl];
+        NSDictionary *dict = @{@"data":@{@"iosDeriverId":[Utility objectForKey:DeriverID]}};
         [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
                             headParameter:nil
                             bodyParameter:dict
