@@ -15,9 +15,10 @@
 
 
 
--(instancetype)initWithFrame:(CGRect)frame WithTitle:(NSArray *)array;
+-(instancetype)initWithFrame:(CGRect)frame WithArray:(NSArray *)array;
 
+@property (nonatomic,strong) NSArray *dicts;
 
-@property (copy) void (^selectedBlock)(NSInteger row);
+@property (copy) void (^selectedBlock)(NSDictionary *dict);
 @property (nonatomic,strong) UIButton *selectedBtn;
 @end

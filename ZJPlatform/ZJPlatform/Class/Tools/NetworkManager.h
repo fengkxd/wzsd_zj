@@ -24,6 +24,9 @@ static NSString *const  ImgProxyUrl                                =   @"http://
 
 static NSString *const  kRequest_subjects_secondLevel          = @"/subjects/secondLevel";
 
+static NSString *const  kRequest_video_list                    = @"/course/list";
+
+
 
 #pragma mark 考试指南
 //获得标题信息
@@ -38,9 +41,10 @@ static NSString *const  kRequest_testvalues_get                          =      
 static NSString *const  kRequest_famousTeacher_queryList                  =      @"/famousTeacher/queryList";
 
 
+static NSString *const  kRequest_sysDict_list                  =      @"/sysDict/list";
 
-
-
+static NSString *const  kRequest_newsInformation_list          =      @"/newsInformation/list";
+static NSString *const  kRequest_newsInformation_get           =      @"/newsInformation/get";
 
 
 @interface NSString (URL)

@@ -9,12 +9,18 @@
 #import "SelCourseViewController.h"
 #import "SelCourseTableViewCell.h"
 #import "SelCourseDetailViewController.h"
+#import "MJRefresh.h"
 
 @interface SelCourseViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     
     UITableView *myTbaleView;
 }
+@property (nonatomic,strong) NSMutableArray *videoList;
+@property (nonatomic,assign) NSInteger pageNo;
+@property (nonatomic,assign) NSInteger pageSize;
+
+
 @end
 
 @implementation SelCourseViewController
@@ -23,14 +29,38 @@
     [super viewDidLoad];
     [self setTitleView:@"在线选课"];
     [self initHeaderView];
-    
+    self.pageNo = 0;
+    self.pageSize = 6;
     
     myTbaleView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, MainScreenWidth, MainScreenheight - 64 - 45 - 49) style:UITableViewStylePlain];
     myTbaleView.delegate = self;
     myTbaleView.dataSource = self;
     [self.view addSubview:myTbaleView];
     myTbaleView.tableFooterView = [[UIView alloc] init];
+    
+    [self requestCourseList];
+    WS(weakSelf);
+    [myTbaleView addLegendFooterWithRefreshingBlock:^{
+        weakSelf.pageNo++;
+        [weakSelf requestCourseList];
+    }];
+
 }
+
+-(void)requestCourseList{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_video_list];
+    NSDictionary *dict =  @{@"pageNo":[NSNumber numberWithInteger:self.pageNo],@"pageSize":PageSize,@"subjects.id":Subject_Id,@"questionType":@"2",@"hotRecommend":@"2"};
+
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"选课：%@",responseObject);
+    } failure:^(NSString *errorMsg) {
+        
+    }];
+    
+    
+}
+
+
 
 -(void)initHeaderView{
     CGFloat width = MainScreenWidth / 3.0;

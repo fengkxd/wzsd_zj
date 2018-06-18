@@ -7,19 +7,14 @@
 //
 
 #import "PreparationInformationTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @implementation PreparationInformationTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    btn.layer.masksToBounds = YES;
-    btn.layer.cornerRadius = 2;
-    btn.layer.borderColor = [UIColor colorWithHexString:@"00a9ff"].CGColor;
-    btn.layer.borderWidth = 0.5;
-    
-    if (timeLabel.text.length) {
-        [UILabel changeLineSpaceForLabel:timeLabel WithSpace:7];
-    }
+
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -27,5 +22,14 @@
 
     // Configure the view for the selected state
 }
+
+-(void)loadInfo:(NSDictionary *)dict{
+    titleLabel.text = [dict objectForKey:@"title"];
+    timeLabel.text = [dict objectForKey:@"addTime"];
+    [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgProxyUrl,[dict objectForKey:@"cover"]]]];
+    [UILabel changeLineSpaceForLabel:titleLabel WithSpace:7];
+
+}
+
 
 @end

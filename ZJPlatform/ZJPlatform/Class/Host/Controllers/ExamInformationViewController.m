@@ -52,8 +52,8 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    HostInformationView *view = [[HostInformationView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, 45) WithTitle:@[@"工程经济",@"项目管理",@"工程法规",@"建筑实务",@"建筑实务"]];
-    return view;
+//    HostInformationView *view = [[HostInformationView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, 45) WithTitle:@[@"工程经济",@"项目管理",@"工程法规",@"建筑实务",@"建筑实务"]];
+    return nil;
 }
 
 

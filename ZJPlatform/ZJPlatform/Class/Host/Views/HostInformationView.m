@@ -15,10 +15,11 @@
 
 
 
--(instancetype)initWithFrame:(CGRect)frame WithTitle:(NSArray *)array{
+-(instancetype)initWithFrame:(CGRect)frame WithArray:(NSArray *)array{
 
     self = [super initWithFrame:frame];
     if (self) {
+        _dicts = [NSArray arrayWithArray:array];
         UIView *bgView = [[UIView alloc] initWithFrame:frame];
         bgView.backgroundColor = [UIColor whiteColor];
         [self addSubview:bgView];
@@ -34,7 +35,7 @@
         CGFloat x = 10;
         for (int i = 0; i < [array count] ; i++) {
             
-            NSString *name = [array objectAtIndex:i];
+            NSString *name = [[array objectAtIndex:i] objectForKey:@"label"];
             CGSize size =[name sizeWithAttributes:@{NSFontAttributeName:Font_13}];
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.frame = CGRectMake(x, 0, size.width + 10, frame.size.height);
@@ -60,7 +61,6 @@
     
         markView = [[UIView alloc] initWithFrame:CGRectZero];
         markView.backgroundColor = [UIColor colorWithHexString:@"00a9ff"];
-        markView.tag = 11;
         markView.frame = CGRectMake(self.selectedBtn.frame.origin.x + self.selectedBtn.frame.size.width/2.0 - 14, 43.5, 28, 1.5);
         [scrollView addSubview:markView];
         
@@ -72,9 +72,7 @@
     self.selectedBtn.selected = NO;
     self.selectedBtn = btn;
     self.selectedBtn.selected = YES;
-
     markView.frame = CGRectMake(self.selectedBtn.frame.origin.x + self.selectedBtn.frame.size.width/2.0 - 14, 43.5, 28, 1.5);
-
-
+    self.selectedBlock([self.dicts objectAtIndex:btn.tag]);
 }
 @end
