@@ -7,13 +7,12 @@
 //
 
 #import "SelCourseDetailViewController.h"
-#import "MRVLCPlayer.h"
 #import "SelCourseCommentTableViewCell.h"
 
 
 @interface SelCourseDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    MRVLCPlayer *player;
+//    MRVLCPlayer *player;
     CGFloat videoHeight;
 
     UITableView *myTableView;
@@ -45,35 +44,35 @@
 
 -(void)initPlayer{
   
-    videoHeight = 520 /750.0 * MainScreenWidth;
-
-    if (player) {
-        [player stopPlay];
-        [player removeFromSuperview];
-        player =  nil;
-    }
-    player = [[MRVLCPlayer alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, videoHeight)];
-    player.controlView.moreButton.selected = YES;
-   
-
- 
-    player.mediaURL =  [NSURL URLWithString:@""];
-    player.tag = 22;
-    [player showInView:self.view];
-    WS(weakSelf);
-    player.dismissBlock = ^{
-        [weakSelf stopPlayer];
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-        [weakSelf.navigationController popViewControllerAnimated:YES];
-    };
-    
-    player.moreBlock = ^{
-        [weakSelf showActionSheet];
-    };
-    
-    player.updateWatchNumBlock = ^{
-        [weakSelf updateWatchNum];
-    };
+//    videoHeight = 520 /750.0 * MainScreenWidth;
+//
+//    if (player) {
+//        [player stopPlay];
+//        [player removeFromSuperview];
+//        player =  nil;
+//    }
+//    player = [[MRVLCPlayer alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, videoHeight)];
+//    player.controlView.moreButton.selected = YES;
+//
+//
+//
+//    player.mediaURL =  [NSURL URLWithString:@""];
+//    player.tag = 22;
+//    [player showInView:self.view];
+//    WS(weakSelf);
+//    player.dismissBlock = ^{
+//        [weakSelf stopPlayer];
+//        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+//        [weakSelf.navigationController popViewControllerAnimated:YES];
+//    };
+//
+//    player.moreBlock = ^{
+//        [weakSelf showActionSheet];
+//    };
+//
+//    player.updateWatchNumBlock = ^{
+//        [weakSelf updateWatchNum];
+//    };
     
     
 }
@@ -136,7 +135,7 @@
 
 
 -(void)stopPlayer{
-    [player stopPlay];
+   // [player stopPlay];
 }
 
 - (void)viewDidLoad {
