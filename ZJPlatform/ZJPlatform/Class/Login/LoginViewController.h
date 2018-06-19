@@ -35,6 +35,9 @@
     IBOutlet UIView *loginView;
     IBOutlet UIView *registerView;
     
+    
+    IBOutlet UITextField *accountTextField;
+    IBOutlet UITextField *pwdtextField;
 }
 
 

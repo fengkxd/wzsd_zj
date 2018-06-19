@@ -26,8 +26,9 @@
 
     self.navigationBar.translucent = NO;
     
-    
-    self.HiddenBarViewControllers = @[@"MineCenterViewController",@"SelCourseDetailViewController"];
+    self.HiddenBarViewControllers = @[@"MineCenterViewController"];
+
+//    self.HiddenBarViewControllers = @[@"MineCenterViewController",@"SelCourseDetailViewController"];
 //    self.AutorotateViewControllers = [NSArray arrayWithObjects:@"BankHomeViewController",nil];
 
 }

@@ -168,7 +168,33 @@
 }
 
 
+-(IBAction)login{
+    accountTextField.text = @"18814493346";
+    pwdtextField.text = @"123456";
+    
+    if ([Utility isBlank:accountTextField.text] || [Utility isBlank:pwdtextField.text]) {
+        [Toast showWithText:@"请输入正确信息"];
+        return;
+    }
+    
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_signin];
+    WS(weakSelf);
+    NSDictionary *dict = @{@"account":accountTextField.text,@"password":[[Utility md5:pwdtextField.text] lowercaseString]};
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
 
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_LOGIN_SUCCESS object:nil];
+        [weakSelf goBack:nil];
+    } failure:^(NSString *errorMsg) {
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+        if (errorMsg == nil) {
+            [Toast showWithText:@"网络错误"];
+        }
+    }];
+    
+}
 
 
 -(IBAction)clickBtn:(id)sender{

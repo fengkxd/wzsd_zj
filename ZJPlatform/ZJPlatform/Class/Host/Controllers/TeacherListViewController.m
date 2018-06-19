@@ -30,6 +30,7 @@
     [self setTitleView:@"中教名师"];
     [self createBackBtn];
     self.pageNo = 0;
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self queryList];
 
@@ -55,15 +56,20 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [weakSelf loadTeachResult:responseObject];
     } failure:^(NSString *errorMsg) {
+        [weakSelf.tableView.footer endRefreshing];
+        [weakSelf.tableView.header endRefreshing];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [Toast showWithText:@"网络错误"];
+        if (errorMsg == nil) {
+            [Toast showWithText:@"网络错误"];
+
+        }
     }];
 }
 
 -(void)loadTeachResult:(NSDictionary *)dict{
     [self.tableView.footer endRefreshing];
     [self.tableView.header endRefreshing];
-    if ([[dict objectForKey:@"maxResults"] integerValue] < [PageSize integerValue]) {
+    if ([[dict objectForKey:@"lastPage"] integerValue] < [PageSize integerValue]) {
         self.tableView.footer.hidden = YES;
     }else{
         self.tableView.footer.hidden = NO;

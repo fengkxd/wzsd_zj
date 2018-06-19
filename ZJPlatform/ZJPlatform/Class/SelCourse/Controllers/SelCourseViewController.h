@@ -10,4 +10,6 @@
 
 @interface SelCourseViewController : BaseViewController
 
+@property (nonatomic,strong) NSString *questionType;
+
 @end

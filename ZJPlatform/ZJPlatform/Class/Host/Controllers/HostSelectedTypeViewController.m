@@ -31,7 +31,7 @@
     //最小两行之间的间距
     layout.minimumLineSpacing = 5;
     
-    myCollectionView =[[UICollectionView alloc]initWithFrame:CGRectMake(0, 00, MainScreenWidth, MainScreenheight  - 64) collectionViewLayout:layout];
+    myCollectionView =[[UICollectionView alloc]initWithFrame:CGRectMake(0, 00, MainScreenWidth, MainScreenheight  - 44 - kStatusBarHeight) collectionViewLayout:layout];
     myCollectionView.backgroundColor=BgColor;
     myCollectionView.delegate=self;
     myCollectionView.dataSource=self;
@@ -58,7 +58,10 @@
         [weakSelf loadList:responseObject];
     } failure:^(NSString *errorMsg) {
         [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication] keyWindow] animated:YES];
-        [Toast showWithText:@"网络错误"];
+        if (errorMsg == nil) {
+            [Toast showWithText:@"网络错误"];
+        }
+        
     }];
 }
 

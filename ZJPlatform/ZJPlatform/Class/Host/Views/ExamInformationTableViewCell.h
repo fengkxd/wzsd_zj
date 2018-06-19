@@ -15,6 +15,8 @@
     IBOutlet UIButton *btn;
     
     IBOutlet UILabel *timeLabel;
-    
 }
+
+-(void)loadInfo:(NSDictionary *)dict;
+
 @end

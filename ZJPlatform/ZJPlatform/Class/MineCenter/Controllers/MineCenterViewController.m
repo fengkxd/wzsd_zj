@@ -13,8 +13,13 @@
 @interface MineCenterViewController ()
 {
     BOOL firstLoad;
+    
+    MineCenterHeaderView *headerView;
 }
+@property (nonatomic,strong) NSDictionary *memberInfoDict;
+
 @end
+
 
 @implementation MineCenterViewController
 
@@ -42,8 +47,11 @@
  
     firstLoad = NO;
     self.tableView.contentOffset = CGPointMake(0, -20);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kNotification_LOGIN_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNotification_UPDATE_SUBJECT object:nil];
+
     
-    MineCenterHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"MineCenterHeaderView" owner:self options:nil] lastObject];
+     headerView = [[[NSBundle mainBundle] loadNibNamed:@"MineCenterHeaderView" owner:self options:nil] lastObject];
     self.tableView.tableHeaderView = headerView;
     headerView.sourceView.hidden = YES;
     headerView.nameLabel.hidden = YES;
@@ -64,6 +72,10 @@
     
 }
 
+-(void)reloadData{
+    [self.tableView reloadData];
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (firstLoad == NO) {
@@ -72,11 +84,37 @@
     }
 }
 
+-(void)loginSuccess{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_member_getMemberMessage];
+    WS(weakSelf);
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:nil relativePath:url
+                                                       success:^(id responseObject) {
+                                                           NSLog(@"%@",responseObject);
+                                                           [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+                                                           [weakSelf loadMemberInfo:responseObject];
+                                                       } failure:^(NSString *errorMsg) {
 
+                                                           [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+                                                           if (errorMsg == nil) {
+                                                               [Toast showWithText:@"网络错误"];
+                                                               
+                                                           }
+                                                       }];
+    
+}
+
+
+-(void)loadMemberInfo:(NSDictionary *)dict{
+    self.memberInfoDict = [NSDictionary dictionaryWithDictionary:dict];
+    [headerView loadInfo:self.memberInfoDict];
+    [self.tableView reloadData];
+    
+}
 
 
 -(void)clickItem:(UIButton *)btn{
-    NSArray *vcs =@[@"ExamInformationViewController",@"MyCourseTableViewController",@"CouponTableViewController",@"TeacherListViewController"];
+    NSArray *vcs =@[@"ExamInformationViewController",@"MyCourseTableViewController",@"CouponTableViewController"];
     
     BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:btn.tag]) alloc] init];
     [vc setHidesBottomBarWhenPushed:YES];
@@ -124,10 +162,10 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellid];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            CGFloat width =  MainScreenWidth /4.0;
+            CGFloat width =  MainScreenWidth /3.0;
             CGFloat h = 80;
-            for (NSInteger i = 0; i < 4; i ++ ) {
-                NSInteger column = i % 4;
+            for (NSInteger i = 0; i < 3; i ++ ) {
+                NSInteger column = i % 3;
                 UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
                 btn.frame = CGRectMake(column * width, row * h, width, h);
                 btn.tag = i;
@@ -142,9 +180,7 @@
                     case 2:
                         [btn setTitle:@"优惠券" forState:UIControlStateNormal];
                         break;
-                    case 3:
-                        [btn setTitle:@"积分" forState:UIControlStateNormal];
-                        break;
+    
                     default:
                         break;
                 }
@@ -168,9 +204,23 @@
             cell.textLabel.font = Font_14;
             cell.textLabel.textColor = [UIColor colorWithHexString:@"333333"];
         }
+        cell.detailTextLabel.attributedText = nil;
         if (section == 1) {
             if (row == 0) {
-                 cell.textLabel.text = @"当前考试：一级建造师";
+                NSLog(@"%@",[Utility objectForKey:Sel_Subject]);
+                cell.textLabel.text =  [NSString stringWithFormat:@"当前考试：%@",[[Utility objectForKey:Sel_Subject] objectForKey:@"name"]];
+                if (self.memberInfoDict) {
+                    NSString *str = [NSString stringWithFormat:@"您在网校的%zi天",[[self.memberInfoDict objectForKey:@"loginNum"] integerValue]];
+                    NSMutableAttributedString *mutableAttributeStr = [[NSMutableAttributedString alloc] initWithString:str];
+                    [mutableAttributeStr addAttribute:NSFontAttributeName
+                                                value:Font_13
+                                          range:NSMakeRange(0, str.length)];
+                    [mutableAttributeStr addAttribute:NSForegroundColorAttributeName
+                                          value:[UIColor colorWithHexString:@"01a9fc"]
+                                          range:[str rangeOfString:[NSString stringWithFormat:@"%zi",[[self.memberInfoDict objectForKey:@"loginNum"] integerValue]]]];
+                    cell.detailTextLabel.attributedText = mutableAttributeStr;                    
+                }
+               
             }else if(row == 1){
                 cell.textLabel.text = @"学习时间统计";
             }else if(row == 2){
@@ -178,16 +228,9 @@
             }else if(row == 3){
                 cell.textLabel.text = @"我的收藏";
             }else if(row == 4){
-                cell.textLabel.text = @"我的社区";
-            }else if(row == 5){
-                cell.textLabel.text = @"我的分享";
-            }
-        }else{
-            if (row == 0) {
-                cell.textLabel.text = @"客服中心";
-            }else if(row == 1){
                 cell.textLabel.text = @"意见反馈";
             }
+            
         }
         
         
@@ -235,16 +278,14 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         return 1;
-    }else if(section == 1){
-        return 6;
     }
-    return 2;
-}
+    return 5;
+ }
 
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 2;
 }
 
 

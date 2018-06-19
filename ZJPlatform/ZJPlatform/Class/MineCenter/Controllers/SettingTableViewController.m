@@ -11,8 +11,7 @@
 @interface SettingTableViewController ()
 {
     
-    UISwitch *mySwitch1;
-    UISwitch *mySwitch2;
+    UISwitch *mySwitch;
 
 }
 @end
@@ -60,16 +59,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 2;
-    }else if(section == 1){
+    if(section == 0){
         return 1;
     }else{
-        return 6;
+        return 5;
     }
 }
 
@@ -115,38 +112,19 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     
-    if (section == 0) {
-        if (row == 0) {
-            cell.textLabel.text = @"已下载";
-        }else{
-            cell.textLabel.text = @"仅在WIFI模式下载";
-            cell.accessoryType = UITableViewCellAccessoryNone;
-       
-//            if (mySwitch1 == nil) {
-//                mySwitch1 =  [[UISwitch alloc] initWithFrame:CGRectMake(MainScreenWidth - 70, 4, 100, 28)];
-//                [mySwitch1 addTarget:self action:@selector(updateSwitchAtIndexPath:) forControlEvents:UIControlEventValueChanged];
-//                if ([Utility getObjectForkey:WIFI_DOWNLOAD] &&
-//                    [[Utility getObjectForkey:WIFI_DOWNLOAD] boolValue] == NO){
-//                    mySwitch1.on = NO;
-//                }else{
-//                    mySwitch1.on = YES;
-//                }
-//                [cell.contentView addSubview:mySwitch1];
-//            }
-        }
-    }else if(section == 1){
+    if(section == 0){
         cell.textLabel.text = @"仅在WIFI模式播放";
         cell.accessoryType = UITableViewCellAccessoryNone;
-        if (mySwitch2 == nil) {
-            mySwitch2 =  [[UISwitch alloc] initWithFrame:CGRectMake(MainScreenWidth - 70, 4, 100, 28)];
-            [mySwitch2 addTarget:self action:@selector(updateSwitchAtIndexPath:) forControlEvents:UIControlEventValueChanged];
+        if (mySwitch == nil) {
+            mySwitch =  [[UISwitch alloc] initWithFrame:CGRectMake(MainScreenWidth - 70, 4, 100, 28)];
+            [mySwitch addTarget:self action:@selector(updateSwitchAtIndexPath:) forControlEvents:UIControlEventValueChanged];
             if ([Utility objectForKey:WIFI_PLAY] &&
                 [[Utility objectForKey:WIFI_PLAY] boolValue] == NO){
-                mySwitch2.on = NO;
+                mySwitch.on = NO;
             }else{
-                mySwitch2.on = YES;
+                mySwitch.on = YES;
             }
-            [cell.contentView addSubview:mySwitch2];
+            [cell.contentView addSubview:mySwitch];
         }
 
     }else{
@@ -160,8 +138,6 @@
             cell.textLabel.text = @"给个好评";
         }else if(row == 4){
             cell.textLabel.text = @"清除缓存";
-        }else if(row == 5){
-            cell.textLabel.text = @"清除出书";
         }
         
     }

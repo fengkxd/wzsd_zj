@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface SelCourseTableViewCell : UITableViewCell
+{
+    
+    IBOutlet UILabel *nameLabel;
+    IBOutlet UILabel *teachLabel;
+    IBOutlet UILabel *priceLabel;
+    IBOutlet UIImageView *imgView;
+    
+    IBOutlet UILabel *browsingNumberLabel;
+}
 
+-(void)loadCourseInfo:(NSDictionary *)dict;
 @end

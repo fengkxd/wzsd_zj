@@ -13,13 +13,17 @@
 
 
 @property (nonatomic,strong) IBOutlet UILabel *nameLabel;
+@property (nonatomic,strong) IBOutlet UILabel *sourceLabel;
+
 @property (nonatomic,strong) IBOutlet UIView *sourceView;
 @property (nonatomic,strong) IBOutlet UIButton *loginBtn;
 
 
-@property (copy) void (^clickSetting)();
-@property (copy) void (^clickScan)();
-@property (copy) void (^clickMsg)();
+@property (copy) void (^clickSetting)(void);
+@property (copy) void (^clickScan)(void);
+@property (copy) void (^clickMsg)(void);
 
+
+-(void)loadInfo:(NSDictionary *)dict;
 
 @end

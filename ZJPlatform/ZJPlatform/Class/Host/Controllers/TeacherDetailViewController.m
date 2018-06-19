@@ -33,15 +33,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenheight - 64 ) style:UITableViewStylePlain];
+    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenheight - 44 - kStatusBarHeight ) style:UITableViewStylePlain];
     myTableView.delegate = self;
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
-    
-    
+
     myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self createBackBtn];
- 
+    myTableView.separatorStyle = UITableViewCellEditingStyleNone;
+
     UIImageView *headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, 240 /750.0 * MainScreenWidth)];
     headImgView.image = [UIImage imageNamed:@"banenr.png"];
     myTableView.tableHeaderView = headImgView;
@@ -52,7 +52,12 @@
 }
 
 -(void)clickBtn:(UIButton *)btn{
-    
+    if (btn.tag == 2) {
+        myTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }else{
+        myTableView.separatorStyle = UITableViewCellEditingStyleNone;
+
+    }
     self.selectedBtn.selected = NO;
     self.selectedBtn = btn;
     self.selectedBtn.selected = YES;
@@ -130,7 +135,7 @@
 
             WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
             wkWebConfig.userContentController = wkUController;
-            self.webView1 = [[WKWebView alloc] initWithFrame:CGRectMake(10, 10, MainScreenWidth - 20, MainScreenheight - 64 - 45 - 240 /750.0 * MainScreenWidth) configuration:wkWebConfig];
+            self.webView1 = [[WKWebView alloc] initWithFrame:CGRectMake(10, 10, MainScreenWidth - 20, MainScreenheight - 44 - kStatusBarHeight - 45 - 240 /750.0 * MainScreenWidth) configuration:wkWebConfig];
             NSString *request =  [Utility htmlEntityDecode:[self.teachDict objectForKey:@"description"]];
 
             // 加载网页
@@ -176,7 +181,7 @@
             
             WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
             wkWebConfig.userContentController = wkUController;
-            self.webView2 = [[WKWebView alloc] initWithFrame:CGRectMake(10, 10, MainScreenWidth - 20, MainScreenheight - 64 - 45 - 240 /750.0 * MainScreenWidth) configuration:wkWebConfig];
+            self.webView2 = [[WKWebView alloc] initWithFrame:CGRectMake(10, 10, MainScreenWidth - 20, MainScreenheight - 44 - kStatusBarHeight - 45 - 240 /750.0 * MainScreenWidth) configuration:wkWebConfig];
             NSString *request =  [Utility htmlEntityDecode:[self.teachDict objectForKey:@"honour"]];
             
             // 加载网页

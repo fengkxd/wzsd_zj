@@ -10,6 +10,7 @@
 #import "HostInformationView.h"
 #import "MJRefresh.h"
 
+#import "MyWebViewController.h"
 
 
 @interface ExamGuideViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -35,7 +36,7 @@
     self.pageSize = 6;
     [self createBackBtn];
     [self setTitleView:@"考试指南"];
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenheight - 64 ) style:UITableViewStylePlain];
+    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenheight - 44 - kStatusBarHeight ) style:UITableViewStylePlain];
     myTableView.delegate = self;
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
@@ -60,8 +61,9 @@
                                                            
                                                        } failure:^(NSString *errorMsg) {
                                                            [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                           [Toast showWithText:@"网络错误"];
-
+                                                           if (errorMsg == nil) {
+                                                               [Toast showWithText:@"网络错误"];
+                                                           }
                                                        }];
 }
 
@@ -88,8 +90,12 @@
                                                            NSLog(@"%@",responseObject);
                                                            [self loadResult:responseObject];
                                                        } failure:^(NSString *errorMsg) {
+                                                           [self->myTableView.footer endRefreshing];
                                                            [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                           [Toast showWithText:@"网络错误"];
+                                                           if (errorMsg == nil) {
+                                                               [Toast showWithText:@"网络错误"];
+                                                           }
+                                                           
                                                        }];
 }
 
@@ -101,7 +107,6 @@
     }else{
         myTableView.footer.hidden = NO;
     }
-    
     if (self.pageNo == 0) {
         self.resultArray = [NSMutableArray arrayWithArray:[dict objectForKey:@"list"]];
     }else{
@@ -172,10 +177,16 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSDictionary *dict = [self.resultArray objectAtIndex:indexPath.row];
-
     NSString *url =[NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_newsInformation_get];
+    
+    WS(weakSelf);
     [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:@{@"id":[dict objectForKey:@"id"]} relativePath:url success:^(id responseObject) {
         NSLog(@"资讯详情：%@",responseObject);
+        MyWebViewController *vc = [[MyWebViewController alloc] init];
+        [vc loadHtmlStr:[responseObject objectForKey:@"values"]];
+        [vc setTitleView:[responseObject objectForKey:@"title"]];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+
     } failure:^(NSString *errorMsg) {
         if (errorMsg == nil) {
             [Toast showWithText:@"网络错误"];

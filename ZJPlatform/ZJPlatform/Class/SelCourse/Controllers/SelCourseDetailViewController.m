@@ -152,7 +152,24 @@
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
     myTableView.tableFooterView = [UIView new];
+    [self requestVideoDetails];
+}
+
+-(void)requestVideoDetails{
     
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_video_details];
+    NSDictionary *dict =  @{@"id":self.videoId};
+    
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"视频详情%@",responseObject);
+        
+        
+    } failure:^(NSString *errorMsg) {
+        if (errorMsg == nil) {
+            [Toast showWithText:@"网络错误"];
+        }
+    }];
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

@@ -26,7 +26,7 @@
     [self initHeaderView];
     
     
-    myTbaleView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, MainScreenWidth, MainScreenheight - 64 - 45 - 49) style:UITableViewStylePlain];
+    myTbaleView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, MainScreenWidth, MainScreenheight - 44 - kStatusBarHeight - 45 - kTabbarHeight) style:UITableViewStylePlain];
     myTbaleView.delegate = self;
     myTbaleView.dataSource = self;
     [self.view addSubview:myTbaleView];

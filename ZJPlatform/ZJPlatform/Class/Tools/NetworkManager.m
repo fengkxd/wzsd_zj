@@ -133,49 +133,32 @@ static NSMutableDictionary *taskDict;
                 NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
                 NSInteger code = response.statusCode;
                 if (code == 200) {
-                    if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                        NSDictionary *dict = responseObject;
-                        NSInteger errorCode = [[dict objectForKey:@"errorCode"] integerValue];
-                        
-                        if (errorCode == 9000) {
-                            success([[responseObject objectForKey:@"data"] objectFromJSONString]);
-                        }else if(errorCode == 9041 || errorCode == 9042){  //第三方登录
-                            success([responseObject objectForKey:@"data"]);
-                        }else if(errorCode == 9011 || errorCode == 9013){
-                            
-                            [self refreshAccessToken:^{
-                                [self requestWithMethod:@"POST"
-                                          headParameter:headDic
-                                          bodyParameter:bodyDic
-                                           relativePath:url
-                                                success:success failure:false];
-                            } failure:^{
-                                failure([responseObject objectForKey:@"errorMessage"]);
-                                [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
-                                
-                            }];
-                        }else if(errorCode == 9005 ){
-                            [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
-                            failure([responseObject objectForKey:@"errorMessage"]);
-
-                        }else if(errorCode == 9111 ){
-                            failure(@"9111"); //支付验证
-                        }else{
-                            [Toast showWithText:[responseObject objectForKey:@"errorMessage"]];
-                            
-                            failure(nil);
+                    if ([responseObject isKindOfClass:[NSData class]]) {
+                        id jsonObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                        if ([jsonObject isKindOfClass:[NSDictionary class]]) {
+                            if ([jsonObject objectForKey:@"data"]) {
+                                success([jsonObject objectForKey:@"data"]);
+                            }else{
+                                failure(nil);
+                            }
                         }
-                    }else if ([[responseObject objectForKey:@"error"] isKindOfClass:[NSDictionary class]]) {
-                        [Toast showWithText:[responseObject objectForKey:@"errorMessage"]];
-                        failure(nil);
+                    }else{
+                        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                            if ([responseObject objectForKey:@"error"]) {
+                                failure(nil);
+                            }else if ([[responseObject objectForKey:@"meta"] isKindOfClass:[NSNull class]] ||[[responseObject objectForKey:@"meta"] isEqualToString:@"null"] ) {
+                                success(responseObject);
+                                
+                            }else{
+                                failure(nil);
+                            }
+                        }
                     }
-                    
                 }else if(code == 203){
-                    [Toast showWithText:[responseObject objectForKey:@"errorMessage"]];
                     failure(nil);
                     [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
                 }else{
-                    [Toast showWithText:[responseObject objectForKey:@"errorMessage"]];
+                    
                     failure(nil);
                 }
                 

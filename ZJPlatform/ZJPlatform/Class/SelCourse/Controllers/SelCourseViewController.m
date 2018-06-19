@@ -14,7 +14,7 @@
 @interface SelCourseViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     
-    UITableView *myTbaleView;
+    UITableView *myTableView;
 }
 @property (nonatomic,strong) NSMutableArray *videoList;
 @property (nonatomic,assign) NSInteger pageNo;
@@ -27,39 +27,80 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitleView:@"在线选课"];
     [self initHeaderView];
     self.pageNo = 0;
     self.pageSize = 6;
     
-    myTbaleView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, MainScreenWidth, MainScreenheight - 64 - 45 - 49) style:UITableViewStylePlain];
-    myTbaleView.delegate = self;
-    myTbaleView.dataSource = self;
-    [self.view addSubview:myTbaleView];
-    myTbaleView.tableFooterView = [[UIView alloc] init];
+    if ([self.navigationController.viewControllers count] == 1) {
+        self.questionType = @"1";
+        myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, MainScreenWidth, MainScreenheight - 44 - kStatusBarHeight - 45 - kTabbarHeight) style:UITableViewStylePlain];
+        [self setTitleView:@"在线选课"];
+    }else{
+        self.questionType = @"2";
+        myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, MainScreenWidth, MainScreenheight - 44 - kStatusBarHeight - 45 ) style:UITableViewStylePlain];
+        [self setTitleView:@"免费选课"];
+        [self createBackBtn];
+
+    }
+    
+  
+    myTableView.delegate = self;
+    myTableView.dataSource = self;
+    [self.view addSubview:myTableView];
+    myTableView.tableFooterView = [[UIView alloc] init];
     
     [self requestCourseList];
     WS(weakSelf);
-    [myTbaleView addLegendFooterWithRefreshingBlock:^{
+    [myTableView addLegendFooterWithRefreshingBlock:^{
         weakSelf.pageNo++;
         [weakSelf requestCourseList];
     }];
-
+    [myTableView addLegendHeaderWithRefreshingBlock:^{
+        weakSelf.pageNo = 0;
+        [weakSelf requestCourseList];
+    }];
 }
 
 -(void)requestCourseList{
     NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_video_list];
-    NSDictionary *dict =  @{@"pageNo":[NSNumber numberWithInteger:self.pageNo],@"pageSize":PageSize,@"subjects.id":Subject_Id,@"questionType":@"2",@"hotRecommend":@"2"};
-
+    NSDictionary *dict =  @{@"pageNo":[NSNumber numberWithInteger:self.pageNo],@"pageSize":PageSize,@"subjects.id":Subject_Id,@"questionType":self.questionType,@"hotRecommend":@"1"};
+    WS(weakSelf);
     [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
         NSLog(@"选课：%@",responseObject);
+        [weakSelf loadCourseList:responseObject];
     } failure:^(NSString *errorMsg) {
-        
+        [self->myTableView.footer endRefreshing];
+        [self->myTableView.header endRefreshing];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (errorMsg == nil) {
+            [Toast showWithText:@"网络错误"];
+        }
     }];
     
     
 }
 
+-(void)loadCourseList:(NSDictionary *)dict{
+    [myTableView.footer endRefreshing];
+    [myTableView.header endRefreshing];
+    
+    if ([[dict objectForKey:@"lastPage"] integerValue] < [PageSize integerValue]) {
+        myTableView.footer.hidden = YES;
+    }else{
+        myTableView.footer.hidden = NO;
+    }
+    
+    if (self.pageNo == 0) {
+        self.videoList = [NSMutableArray arrayWithArray:[dict objectForKey:@"list"]];
+    }else{
+        [self.videoList addObjectsFromArray:[dict objectForKey:@"list"]];
+        
+    }
+    [myTableView reloadData];
+    
+    
+    
+}
 
 
 -(void)initHeaderView{
@@ -96,6 +137,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     SelCourseDetailViewController *vc = [[SelCourseDetailViewController alloc] initWithNibName:@"SelCourseDetailViewController" bundle:nil];
+    vc.videoId = [[self.videoList objectAtIndex:indexPath.row] objectForKey:@"id"];
     [vc setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -118,7 +160,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return [self.videoList count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -128,6 +170,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"SelCourseTableViewCell"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell loadCourseInfo:[self.videoList objectAtIndex:indexPath.row]];
     return cell;
     
     

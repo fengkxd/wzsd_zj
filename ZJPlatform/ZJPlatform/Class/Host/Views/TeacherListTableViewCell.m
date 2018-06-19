@@ -29,10 +29,12 @@
     nameLabel.text = [dict objectForKey:@"name"];
     NSString *string = [Utility htmlEntityDecode:[dict objectForKey:@"description"]];
     
-    string = [string stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
-    string = [string stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
-    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]; //去除掉首尾的空白字符和换行字符
-    detailLabel.text = string;
+    NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[string dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes: nil error:nil];
+    
+    [attrStr addAttribute:NSFontAttributeName value:nameLabel.font range:NSMakeRange(0, attrStr.length)];
+
+ 
+    detailLabel.attributedText = attrStr;
     [UILabel changeLineSpaceForLabel:detailLabel WithSpace:7];
 
 }

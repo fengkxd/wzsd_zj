@@ -66,6 +66,9 @@
 -(void)initTitleView{
     self.subjectDict = [Utility objectForKey:Sel_Subject];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_LOGIN_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_UPDATE_SUBJECT object:nil];
+    
     NSString *title = [self.subjectDict objectForKey:@"name"];
     
     CGSize size = CGSizeMake(320,2000); //设置一个行高上限
@@ -170,14 +173,13 @@
                     @"3",
                     @"NewsZJTableViewController",
                     @"ExamGuideViewController",
-                    @"ExamGuideViewController"];
+                    @"PreparationInformationViewController"];
     
     
     NSString *str = [vcs objectAtIndex:btn.tag];
     if([str isEqualToString:@"1"]){
         AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [appdelegate.customTabBar selectedIndex:1];
-        
     }else if([str isEqualToString:@"2"]){
         AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         
@@ -187,18 +189,11 @@
         AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [appdelegate.customTabBar selectedIndex:3];
     }else{
-        if(btn.tag > 5){
-            ExamGuideViewController  *examGuideViewController = [[ExamGuideViewController alloc] init];
-            [examGuideViewController setHidesBottomBarWhenPushed:YES];
-            
-            [self.navigationController pushViewController:examGuideViewController animated:YES];
-        }else{
+  
             BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:btn.tag]) alloc] init];
             [vc setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:vc animated:YES];
-            
-        }
-        
+                    
     }
     
 }

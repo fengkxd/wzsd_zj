@@ -10,4 +10,7 @@
 
 @interface SelCourseDetailViewController : BaseViewController
 
+
+@property (nonatomic,strong) NSString *videoId;
+
 @end

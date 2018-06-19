@@ -270,6 +270,8 @@
 		1EF631412062316400385293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF631402062316400385293 /* ViewController.m */; };
 		1EF631462062316400385293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF631452062316400385293 /* Assets.xcassets */; };
 		1EF631492062316400385293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF631472062316400385293 /* LaunchScreen.storyboard */; };
+		448012B020D89846007B11DB /* NewsZJTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448012AF20D89846007B11DB /* NewsZJTableViewController.m */; };
+		448012B320D89C3F007B11DB /* MyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448012B220D89C3F007B11DB /* MyWebViewController.m */; };
 		69234B0A20728246007E7C99 /* TQGGLXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B0820728246007E7C99 /* TQGGLXViewController.m */; };
 		69234B0B20728246007E7C99 /* TQGGLXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69234B0920728246007E7C99 /* TQGGLXViewController.xib */; };
 		69234B0E207285EC007E7C99 /* TQGGLXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B0D207285EC007E7C99 /* TQGGLXCell.m */; };
@@ -677,6 +679,10 @@
 		1EF631452062316400385293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EF631482062316400385293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EF6314A2062316400385293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		448012AE20D89846007B11DB /* NewsZJTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsZJTableViewController.h; sourceTree = "<group>"; };
+		448012AF20D89846007B11DB /* NewsZJTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsZJTableViewController.m; sourceTree = "<group>"; };
+		448012B120D89C3F007B11DB /* MyWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebViewController.h; sourceTree = "<group>"; };
+		448012B220D89C3F007B11DB /* MyWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebViewController.m; sourceTree = "<group>"; };
 		69234B0720728246007E7C99 /* TQGGLXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQGGLXViewController.h; sourceTree = "<group>"; };
 		69234B0820728246007E7C99 /* TQGGLXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQGGLXViewController.m; sourceTree = "<group>"; };
 		69234B0920728246007E7C99 /* TQGGLXViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TQGGLXViewController.xib; sourceTree = "<group>"; };
@@ -868,6 +874,10 @@
 				1E407172206DE5E3002AF062 /* TeacherListViewController.m */,
 				1E407179206E12B8002AF062 /* TeacherDetailViewController.h */,
 				1E40717A206E12B8002AF062 /* TeacherDetailViewController.m */,
+				448012B120D89C3F007B11DB /* MyWebViewController.h */,
+				448012B220D89C3F007B11DB /* MyWebViewController.m */,
+				448012AE20D89846007B11DB /* NewsZJTableViewController.h */,
+				448012AF20D89846007B11DB /* NewsZJTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1553,6 +1563,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = HQW6ZFK4U3;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1837,6 +1852,7 @@
 				1E37D9B520624AAA000DAF65 /* UIImage+GIF.m in Sources */,
 				1E37D9B620624AAA000DAF65 /* UIImage+MultiFormat.m in Sources */,
 				1E37D9C820624F08000DAF65 /* CustomTabBar.m in Sources */,
+				448012B320D89C3F007B11DB /* MyWebViewController.m in Sources */,
 				1E37D99A20624AAA000DAF65 /* AFSecurityPolicy.m in Sources */,
 				69468E5220713171007ECDDC /* TQHistoryCell.m in Sources */,
 				1AE20035206656300035F412 /* LoginViewController.m in Sources */,
@@ -1854,6 +1870,7 @@
 				1E3196F1206A328E004B8574 /* HostCollectionViewCell.m in Sources */,
 				1E37D9A320624AAA000DAF65 /* MJRefreshGifFooter.m in Sources */,
 				1E37D9A120624AAA000DAF65 /* MJRefreshConst.m in Sources */,
+				448012B020D89846007B11DB /* NewsZJTableViewController.m in Sources */,
 				1E37D9A520624AAA000DAF65 /* MJRefreshHeader.m in Sources */,
 				69468E4E20712BC1007ECDDC /* TQHistoryViewController.m in Sources */,
 				1E7C4D2220747AB700D5BE62 /* SelCourseCommentTableViewCell.m in Sources */,
@@ -2018,6 +2035,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZJPlatform/Class/OthersThirdLibs",
+					"$(PROJECT_DIR)/ZJPlatform/Class/OthersThirdLibs/CNCRelease",
 				);
 				GCC_PREFIX_HEADER = ZJPlatform/PrefixHeader.pch;
 				INFOPLIST_FILE = ZJPlatform/Info.plist;
@@ -2040,6 +2058,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZJPlatform/Class/OthersThirdLibs",
+					"$(PROJECT_DIR)/ZJPlatform/Class/OthersThirdLibs/CNCRelease",
 				);
 				GCC_PREFIX_HEADER = ZJPlatform/PrefixHeader.pch;
 				INFOPLIST_FILE = ZJPlatform/Info.plist;
