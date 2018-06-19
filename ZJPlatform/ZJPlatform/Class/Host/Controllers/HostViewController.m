@@ -13,6 +13,9 @@
 #import "HostFreeVideoView.h"
 #import "HostInformationTableViewCell.h"
 #import "HostSelectedTypeViewController.h"
+#import "AppDelegate.h"
+#import "ExamGuideViewController.h"
+
 
 @interface HostViewController ()<UITextFieldDelegate>
 {
@@ -159,13 +162,45 @@
 }
 
 -(void)clickIcon:(UIButton *)btn{
-
-    NSArray *vcs =@[@"ExamInformationViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"TeacherListViewController",@"ExamInformationViewController",@"ExamInformationViewController",@"ExamGuideViewController",@"PreparationInformationViewController"];
-
-    BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:btn.tag]) alloc] init];
     
-    [vc setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSArray *vcs =@[@"SelCourseViewController",
+                    @"2",
+                    @"1",
+                    @"TeacherListViewController",
+                    @"3",
+                    @"NewsZJTableViewController",
+                    @"ExamGuideViewController",
+                    @"ExamGuideViewController"];
+    
+    
+    NSString *str = [vcs objectAtIndex:btn.tag];
+    if([str isEqualToString:@"1"]){
+        AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appdelegate.customTabBar selectedIndex:1];
+        
+    }else if([str isEqualToString:@"2"]){
+        AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        [appdelegate.customTabBar selectedIndex:2];
+        
+    }else if([str isEqualToString:@"3"]){
+        AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appdelegate.customTabBar selectedIndex:3];
+    }else{
+        if(btn.tag > 5){
+            ExamGuideViewController  *examGuideViewController = [[ExamGuideViewController alloc] init];
+            [examGuideViewController setHidesBottomBarWhenPushed:YES];
+            
+            [self.navigationController pushViewController:examGuideViewController animated:YES];
+        }else{
+            BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:btn.tag]) alloc] init];
+            [vc setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }
+        
+    }
+    
 }
 
 

@@ -23,8 +23,6 @@
 @property (nonatomic,assign) NSInteger pageSize;
 @property (nonatomic,strong) NSDictionary *selectDict;
 @property (nonatomic,strong) NSArray *titles;
-
-
 @property (nonatomic,strong) NSMutableArray *resultArray;
 @property (nonatomic,strong) NSString *titleType;
 @end
