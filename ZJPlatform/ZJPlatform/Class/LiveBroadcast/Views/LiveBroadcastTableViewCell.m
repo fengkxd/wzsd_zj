@@ -7,6 +7,7 @@
 //
 
 #import "LiveBroadcastTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @implementation LiveBroadcastTableViewCell
 
@@ -17,16 +18,18 @@
     btn.layer.masksToBounds = YES;
     btn.layer.cornerRadius = 2;
     
-    NSMutableAttributedString *mutableAttributeStr = [[NSMutableAttributedString alloc] init];
-    NSAttributedString *string1 = [[NSAttributedString alloc] initWithString:@"￥998.00   " attributes:@{NSFontAttributeName :Font_12,NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E72725"]}];
-    NSAttributedString *string2 = [[NSAttributedString alloc] initWithString:@"￥998.00 • " attributes:@{NSStrikethroughStyleAttributeName : @(NSUnderlineStyleThick),NSStrikethroughColorAttributeName : [UIColor colorWithHexString:@"919191"],NSForegroundColorAttributeName : [UIColor  colorWithHexString:@"919191"]}];
-    
-    [mutableAttributeStr appendAttributedString:string1];
-    [mutableAttributeStr appendAttributedString:string2];
-    priceLabel.attributedText = mutableAttributeStr;
-    
+}
 
 
+-(void)loadCourseInfo:(NSDictionary *)dict{
+    
+    namelabel.text = [dict objectForKey:@"name"];
+    priceLabel.text = [NSString stringWithFormat:@"¥%.2f",[[dict objectForKey:@"price"] floatValue]];
+    teachLabel.text = [NSString stringWithFormat:@"主讲师：%@",[[dict objectForKey:@"famousTeacher"] objectForKey:@"name"]];
+    [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgProxyUrl,[dict objectForKey:@"frontCover"]]]];
+    
+ 
+    
 }
 
 

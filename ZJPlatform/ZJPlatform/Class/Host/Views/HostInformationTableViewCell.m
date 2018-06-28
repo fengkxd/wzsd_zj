@@ -7,6 +7,7 @@
 //
 
 #import "HostInformationTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @implementation HostInformationTableViewCell
 
@@ -20,5 +21,17 @@
     [super setSelected:selected animated:animated];
 
 }
+
+-(void)loadInfo:(NSDictionary *)dict{
+ 
+   
+    titleLabel.text = [dict objectForKey:@"title"];
+    detailLabel.text = [dict objectForKey:@"intro"];
+    [UILabel changeLineSpaceForLabel:detailLabel WithSpace:5.0];
+
+    [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgProxyUrl,[dict objectForKey:@"cover"]]]];
+}
+    
+
 
 @end

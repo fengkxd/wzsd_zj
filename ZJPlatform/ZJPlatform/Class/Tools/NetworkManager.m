@@ -92,7 +92,14 @@ static NSMutableDictionary *taskDict;
                         if ([jsonObject objectForKey:@"data"]) {
                             success([jsonObject objectForKey:@"data"]);
                         }else{
-                            failure(nil);
+                            NSString *message = [[jsonObject objectForKey:@"error"] objectForKey:@"message"];
+                            if ([Utility isNotBlank:message]) {
+                                failure(message);
+                            }else{
+                                if ([Utility isNotBlank:@"网络错误"]) {
+                                }
+                            }
+                            
                         }
                     }
                 }else{
@@ -119,8 +126,7 @@ static NSMutableDictionary *taskDict;
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             [taskDict removeObjectForKey:url];
-            failure(@"注册失败");
-            
+            failure(@"网络请求失败");
         }];
         [taskDict setObject:task forKey:url];
         return task;
@@ -139,7 +145,13 @@ static NSMutableDictionary *taskDict;
                             if ([jsonObject objectForKey:@"data"]) {
                                 success([jsonObject objectForKey:@"data"]);
                             }else{
-                                failure(nil);
+                                NSString *message = [[jsonObject objectForKey:@"error"] objectForKey:@"message"];
+                                if ([Utility isNotBlank:message]) {
+                                    failure(message);
+                                }else{
+                                    if ([Utility isNotBlank:@"网络错误"]) {
+                                    }
+                                }
                             }
                         }
                     }else{
@@ -169,10 +181,8 @@ static NSMutableDictionary *taskDict;
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                if (failure) {
-                    failure(nil);
-                }
-                [Toast showWithText:@"网络请求失败"];
+                failure(@"网络请求失败");
+
                 [taskDict removeObjectForKey:url];
             });
             

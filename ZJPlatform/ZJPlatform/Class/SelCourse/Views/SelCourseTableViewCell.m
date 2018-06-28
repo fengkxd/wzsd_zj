@@ -26,5 +26,14 @@
     browsingNumberLabel.text = [dict objectForKey:@""];
 }
 
+-(void)loadCourseWithDetail:(NSDictionary *)dict{
+    
+    nameLabel.text = [dict objectForKey:@"name"];
+    priceLabel.text = [NSString stringWithFormat:@"¥%.2f",[[dict objectForKey:@"price"] floatValue]];
+    teachLabel.text = [NSString stringWithFormat:@"主讲师：%@",[[dict objectForKey:@"famousTeacher"] objectForKey:@"name"]];
+    [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgProxyUrl,[dict objectForKey:@"frontCover"]]]];
+    browsingNumberLabel.text = [dict objectForKey:@""];
+}
+
 
 @end

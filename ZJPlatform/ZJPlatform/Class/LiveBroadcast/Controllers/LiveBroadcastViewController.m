@@ -8,12 +8,18 @@
 
 #import "LiveBroadcastViewController.h"
 #import "LiveBroadcastTableViewCell.h"
+#import "MJRefresh.h"
 
 @interface LiveBroadcastViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     
-    UITableView *myTbaleView;
+    UITableView *myTableView;
 }
+@property (nonatomic,assign) NSInteger pageNo;
+@property (nonatomic,assign) NSInteger pageSize;
+@property (nonatomic,strong) NSMutableArray *videoList;
+
+
 @end
 
 
@@ -26,12 +32,75 @@
     [self initHeaderView];
     
     
-    myTbaleView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, MainScreenWidth, MainScreenheight - 44 - kStatusBarHeight - 45 - kTabbarHeight) style:UITableViewStylePlain];
-    myTbaleView.delegate = self;
-    myTbaleView.dataSource = self;
-    [self.view addSubview:myTbaleView];
-    myTbaleView.tableFooterView = [[UIView alloc] init];
+    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, MainScreenWidth, MainScreenheight - 44 - kStatusBarHeight - 45 - kTabbarHeight) style:UITableViewStylePlain];
+    myTableView.delegate = self;
+    myTableView.dataSource = self;
+    [self.view addSubview:myTableView];
+    myTableView.tableFooterView = [[UIView alloc] init];
+    
+    self.pageNo = 0;
+    self.pageSize = 6;
+
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self requestCourseList];
+    
+    WS(weakSelf);
+    [myTableView addLegendFooterWithRefreshingBlock:^{
+        weakSelf.pageNo++;
+        [weakSelf requestCourseList];
+    }];
+    [myTableView addLegendHeaderWithRefreshingBlock:^{
+        weakSelf.pageNo = 0;
+        [weakSelf requestCourseList];
+    }];
+    
 }
+
+
+
+-(void)requestCourseList{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_video_list];
+    
+    NSDictionary *dict =  @{@"pageNo":[NSNumber numberWithInteger:self.pageNo],@"pageSize":PageSize,@"subjects.id":Subject_Id,@"questionType":@"3",@"hotRecommend":@"1"};
+    
+    WS(weakSelf);
+    
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"直播：%@",responseObject);
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [weakSelf loadCourseList:responseObject];
+    } failure:^(NSString *errorMsg) {
+        [self->myTableView.footer endRefreshing];
+        [self->myTableView.header endRefreshing];
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [Toast showWithText:errorMsg];
+        
+    }];
+}
+
+-(void)loadCourseList:(NSDictionary *)dict{
+    [myTableView.footer endRefreshing];
+    [myTableView.header endRefreshing];
+    
+    if ([[dict objectForKey:@"lastPage"] integerValue] < [PageSize integerValue]) {
+        myTableView.footer.hidden = YES;
+    }else{
+        myTableView.footer.hidden = NO;
+    }
+    
+    if (self.pageNo == 0) {
+        self.videoList = [NSMutableArray arrayWithArray:[dict objectForKey:@"list"]];
+    }else{
+        [self.videoList addObjectsFromArray:[dict objectForKey:@"list"]];
+        
+    }
+    [myTableView reloadData];
+    
+    
+    
+}
+
+
 
 
 -(void)initHeaderView{
@@ -90,7 +159,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return [self.videoList count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -101,7 +170,8 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    [cell loadCourseInfo:[self.videoList objectAtIndex:indexPath.row]];
+
     
     return cell;
     

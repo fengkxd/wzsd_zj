@@ -22,7 +22,7 @@
     NSInteger curCount;
 }
 
-@property (nonatomic,strong) NSArray *array;
+@property (nonatomic,strong) NSArray *bannerList;
 @property (nonatomic,strong) NSMutableArray *animationLabels;
 //@property (nonatomic,strong) NSTimer *myTimer;
 @end
@@ -35,52 +35,25 @@
 -(instancetype)initWithFrame:(CGRect)frame withArray:(NSArray *)array{
     self = [super initWithFrame:frame];
     if (self) {
-        myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, frame.size.height - 85)];
+        myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, frame.size.height )];
         myScrollView.delegate = self;
-        //        [self addSubview:myScrollView];
+       [self addSubview:myScrollView];
         myScrollView.backgroundColor = [UIColor clearColor];
         myScrollView.pagingEnabled = YES;
         myScrollView.showsHorizontalScrollIndicator = NO;
         myScrollView.showsVerticalScrollIndicator = NO;
-        [self loadOutData:self.array];
-        CGFloat headerHeight = frame.size.height - 85;
-        myPageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((MainScreenWidth - 15 * [array count])/2, headerHeight - 15, 15 * [array count], 10)];
+        CGFloat headerHeight = frame.size.height;
+        myPageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((MainScreenWidth - 15 * [array count])/2, headerHeight - 20, 15 * [array count], 10)];
         myPageControl.currentPageIndicatorTintColor = [Utility colorWithHexString:@"fdfbfc"];
         myPageControl.pageIndicatorTintColor = [Utility colorWithHexString:@"8e7d73"];
-        myPageControl.currentPage = 0;
+         myPageControl.currentPage = 0;
         [self addSubview:myPageControl];
+        
+        [self loadOutData:array];
+
         
     }
     return self;
-}
-
--(void)initViewWithHeight:(CGFloat)height withData:(NSArray *)tempArray{
-    if (myScrollView) {
-        return;
-    }
-    //    CGFloat headerHeight = height - 85;
-    
-    CGFloat headerHeight = height ;
-    
-    self.backgroundColor = BgColor;
-    
-    myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, headerHeight)];
-    myScrollView.delegate = self;
-    [self addSubview:myScrollView];
-    myScrollView.backgroundColor = [UIColor clearColor];
-    myScrollView.pagingEnabled = YES;
-    myScrollView.showsHorizontalScrollIndicator = NO;
-    myScrollView.showsVerticalScrollIndicator = NO;
-    
-    myPageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((MainScreenWidth - 15 * 0)/2, headerHeight - 15 , 15 * 0, 10)];
-    myPageControl.currentPageIndicatorTintColor = [Utility colorWithHexString:@"fdfbfc"];
-    myPageControl.pageIndicatorTintColor = [Utility colorWithHexString:@"8e7d73"];
-    
-    myPageControl.currentPage = 0;
-    //        [myPageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
-    [self addSubview:myPageControl];
-    
-    
 }
 
 
@@ -109,10 +82,10 @@
     [UIView animateWithDuration:2 animations:^{
         label.frame = CGRectMake(105, -25, MainScreenWidth - 110, 25);
     } completion:^(BOOL finished) {
-        if (curCount == [weakSelf.animationLabels count] - 1) {
-            curCount = 0;
+        if (self->curCount == [weakSelf.animationLabels count] - 1) {
+            self->curCount = 0;
         }else{
-            curCount ++;
+            self->curCount ++;
         }
         [weakSelf startAnimation];
     }];
@@ -123,31 +96,30 @@
 
 
 
--(void)loadOutData:(NSArray *)bannerList{
+-(void)loadOutData:(NSArray *)array{
     
-    if ([bannerList count] == 0) {
+    if ([array count] == 0) {
         return;
     }
     
-    self.array = [NSArray arrayWithArray:bannerList];
+    self.bannerList = [NSArray arrayWithArray:array];
     
     [myScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     myScrollView.backgroundColor = [UIColor whiteColor];
     UIButton *Leftbtn = [UIButton buttonWithType:UIButtonTypeCustom];
     Leftbtn.frame = CGRectMake(0 * MainScreenWidth, 0, MainScreenWidth, myScrollView.frame.size.height);
-    //    NSString *url1 = [NSString stringWithFormat:@"%@%@",ProxyUrl,[[bannerList lastObject] objectForKey:@"photo"]];
-    NSString *url1 = [NSString stringWithFormat:@"%@",[[bannerList lastObject] objectForKey:@"bannerPath"]];
+     NSString *url1 = [NSString stringWithFormat:@"%@%@",ImgProxyUrl,[[self.bannerList lastObject] objectForKey:@"imgaddress"]];
     
     [Leftbtn sd_setImageWithURL:[NSURL URLWithString:url1] forState:UIControlStateNormal];
     [Leftbtn addTarget:self action:@selector(clickBanner:) forControlEvents:UIControlEventTouchUpInside];
     [myScrollView addSubview:Leftbtn];
     
     
-    for (int i = 0; i < [bannerList count]; i++) {
+    for (int i = 0; i < [self.bannerList count]; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake((i+1) * MainScreenWidth, 0, MainScreenWidth, myScrollView.frame.size.height);
         //  NSString *url = [NSString stringWithFormat:@"%@",ProxyUrl,[[bannerList objectAtIndex:i] objectForKey:@"photo"]];
-        NSString *url = [NSString stringWithFormat:@"%@",[[bannerList objectAtIndex:i] objectForKey:@"bannerPath"]];
+        NSString *url = [NSString stringWithFormat:@"%@%@",ImgProxyUrl,[[self.bannerList objectAtIndex:i] objectForKey:@"imgaddress"]];
         
         
         [btn sd_setImageWithURL:[NSURL URLWithString:url] forState:UIControlStateNormal];
@@ -159,36 +131,36 @@
     }
     
     UIButton *rightbtn_ = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightbtn_.frame = CGRectMake(([bannerList count]+ 1) * MainScreenWidth, 0, MainScreenWidth, myScrollView.frame.size.height);
+    rightbtn_.frame = CGRectMake(([self.bannerList count]+ 1) * MainScreenWidth, 0, MainScreenWidth, myScrollView.frame.size.height);
     //    NSString *url2 = [NSString stringWithFormat:@"%@%@",ProxyUrl,[[bannerList objectAtIndex:0] objectForKey:@"photo"]];
     
-    NSString *url2 = [NSString stringWithFormat:@"%@",[[bannerList objectAtIndex:0] objectForKey:@"bannerPath"]];
+    NSString *url2 = [NSString stringWithFormat:@"%@%@",ImgProxyUrl,[[self.bannerList objectAtIndex:0] objectForKey:@"imgaddress"]];
     
     [rightbtn_ sd_setImageWithURL:[NSURL URLWithString:url2] forState:UIControlStateNormal];
     [rightbtn_ addTarget:self action:@selector(clickBanner:) forControlEvents:UIControlEventTouchUpInside];
     [myScrollView addSubview:rightbtn_];
     
     
-    myScrollView.contentSize = CGSizeMake(MainScreenWidth * ([bannerList count] + 2), myScrollView.frame.size.height);
+    myScrollView.contentSize = CGSizeMake(MainScreenWidth * ([self.bannerList count] + 2), myScrollView.frame.size.height);
     myScrollView.contentOffset = CGPointMake(MainScreenWidth, 0);
     
-    myPageControl.frame =  CGRectMake((MainScreenWidth - 15 * [self.array count])/2, myScrollView.frame
-                                      .size.height- 15, 15 * [self.array count], 10);
-    myPageControl.numberOfPages = [bannerList count];
+    myPageControl.frame =  CGRectMake((MainScreenWidth - 15 * [self.bannerList count])/2, myScrollView.frame
+                                      .size.height - 25, 15 * [self.bannerList count], 10);
+    myPageControl.numberOfPages = [self.bannerList count];
     myPageControl.currentPage = 0;
-    [self bringSubviewToFront:myPageControl];
-    if ([bannerList count] > 1) {
+    if ([self.bannerList count] > 1) {
         [self performSelector:@selector(autoScroll) withObject:nil afterDelay:ScrollTimeDuration];
     }else{
         myScrollView.scrollEnabled = NO;
     }
     
-    if ([bannerList count] == 1) {
+    if ([self.bannerList count] == 1) {
         myPageControl.hidden = YES;
     }else{
-        myScrollView.hidden = NO;
+        myPageControl.hidden = NO;
     }
-    
+    [self bringSubviewToFront:myPageControl];
+
     
     
 }
@@ -198,7 +170,7 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoScroll) object:nil];
     
     NSInteger page = myPageControl.currentPage;
-    if (page == [self.array count] -1) {
+    if (page == [self.bannerList count] -1) {
         myPageControl.currentPage = 0;
     }else{
         myPageControl.currentPage = page + 1;
@@ -217,11 +189,11 @@
 
 #pragma mark -- scrollview delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if ([self.array isKindOfClass:[NSNull class]]) {
+    if ([self.bannerList isKindOfClass:[NSNull class]]) {
         return;
     }
     
-    NSInteger TOTALCOUNT = self.array.count;
+    NSInteger TOTALCOUNT = self.bannerList.count;
     float targetX = scrollView.contentOffset.x;
     float ITEM_WIDTH = scrollView.frame.size.width;
     
@@ -245,7 +217,7 @@
 
 
 -(void)clickBanner:(UIButton *)btn{
-    self.clickBanner([self.array objectAtIndex:btn.tag]);
+    self.clickBanner([self.bannerList objectAtIndex:btn.tag]);
 }
 
 

@@ -16,4 +16,6 @@
 
 
 }
+
+-(void)loadInfo:(NSDictionary *)dict;
 @end

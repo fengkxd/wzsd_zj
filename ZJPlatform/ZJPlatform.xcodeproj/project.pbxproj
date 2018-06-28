@@ -270,6 +270,8 @@
 		1EF631412062316400385293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF631402062316400385293 /* ViewController.m */; };
 		1EF631462062316400385293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF631452062316400385293 /* Assets.xcassets */; };
 		1EF631492062316400385293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF631472062316400385293 /* LaunchScreen.storyboard */; };
+		445C259F20DF9CD100B03500 /* TestRelevantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 445C259E20DF9CD100B03500 /* TestRelevantViewController.m */; };
+		446A50C620DCA85100C23370 /* MyDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 446A50C520DCA85100C23370 /* MyDetailTableViewController.m */; };
 		448012B020D89846007B11DB /* NewsZJTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448012AF20D89846007B11DB /* NewsZJTableViewController.m */; };
 		448012B320D89C3F007B11DB /* MyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448012B220D89C3F007B11DB /* MyWebViewController.m */; };
 		69234B0A20728246007E7C99 /* TQGGLXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B0820728246007E7C99 /* TQGGLXViewController.m */; };
@@ -679,6 +681,10 @@
 		1EF631452062316400385293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EF631482062316400385293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EF6314A2062316400385293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		445C259D20DF9CD100B03500 /* TestRelevantViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestRelevantViewController.h; sourceTree = "<group>"; };
+		445C259E20DF9CD100B03500 /* TestRelevantViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestRelevantViewController.m; sourceTree = "<group>"; };
+		446A50C420DCA85100C23370 /* MyDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDetailTableViewController.h; sourceTree = "<group>"; };
+		446A50C520DCA85100C23370 /* MyDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyDetailTableViewController.m; sourceTree = "<group>"; };
 		448012AE20D89846007B11DB /* NewsZJTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsZJTableViewController.h; sourceTree = "<group>"; };
 		448012AF20D89846007B11DB /* NewsZJTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsZJTableViewController.m; sourceTree = "<group>"; };
 		448012B120D89C3F007B11DB /* MyWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebViewController.h; sourceTree = "<group>"; };
@@ -878,6 +884,8 @@
 				448012B220D89C3F007B11DB /* MyWebViewController.m */,
 				448012AE20D89846007B11DB /* NewsZJTableViewController.h */,
 				448012AF20D89846007B11DB /* NewsZJTableViewController.m */,
+				445C259D20DF9CD100B03500 /* TestRelevantViewController.h */,
+				445C259E20DF9CD100B03500 /* TestRelevantViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1310,6 +1318,8 @@
 				1AEF718D2078B487003075B6 /* MySelCourseTableViewCell2.h */,
 				1AEF718E2078B487003075B6 /* MySelCourseTableViewCell2.m */,
 				1AEF718F2078B487003075B6 /* MySelCourseTableViewCell2.xib */,
+				446A50C420DCA85100C23370 /* MyDetailTableViewController.h */,
+				446A50C520DCA85100C23370 /* MyDetailTableViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1838,8 +1848,10 @@
 				1E37D99D20624AAA000DAF65 /* AFURLSessionManager.m in Sources */,
 				1E37D99C20624AAA000DAF65 /* AFURLResponseSerialization.m in Sources */,
 				1A61320C2063400E00C8B99B /* SelCourseViewController.m in Sources */,
+				445C259F20DF9CD100B03500 /* TestRelevantViewController.m in Sources */,
 				1A6131F020633F6A00C8B99B /* HostViewController.m in Sources */,
 				1E37D9B820624AAA000DAF65 /* UIImageView+HighlightedWebCache.m in Sources */,
+				446A50C620DCA85100C23370 /* MyDetailTableViewController.m in Sources */,
 				1E3196A42068CC8B004B8574 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				1E37D99920624AAA000DAF65 /* AFNetworkReachabilityManager.m in Sources */,
 				1E319732206B6D86004B8574 /* HostInformationView.m in Sources */,

@@ -15,8 +15,13 @@
   IBOutlet  UIButton *btn;
   IBOutlet  UIImageView *imgView;
   IBOutlet  UILabel *namelabel;
-  IBOutlet UILabel *timeLabel;
+  IBOutlet UILabel *teachLabel;
   IBOutlet UILabel *priceLabel;
     
 }
+
+
+-(void)loadCourseInfo:(NSDictionary *)dict;
+
+
 @end

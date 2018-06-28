@@ -68,9 +68,8 @@
                                                            
                                                        } failure:^(NSString *errorMsg) {
                                                            [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                           if (errorMsg == nil) {
-                                                               [Toast showWithText:@"网络错误"];
-                                                           }
+                                                           [Toast showWithText:errorMsg];
+
                                                        }];
 }
 
@@ -100,10 +99,8 @@
                                                        } failure:^(NSString *errorMsg) {
                                                            [self->myTableView.footer endRefreshing];
                                                            [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                           if (errorMsg == nil) {
-                                                               [Toast showWithText:@"网络错误"];
+                                                           [Toast showWithText:errorMsg];
 
-                                                           }
                                                        }];
 }
 
@@ -180,9 +177,8 @@
         [weakSelf.navigationController pushViewController:vc animated:YES];
         
     } failure:^(NSString *errorMsg) {
-        if (errorMsg == nil) {
-            [Toast showWithText:@"网络错误"];
-        }
+        [Toast showWithText:errorMsg];
+
     }];
     
 }

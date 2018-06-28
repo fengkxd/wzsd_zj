@@ -9,6 +9,8 @@
 #import "MineCenterViewController.h"
 #import "MineCenterHeaderView.h"
 #import "SettingTableViewController.h"
+#import "MyDetailTableViewController.h"
+
 
 @interface MineCenterViewController ()
 {
@@ -51,12 +53,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNotification_UPDATE_SUBJECT object:nil];
 
     
-     headerView = [[[NSBundle mainBundle] loadNibNamed:@"MineCenterHeaderView" owner:self options:nil] lastObject];
+    headerView = [[[NSBundle mainBundle] loadNibNamed:@"MineCenterHeaderView" owner:self options:nil] lastObject];
     self.tableView.tableHeaderView = headerView;
     headerView.sourceView.hidden = YES;
     headerView.nameLabel.hidden = YES;
     headerView.loginBtn.hidden = NO;
-  
     
     WS(weakSelf);
     headerView.clickScan = ^{
@@ -70,7 +71,26 @@
         [weakSelf showSetting];
     };
     
+    UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click:)];
+     [headerView addGestureRecognizer:ges];
+    
 }
+
+
+-(void)click:(UIGestureRecognizer *)ges{
+    if (self.memberInfoDict == nil) {
+        return;
+    }
+    MyDetailTableViewController *vc = [[MyDetailTableViewController alloc] init];
+    [vc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
+
+
+
 
 -(void)reloadData{
     [self.tableView reloadData];
@@ -96,10 +116,8 @@
                                                        } failure:^(NSString *errorMsg) {
 
                                                            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-                                                           if (errorMsg == nil) {
-                                                               [Toast showWithText:@"网络错误"];
-                                                               
-                                                           }
+                                                           [Toast showWithText:errorMsg];
+
                                                        }];
     
 }
@@ -192,8 +210,6 @@
             }
         }
         return cell;
-
-    
     }else{
         static NSString *cellid = @"cell2";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
@@ -207,7 +223,6 @@
         cell.detailTextLabel.attributedText = nil;
         if (section == 1) {
             if (row == 0) {
-                NSLog(@"%@",[Utility objectForKey:Sel_Subject]);
                 cell.textLabel.text =  [NSString stringWithFormat:@"当前考试：%@",[[Utility objectForKey:Sel_Subject] objectForKey:@"name"]];
                 if (self.memberInfoDict) {
                     NSString *str = [NSString stringWithFormat:@"您在网校的%zi天",[[self.memberInfoDict objectForKey:@"loginNum"] integerValue]];

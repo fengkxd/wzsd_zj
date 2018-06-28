@@ -9,5 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @interface HostCommendVideoView : UITableViewCell
+{
+    IBOutlet UIImageView *imgView;
+    IBOutlet UILabel *nameLabel;
+    IBOutlet UILabel *teachLabel;
+    IBOutlet UILabel *browsingNumberLabel;
+    
+    
+    
+}
+
+
+-(void)loadCourse:(NSDictionary *)dict;
 
 @end

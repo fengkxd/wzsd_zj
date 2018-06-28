@@ -20,12 +20,10 @@
 @property (nonatomic,assign) id delegate;
 @property (copy) void (^clickBanner)(NSDictionary *dict);
 
--(void)initViewWithHeight:(CGFloat)height withData:(NSArray *)tempArray;
 
 -(instancetype)initWithFrame:(CGRect)frame withArray:(NSArray *)array;
 
-//-(void)requestData;
-
+ 
 
 -(void)loadOutData:(NSArray *)bannerList;
 

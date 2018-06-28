@@ -13,7 +13,7 @@
 
 @interface MySelCourseViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    UITableView *myTbaleView;
+    UITableView *myTableView;
     UIView *markView;
 
 }
@@ -69,11 +69,11 @@
     [self.view addSubview:markView];
     
     
-    myTbaleView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, MainScreenWidth, MainScreenheight - 45) style:UITableViewStylePlain];
-    myTbaleView.delegate = self;
-    myTbaleView.dataSource = self;
-    [self.view addSubview:myTbaleView];
-    myTbaleView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, MainScreenWidth, MainScreenheight - 45) style:UITableViewStylePlain];
+    myTableView.delegate = self;
+    myTableView.dataSource = self;
+    [self.view addSubview:myTableView];
+    myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
 
@@ -84,7 +84,7 @@
     self.selectedBtn.selected = YES;
     markView.frame = CGRectMake(self.selectedBtn.frame.origin.x + self.selectedBtn.frame.size.width/2.0 - 14, 43.5, 28, 1.5);
 
-    [myTbaleView reloadData];
+    [myTableView reloadData];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

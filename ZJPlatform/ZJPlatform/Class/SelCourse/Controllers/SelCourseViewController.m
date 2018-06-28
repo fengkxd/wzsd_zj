@@ -48,7 +48,7 @@
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
     myTableView.tableFooterView = [[UIView alloc] init];
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self requestCourseList];
     WS(weakSelf);
     [myTableView addLegendFooterWithRefreshingBlock:^{
@@ -67,14 +67,14 @@
     WS(weakSelf);
     [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
         NSLog(@"选课：%@",responseObject);
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         [weakSelf loadCourseList:responseObject];
     } failure:^(NSString *errorMsg) {
         [self->myTableView.footer endRefreshing];
         [self->myTableView.header endRefreshing];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (errorMsg == nil) {
-            [Toast showWithText:@"网络错误"];
-        }
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [Toast showWithText:errorMsg];
+
     }];
     
     

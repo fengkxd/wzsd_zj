@@ -169,7 +169,7 @@
 
 
 -(IBAction)login{
-    accountTextField.text = @"18814493346";
+    accountTextField.text = @"13071418125";
     pwdtextField.text = @"123456";
     
     if ([Utility isBlank:accountTextField.text] || [Utility isBlank:pwdtextField.text]) {
@@ -189,9 +189,7 @@
         [weakSelf goBack:nil];
     } failure:^(NSString *errorMsg) {
         [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
-        if (errorMsg == nil) {
-            [Toast showWithText:@"网络错误"];
-        }
+        [Toast showWithText:errorMsg];
     }];
     
 }

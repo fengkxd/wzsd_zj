@@ -78,6 +78,25 @@
     
 }
 
+
+-(void)loadUrlStr:(NSString *)urlStr{
+    NSLog(@"加载Url：%@",urlStr);
+    
+    if ([Utility isBlank:urlStr]) {
+        return;
+    }
+    if (myWebView == nil) {
+        myWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenheight - 44 - kStatusBarHeight  )];
+        myWebView.delegate = self;
+        myWebView.scalesPageToFit = NO;
+        [self.view addSubview:myWebView];
+    }
+    
+    [myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+
 -(void)webViewDidStartLoad:(UIWebView *)webView{
 }
 

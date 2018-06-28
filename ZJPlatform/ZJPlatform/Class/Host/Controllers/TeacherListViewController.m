@@ -59,10 +59,8 @@
         [weakSelf.tableView.footer endRefreshing];
         [weakSelf.tableView.header endRefreshing];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (errorMsg == nil) {
-            [Toast showWithText:@"网络错误"];
+        [Toast showWithText:errorMsg];
 
-        }
     }];
 }
 

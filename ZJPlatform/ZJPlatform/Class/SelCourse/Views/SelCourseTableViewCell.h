@@ -20,4 +20,7 @@
 }
 
 -(void)loadCourseInfo:(NSDictionary *)dict;
+-(void)loadCourseWithDetail:(NSDictionary *)dict;
+
+
 @end

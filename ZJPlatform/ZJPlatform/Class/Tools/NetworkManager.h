@@ -19,9 +19,16 @@
 static NSString *const  ProxyUrl                                  =   @"http://admin.tect365.com.cn/api";
 static NSString *const  ImgProxyUrl                                =   @"http://admin.tect365.com.cn";
 
-static NSString *const  kRequest_signin                            = @"/signin";
 
+
+//登陆
+static NSString *const  kRequest_signin                            = @"/signin";
+//获取用户信息
 static NSString *const  kRequest_member_getMemberMessage           = @"/member/getMemberMessage";
+
+//banner
+static NSString *const  kRequest_adv_list                          = @"/adv/list";
+
 
 
 #pragma mark
@@ -30,6 +37,7 @@ static NSString *const  kRequest_subjects_secondLevel          = @"/subjects/sec
 
 static NSString *const  kRequest_video_list                       = @"/course/list";
 static NSString *const  kRequest_video_details                    = @"/course/details";
+static NSString *const  kRequest_catalogue_list                    = @"/catalogue/list";
 
 
  static NSString *const  kRequest_newsbulletin_findList         = @"/newsbulletin/findList";

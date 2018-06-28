@@ -15,7 +15,9 @@
 #import "HostSelectedTypeViewController.h"
 #import "AppDelegate.h"
 #import "ExamGuideViewController.h"
-
+#import "MyWebViewController.h"
+#import "PreparationInformationTableViewCell.h"
+#import "TestRelevantViewController.h"
 
 @interface HostViewController ()<UITextFieldDelegate>
 {
@@ -25,8 +27,12 @@
     UIButton *typeBtn;
     
 }
+@property (nonatomic,strong) NSArray *videoList1;
 
+@property (nonatomic,strong) NSArray *videoList2;
 @property (nonatomic,strong) NSDictionary *subjectDict;
+@property (nonatomic,strong) NSArray *examNewsList;
+
 @end
 
 @implementation HostViewController
@@ -35,18 +41,142 @@
     [super viewDidLoad];
     
     [self initTitleView];
-     CGFloat bannerHeitght = 310 /750.0 * MainScreenWidth;
+   
+    [self requestBanner1];
+    [self requestNotice];
+    [self requestBanner2];
+    [self requestCourseList1];
+    [self requestCourseList2];
+    [self requestExamNews];
 
-    HostBannerView *bannerView = [[HostBannerView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, bannerHeitght)];
+    WS(weakSelf);
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        [weakSelf requestBanner1];
+        [weakSelf requestNotice];
+        [weakSelf requestBanner2];
+        [weakSelf requestCourseList1];
+        [weakSelf requestCourseList2];
+        [weakSelf requestExamNews];
+    }];
+    
+    
+}
+
+
+
+
+-(void)requestCourseList1{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_video_list];
+    NSDictionary *dict =  @{@"pageNo":@"0",@"pageSize":@"4",@"subjects.id":Subject_Id,@"questionType":@"1",@"hotRecommend":@"1"};
+    WS(weakSelf);
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"限时免费：%@",responseObject);
+        [weakSelf loadCourseList1:responseObject];
+    } failure:^(NSString *errorMsg) {
+        [Toast showWithText:errorMsg];
+    }];
+}
+
+
+
+
+
+-(void)requestCourseList2{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_video_list];
+    NSDictionary *dict =  @{@"pageNo":@"0",@"pageSize":@"4",@"subjects.id":Subject_Id,@"questionType":@"1",@"hotRecommend":@"1"};
+    WS(weakSelf);
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"推荐课程：%@",responseObject);
+        [weakSelf loadCourseList2:responseObject];
+    } failure:^(NSString *errorMsg) {
+        [Toast showWithText:errorMsg];
+    }];
+}
+
+
+
+-(void)requestNotice{
+    NSDictionary *dict =  @{@"pageNo":@"0",@"pageSize":@"1",@"type":@"recent_announcement",@"subjects.id":Subject_Id};
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_newsInformation_list];
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"中教头条：%@",responseObject);
+
+
+    } failure:^(NSString *errorMsg) {
+        
+    }];
+    
+    
+}
+
+-(void)requestBanner1{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_adv_list];
+    NSDictionary *dict = @{@"type":@"1",@"position":@"homeBanner"};
+     [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"banner：%@",responseObject);
+        [self initBanner:responseObject];
+    } failure:^(NSString *errorMsg) {
+        
+    }];
+}
+
+-(void)requestBanner2{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_adv_list];
+    NSDictionary *dict = @{@"type":@"1",@"position":@"appHome"};
+     [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"banner2：%@",responseObject);
+        //[weakSelf initBanner:responseObject];
+    } failure:^(NSString *errorMsg) {
+        
+    }];
+}
+
+-(void)requestExamNews{
+    
+    NSDictionary *dict =  @{@"pageNo":@"0",@"pageSize":@"6",@"type":@"Industry_dynamics",@"subjects.id":Subject_Id};
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_newsInformation_list];
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"requestExamNews：%@",responseObject);
+        [self loadExamNews:responseObject];
+        [self.tableView.header endRefreshing];
+    } failure:^(NSString *errorMsg) {
+        [self.tableView.header endRefreshing];
+    }];
+}
+
+-(void)loadExamNews:(NSDictionary *)dict{
+    
+    self.examNewsList = [NSArray arrayWithArray:[dict objectForKey:@"list"]];
+    [self.tableView reloadData];
+    
+}
+
+-(void)loadCourseList1:(NSDictionary *)dict{
+    self.videoList1 = [NSArray arrayWithArray:[dict objectForKey:@"list"]];
+    [self.tableView reloadData];
+}
+
+
+-(void)loadCourseList2:(NSDictionary *)dict{
+    self.videoList2 = [NSArray arrayWithArray:[dict objectForKey:@"list"]];
+    [self.tableView reloadData];
+}
+
+
+
+-(void)initBanner:(NSArray *)array{
+    
+    CGFloat bannerHeitght = 310 /750.0 * MainScreenWidth;
+    HostBannerView *bannerView = [[HostBannerView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, bannerHeitght) withArray:array];
+    
+    bannerView.clickBanner = ^(NSDictionary *dict) {
+        NSString *goHref = [dict objectForKey:@"goHref"];
+        MyWebViewController *vc = [[MyWebViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [vc loadUrlStr:goHref];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
     self.tableView.tableHeaderView = bannerView;
-    
-    
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, bannerView.frame.size.height)];
-    imgView.image = [UIImage imageNamed:@"banenr.png"];
-    [bannerView addSubview:imgView];
-    
-    
-
 }
 
 
@@ -56,9 +186,10 @@
     [vc setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:vc animated:YES];
     __weak HostSelectedTypeViewController *blockVC = vc;
-    WS(weakSelf);
+
     vc.selectedBlock = ^(void) {
-        [weakSelf initTitleView];
+        [self initTitleView];
+        [self.tableView.header beginRefreshing];
         [blockVC goBack:nil];
     };
 }
@@ -128,16 +259,17 @@
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 7;
+    return 6;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 3 || section == 4 || section == 5) {
-        return 3;
-    }else if(section == 6){
-        return 4;
+    if (section == 3) {
+        return ceilf([self.videoList1 count] /2) + 1 ;
+    }else if(section == 4){
+        return [self.videoList2 count] + 1;
+    }else if(section == 5){
+        return [self.examNewsList count] + 1;
     }
-    
     return 1;
 }
 
@@ -157,9 +289,8 @@
        return  230.0/346.0 * ( MainScreenWidth/2.0 - 15) + 87;
     }else if(section == 4){
         return 88;
-    }else if(section == 5){
-        return 180.0/346.0 * (MainScreenWidth/2.0 - 15)  + 50;
     }
+    
     
     return 90;
 }
@@ -300,10 +431,8 @@
             label.text = @"限时免费";
         }else if(section == 4){
             label.text = @"推荐课程";
-        }else if(section == 5){
-            label.text = @"免费课程";
         }else{
-            label.text = @"考试咨询";
+            label.text = @"考试资讯";
         }
         return cell;
     }else if(section == 3){
@@ -313,23 +442,21 @@
         CGFloat videoHeight =  230.0/346.0 * (MainScreenWidth/2.0 - 15)  + 87;
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
 
-        
+        [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
-            NSInteger count = 2;
-            for (NSInteger i = 0; i <count ; i++) {
-                NSInteger column = i % 2;
-                HostVideoView *videoView = [[HostVideoView alloc] initWithFrame:CGRectMake( videoWidth * column , 0, videoWidth, videoHeight)];
-                [cell.contentView addSubview:videoView];
-               
-             //   [videoView loadVideo:[self.freelist objectAtIndex:i]];
-                videoView.delegate = self;
-            }
         }
-//        [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-      
+        
+        NSArray *array = [self.videoList1 objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange((row-1) * 2, 2)]];
+        for (NSInteger i = 0; i < [array count] ; i++) {
+            NSInteger column = i % 2;
+            HostVideoView *videoView = [[HostVideoView alloc] initWithFrame:CGRectMake( videoWidth * column , 0, videoWidth, videoHeight)];
+            [cell.contentView addSubview:videoView];
+            [videoView loadVideo:[array objectAtIndex:i]];
+            videoView.delegate = self;
+        }
         return cell;
   
 
@@ -341,43 +468,20 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"HostCommendVideoView"];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        [cell loadCourse:[self.dataSource objectAtIndex:indexPath.row - 1]];
+        [cell loadCourse:[self.videoList2 objectAtIndex:indexPath.row - 1]];
         return cell;
-    }else if(section == 5){
-        static NSString *cellId = @"cell5";
-        
-        CGFloat videoWidth = MainScreenWidth/2.0;
-        CGFloat videoHeight =  180.0/346.0 * (MainScreenWidth/2.0 - 15)  + 50;
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-        
-        
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
-            NSInteger count = 2;
-            for (NSInteger i = 0; i <count ; i++) {
-                NSInteger column = i % 2;
-                HostFreeVideoView *videoView = [[HostFreeVideoView alloc] initWithFrame:CGRectMake( videoWidth * column , 0, videoWidth, videoHeight)];
-                [cell.contentView addSubview:videoView];
-                
-                //   [videoView loadVideo:[self.freelist objectAtIndex:i]];
-                //videoView.delegate = self;
-            }
-        }
-        //        [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        
-        return cell;
-        
-        
     }
+
     
-    HostInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HostInformationTableViewCell"];
+    PreparationInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PreparationInformationTableViewCell"];
     if (cell == nil) {
-        [tableView registerNib:[UINib nibWithNibName:@"HostInformationTableViewCell" bundle:nil] forCellReuseIdentifier:@"HostInformationTableViewCell"];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"HostInformationTableViewCell"];
+        [tableView registerNib:[UINib nibWithNibName:@"PreparationInformationTableViewCell" bundle:nil] forCellReuseIdentifier:@"PreparationInformationTableViewCell"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"PreparationInformationTableViewCell"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    [cell loadInfo:[self.examNewsList objectAtIndex:indexPath.row - 1]];
+    
     return cell;
 
 }
@@ -386,6 +490,33 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    if (section == 5) {
+        if (row == 0) {
+            TestRelevantViewController *vc = [[TestRelevantViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            
+            NSDictionary *dict = [self.examNewsList objectAtIndex:row -1];
+            NSString *url =[NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_newsInformation_get];            
+            [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:@{@"id":[dict objectForKey:@"id"]} relativePath:url success:^(id responseObject) {
+                NSLog(@"资讯详情：%@",responseObject);
+                MyWebViewController *vc = [[MyWebViewController alloc] init];
+                [vc loadHtmlStr:[responseObject objectForKey:@"values"]];
+                [vc setTitleView:[responseObject objectForKey:@"title"]];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            } failure:^(NSString *errorMsg) {
+                [Toast showWithText:errorMsg];
+            }];
+            
+        }
+    }
+    
+    
+    
 }
 
 

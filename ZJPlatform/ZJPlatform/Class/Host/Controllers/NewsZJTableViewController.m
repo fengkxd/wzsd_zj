@@ -55,9 +55,8 @@
                                                            
                                                        } failure:^(NSString *errorMsg) {
                                                            [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                           if (errorMsg == nil) {
-                                                               [Toast showWithText:@"网络错误"];
-                                                           }
+                                                           [Toast showWithText:errorMsg];
+
                                                            [weakSelf.tableView.footer endRefreshing];
 
                                                        }];

@@ -7,6 +7,7 @@
 //
 
 #import "HostVideoView.h"
+#import "UIImageView+WebCache.h"
 
 @implementation HostVideoView
 
@@ -21,14 +22,14 @@
         [self addSubview:imgView];
         
         
-        
-        btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = imgView.frame;
-        [btn setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
-        btn.userInteractionEnabled = YES;
-        [btn addTarget:self action:@selector(clickPlay:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:btn];
-        [btn setBackgroundColor:[UIColor clearColor]];
+//        
+//        btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        btn.frame = imgView.frame;
+//        [btn setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+//        btn.userInteractionEnabled = YES;
+//        [btn addTarget:self action:@selector(clickPlay:) forControlEvents:UIControlEventTouchUpInside];
+//        [self addSubview:btn];
+//        [btn setBackgroundColor:[UIColor clearColor]];
         
         
         
@@ -52,6 +53,15 @@
 
     }
     return self;
+}
+
+
+-(void)loadVideo:(NSDictionary *)dict{
+    
+    titleLabel.text = [dict objectForKey:@"name"];
+    [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgProxyUrl,[dict objectForKey:@"frontCover"]]]];
+    
+    numlabel.text = [NSString stringWithFormat:@"已学习:%zi人",[[dict objectForKey:@"browsingNumber"] integerValue]];
 }
 
 

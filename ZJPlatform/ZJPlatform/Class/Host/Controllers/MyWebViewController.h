@@ -13,5 +13,5 @@
 
 
 -(void)loadHtmlStr:(NSString *)str;
-
+-(void)loadUrlStr:(NSString *)urlStr;
 @end

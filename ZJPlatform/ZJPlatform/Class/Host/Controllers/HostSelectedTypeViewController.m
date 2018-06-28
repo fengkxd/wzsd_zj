@@ -58,9 +58,8 @@
         [weakSelf loadList:responseObject];
     } failure:^(NSString *errorMsg) {
         [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication] keyWindow] animated:YES];
-        if (errorMsg == nil) {
-            [Toast showWithText:@"网络错误"];
-        }
+        [Toast showWithText:errorMsg];
+
         
     }];
 }
