@@ -1,27 +1,24 @@
 //
-//  TQHistoryViewController.m
+//  TQTestSingleViewController.m
 //  ZJPlatform
 //
-//  Created by Rongbo Li on 2018/4/1.
+//  Created by Rongbo Li on 2018/7/22.
 //  Copyright © 2018年 wzsd. All rights reserved.
 //
 
-#import "TQHistoryViewController.h"
-#import "TQHistoryCell.h"
-#import "TQTestInfoViewController.h"
+#import "TQTestSingleViewController.h"
+#import "TQTestCell1.h"
+#import "TQTestCell2.h"
 
-@interface TQHistoryViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface TQTestSingleViewController ()
 
 @end
 
-@implementation TQHistoryViewController
+@implementation TQTestSingleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setTitleView:@"历年真题"];
-
-    [self createBackBtn];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,11 +26,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 65.0f;
+    return 50.0f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
@@ -53,29 +60,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 10;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *cellid = @"cell";
     
-    TQHistoryCell *cell = (TQHistoryCell *)[tableView dequeueReusableCellWithIdentifier:cellid];
+    TQTestCell1 *cell = (TQTestCell1 *)[tableView dequeueReusableCellWithIdentifier:cellid];
     
     if (cell == nil) {
         
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"TQHistoryCell" owner:self options:nil] lastObject];
-    
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"TQTestCell1" owner:self options:nil] lastObject];
+        
     }
     
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    TQTestInfoViewController *infoView = [[TQTestInfoViewController alloc] initWithNibName:@"TQTestInfoViewController" bundle:nil];
-    
-    [self.navigationController pushViewController:infoView animated:YES];
 }
 
 @end
