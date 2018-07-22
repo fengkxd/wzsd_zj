@@ -63,6 +63,11 @@
 }
 
 -(void)autoLogin{
+    if ([Utility isBlank:[Utility objectForKey:USERNAME]] || [Utility isBlank:[Utility objectForKey:PASSWORD]]) {
+        return;
+    }
+    
+    
     NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_signin];
     NSDictionary *dict = @{@"account":[Utility objectForKey:USERNAME],@"password":[[Utility md5:[Utility objectForKey:PASSWORD]] lowercaseString]};
     [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
