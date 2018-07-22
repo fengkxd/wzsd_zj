@@ -38,6 +38,7 @@ static NSString *const  kRequest_subjects_secondLevel          = @"/subjects/sec
 static NSString *const  kRequest_video_list                       = @"/course/list";
 static NSString *const  kRequest_video_details                    = @"/course/details";
 static NSString *const  kRequest_catalogue_list                    = @"/catalogue/list";
+static NSString *const  kRequest_comment_list                    = @"/comment/list";
 
 
  static NSString *const  kRequest_newsbulletin_findList         = @"/newsbulletin/findList";

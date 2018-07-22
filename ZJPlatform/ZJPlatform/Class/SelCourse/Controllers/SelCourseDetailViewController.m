@@ -10,6 +10,7 @@
 #import "SelCourseCommentTableViewCell.h"
 #import <WebKit/WebKit.h>
 #import "SelCourseTableViewCell.h"
+#import "CommentTableViewCell.h"
 
 @interface SelCourseDetailViewController ()<UITableViewDelegate,UITableViewDataSource,WKNavigationDelegate>
 {
@@ -36,21 +37,16 @@
 @property (nonatomic,strong) NSDictionary *videoDict;
 
 @property (nonatomic,strong) NSArray *courseList;
-
+@property (nonatomic,strong) NSArray *commentList;
 @end
 
 @implementation SelCourseDetailViewController
 
 
-- (BOOL)prefersStatusBarHidden{
-    return YES;
-}
-
-
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear: animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
 }
 
 
@@ -158,8 +154,8 @@
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
     [self initPlayer];
-    
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, videoHeight, MainScreenWidth, MainScreenheight - videoHeight) style:UITableViewStylePlain];
+    [self createBackBtn];
+    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, videoHeight, MainScreenWidth, MainScreenheight - videoHeight - kStatusBarHeight - 44) style:UITableViewStylePlain];
     myTableView.delegate = self;
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
@@ -222,7 +218,7 @@
         
     }
     
-    return 5;
+    return [self.commentList count] + 1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
@@ -244,12 +240,12 @@
     }
    
     
-    NSDictionary *dict = @{@"content":@"去几千几万了阿胶了7⃣️文件7⃣️文件额请我看了饥饿离开家去玩了句我起来看饥饿精力看见；离开家离开家了句了"};
-    NSString *content = [dict objectForKey:@"content"];
+    NSDictionary *dict = [self.commentList objectAtIndex:indexPath.row - 1];
+    NSString *content = [dict objectForKey:@"commentValues"];
     
     CGFloat height = [Utility getSpaceLabelHeight:content withFont:Font_13 withWidth:MainScreenWidth - 85];
 
-    return 38 + height + 10 + 15 + 10;
+    return 38 + height + 10 + 15 + 10 + 5;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -268,10 +264,10 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
-                
+                CGFloat width = MainScreenWidth / 3.0;
                 for (int i = 0; i < 3 ; i++) {
                     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                    btn.frame = CGRectMake(i * MainScreenWidth/3.0, 0, MainScreenWidth/3.0, 44);
+                    btn.frame = CGRectMake(i * width, 0, width, 44);
                     if (i == 0) {
                         [btn setTitle:@"课程详情" forState:UIControlStateNormal];
                         self.selectedBtn = btn;
@@ -342,7 +338,7 @@
 //                [cell loadCourseInfo:[self.courseList objectAtIndex:indexPath.row]];
                 
                 
-                [cell loadCourseWithDetail:[self.courseList objectAtIndex:indexPath.row]];
+                [cell loadCourseWithDetail:[self.courseList objectAtIndex:indexPath.row - 1]];
 
                 return cell;
             }else{
@@ -353,8 +349,7 @@
                     
                 }
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                NSDictionary *dict = @{@"content":@"去几千几万了阿胶了7⃣️文件7⃣️文件额请我看了饥饿离开家去玩了句我起来看饥饿精力看见；离开家离开家了句了"};
-                [cell loadComment:dict];
+                [cell loadComment:[self.commentList objectAtIndex:indexPath.row - 1]];
                 
                 return cell;
             }
@@ -405,11 +400,26 @@
         [myTableView reloadData];
     }else if(type == 1){
         [self requestCatalogue];
-        
+    }else{
+        [self requestComment];
     }
 }
 
-
+-(void)requestComment{
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_comment_list];
+    NSDictionary *dict = @{@"bvId":[self.videoDict objectForKey:@"id"],@"questionType":@"2",@"pageNo":@"0",@"pageSize":@"40"};
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    WS(weakSelf);
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"评论%@",[responseObject objectForKey:@"list"]);
+        [weakSelf loadCommont:[responseObject objectForKey:@"list"]];
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+    } failure:^(NSString *errorMsg) {
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [Toast showWithText:errorMsg];
+    }];
+}
 
 
 -(void)requestCatalogue{
@@ -435,6 +445,11 @@
     [myTableView reloadData];
 }
 
+
+-(void)loadCommont:(NSArray *)array{
+    self.commentList = [NSArray arrayWithArray:array];
+    [myTableView reloadData];
+}
 
 
 

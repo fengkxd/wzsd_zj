@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,6 +34,13 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="第一节 一级建造师一次过全程通关" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hFI-xN-8U5">
+                        <rect key="frame" x="124" y="17" width="272" height="48"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="SourceHanSansSC-Regular" family="Source Han Sans SC" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="￥230.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Onc-pH-gsw">
                         <rect key="frame" x="122" y="55" width="157" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -58,7 +65,9 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="browsingNumberLabel" destination="VKo-bN-K6i" id="ddU-NY-MQI"/>
                 <outlet property="imgView" destination="YBX-dg-xxs" id="17d-dZ-yxo"/>
+                <outlet property="label" destination="hFI-xN-8U5" id="cPC-b0-NOl"/>
                 <outlet property="nameLabel" destination="N6R-km-u5W" id="yDG-oi-8k1"/>
                 <outlet property="priceLabel" destination="Onc-pH-gsw" id="Mcw-6c-ret"/>
                 <outlet property="teachLabel" destination="SCS-Ro-GXm" id="g8Y-Fz-eEa"/>

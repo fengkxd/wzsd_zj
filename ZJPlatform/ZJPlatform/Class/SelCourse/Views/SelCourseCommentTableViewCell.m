@@ -55,16 +55,18 @@
 }
 
 -(void)loadComment:(NSDictionary *)dict{
-    NSString *content = [dict objectForKey:@"content"];
-    NSString *time = @"2019-03-30 14:50";
-    
+    NSString *content = [dict objectForKey:@"commentValues"];
+    NSString *time = [dict objectForKey:@"createDate"];
     CGFloat height = [Utility getSpaceLabelHeight:content withFont:Font_13 withWidth:MainScreenWidth - 85];
     [Utility setLabelSpace:contentLabel withValue:content withFont:Font_13];
-    contentLabel.frame = CGRectMake(75, contentLabel.frame.origin.y , MainScreenWidth - 85, height);
+    contentLabel.frame = CGRectMake(75, contentLabel.frame.origin.y , MainScreenWidth - 85, height + 5);
     
     
-    timeLabel.frame = CGRectMake(75, contentLabel.frame.origin.y + contentLabel.frame.size.height + 10, MainScreenWidth - 85, 15);
+    timeLabel.frame = CGRectMake(75, contentLabel.frame.origin.y + contentLabel.frame.size.height + 5, MainScreenWidth - 85, 15);
     timeLabel.text = time;
+    
+    nickLabel.text = [[dict objectForKey:@"member"] objectForKey:@"nickname"];
+
 }
 
 

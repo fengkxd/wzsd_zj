@@ -65,14 +65,11 @@
     HostViewController *vc1 = [[HostViewController alloc] init];
     MyNavigationController *nav1 = [[MyNavigationController alloc] initWithRootViewController:vc1];
     
-    
-    
     SelCourseViewController *vc2 = [[SelCourseViewController alloc] init];
     MyNavigationController *nav2 = [[MyNavigationController alloc] initWithRootViewController:vc2];
 
     LiveBroadcastViewController *vc3 = [[LiveBroadcastViewController alloc] init];
     MyNavigationController *nav3 = [[MyNavigationController alloc] initWithRootViewController:vc3];
-    
     
     QuestionsViewController *vc4 = [[QuestionsViewController alloc] init];
     MyNavigationController *nav4 = [[MyNavigationController alloc] initWithRootViewController:vc4];

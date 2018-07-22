@@ -9,6 +9,7 @@
 #import "LiveBroadcastViewController.h"
 #import "LiveBroadcastTableViewCell.h"
 #import "MJRefresh.h"
+#import "SelCourseDetailViewController.h"
 
 @interface LiveBroadcastViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -135,11 +136,11 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-//    SelCourseDetailViewController *vc = [[SelCourseDetailViewController alloc] initWithNibName:@"SelCourseDetailViewController" bundle:nil];
-//    [vc setHidesBottomBarWhenPushed:YES];
-//    [self.navigationController pushViewController:vc animated:YES];
-    
+    SelCourseDetailViewController *vc = [[SelCourseDetailViewController alloc] initWithNibName:@"SelCourseDetailViewController" bundle:nil];
+    vc.videoId = [[self.videoList objectAtIndex:indexPath.row] objectForKey:@"id"];
+    [vc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

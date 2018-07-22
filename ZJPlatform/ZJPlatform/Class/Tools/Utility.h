@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 
-#define UILABEL_LINE_SPACE 7
+#define UILABEL_LINE_SPACE 5
 
 
 @interface UIColor (Hex)
@@ -46,6 +46,10 @@
 +(void)registerAPNS;
 +(UIImage *)resetSizeOfImageData:(UIImage *)source_image maxSize:(NSInteger)maxSize;
 
++(void)saveObject:(id)object withKey:(NSString *)key;
++(id)objectForKey:(NSString *)key;
+
+
 
 + (BOOL)isLogined;
 
@@ -54,9 +58,7 @@
 +(BOOL)isBlank: (NSString *)str;
 +(BOOL)CheckPhoneNumInput:(NSString *)_text;
 
-+(void)saveObject:(id)object withKey:(NSString *)key;
-+(id)objectForKey:(NSString *)key;
-+(void)removeForkey:(NSString *)key;
+ +(void)removeForkey:(NSString *)key;
 
 +(void)deleteCookies;
 

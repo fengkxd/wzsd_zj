@@ -41,7 +41,7 @@
     [super viewDidLoad];
     
     [self initTitleView];
-   
+    [self autoLogin];
     [self requestBanner1];
     [self requestNotice];
     [self requestBanner2];
@@ -62,7 +62,14 @@
     
 }
 
-
+-(void)autoLogin{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_signin];
+    NSDictionary *dict = @{@"account":[Utility objectForKey:USERNAME],@"password":[[Utility md5:[Utility objectForKey:PASSWORD]] lowercaseString]};
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+    } failure:^(NSString *errorMsg) {
+    }];
+    
+}
 
 
 -(void)requestCourseList1{

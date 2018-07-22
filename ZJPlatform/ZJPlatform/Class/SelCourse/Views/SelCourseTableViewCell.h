@@ -15,8 +15,10 @@
     IBOutlet UILabel *teachLabel;
     IBOutlet UILabel *priceLabel;
     IBOutlet UIImageView *imgView;
-    
     IBOutlet UILabel *browsingNumberLabel;
+
+    IBOutlet UILabel *label;
+
 }
 
 -(void)loadCourseInfo:(NSDictionary *)dict;

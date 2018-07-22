@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A13399021046F4200D0B529 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A13398F21046F4200D0B529 /* CommentTableViewCell.m */; };
 		1A16838F20CD1A49009B4710 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A16838E20CD1A49009B4710 /* WebKit.framework */; };
 		1A6131F020633F6A00C8B99B /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6131EF20633F6A00C8B99B /* HostViewController.m */; };
 		1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6131FD20633FDF00C8B99B /* MineCenterViewController.m */; };
@@ -322,6 +323,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A13398E21046F4200D0B529 /* CommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
+		1A13398F21046F4200D0B529 /* CommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		1A16838E20CD1A49009B4710 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1A6131EE20633F6A00C8B99B /* HostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
 		1A6131EF20633F6A00C8B99B /* HostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
@@ -939,6 +942,8 @@
 				1E563E102073610800AE1A93 /* SelCourseDetailViewController.h */,
 				1E563E112073610800AE1A93 /* SelCourseDetailViewController.m */,
 				1E563E122073610800AE1A93 /* SelCourseDetailViewController.xib */,
+				1A13398E21046F4200D0B529 /* CommentTableViewCell.h */,
+				1A13398F21046F4200D0B529 /* CommentTableViewCell.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1882,6 +1887,7 @@
 				1E3196F1206A328E004B8574 /* HostCollectionViewCell.m in Sources */,
 				1E37D9A320624AAA000DAF65 /* MJRefreshGifFooter.m in Sources */,
 				1E37D9A120624AAA000DAF65 /* MJRefreshConst.m in Sources */,
+				1A13399021046F4200D0B529 /* CommentTableViewCell.m in Sources */,
 				448012B020D89846007B11DB /* NewsZJTableViewController.m in Sources */,
 				1E37D9A520624AAA000DAF65 /* MJRefreshHeader.m in Sources */,
 				69468E4E20712BC1007ECDDC /* TQHistoryViewController.m in Sources */,

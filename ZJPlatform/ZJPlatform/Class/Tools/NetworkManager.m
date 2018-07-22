@@ -116,7 +116,20 @@ static NSMutableDictionary *taskDict;
                 }
             }else if(code == 203){
                 failure(nil);
-                [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
+                
+                [self refreshAccessToken:^{
+                    [self requestWithMethod:@"POST"
+                              headParameter:headDic
+                              bodyParameter:bodyDic
+                               relativePath:url
+                                    success:success failure:failure];
+                } failure:^{
+                    
+                    failure([responseObject objectForKey:@"errorMessage"]);
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
+                    
+                }];
+
             }else{
                 
                 failure(nil);
@@ -168,7 +181,18 @@ static NSMutableDictionary *taskDict;
                     }
                 }else if(code == 203){
                     failure(nil);
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
+                    
+                    [self refreshAccessToken:^{
+                        [self requestWithMethod:@"POST"
+                                  headParameter:headDic
+                                  bodyParameter:bodyDic
+                                   relativePath:url
+                                        success:success failure:failure];
+                    } failure:^{
+                        failure([responseObject objectForKey:@"errorMessage"]);
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
+                        
+                    }];
                 }else{
                     
                     failure(nil);
@@ -221,8 +245,19 @@ static NSMutableDictionary *taskDict;
                     }
                     success(responseObject);
                 }else if(code == 203){
-                    failure(nil);
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
+                    [self refreshAccessToken:^{
+                        [self requestWithMethod:@"POST"
+                                  headParameter:headDic
+                                  bodyParameter:bodyDic
+                                   relativePath:url
+                                        success:success failure:failure];
+                    } failure:^{
+                        failure([responseObject objectForKey:@"errorMessage"]);
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
+                    }];
+
+
+
                 }else{
                     
                     failure(nil);
@@ -253,16 +288,17 @@ static NSMutableDictionary *taskDict;
                   failure:(void (^)(void))failure{
     if([Utility isNotBlank:[Utility objectForKey:USERNAME]] &&
              [Utility isNotBlank:[Utility objectForKey:PASSWORD]]){
-        NSDictionary *dict = @{@"data":@{@"userName":[Utility objectForKey:USERNAME],@"password":[Utility objectForKey:PASSWORD]}};
-        NSString *url = [NSString stringWithFormat:@"%@",ProxyUrl];
+        
+//        NSDictionary *dict = @{@"account":[Utility objectForKey:USERNAME],@"password":};
+        NSDictionary *dict = @{@"account":[Utility objectForKey:USERNAME],@"password":[[Utility md5:[[Utility objectForKey:PASSWORD] lowercaseString]] lowercaseString]};
+
+        NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_signin];
         [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
                                                      headParameter:nil
                                                      bodyParameter:dict
                                                       relativePath:url success:^(id responseObject) {
-                                                          NSString *userId = [dict objectForKey:@"userId"];
-                                                          [Utility saveObject:userId withKey:KUID];
-                                                          [Utility saveObject:[dict objectForKey:@"isVip"] withKey:ISVIP];
 
+                                                          
                                                           success();
                                                           
                                                       } failure:^(NSString *errorMsg) {

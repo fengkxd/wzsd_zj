@@ -263,6 +263,8 @@
 }
 
 
+
+
 +(void)deleteCookies{
     NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: [NSURL URLWithString:ProxyUrl]];
     for (NSHTTPCookie *cookie in cookies)

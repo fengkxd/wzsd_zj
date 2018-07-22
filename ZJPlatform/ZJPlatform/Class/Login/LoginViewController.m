@@ -145,6 +145,10 @@
 //        vc.hidesBottomBarWhenPushed = YES;
 //        [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
+    
+    accountTextField.text = [Utility objectForKey:USERNAME];
+    pwdtextField.text = [Utility objectForKey:PASSWORD];
+
 }
 
 
@@ -184,8 +188,11 @@
     NSDictionary *dict = @{@"account":accountTextField.text,@"password":[[Utility md5:pwdtextField.text] lowercaseString]};
     [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
         [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
-
+        [Utility saveObject:self->accountTextField.text withKey:USERNAME];
+        [Utility saveObject:self->pwdtextField.text withKey:PASSWORD];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_LOGIN_SUCCESS object:nil];
+        
+        
         [weakSelf goBack:nil];
     } failure:^(NSString *errorMsg) {
         [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
