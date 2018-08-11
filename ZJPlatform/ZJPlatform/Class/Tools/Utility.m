@@ -657,8 +657,13 @@
         result = topWindow.rootViewController;
     else
         NSAssert(NO, @"ShareKit: Could not find a root view controller.  You can assign one manually by calling [[SHK currentHelper] setRootViewController:YOURROOTVIEWCONTROLLER].");
-    return result;
+  
     
+    while (result.presentedViewController) {
+        result = result.presentedViewController;
+    }
+    return result;
+
     
 }
 

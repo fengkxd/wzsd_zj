@@ -40,6 +40,11 @@
 
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    
+    if ([Utility isBlank:USERNAME] && [Utility isBlank:PASSWORD]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
+        return;
+    }
     [super pushViewController:viewController animated:animated];
 
     NSString *vcStr = NSStringFromClass([viewController class]);

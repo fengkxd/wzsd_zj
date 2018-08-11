@@ -11,6 +11,8 @@
 #import <WebKit/WebKit.h>
 #import "SelCourseTableViewCell.h"
 #import "CommentTableViewCell.h"
+#import "CNCPlayerSetting.h"
+#import "SBPlayer.h"
 
 @interface SelCourseDetailViewController ()<UITableViewDelegate,UITableViewDataSource,WKNavigationDelegate>
 {
@@ -28,6 +30,8 @@
     
 }
 
+@property (nonatomic,strong) NSString *videoAddress;
+
 @property (nonatomic,assign) NSInteger pageNo;
 @property (nonatomic,assign) NSInteger pageSize;
 
@@ -36,7 +40,7 @@
 @property (nonatomic,assign) double webViewCellHeight;
 @property (nonatomic,strong) NSDictionary *videoDict;
 
-@property (nonatomic,strong) NSArray *courseList;
+@property (nonatomic,strong) NSMutableArray *courseList;
 @property (nonatomic,strong) NSArray *commentList;
 @end
 
@@ -48,43 +52,6 @@
     [super viewWillAppear: animated];
 
 }
-
-
--(void)initPlayer{
-  
-//    videoHeight = 520 /750.0 * MainScreenWidth;
-//
-//    if (player) {
-//        [player stopPlay];
-//        [player removeFromSuperview];
-//        player =  nil;
-//    }
-//    player = [[MRVLCPlayer alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, videoHeight)];
-//    player.controlView.moreButton.selected = YES;
-//
-//
-//
-//    player.mediaURL =  [NSURL URLWithString:@""];
-//    player.tag = 22;
-//    [player showInView:self.view];
-//    WS(weakSelf);
-//    player.dismissBlock = ^{
-//        [weakSelf stopPlayer];
-//        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-//        [weakSelf.navigationController popViewControllerAnimated:YES];
-//    };
-//
-//    player.moreBlock = ^{
-//        [weakSelf showActionSheet];
-//    };
-//
-//    player.updateWatchNumBlock = ^{
-//        [weakSelf updateWatchNum];
-//    };
-    
-    
-}
-
 
 
 
@@ -153,13 +120,15 @@
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
-    [self initPlayer];
     [self createBackBtn];
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, videoHeight, MainScreenWidth, MainScreenheight - videoHeight - kStatusBarHeight - 44) style:UITableViewStylePlain];
+    
+    videoHeight = 422 /750.0 * MainScreenWidth;
+    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, videoHeight + 20, MainScreenWidth, MainScreenheight - videoHeight - kStatusBarHeight - 44) style:UITableViewStylePlain];
     myTableView.delegate = self;
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
     myTableView.tableFooterView = [UIView new];
+    
     [self requestVideoDetails];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
@@ -190,6 +159,8 @@
     subjectLabel.text = [NSString stringWithFormat:@"科目：%@",[[dict objectForKey:@"subjects"] objectForKey:@"name"]];
     browsingNumberLabel.text = [NSString stringWithFormat:@"%zi人观看",[[dict objectForKey:@"browsingNumber"] integerValue]];
     [myTableView reloadData];
+    
+    [self requestCatalogue];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -399,7 +370,8 @@
     if (type == 0) {
         [myTableView reloadData];
     }else if(type == 1){
-        [self requestCatalogue];
+        [myTableView reloadData];
+
     }else{
         [self requestComment];
     }
@@ -430,19 +402,28 @@
     [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
         NSLog(@"视频目录%@",responseObject);
         [weakSelf loadCatalogue:responseObject];
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
     } failure:^(NSString *errorMsg) {
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
         [Toast showWithText:errorMsg];
-        
     }];
-    
 }
 
 
 -(void)loadCatalogue:(NSArray *)array{
-    self.courseList = [NSArray arrayWithArray:array];
-    [myTableView reloadData];
+    self.courseList = [NSMutableArray array];
+
+    for (NSDictionary *dict in array) {
+        if ([dict objectForKey:@"videoList"] && [dict count] != 0) {
+            [self.courseList addObject:dict];
+        }
+    }
+    if ([self.courseList count] == 0) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        self.videoAddress = [[[[self.courseList firstObject] objectForKey:@"videoList"] firstObject] objectForKey:@"videoAddress"];
+        [self initPlayer];
+    }
 }
 
 
@@ -455,15 +436,14 @@
 
 
 
+-(void)initPlayer{
+    
+    SBPlayer *play = [[SBPlayer alloc] initWithFrame:CGRectMake(0, 20, MainScreenWidth, videoHeight) WithUrl:[NSURL URLWithString:self.videoAddress]];
 
-
-
-
-
-
-
-
-
+    [self.view addSubview:play];
+    
+    
+}
 
 
 

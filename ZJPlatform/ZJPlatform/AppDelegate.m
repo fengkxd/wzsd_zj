@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HostSelectedTypeViewController.h"
+#import <CNCLiveMediaPlayerFramework/CNCMediaPlayerFramework.h>
 
 @interface AppDelegate ()
 
@@ -17,8 +18,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  
-
+   
+    NSString *app_id = @"szzj";
+    NSString *auth_key = @"63254606F0E548AE858B06542B4BD014";
+    CNC_MediaPlayer_ret_Code ret = [CNCMediaPlayerSDK regist_app:app_id auth_key:auth_key];
+    if (ret == CNC_MediaPlayer_RCode_Success) {
+        
+        
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"notice" message:[NSString stringWithFormat:@"SDK鉴权失败 业务接口不可用 ret = %@", @(ret)] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
  
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

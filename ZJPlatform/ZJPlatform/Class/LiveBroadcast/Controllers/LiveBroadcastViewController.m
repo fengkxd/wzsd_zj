@@ -138,9 +138,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SelCourseDetailViewController *vc = [[SelCourseDetailViewController alloc] initWithNibName:@"SelCourseDetailViewController" bundle:nil];
     vc.videoId = [[self.videoList objectAtIndex:indexPath.row] objectForKey:@"id"];
-    [vc setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:vc animated:YES];
 
+
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

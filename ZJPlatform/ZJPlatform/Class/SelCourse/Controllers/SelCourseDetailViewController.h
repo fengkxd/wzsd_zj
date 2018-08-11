@@ -8,9 +8,25 @@
 
 #import "BaseViewController.h"
 
+
+#ifdef CNC_MediaPlayer_Full
+#import <CNCLiveMediaPlayerFramework/CNCMediaPlayerController.h>
+#import <CNCLiveMediaPlayerFramework/CNCMediaPlayerFramework.h>
+#else
+#import <CNCLiveMediaPlayerFramework/CNCMediaPlayerController.h>
+#import <CNCLiveMediaPlayerFramework/CNCMediaPlayerFramework.h>
+#endif
+
+
 @interface SelCourseDetailViewController : BaseViewController
 
 
 @property (nonatomic,strong) NSString *videoId;
+
+
+
+
+ 
+
 
 @end

@@ -323,6 +323,9 @@ static NSMutableDictionary *taskDict;
 
                                   }];
 
+    }else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
+        
     }
 }
 
