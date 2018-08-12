@@ -42,7 +42,7 @@
         [self loadTabbarVc];
     }
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
 
     return YES;
 }

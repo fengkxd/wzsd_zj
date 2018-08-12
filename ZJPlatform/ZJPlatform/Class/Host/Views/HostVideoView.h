@@ -20,7 +20,7 @@
 }
 
 
-@property (nonatomic,strong) Course *curCourse;
+@property (nonatomic,strong) NSDictionary *curDict;
 @property (nonatomic,assign) id delegate;
 
 -(void)loadVideo:(NSDictionary *)dict;

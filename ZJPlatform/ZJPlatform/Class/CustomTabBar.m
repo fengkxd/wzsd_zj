@@ -60,8 +60,6 @@
 
 -(void)viewDidLoad{
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-
     HostViewController *vc1 = [[HostViewController alloc] init];
     MyNavigationController *nav1 = [[MyNavigationController alloc] initWithRootViewController:vc1];
     

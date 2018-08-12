@@ -22,14 +22,14 @@
         [self addSubview:imgView];
         
         
-//        
-//        btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        btn.frame = imgView.frame;
-//        [btn setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
-//        btn.userInteractionEnabled = YES;
-//        [btn addTarget:self action:@selector(clickPlay:) forControlEvents:UIControlEventTouchUpInside];
-//        [self addSubview:btn];
-//        [btn setBackgroundColor:[UIColor clearColor]];
+        
+        btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = imgView.frame;
+        [btn setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+        btn.userInteractionEnabled = YES;
+        [btn addTarget:self action:@selector(clickPlay:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:btn];
+        [btn setBackgroundColor:[UIColor clearColor]];
         
         
         
@@ -57,7 +57,7 @@
 
 
 -(void)loadVideo:(NSDictionary *)dict{
-    
+    self.curDict = dict;
     titleLabel.text = [dict objectForKey:@"name"];
     [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgProxyUrl,[dict objectForKey:@"frontCover"]]]];
     
@@ -66,7 +66,7 @@
 
 
 -(void)clickPlay:(id)sender{
-
+    [self.delegate performSelector:@selector(clickPlay:) withObject:self.curDict];
 
 
 }

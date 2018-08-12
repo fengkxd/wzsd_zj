@@ -18,6 +18,7 @@
 #import "MyWebViewController.h"
 #import "PreparationInformationTableViewCell.h"
 #import "TestRelevantViewController.h"
+#import "SelCourseDetailViewController.h"
 
 @interface HostViewController ()<UITextFieldDelegate>
 {
@@ -66,15 +67,14 @@
     if ([Utility isBlank:[Utility objectForKey:USERNAME]] || [Utility isBlank:[Utility objectForKey:PASSWORD]]) {
         return;
     }
-    
-    
     NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_signin];
     NSDictionary *dict = @{@"account":[Utility objectForKey:USERNAME],@"password":[[Utility md5:[Utility objectForKey:PASSWORD]] lowercaseString]};
     [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
     } failure:^(NSString *errorMsg) {
     }];
-    
 }
+
+
 
 
 -(void)requestCourseList1{
@@ -498,6 +498,14 @@
 
 }
 
+-(void)clickPlay:(NSDictionary *)dict{
+    
+    SelCourseDetailViewController *vc = [[SelCourseDetailViewController alloc] initWithNibName:@"SelCourseDetailViewController" bundle:nil];
+    vc.videoId = [dict objectForKey:@"id"];
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+
+    
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -524,6 +532,21 @@
                 [Toast showWithText:errorMsg];
             }];
             
+        }
+    }else if(section == 4){
+        if (row == 0) {
+        }else{
+            [self clickPlay:[self.videoList2 objectAtIndex:indexPath.row - 1]];
+
+        }
+        
+    }else if(section == 3){
+        if (row == 0) {
+            
+            BaseViewController *vc = [[NSClassFromString(@"SelCourseViewController") alloc] init];
+            [vc setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:vc animated:YES];
+
         }
     }
     

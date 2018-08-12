@@ -42,7 +42,7 @@
 //    UIViewController* topVC = self.topViewController;
 //    return [topVC preferredStatusBarStyle];
     
-      return UIStatusBarStyleLightContent;
+      return UIStatusBarStyleDefault;
     
 }
 
