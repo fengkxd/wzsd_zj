@@ -18,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   
+
     NSString *app_id = @"szzj";
     NSString *auth_key = @"63254606F0E548AE858B06542B4BD014";
     CNC_MediaPlayer_ret_Code ret = [CNCMediaPlayerSDK regist_app:app_id auth_key:auth_key];
@@ -41,7 +41,9 @@
         
         [self loadTabbarVc];
     }
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
     
+
     return YES;
 }
 

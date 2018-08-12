@@ -42,16 +42,38 @@ static NSInteger padding = 8;
 -(UISlider *)slider{
     if (!_slider) {
         _slider = [[UISlider alloc]init];
-        [_slider setThumbImage:[UIImage imageNamed:@"knob"] forState:UIControlStateNormal];
+        
+        UIImage *image = [self OriginImage:[UIImage imageNamed:@"knob"] scaleToSize:CGSizeMake(12, 12)];
+        [_slider setThumbImage:image forState:UIControlStateNormal];
         _slider.continuous = YES;
+
         self.tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
         [_slider addTarget:self action:@selector(handleSliderPosition:) forControlEvents:UIControlEventValueChanged];
+        [_slider addTarget:self action:@selector(progressChanged1:)forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpOutside];
+
         [_slider addGestureRecognizer:self.tapGesture];
         _slider.maximumTrackTintColor = [UIColor clearColor];
         _slider.minimumTrackTintColor = [UIColor whiteColor];
     }
     return _slider;
 }
+
+-(UIImage*) OriginImage:(UIImage*)image scaleToSize:(CGSize)size
+
+{
+    UIGraphicsBeginImageContext(size);//size为CGSize类型，即你所需要的图片尺寸
+    
+    [image drawInRect:CGRectMake(0,0, size.width, size.height)];
+    
+    UIImage* scaledImage =UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;
+    
+}
+
+
 -(UIButton *)largeButton{
     if (!_largeButton) {
         _largeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -105,13 +127,11 @@ static NSInteger padding = 8;
     }];
     [self.slider mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.timeLabel.mas_right).offset(padding);
+        make.height.mas_equalTo(@50);
         make.right.mas_equalTo(self.totalTimeLabel.mas_left).offset(-padding);
-        if (kScreenWidth<kScreenHeight) {
-            //后面的几个常数分别是各个控件的间隔和控件的宽度  添加自定义控件需在此修改参数
-            make.width.mas_equalTo(kScreenWidth - padding - 50 - 50 - 30 - padding - padding);
-        }
     }];
     [self.totalTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        NSLog(@"%@",self.largeButton.mas_left);
         make.left.mas_equalTo(self.slider.mas_right).offset(padding);
         make.right.mas_equalTo(self.largeButton.mas_left);
         make.bottom.mas_equalTo(self).offset(-padding);
@@ -142,6 +162,17 @@ static NSInteger padding = 8;
         [self.delegate controlView:self draggedPositionWithSlider:self.slider];
     }
 }
+
+-(void)progressChanged1:(UISlider *)slider{
+    if ([self.delegate respondsToSelector:@selector(controlView:changedPositionWithSlider:)]) {
+        [self.delegate controlView:self changedPositionWithSlider:self.slider];
+    }
+}
+
+
+
+
+
 -(void)handleTap:(UITapGestureRecognizer *)gesture{
     CGPoint point = [gesture locationInView:self.slider];
     CGFloat pointX = point.x;

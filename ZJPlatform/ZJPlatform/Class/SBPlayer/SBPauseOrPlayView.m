@@ -26,7 +26,7 @@
     
     _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _backButton.contentMode = UIViewContentModeScaleToFill;
-    [_backButton setImage:[UIImage imageNamed:@"Navigation bar_Arrow_normal.png"] forState:UIControlStateNormal];
+    [_backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [_backButton addTarget:self action:@selector(hanleBackBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_backButton];
     _backButton.frame = CGRectMake(10, 10, 40, 40);

@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationBar setBarTintColor:MainBlueColor];
@@ -32,6 +34,20 @@
 //    self.AutorotateViewControllers = [NSArray arrayWithObjects:@"BankHomeViewController",nil];
 
 }
+
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+
+{
+//    UIViewController* topVC = self.topViewController;
+//    return [topVC preferredStatusBarStyle];
+    
+      return UIStatusBarStyleLightContent;
+    
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

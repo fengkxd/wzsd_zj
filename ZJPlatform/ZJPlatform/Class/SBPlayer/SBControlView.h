@@ -26,7 +26,7 @@
  @param slider UISlider
  */
 -(void)controlView:(SBControlView *)controlView draggedPositionWithSlider:(UISlider *)slider ;
-
+-(void)controlView:(SBControlView *)controlView changedPositionWithSlider:(UISlider *)slider ;
 /**
  点击放大按钮的响应事件
 

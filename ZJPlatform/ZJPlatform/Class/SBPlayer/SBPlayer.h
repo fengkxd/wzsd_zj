@@ -66,11 +66,11 @@ typedef NS_ENUM(NSInteger,SBPlayerStatus){
     NSTimer *_alertChangeBitrateTimer;
     // 记录网络不稳定时的errorCode
     NSString *_lastErrorCode;
+    
 }
 
 @property (nonatomic, strong) CNCMediaPlayerController *player;
 @property (nonatomic, strong) SBPauseOrPlayView *pauseOrPlayView;
-//底部控制视图
 @property (nonatomic,strong) SBControlView *controlView;
 @property (nonatomic, strong) CNCPlayerSetting *setting;
 @property (nonatomic,strong) UIActivityIndicatorView *activityIndeView;

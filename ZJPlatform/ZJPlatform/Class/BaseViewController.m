@@ -61,7 +61,9 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
-
+- (BOOL)prefersStatusBarHidden{
+    return NO;
+}
 
 -(void)createLeftWithTitle:(NSString *)title{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];

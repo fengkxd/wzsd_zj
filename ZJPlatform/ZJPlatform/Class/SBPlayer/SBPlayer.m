@@ -9,6 +9,7 @@
 #import "SBPlayer.h"
 #import "AFNetworkReachabilityManager.h"
 #import "Masonry.h"
+#import <CNCLiveMediaPlayerFramework/CNCMediaPlayerSDK.h>
 
 @interface SBPlayer (){
     NSInteger count;
@@ -22,6 +23,11 @@
 //添加标题
 @property (nonatomic,strong) UILabel *titleLabel;
 //加载动画
+
+@property (nonatomic,assign)UIInterfaceOrientation interfaceOrientation;
+
+@property (nonatomic,assign) CGRect rect;
+//@property (nonatomic,strong) UIView *viewFullScreen;
 @end
 
 @implementation SBPlayer
@@ -41,7 +47,7 @@
         make.left.mas_equalTo(0);
         
     }];
-
+    self.interfaceOrientation = UIInterfaceOrientationPortrait;
     if (self.player) {
         // setting
         self.setting =  [CNCPlayerSetting defaultSetting];
@@ -89,10 +95,11 @@
 //MARK:实例化
 -(instancetype)initWithFrame:(CGRect)frame WithUrl:(NSURL *)url{
     self = [super initWithFrame:frame];
+    self.rect = frame;
     if (self) {
         _url = url;
         [self initPlayer];
-        [self initView];
+        [self initFullView];
         [self initNotification];
 
     }
@@ -102,12 +109,24 @@
 
 #pragma mark -- init
 // 初始化UI控件
-- (void)initView {
-    // 添加播放view和UIview
+- (void)initFullView {
+    // 全屏View
+//    UITapGestureRecognizer *_recognizerDisplay1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapAction:)];
+//    _recognizerDisplay1.numberOfTapsRequired = 1;
+//    self.viewFullScreen = [[UIView alloc] initWithFrame:CGRectZero];
+//    self.viewFullScreen.backgroundColor = [UIColor blackColor];
+//    [self.viewFullScreen addGestureRecognizer:_recognizerDisplay1];
+//    self.viewFullScreen.hidden = YES;
+//    [self addSubview:self.viewFullScreen];
+//    [self bringSubviewToFront:self.viewFullScreen];
+//
+//
+//    self.viewFullScreen.frame = CGRectMake(0, 0, MainScreenheight, MainScreenWidth);
 
     
 
 }
+
 
 
 - (void)calcWaitTime {
@@ -261,6 +280,7 @@
         case CNC_MediaPlayer_RCode_Parse_URL_Failed: {
             msg = [NSString stringWithFormat:@"code:%lu(%@)--%@",(unsigned long)detail_value,key_value,@"URL解析失败"];
             [self showLog:msg];
+            [MBProgressHUD showError:@"播放错误" toView:self];
             //            [_player_ui set_buffer_image_hidden:YES];
             _isVideoOver = YES;
         }
@@ -317,33 +337,41 @@
 
 // 刷新播放控件显示
 - (void)refreshMediaControl{
-    NSTimeInterval duration = self.player.duration;
-    NSInteger intDuration = floor(duration);
+    
+    if (!_isMediaSliderBeingDragged) {
+        NSTimeInterval duration = self.player.duration;
+        NSInteger intDuration = floor(duration);
+        
+        self.controlView.maxValue = intDuration;
 
-    if (self.setting.isLive) {
-        self.controlView.totalTime = @"--:--";
-    }else{
-        self.controlView.totalTime = [NSString stringWithFormat:@"%02d:%02d", (int)(intDuration / 60), (int)(intDuration % 60)];
-
+        if (self.setting.isLive) {
+            self.controlView.totalTime = @"--:--";
+        }else{
+            self.controlView.totalTime = [NSString stringWithFormat:@"%02d:%02d", (int)(intDuration / 60), (int)(intDuration % 60)];
+        }
+        // 当前播放位置
+        NSTimeInterval position;
+        position = self.player.currentPlaybackTime;
+        NSInteger intPosition = ceil(position);
+        if ((intPosition >= intDuration) && !self.setting.isLive) {
+            self.controlView.currentTime = [NSString stringWithFormat:@"%02d:%02d", (int)(intDuration / 60), (int)(intDuration % 60)];
+        } else {
+            self.controlView.currentTime = [NSString stringWithFormat:@"%02d:%02d", (int)(intPosition / 60), (int)(intPosition % 60)];
+        }
+        
+//        self.controlView.minValue = intDuration;
+        self.controlView.value = self.player.currentPlaybackTime;
+        if (self.player.playbackState == CNC_PLAYER_STATE_ON_MEDIA_STOP) {
+            self.controlView.currentTime = @"00:00";
+        }
+        if (count>=5) {
+            [self setSubViewsIsHide:YES];
+        }else{
+            [self setSubViewsIsHide:NO];
+        }
+        count += 1;
     }
-    // 当前播放位置
-    NSTimeInterval position;
-    position = self.player.currentPlaybackTime;
-    NSInteger intPosition = ceil(position);
-    if ((intPosition >= intDuration) && !self.setting.isLive) {
-        self.controlView.currentTime = [NSString stringWithFormat:@"%02d:%02d", (int)(intDuration / 60), (int)(intDuration % 60)];
-    } else {
-        self.controlView.currentTime = [NSString stringWithFormat:@"%02d:%02d", (int)(intPosition / 60), (int)(intPosition % 60)];
-    }
-    if (self.player.playbackState == CNC_PLAYER_STATE_ON_MEDIA_STOP) {
-        self.controlView.currentTime = @"00:00";
-    }
-    if (count>=5) {
-        [self setSubViewsIsHide:YES];
-    }else{
-        [self setSubViewsIsHide:NO];
-    }
-    count += 1;
+  
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(refreshMediaControl) object:nil];
 
     [self performSelector:@selector(refreshMediaControl) withObject:nil afterDelay:1];
@@ -402,48 +430,10 @@
     }
 }
 
--(void)deviceOrientationDidChange:(NSNotification *)notification{
-    UIInterfaceOrientation _interfaceOrientation=[[UIApplication sharedApplication]statusBarOrientation];
-    switch (_interfaceOrientation) {
-        case UIInterfaceOrientationLandscapeLeft:
-        case UIInterfaceOrientationLandscapeRight:
-        {
-            _isFullScreen = YES;
-            if (!self.oldConstriants) {
-                self.oldConstriants = [self getCurrentVC].view.constraints;
-            }
-            [self.controlView updateConstraintsIfNeeded];
-            //删除UIView animate可以去除横竖屏切换过渡动画
-            [UIView animateWithDuration:kTransitionTime delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0. options:UIViewAnimationOptionTransitionCurlUp animations:^{
-                [[UIApplication sharedApplication].keyWindow addSubview:self];
-                [self mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.edges.mas_equalTo([UIApplication sharedApplication].keyWindow);
-                }];
-                [self layoutIfNeeded];
-            } completion:nil];
-        }
-            break;
-        case UIInterfaceOrientationPortraitUpsideDown:
-        case UIInterfaceOrientationPortrait:
-        {
-            _isFullScreen = NO;
-            [[self getCurrentVC].view addSubview:self];
-            //删除UIView animate可以去除横竖屏切换过渡动画
-            [UIView animateKeyframesWithDuration:kTransitionTime delay:0 options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^{
-                if (self.oldConstriants) {
-                    [[self getCurrentVC].view addConstraints:self.oldConstriants];
-                }
-                [self layoutIfNeeded];
-            } completion:nil];
-        }
-            break;
-        case UIInterfaceOrientationUnknown:
-            NSLog(@"UIInterfaceOrientationUnknown");
-            break;
-    }
-    [[self getCurrentVC].view layoutIfNeeded];
-    
-}
+
+
+
+
 #pragma mark -- private method
 - (void)showLog:(NSString *)message {
     NSLog(@"%@",message);
@@ -597,6 +587,7 @@
         _controlView.delegate = self;
         _controlView.backgroundColor = [UIColor clearColor];
         [_controlView.tapGesture requireGestureRecognizerToFail:self.pauseOrPlayView.imageBtn.gestureRecognizers.firstObject];
+   
     }
     return _controlView;
 }
@@ -612,39 +603,115 @@
         self.titleLabel.alpha = isHide?0:1;
     }];
     
-//    self.controlView.hidden = isHide;
-//    self.pauseOrPlayView.hidden = isHide;
-//    self.titleLabel.hidden = isHide;
-}
+ }
 //MARK: SBPauseOrPlayViewDeleagate
-//-(void)pauseOrPlayView:(SBPauseOrPlayView *)pauseOrPlayView withState:(BOOL)state{
-//    count = 0;
-//    if (state) {
-//        [self play];
-//    }else{
-//        [self pause];
-//    }
-//}
-//
-//-(void)hanleBackButton{
-//
-//    count = 0;
-//    if (kScreenWidth<kScreenHeight) {
-////        [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
-//    }else{
-//        [self interfaceOrientation:UIInterfaceOrientationPortrait];
-//    }
-//
-//
-//
-//    _dismissBlock();
-//}
-//
-//-(void)hanleMoreButton{
-//    _moreBlock();
-//}
+-(void)pauseOrPlayView:(SBPauseOrPlayView *)pauseOrPlayView withState:(BOOL)state{
+    count = 0;
+    if (state) {
+        [self play];
+    }else{
+        [self pause];
+    }
+}
+
+-(void)hanleBackButton{
+    count = 0;
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    _dismissBlock();
+}
 
 
+
+
+//MARK: SBControlViewDelegate
+-(void)controlView:(SBControlView *)controlView pointSliderLocationWithCurrentValue:(CGFloat)value{
+    count = 0;
+    _isMediaSliderBeingDragged = NO;
+    NSTimeInterval duration = self.player.duration;
+    NSTimeInterval position = duration * value;
+    position = self.player.currentPlaybackTime;
+    NSInteger intPosition = ceil(position);
+    self.controlView.currentTime = [NSString stringWithFormat:@"%02d:%02d", (int)(intPosition / 60), (int)(intPosition % 60)];
+    
+}
+
+
+
+-(void)controlView:(SBControlView *)controlView changedPositionWithSlider:(UISlider *)slider{
+    _isMediaSliderBeingDragged  = NO;
+    NSLog(@"%@",slider);
+    self.player.currentPlaybackTime = slider.value;
+    self.controlView.value = self.player.currentPlaybackTime;
+
+}
+
+-(void)controlView:(SBControlView *)controlView draggedPositionWithSlider:(UISlider *)slider{
+    count = 0;
+    NSTimeInterval position = slider.value;
+    NSInteger intPosition = ceil(position);
+    self.controlView.currentTime = [NSString stringWithFormat:@"%02d:%02d", (int)(intPosition / 60), (int)(intPosition % 60)];
+    NSLog(@"%f===%f",self.player.currentPlaybackTime,slider.value);
+    
+}
+
+
+
+-(void)controlView:(SBControlView *)controlView withLargeButton:(UIButton *)button{
+    count = 0;
+    [UIView animateWithDuration:0.25 animations:^{
+        if (self.interfaceOrientation == UIInterfaceOrientationPortrait ||
+            self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            self.transform = CGAffineTransformMakeRotation(90 *M_PI / 180.0);
+            self.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenheight);
+            [[UIApplication sharedApplication] setStatusBarHidden:YES];
+            self.interfaceOrientation = UIInterfaceOrientationLandscapeRight;
+        }else{
+            self.transform = CGAffineTransformMakeRotation(0);
+            self.frame = self.rect;
+            [[UIApplication sharedApplication] setStatusBarHidden:NO];
+            self.interfaceOrientation == UIInterfaceOrientationPortrait;
+            
+        }
+
+    }];
+}
+
+-(void)deviceOrientationDidChange:(NSNotification *)notification{
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation] ;
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        switch (orientation) {
+            case UIDeviceOrientationPortrait:
+                self.transform = CGAffineTransformMakeRotation(0);
+                self.frame = self.rect;
+                [[UIApplication sharedApplication] setStatusBarHidden:NO];
+                self.interfaceOrientation = UIInterfaceOrientationPortrait;
+                break;
+            case UIDeviceOrientationLandscapeLeft:
+                self.transform = CGAffineTransformMakeRotation(90 *M_PI / 180.0);
+                self.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenheight);
+                [[UIApplication sharedApplication] setStatusBarHidden:YES];
+                self.interfaceOrientation = UIInterfaceOrientationLandscapeRight;
+                break;
+            case UIDeviceOrientationLandscapeRight:
+                
+                self.transform = CGAffineTransformMakeRotation(270 *M_PI / 180.0);
+                self.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenheight);
+                [[UIApplication sharedApplication] setStatusBarHidden:YES];
+                self.interfaceOrientation = UIInterfaceOrientationLandscapeLeft;
+                
+                break;
+            case UIInterfaceOrientationPortraitUpsideDown:
+                
+                break;
+                
+            default:
+                break;
+        }
+    }];
+    
+}
 
 
 
@@ -668,27 +735,6 @@
     NSString *showtimeNew = [formatter stringFromDate:d];
     return showtimeNew;
 }
-//旋转方向
-- (void)interfaceOrientation:(UIInterfaceOrientation)orientation
-{
-    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
-        SEL selector             = NSSelectorFromString(@"setOrientation:");
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
-        [invocation setSelector:selector];
-        [invocation setTarget:[UIDevice currentDevice]];
-        int val                  = orientation;
-        
-        [invocation setArgument:&val atIndex:2];
-        [invocation invoke];
-    }
-    if (orientation == UIInterfaceOrientationLandscapeRight||orientation == UIInterfaceOrientationLandscapeLeft) {
-        // 设置横屏
-    } else if (orientation == UIInterfaceOrientationPortrait) {
-        // 设置竖屏
-    }else if (orientation == UIInterfaceOrientationPortraitUpsideDown){
-        //
-    }
-}
 
 -(void)play{
     if (self.player) {
@@ -700,27 +746,33 @@
         [self.player pause];
     }
 }
-//-(void)stop{
-//    [self.item removeObserver:self forKeyPath:@"status"];
-//    [self.player removeTimeObserver:playbackTimerObserver];
-//    [self.item removeObserver:self forKeyPath:@"loadedTimeRanges"];
-//    [self.item removeObserver:self forKeyPath:@"playbackBufferEmpty"];
-//    [self.item removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
-//    [self.player removeObserver:self forKeyPath:@"rate"];
-//    [[NSNotificationCenter defaultCenter]removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[self.player currentItem]];
-//    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
-//    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
-//    if (self.player) {
-//        [self pause];
-//        self.anAsset = nil;
-//        self.item = nil;
-//        self.controlView.value = 0;
-//        self.controlView.currentTime = @"00:00";
-//        self.controlView.totalTime = @"00:00";
-//        self.player = nil;
-//        self.activityIndeView = nil;
-//        [self removeFromSuperview];
-//    }
-//}
+
+
+-(void)stop{
+ 
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    // 停止刷新UI显示
+    [_refresh_timer invalidate];
+    _refresh_timer = nil;
+    
+    [_refresh_dyinfo_timer invalidate];
+    _refresh_dyinfo_timer = nil;
+    
+    if (_alertChangeBitrateTimer != nil) {
+        [_alertChangeBitrateTimer invalidate];
+        _alertChangeBitrateTimer = nil;
+    }
+    // 停止缓冲动画
+    [self.activityIndeView stopAnimating];
+    [self.player.view removeFromSuperview];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(refreshMediaControl) object:nil];
+    [self.player stopScreenRecordWithHandler:^(NSDictionary * _Nullable object, NSError * _Nullable error) {
+        //
+    }];
+    [self.player shutdown];
+    self.player = nil;
+    [CNCMediaPlayerSDK setPlyerMute:0];
+}
 
 @end

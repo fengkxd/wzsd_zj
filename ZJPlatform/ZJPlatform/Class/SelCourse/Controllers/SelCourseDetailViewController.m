@@ -29,7 +29,7 @@
     IBOutlet UILabel *browsingNumberLabel;
     
 }
-
+@property (nonatomic,strong) SBPlayer *play;
 @property (nonatomic,strong) NSString *videoAddress;
 
 @property (nonatomic,assign) NSInteger pageNo;
@@ -145,11 +145,13 @@
         [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
     } failure:^(NSString *errorMsg) {
         [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-        [Toast showWithText:errorMsg];
-
+        [Toast showWithText:@"加载课程详情失败"];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
 
 }
+
+
 
 -(void)loadVideoInfo:(NSDictionary *)dict{
     self.videoDict = [NSDictionary  dictionaryWithDictionary:dict];
@@ -405,7 +407,9 @@
         [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
     } failure:^(NSString *errorMsg) {
         [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
-        [Toast showWithText:errorMsg];
+        [Toast showWithText:@"加载课程详情失败"];
+        [self.navigationController popViewControllerAnimated:YES];
+
     }];
 }
 
@@ -437,10 +441,15 @@
 
 
 -(void)initPlayer{
-    
-    SBPlayer *play = [[SBPlayer alloc] initWithFrame:CGRectMake(0, 20, MainScreenWidth, videoHeight) WithUrl:[NSURL URLWithString:self.videoAddress]];
-
-    [self.view addSubview:play];
+    if (_play == nil) {
+        _play = [[SBPlayer alloc] initWithFrame:CGRectMake(0, 20, MainScreenWidth, videoHeight) WithUrl:[NSURL URLWithString:self.videoAddress]];
+    }
+    WS(weakSelf);
+    self.play.dismissBlock = ^{
+        [weakSelf.play stop];
+        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+    };
+    [self.view addSubview:self.play];
     
     
 }
