@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
 
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationBar setBarTintColor:MainBlueColor];
     [self.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
@@ -65,7 +65,6 @@
 
     NSString *vcStr = NSStringFromClass([viewController class]);
     if ([self.HiddenBarViewControllers containsObject:vcStr]) {
-        [[UIApplication sharedApplication] setStatusBarHidden:YES];
         [self setNavigationBarHidden:YES animated:YES];
     }else{
         if (self.navigationBarHidden == YES) {
@@ -81,7 +80,7 @@
     NSString *vcStr = NSStringFromClass([[self.viewControllers firstObject] class]);
     
     if ([self.viewControllers count] == 2 && [self.HiddenBarViewControllers containsObject:vcStr]) {
-        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
         [self setNavigationBarHidden:YES animated:NO];
     }
     if ([self.HiddenBarViewControllers containsObject:NSStringFromClass([[self.viewControllers lastObject] class])]) {

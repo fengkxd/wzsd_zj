@@ -47,6 +47,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+
     firstLoad = NO;
     self.tableView.contentOffset = CGPointMake(0, -20);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kNotification_LOGIN_SUCCESS object:nil];
@@ -174,43 +180,43 @@
 
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-    if (section == 0) {
-        static NSString *cellid = @"cell1";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellid];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            CGFloat width =  MainScreenWidth /3.0;
-            CGFloat h = 80;
-            for (NSInteger i = 0; i < 3; i ++ ) {
-                NSInteger column = i % 3;
-                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                btn.frame = CGRectMake(column * width, row * h, width, h);
-                btn.tag = i;
-                [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-                switch (i) {
-                    case 0:
-                        [btn setTitle:@"我的订单" forState:UIControlStateNormal];
-                        break;
-                    case 1:
-                        [btn setTitle:@"我的课程" forState:UIControlStateNormal];
-                        break;
-                    case 2:
-                        [btn setTitle:@"优惠券" forState:UIControlStateNormal];
-                        break;
-    
-                    default:
-                        break;
-                }
-                [btn addTarget:self action:@selector(clickItem:) forControlEvents:UIControlEventTouchUpInside];
-                [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"mineIcon%zi.png",i+1]] forState:UIControlStateNormal];
-                [cell.contentView addSubview:btn];
-                [self verticalImageAndTitle:5 withBtn:btn];
-                
-            }
-        }
-        return cell;
-    }else{
+//    if (section == 0) {
+//        static NSString *cellid = @"cell1";
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+//        if (cell == nil) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellid];
+//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//            CGFloat width =  MainScreenWidth /3.0;
+//            CGFloat h = 80;
+//            for (NSInteger i = 0; i < 3; i ++ ) {
+//                NSInteger column = i % 3;
+//                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//                btn.frame = CGRectMake(column * width, row * h, width, h);
+//                btn.tag = i;
+//                [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//                switch (i) {
+//                    case 0:
+//                        [btn setTitle:@"我的订单" forState:UIControlStateNormal];
+//                        break;
+//                    case 1:
+//                        [btn setTitle:@"我的课程" forState:UIControlStateNormal];
+//                        break;
+//                    case 2:
+//                        [btn setTitle:@"优惠券" forState:UIControlStateNormal];
+//                        break;
+//
+//                    default:
+//                        break;
+//                }
+//                [btn addTarget:self action:@selector(clickItem:) forControlEvents:UIControlEventTouchUpInside];
+//                [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"mineIcon%zi.png",i+1]] forState:UIControlStateNormal];
+//                [cell.contentView addSubview:btn];
+//                [self verticalImageAndTitle:5 withBtn:btn];
+//
+//            }
+//        }
+//        return cell;
+//    }else{
         static NSString *cellid = @"cell2";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
         if (cell == nil) {
@@ -221,7 +227,7 @@
             cell.textLabel.textColor = [UIColor colorWithHexString:@"333333"];
         }
         cell.detailTextLabel.attributedText = nil;
-        if (section == 1) {
+//        if (section == 1) {
             if (row == 0) {
                 cell.textLabel.text =  [NSString stringWithFormat:@"当前考试：%@",[[Utility objectForKey:Sel_Subject] objectForKey:@"name"]];
                 if (self.memberInfoDict) {
@@ -239,23 +245,25 @@
             }else if(row == 1){
                 cell.textLabel.text = @"学习时间统计";
             }else if(row == 2){
-                cell.textLabel.text = @"我的题库";
+                cell.textLabel.text = @"我的课程";
             }else if(row == 3){
-                cell.textLabel.text = @"我的收藏";
+                cell.textLabel.text = @"我的优惠券";
             }else if(row == 4){
+                cell.textLabel.text = @"我的题库";
+            }else if(row == 5){
                 cell.textLabel.text = @"意见反馈";
             }
             
-        }
-        
+//        }
+    
         
         
         return cell;
     
-    }
+//    }
     
     
-    return nil;
+//    return nil;
 }
 
 
@@ -282,25 +290,25 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        return 80;
-    }
+//    if (indexPath.section == 0) {
+//        return 80;
+//    }
     return 50;
 }
 
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
-        return 1;
-    }
-    return 5;
+//    if (section == 0) {
+//        return 1;
+//    }
+    return 6;
  }
 
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 1;
 }
 
 

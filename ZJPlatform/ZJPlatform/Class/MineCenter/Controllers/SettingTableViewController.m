@@ -7,6 +7,7 @@
 //
 
 #import "SettingTableViewController.h"
+#import "AboutViewController.h"
 
 @interface SettingTableViewController ()
 {
@@ -42,7 +43,7 @@
     [view addSubview:label];
     
     if (section == 0) {
-        label.text = @"下载设置";
+        label.text = @"播放设置";
     }else if(section == 1){
         label.text = @"播放设置";
     }else if(section == 2){
@@ -66,7 +67,7 @@
     if(section == 0){
         return 1;
     }else{
-        return 5;
+        return 4;
     }
 }
 
@@ -88,13 +89,7 @@
 }
 
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+ -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 40;
 }
@@ -128,24 +123,36 @@
         }
 
     }else{
-        if (row == 0) {
-            cell.textLabel.text = @"联系客服";
-        }else if(row == 1){
+         if(row == 0){
             cell.textLabel.text = @"关于我们";
-        }else if(row == 2){
+        }else if(row == 1){
             cell.textLabel.text = @"分享应用";
-        }else if(row == 3){
+        }else if(row == 2){
             cell.textLabel.text = @"给个好评";
-        }else if(row == 4){
+        }else if(row == 3){
             cell.textLabel.text = @"清除缓存";
+        }
+        
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (section == 0) {
+        
+    }else{
+        if (row == 0) {
+            AboutViewController *vc = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         
     }
     
     
-    return cell;
 }
-
 
 
 

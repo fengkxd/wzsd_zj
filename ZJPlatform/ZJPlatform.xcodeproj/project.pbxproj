@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1A13399021046F4200D0B529 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A13398F21046F4200D0B529 /* CommentTableViewCell.m */; };
 		1A16838F20CD1A49009B4710 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A16838E20CD1A49009B4710 /* WebKit.framework */; };
+		1A1812FD2121D11500D4E2CB /* about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A1812FC2121D11400D4E2CB /* about.jpg */; };
+		1A1813012121D13200D4E2CB /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1812FF2121D13200D4E2CB /* AboutViewController.m */; };
+		1A1813022121D13200D4E2CB /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1813002121D13200D4E2CB /* AboutViewController.xib */; };
 		1A6131F020633F6A00C8B99B /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6131EF20633F6A00C8B99B /* HostViewController.m */; };
 		1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6131FD20633FDF00C8B99B /* MineCenterViewController.m */; };
 		1A61320520633FF900C8B99B /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61320420633FF900C8B99B /* QuestionsViewController.m */; };
@@ -374,6 +377,10 @@
 		1A13398E21046F4200D0B529 /* CommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		1A13398F21046F4200D0B529 /* CommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		1A16838E20CD1A49009B4710 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1A1812FC2121D11400D4E2CB /* about.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = about.jpg; sourceTree = "<group>"; };
+		1A1812FE2121D13200D4E2CB /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		1A1812FF2121D13200D4E2CB /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		1A1813002121D13200D4E2CB /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		1A6131EE20633F6A00C8B99B /* HostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
 		1A6131EF20633F6A00C8B99B /* HostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		1A6131FC20633FDF00C8B99B /* MineCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCenterViewController.h; sourceTree = "<group>"; };
@@ -1015,8 +1022,12 @@
 				1EA88C6D2072218400E23098 /* MyCourseTableViewController.m */,
 				1AEF717A2077286A003075B6 /* SettingTableViewController.h */,
 				1AEF717B2077286A003075B6 /* SettingTableViewController.m */,
+				1A1812FC2121D11400D4E2CB /* about.jpg */,
 				1AEF717D20775915003075B6 /* MyLiveBroadcastViewController.h */,
 				1AEF717E20775915003075B6 /* MyLiveBroadcastViewController.m */,
+				1A1812FE2121D13200D4E2CB /* AboutViewController.h */,
+				1A1812FF2121D13200D4E2CB /* AboutViewController.m */,
+				1A1813002121D13200D4E2CB /* AboutViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1911,6 +1922,7 @@
 				1AE2008A206799A40035F412 /* HostIcon6@3x.png in Resources */,
 				1A9491EF2070740300E03D71 /* TeacherVideoTableViewCell.xib in Resources */,
 				1E3196DA2069DE4C004B8574 /* setting@3x.png in Resources */,
+				1A1812FD2121D11500D4E2CB /* about.jpg in Resources */,
 				1E60BDDD206501A500071817 /* tabbar_3@2x.png in Resources */,
 				1AE2009220679CBA0035F412 /* banenr@3x.png in Resources */,
 				1E3196A72068D63F004B8574 /* eyes@2x.png in Resources */,
@@ -1971,6 +1983,7 @@
 				1E563E142073610800AE1A93 /* SelCourseDetailViewController.xib in Resources */,
 				1EE02E642068A13200BFC31B /* videoDefault@3x.png in Resources */,
 				1E319707206A3473004B8574 /* Host_type7@2x.png in Resources */,
+				1A1813022121D13200D4E2CB /* AboutViewController.xib in Resources */,
 				1AE20080206799A40035F412 /* HostIcon1@3x.png in Resources */,
 				1E31971F206B2FC5004B8574 /* ForgetPwdViewController.xib in Resources */,
 				1E3196D72069DE4C004B8574 /* scan@2x.png in Resources */,
@@ -2134,6 +2147,7 @@
 				440F2524211E877100524F62 /* MASLayoutConstraint.m in Sources */,
 				440F24FF211E7F8200524F62 /* SBPlayer.m in Sources */,
 				1E3E18E220720AF300F5B71C /* CouponTableViewCell.m in Sources */,
+				1A1813012121D13200D4E2CB /* AboutViewController.m in Sources */,
 				1E37D9B420624AAA000DAF65 /* UIButton+WebCache.m in Sources */,
 				1A9491EE2070740300E03D71 /* TeacherVideoTableViewCell.m in Sources */,
 				1E319736206B9567004B8574 /* ExamInformationTableViewCell.m in Sources */,
@@ -2299,7 +2313,7 @@
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.goen.wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goen.wallet11111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -2330,7 +2344,7 @@
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.goen.wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goen.wallet11111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
