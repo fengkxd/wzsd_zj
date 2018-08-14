@@ -174,7 +174,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger row = indexPath.row;
     
-    NSArray *vcs = @[@"ExamInformationViewController",@"MyCourseTableViewController",@"CouponTableViewController"
+    NSArray *vcs = @[@"ExamInformationViewController",@"learningTimeViewController",@"CouponTableViewController"
                      ,@"CouponTableViewController",@"CouponTableViewController",@"CouponTableViewController"];
     
     BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:row]) alloc] init];

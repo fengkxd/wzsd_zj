@@ -39,9 +39,8 @@ static NSString *const  kRequest_video_list                       = @"/course/li
 static NSString *const  kRequest_video_details                    = @"/course/details";
 static NSString *const  kRequest_catalogue_list                    = @"/catalogue/list";
 static NSString *const  kRequest_comment_list                    = @"/comment/list";
+static NSString *const  kRequest_newsbulletin_findList         = @"/newsbulletin/findList";
 
-
- static NSString *const  kRequest_newsbulletin_findList         = @"/newsbulletin/findList";
 
 #pragma mark 考试指南
 //获得标题信息
@@ -64,6 +63,7 @@ static NSString *const  kRequest_newsInformation_get           =      @"/newsInf
 
 //学生优惠券
 static NSString *const  kRequest_coupon_list             =      @"/coupon/list";
+static NSString *const  kRequest_studyduration_list      =     @"/studyduration/list";
 
 
 

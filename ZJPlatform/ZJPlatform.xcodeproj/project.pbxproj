@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1163692122FCF00053C10A /* learningTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1163682122FCF00053C10A /* learningTimeViewController.m */; };
+		1A11636C2122FDB10053C10A /* MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A11636B2122FDB10053C10A /* MainTableView.m */; };
+		1A11636F2122FF0F0053C10A /* learningTimeTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A11636E2122FF0F0053C10A /* learningTimeTableVC.m */; };
+		1A116373212301750053C10A /* learningTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A116371212301750053C10A /* learningTimeTableViewCell.m */; };
+		1A116374212301750053C10A /* learningTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A116372212301750053C10A /* learningTimeTableViewCell.xib */; };
 		1A13399021046F4200D0B529 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A13398F21046F4200D0B529 /* CommentTableViewCell.m */; };
 		1A16838F20CD1A49009B4710 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A16838E20CD1A49009B4710 /* WebKit.framework */; };
 		1A1812FD2121D11500D4E2CB /* about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A1812FC2121D11400D4E2CB /* about.jpg */; };
@@ -376,6 +381,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A1163672122FCF00053C10A /* learningTimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = learningTimeViewController.h; sourceTree = "<group>"; };
+		1A1163682122FCF00053C10A /* learningTimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = learningTimeViewController.m; sourceTree = "<group>"; };
+		1A11636A2122FDB10053C10A /* MainTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableView.h; sourceTree = "<group>"; };
+		1A11636B2122FDB10053C10A /* MainTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableView.m; sourceTree = "<group>"; };
+		1A11636D2122FF0F0053C10A /* learningTimeTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = learningTimeTableVC.h; sourceTree = "<group>"; };
+		1A11636E2122FF0F0053C10A /* learningTimeTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = learningTimeTableVC.m; sourceTree = "<group>"; };
+		1A116370212301750053C10A /* learningTimeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = learningTimeTableViewCell.h; sourceTree = "<group>"; };
+		1A116371212301750053C10A /* learningTimeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = learningTimeTableViewCell.m; sourceTree = "<group>"; };
+		1A116372212301750053C10A /* learningTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = learningTimeTableViewCell.xib; sourceTree = "<group>"; };
 		1A13398E21046F4200D0B529 /* CommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		1A13398F21046F4200D0B529 /* CommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		1A16838E20CD1A49009B4710 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -1032,6 +1046,15 @@
 				1A1812FE2121D13200D4E2CB /* AboutViewController.h */,
 				1A1812FF2121D13200D4E2CB /* AboutViewController.m */,
 				1A1813002121D13200D4E2CB /* AboutViewController.xib */,
+				1A1163672122FCF00053C10A /* learningTimeViewController.h */,
+				1A1163682122FCF00053C10A /* learningTimeViewController.m */,
+				1A11636D2122FF0F0053C10A /* learningTimeTableVC.h */,
+				1A11636E2122FF0F0053C10A /* learningTimeTableVC.m */,
+				1A116370212301750053C10A /* learningTimeTableViewCell.h */,
+				1A116371212301750053C10A /* learningTimeTableViewCell.m */,
+				1A116372212301750053C10A /* learningTimeTableViewCell.xib */,
+				1A11636A2122FDB10053C10A /* MainTableView.h */,
+				1A11636B2122FDB10053C10A /* MainTableView.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1939,6 +1962,7 @@
 				694B8E55206BF0A700DC988E /* TQ_item3@2x.png in Resources */,
 				1AE20045206663690035F412 /* pwd@3x.png in Resources */,
 				1AE2008D206799A40035F412 /* HostIcon8@2x.png in Resources */,
+				1A116374212301750053C10A /* learningTimeTableViewCell.xib in Resources */,
 				1AE20089206799A40035F412 /* HostIcon6@2x.png in Resources */,
 				1EA88C792072234900E23098 /* course_icon5@2x.png in Resources */,
 				1AE2007F206799A40035F412 /* HostIcon1@2x.png in Resources */,
@@ -2065,12 +2089,15 @@
 				1E37D99B20624AAA000DAF65 /* AFURLRequestSerialization.m in Sources */,
 				1AEF717F20775915003075B6 /* MyLiveBroadcastViewController.m in Sources */,
 				1EF631412062316400385293 /* ViewController.m in Sources */,
+				1A116373212301750053C10A /* learningTimeTableViewCell.m in Sources */,
 				1AEF71872078A4E9003075B6 /* MySelCourseViewController.m in Sources */,
 				1E31969F2068CA34004B8574 /* HostCommendVideoView.m in Sources */,
 				1AEF717C2077286A003075B6 /* SettingTableViewController.m in Sources */,
+				1A1163692122FCF00053C10A /* learningTimeViewController.m in Sources */,
 				1A61320520633FF900C8B99B /* QuestionsViewController.m in Sources */,
 				440DC146211D95A30009EB19 /* CNCPlayerSetting.m in Sources */,
 				440F2525211E877100524F62 /* MASViewAttribute.m in Sources */,
+				1A11636F2122FF0F0053C10A /* learningTimeTableVC.m in Sources */,
 				1AE2006720678FC60035F412 /* HostBannerView.m in Sources */,
 				1E37D9AA20624AAA000DAF65 /* UIView+MJExtension.m in Sources */,
 				1E37D9BB20624AAA000DAF65 /* MBProgressHUD.m in Sources */,
@@ -2096,6 +2123,7 @@
 				445C259F20DF9CD100B03500 /* TestRelevantViewController.m in Sources */,
 				1A6131F020633F6A00C8B99B /* HostViewController.m in Sources */,
 				1E37D9B820624AAA000DAF65 /* UIImageView+HighlightedWebCache.m in Sources */,
+				1A11636C2122FDB10053C10A /* MainTableView.m in Sources */,
 				692DA9C221046DE000611A33 /* TQTestCell1.m in Sources */,
 				446A50C620DCA85100C23370 /* MyDetailTableViewController.m in Sources */,
 				1E3196A42068CC8B004B8574 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
