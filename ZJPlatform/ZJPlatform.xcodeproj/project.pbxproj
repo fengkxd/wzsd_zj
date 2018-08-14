@@ -304,6 +304,8 @@
 		44765EFE211D731400D3F962 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 44765EFD211D731400D3F962 /* libz.tbd */; };
 		448012B020D89846007B11DB /* NewsZJTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448012AF20D89846007B11DB /* NewsZJTableViewController.m */; };
 		448012B320D89C3F007B11DB /* MyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448012B220D89C3F007B11DB /* MyWebViewController.m */; };
+		44B4D8162122CAD5003DD7BA /* Coupon_bg4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B4D8142122CAD5003DD7BA /* Coupon_bg4@3x.png */; };
+		44B4D8172122CAD5003DD7BA /* Coupon_bg4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B4D8152122CAD5003DD7BA /* Coupon_bg4@2x.png */; };
 		69234B0A20728246007E7C99 /* TQGGLXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B0820728246007E7C99 /* TQGGLXViewController.m */; };
 		69234B0B20728246007E7C99 /* TQGGLXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69234B0920728246007E7C99 /* TQGGLXViewController.xib */; };
 		69234B0E207285EC007E7C99 /* TQGGLXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B0D207285EC007E7C99 /* TQGGLXCell.m */; };
@@ -794,6 +796,8 @@
 		448012AF20D89846007B11DB /* NewsZJTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsZJTableViewController.m; sourceTree = "<group>"; };
 		448012B120D89C3F007B11DB /* MyWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebViewController.h; sourceTree = "<group>"; };
 		448012B220D89C3F007B11DB /* MyWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebViewController.m; sourceTree = "<group>"; };
+		44B4D8142122CAD5003DD7BA /* Coupon_bg4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coupon_bg4@3x.png"; sourceTree = "<group>"; };
+		44B4D8152122CAD5003DD7BA /* Coupon_bg4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coupon_bg4@2x.png"; sourceTree = "<group>"; };
 		69234B0720728246007E7C99 /* TQGGLXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQGGLXViewController.h; sourceTree = "<group>"; };
 		69234B0820728246007E7C99 /* TQGGLXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQGGLXViewController.m; sourceTree = "<group>"; };
 		69234B0920728246007E7C99 /* TQGGLXViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TQGGLXViewController.xib; sourceTree = "<group>"; };
@@ -1244,6 +1248,8 @@
 				1E3E18E520720B9500F5B71C /* Coupon_bg2@3x.png */,
 				1E3E18E420720B9500F5B71C /* Coupon_bg3@2x.png */,
 				1E3E18E720720B9500F5B71C /* Coupon_bg3@3x.png */,
+				44B4D8152122CAD5003DD7BA /* Coupon_bg4@2x.png */,
+				44B4D8142122CAD5003DD7BA /* Coupon_bg4@3x.png */,
 				1E3196DF2069EB94004B8574 /* head_default@2x.png */,
 				1E3196E02069EB94004B8574 /* head_default@3x.png */,
 				1E3196DB2069E7CA004B8574 /* point@2x.png */,
@@ -1942,6 +1948,7 @@
 				69234B2720728BEF007E7C99 /* TQ_F@2x.png in Resources */,
 				440F2501211E7F8200524F62 /* full_screen@2x.png in Resources */,
 				694B8E56206BF0A700DC988E /* TQ_item3@3x.png in Resources */,
+				44B4D8162122CAD5003DD7BA /* Coupon_bg4@3x.png in Resources */,
 				1AE2004D206713670035F412 /* qq@3x.png in Resources */,
 				1E60BDDF206501A500071817 /* tabbar_4_h@2x.png in Resources */,
 				1E60BDE0206501A500071817 /* tabbar_4_h@3x.png in Resources */,
@@ -1964,6 +1971,7 @@
 				69234B2E20728BEF007E7C99 /* TQ_R@2x.png in Resources */,
 				1AE20046206663690035F412 /* user@2x.png in Resources */,
 				1E319727206B3691004B8574 /* code@3x.png in Resources */,
+				44B4D8172122CAD5003DD7BA /* Coupon_bg4@2x.png in Resources */,
 				1E3E18EE20720B9600F5B71C /* Coupon_bg2@2x.png in Resources */,
 				1EA88C7E2072234900E23098 /* course_icon4@3x.png in Resources */,
 				69234B2420728BEF007E7C99 /* TQ_R@3x.png in Resources */,
@@ -2313,7 +2321,7 @@
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.goen.wallet11111;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zj.zjplatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -2344,7 +2352,7 @@
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.goen.wallet11111;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zj.zjplatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

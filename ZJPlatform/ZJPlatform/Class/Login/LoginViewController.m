@@ -173,8 +173,8 @@
 
 
 -(IBAction)login{
-    accountTextField.text = @"13071418125";
-    pwdtextField.text = @"123456";
+    accountTextField.text = @"18814493346";
+    pwdtextField.text = @"123123";
     
     if ([Utility isBlank:accountTextField.text] || [Utility isBlank:pwdtextField.text]) {
         [Toast showWithText:@"请输入正确信息"];

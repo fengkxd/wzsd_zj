@@ -21,4 +21,19 @@
     // Configure the view for the selected state
 }
 
+-(void)loadDetail:(NSDictionary *)dict{
+    priceLabel.text = [NSString stringWithFormat:@"¥%zi",[[dict objectForKey:@"price"] integerValue]];
+    label1.text = [dict objectForKey:@"name"];
+    label2.text = [NSString stringWithFormat:@"截止日期:%@",[dict objectForKey:@"endTime"]];
+    NSInteger status =[[dict objectForKey:@"status"] integerValue];
+    if (status == 0) {
+        imgView.image = [UIImage imageNamed:@"Coupon_bg2.png"];
+    }else if(status == 1){
+        imgView.image = [UIImage imageNamed:@"Coupon_bg3.png"];
+    }else{
+        imgView.image = [UIImage imageNamed:@"Coupon_bg4.png"];
+
+    }
+}
+
 @end

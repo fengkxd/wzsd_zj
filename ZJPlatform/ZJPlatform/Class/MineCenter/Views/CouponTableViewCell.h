@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CouponTableViewCell : UITableViewCell
+@interface CouponTableViewCell : UITableViewCell{
+    
+    IBOutlet UILabel *priceLabel;
+    IBOutlet UILabel *label1;
+    IBOutlet UILabel *label2;
+    IBOutlet UIImageView *imgView;
+}
 
+-(void)loadDetail:(NSDictionary *)dict;
 @end

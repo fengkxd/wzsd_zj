@@ -10,7 +10,7 @@
 #import "CouponTableViewCell.h"
 
 @interface CouponTableViewController ()
-
+@property (nonatomic,strong) NSArray *dataSource;
 @end
 
 @implementation CouponTableViewController
@@ -20,13 +20,27 @@
     [self createBackBtn];
     [self setTitleView:@"优惠券"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self requestCouponList];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)requestCouponList{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_coupon_list];
+    
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET"
+                                                 headParameter:nil
+                                                 bodyParameter:nil
+                                                  relativePath:url
+                                                       success:^(id responseObject) {
+                                                           NSLog(@"%@",responseObject);
+                                                           self.dataSource = [NSArray arrayWithArray:responseObject];
+                                                           [self.tableView reloadData];
+                                                       } failure:^(NSString *errorMsg) {
+                                                           
+                                                       }];
+    
+    
 }
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -34,7 +48,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-     return 5;
+     return [self.dataSource count];
 }
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -45,6 +59,7 @@
          cell.selectionStyle = UITableViewCellSelectionStyleNone;
       }
      cell.selectionStyle = UITableViewCellSelectionStyleNone;
+     [cell loadDetail:self.dataSource[indexPath.row]];
      return cell;
 }
 
@@ -56,7 +71,8 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, MainScreenWidth - 10, 30)];
     label.textColor = [Utility colorWithHexString:@"444444"];
     label.font = Font_13;
-    NSString *content = @"你有1张优惠券可以使用";
+   
+    NSString *content = [NSString stringWithFormat:@"你有%zi张优惠券可以使用",[self.dataSource count]];
     NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:content];
     [AttributedStr addAttribute:NSForegroundColorAttributeName
                           value:MainBlueColor

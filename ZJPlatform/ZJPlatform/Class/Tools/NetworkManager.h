@@ -62,6 +62,9 @@ static NSString *const  kRequest_newsInformation_list          =      @"/newsInf
 static NSString *const  kRequest_newsInformation_get           =      @"/newsInformation/get";
 
 
+//学生优惠券
+static NSString *const  kRequest_coupon_list             =      @"/coupon/list";
+
 
 
 

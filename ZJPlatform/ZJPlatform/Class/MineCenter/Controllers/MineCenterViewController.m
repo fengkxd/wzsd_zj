@@ -172,6 +172,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSInteger row = indexPath.row;
+    
+    NSArray *vcs = @[@"ExamInformationViewController",@"MyCourseTableViewController",@"CouponTableViewController"
+                     ,@"CouponTableViewController",@"CouponTableViewController",@"CouponTableViewController"];
+    
+    BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:row]) alloc] init];
+    [vc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    
 }
 
 
