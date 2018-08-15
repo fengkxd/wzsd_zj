@@ -174,8 +174,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger row = indexPath.row;
     
-    NSArray *vcs = @[@"ExamInformationViewController",@"learningTimeViewController",@"CouponTableViewController"
-                     ,@"CouponTableViewController",@"CouponTableViewController",@"CouponTableViewController"];
+    NSArray *vcs = @[@"ExamInformationViewController",@"learningTimeViewController",@"MyOrderViewController"
+                     ,@"MyCommentViewController",@"CouponTableViewController",@"CouponTableViewController",@"CouponTableViewController"];
     
     BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:row]) alloc] init];
     [vc setHidesBottomBarWhenPushed:YES];
@@ -188,93 +188,49 @@
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    NSInteger section = indexPath.section;
+    
+  //  NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-//    if (section == 0) {
-//        static NSString *cellid = @"cell1";
-//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-//        if (cell == nil) {
-//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellid];
-//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            CGFloat width =  MainScreenWidth /3.0;
-//            CGFloat h = 80;
-//            for (NSInteger i = 0; i < 3; i ++ ) {
-//                NSInteger column = i % 3;
-//                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//                btn.frame = CGRectMake(column * width, row * h, width, h);
-//                btn.tag = i;
-//                [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//                switch (i) {
-//                    case 0:
-//                        [btn setTitle:@"我的订单" forState:UIControlStateNormal];
-//                        break;
-//                    case 1:
-//                        [btn setTitle:@"我的课程" forState:UIControlStateNormal];
-//                        break;
-//                    case 2:
-//                        [btn setTitle:@"优惠券" forState:UIControlStateNormal];
-//                        break;
-//
-//                    default:
-//                        break;
-//                }
-//                [btn addTarget:self action:@selector(clickItem:) forControlEvents:UIControlEventTouchUpInside];
-//                [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"mineIcon%zi.png",i+1]] forState:UIControlStateNormal];
-//                [cell.contentView addSubview:btn];
-//                [self verticalImageAndTitle:5 withBtn:btn];
-//
-//            }
-//        }
-//        return cell;
-//    }else{
-        static NSString *cellid = @"cell2";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellid];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            
-            cell.textLabel.font = Font_14;
-            cell.textLabel.textColor = [UIColor colorWithHexString:@"333333"];
+    
+    static NSString *cellid = @"cell2";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellid];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        cell.textLabel.font = Font_14;
+        cell.textLabel.textColor = [UIColor colorWithHexString:@"333333"];
+    }
+    cell.detailTextLabel.attributedText = nil;
+    if (row == 0) {
+        cell.textLabel.text =  [NSString stringWithFormat:@"当前考试：%@",[[Utility objectForKey:Sel_Subject] objectForKey:@"name"]];
+        if (self.memberInfoDict) {
+            NSString *str = [NSString stringWithFormat:@"您在网校的%zi天",[[self.memberInfoDict objectForKey:@"loginNum"] integerValue]];
+            NSMutableAttributedString *mutableAttributeStr = [[NSMutableAttributedString alloc] initWithString:str];
+            [mutableAttributeStr addAttribute:NSFontAttributeName
+                                        value:Font_13
+                                        range:NSMakeRange(0, str.length)];
+            [mutableAttributeStr addAttribute:NSForegroundColorAttributeName
+                                        value:[UIColor colorWithHexString:@"01a9fc"]
+                                        range:[str rangeOfString:[NSString stringWithFormat:@"%zi",[[self.memberInfoDict objectForKey:@"loginNum"] integerValue]]]];
+            cell.detailTextLabel.attributedText = mutableAttributeStr;
         }
-        cell.detailTextLabel.attributedText = nil;
-//        if (section == 1) {
-            if (row == 0) {
-                cell.textLabel.text =  [NSString stringWithFormat:@"当前考试：%@",[[Utility objectForKey:Sel_Subject] objectForKey:@"name"]];
-                if (self.memberInfoDict) {
-                    NSString *str = [NSString stringWithFormat:@"您在网校的%zi天",[[self.memberInfoDict objectForKey:@"loginNum"] integerValue]];
-                    NSMutableAttributedString *mutableAttributeStr = [[NSMutableAttributedString alloc] initWithString:str];
-                    [mutableAttributeStr addAttribute:NSFontAttributeName
-                                                value:Font_13
-                                          range:NSMakeRange(0, str.length)];
-                    [mutableAttributeStr addAttribute:NSForegroundColorAttributeName
-                                          value:[UIColor colorWithHexString:@"01a9fc"]
-                                          range:[str rangeOfString:[NSString stringWithFormat:@"%zi",[[self.memberInfoDict objectForKey:@"loginNum"] integerValue]]]];
-                    cell.detailTextLabel.attributedText = mutableAttributeStr;                    
-                }
-               
-            }else if(row == 1){
-                cell.textLabel.text = @"学习时间统计";
-            }else if(row == 2){
-                cell.textLabel.text = @"我的课程";
-            }else if(row == 3){
-                cell.textLabel.text = @"我的优惠券";
-            }else if(row == 4){
-                cell.textLabel.text = @"我的题库";
-            }else if(row == 5){
-                cell.textLabel.text = @"意见反馈";
-            }
-            
-//        }
-    
         
-        
-        return cell;
+    }else if(row == 1){
+        cell.textLabel.text = @"学习时间统计";
+    }else if(row == 2){
+        cell.textLabel.text = @"我的课程";
+    }else if(row == 3){
+        cell.textLabel.text = @"我的评价";
+    }else if(row == 4){
+        cell.textLabel.text = @"我的优惠券";
+    }else if(row == 5){
+        cell.textLabel.text = @"我的题库";
+    }else if(row == 6){
+        cell.textLabel.text = @"意见反馈";
+    }
+    return cell;
     
-//    }
-    
-    
-//    return nil;
 }
 
 
@@ -313,7 +269,7 @@
 //    if (section == 0) {
 //        return 1;
 //    }
-    return 6;
+    return 7;
  }
 
 

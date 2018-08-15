@@ -1,18 +1,16 @@
 //
-//  learningTimeViewController.m
+//  MyOrderViewController.m
 //  ZJPlatform
 //
-//  Created by fengke on 2018/8/14.
+//  Created by fk on 2018/8/15.
 //  Copyright © 2018年 wzsd. All rights reserved.
 //
 
-#import "learningTimeViewController.h"
+#import "MyOrderViewController.h"
 #import "MainTableView.h"
-#import "learningTimeTableVC.h"
+#import "MyOrderSubVC.h"
 
-
-@interface learningTimeViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate>
-
+@interface MyOrderViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate>
 
 @property (nonatomic, strong) MainTableView *tableView;
 @property (nonatomic, strong) UICollectionView *mainCollection;
@@ -20,9 +18,11 @@
 @property (nonatomic,strong) NSMutableArray *subVCs;
 @property (nonatomic,strong) UIView *sectionView;
 @property (nonatomic,strong) UIButton *selectedBtn;
+
 @end
 
-@implementation learningTimeViewController
+@implementation MyOrderViewController
+
 
 
 -(UITableView *)tableView{
@@ -41,7 +41,7 @@
     self.sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, 44)];
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn1.frame = CGRectMake(0, 0, MainScreenWidth/2.0, 44);
-    [btn1 setTitle:@"直播时长" forState:UIControlStateNormal];
+    [btn1 setTitle:@"已开通课程" forState:UIControlStateNormal];
     [btn1 setTitleColor:[UIColor colorWithHexString:@"444444"] forState:UIControlStateNormal];
     [btn1 setTitleColor:[UIColor colorWithHexString:@"04a7fd"] forState:UIControlStateSelected];
     [btn1 addTarget:self action:@selector(clickType:) forControlEvents:UIControlEventTouchUpInside];
@@ -51,7 +51,7 @@
     
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn2.frame = CGRectMake(MainScreenWidth/2.0, 0, MainScreenWidth/2.0, 44);
-    [btn2 setTitle:@"录播时长" forState:UIControlStateNormal];
+    [btn2 setTitle:@"未付费课程" forState:UIControlStateNormal];
     [btn2 setTitleColor:[UIColor colorWithHexString:@"444444"] forState:UIControlStateNormal];
     [btn2 setTitleColor:[UIColor colorWithHexString:@"04a7fd"] forState:UIControlStateSelected];
     [btn2 addTarget:self action:@selector(clickType:) forControlEvents:UIControlEventTouchUpInside];
@@ -76,26 +76,29 @@
     [self.mainCollection setContentOffset:CGPointMake((btn.tag-1) * MainScreenWidth, 0) animated:YES] ;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitleView:@"我的学习时长"];
+    [self setTitleView:@"我的课程"];
     [self createBackBtn];
     self.canScroll = YES;
     self.subVCs = [NSMutableArray array];
     [self initSectionView];
-    
     [self.view addSubview:self.tableView];
 
-    for (NSInteger i = 1; i < 3; i ++) {
-        learningTimeTableVC *subVC = [[learningTimeTableVC alloc] init];
-        subVC.type  = i;
+    
+    for (NSInteger i = 0; i < 2; i ++) {
+        MyOrderSubVC *subVC = [[MyOrderSubVC alloc] init];
+        if (i == 0) {
+            subVC.type  = 3;
+        }else{
+            subVC.type  = 0;
+        }
         __weak typeof(self) weakSelf = self;
         [subVC handlerBlock:^{
             weakSelf.canScroll = YES;
-            for (learningTimeTableVC *vc in self.subVCs) {
+            for (MyOrderSubVC *vc in self.subVCs) {
                 if (vc != subVC) {
-                    vc.canScroll = NO;
-                    vc.tableView.contentOffset = CGPointZero;
                     vc.canScroll = NO;
                     vc.tableView.contentOffset = CGPointZero;
                 }
@@ -106,11 +109,14 @@
         };
         
         [self.subVCs addObject:subVC];
-
+        
     }
     [self setMainCrollView];
     [self.tableView reloadData];
+    
 }
+
+
 
 
 #pragma mark 左右滑动的collectionview
@@ -140,42 +146,31 @@
         return;
     }
     UIButton *btn = (UIButton *)[self.sectionView viewWithTag:tag];
-    
     if ([btn isKindOfClass:[UIButton class]]) {
         self.selectedBtn.selected = NO;
         self.selectedBtn = btn;
         self.selectedBtn.selected = YES;
         
     }
-  
-
-    
 }
+
+
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     //    NSLog(@"---%@",scrollView);
-    
     if (scrollView == self.tableView) {
         CGFloat scrollY = [self.tableView rectForSection:0].origin.y;
-        
         if (scrollView.contentOffset.y >= scrollY) {
-            
             if (self.canScroll == YES) {
                 self.canScroll = NO;
-                
-                for (learningTimeTableVC *vc in self.subVCs) {
+                for (MyOrderSubVC *vc in self.subVCs) {
                     vc.canScroll = YES;
                     vc.tableView.contentOffset = CGPointZero;
                 }
-          
-                
             }
-            
             self.tableView.contentOffset = CGPointMake(0, scrollY);
-            
         }else{
-            
             if (self.canScroll == NO) {
                 self.tableView.contentOffset = CGPointMake(0, scrollY);
             }
@@ -188,7 +183,7 @@
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
- 
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell1"];
@@ -200,15 +195,15 @@
         [cell.contentView addSubview:self.mainCollection];
     }
     return cell;
-            
- }
+    
+}
 
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-  
+    
     return  MainScreenheight - kStatusBarHeight - 44 - 44 ;
- 
+    
 }
 
 #pragma mark collectionview  delegate
@@ -219,14 +214,14 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCellID1" forIndexPath:indexPath];
-    learningTimeTableVC *subVC = self.subVCs[indexPath.row];
+    MyOrderSubVC *subVC = self.subVCs[indexPath.row];
     subVC.view.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenheight-kStatusBarHeight - 44 - kTabbarHeight - 44);
     subVC.tableView.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenheight-kStatusBarHeight - 44 - kTabbarHeight - 44);
     [cell.contentView addSubview:subVC.view];
     cell.contentView.backgroundColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor whiteColor];
     return cell;
-
+    
 }
 
 
@@ -248,9 +243,6 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
-
-
-
 
 
 

@@ -307,6 +307,13 @@
 		445C259F20DF9CD100B03500 /* TestRelevantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 445C259E20DF9CD100B03500 /* TestRelevantViewController.m */; };
 		446A50C620DCA85100C23370 /* MyDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 446A50C520DCA85100C23370 /* MyDetailTableViewController.m */; };
 		44765EFE211D731400D3F962 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 44765EFD211D731400D3F962 /* libz.tbd */; };
+		447E88F12123F71900D40C9D /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E88F02123F71900D40C9D /* MyOrderViewController.m */; };
+		447E88F52123F72F00D40C9D /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E88F32123F72F00D40C9D /* OrderTableViewCell.m */; };
+		447E88F62123F72F00D40C9D /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447E88F42123F72F00D40C9D /* OrderTableViewCell.xib */; };
+		447E88F92123FA5B00D40C9D /* MyOrderSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E88F82123FA5B00D40C9D /* MyOrderSubVC.m */; };
+		447E88FC21241D2B00D40C9D /* MyCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E88FB21241D2B00D40C9D /* MyCommentViewController.m */; };
+		447E89002124238200D40C9D /* MyCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E88FE2124238200D40C9D /* MyCommentCell.m */; };
+		447E89012124238200D40C9D /* MyCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447E88FF2124238200D40C9D /* MyCommentCell.xib */; };
 		448012B020D89846007B11DB /* NewsZJTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448012AF20D89846007B11DB /* NewsZJTableViewController.m */; };
 		448012B320D89C3F007B11DB /* MyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448012B220D89C3F007B11DB /* MyWebViewController.m */; };
 		44B4D8162122CAD5003DD7BA /* Coupon_bg4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B4D8142122CAD5003DD7BA /* Coupon_bg4@3x.png */; };
@@ -806,6 +813,18 @@
 		446A50C420DCA85100C23370 /* MyDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDetailTableViewController.h; sourceTree = "<group>"; };
 		446A50C520DCA85100C23370 /* MyDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyDetailTableViewController.m; sourceTree = "<group>"; };
 		44765EFD211D731400D3F962 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		447E88EF2123F71900D40C9D /* MyOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
+		447E88F02123F71900D40C9D /* MyOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
+		447E88F22123F72F00D40C9D /* OrderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderTableViewCell.h; sourceTree = "<group>"; };
+		447E88F32123F72F00D40C9D /* OrderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewCell.m; sourceTree = "<group>"; };
+		447E88F42123F72F00D40C9D /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		447E88F72123FA5B00D40C9D /* MyOrderSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderSubVC.h; sourceTree = "<group>"; };
+		447E88F82123FA5B00D40C9D /* MyOrderSubVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOrderSubVC.m; sourceTree = "<group>"; };
+		447E88FA21241D2B00D40C9D /* MyCommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCommentViewController.h; sourceTree = "<group>"; };
+		447E88FB21241D2B00D40C9D /* MyCommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCommentViewController.m; sourceTree = "<group>"; };
+		447E88FD2124238200D40C9D /* MyCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCommentCell.h; sourceTree = "<group>"; };
+		447E88FE2124238200D40C9D /* MyCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCommentCell.m; sourceTree = "<group>"; };
+		447E88FF2124238200D40C9D /* MyCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCommentCell.xib; sourceTree = "<group>"; };
 		448012AE20D89846007B11DB /* NewsZJTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsZJTableViewController.h; sourceTree = "<group>"; };
 		448012AF20D89846007B11DB /* NewsZJTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsZJTableViewController.m; sourceTree = "<group>"; };
 		448012B120D89C3F007B11DB /* MyWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebViewController.h; sourceTree = "<group>"; };
@@ -1055,6 +1074,18 @@
 				1A116372212301750053C10A /* learningTimeTableViewCell.xib */,
 				1A11636A2122FDB10053C10A /* MainTableView.h */,
 				1A11636B2122FDB10053C10A /* MainTableView.m */,
+				447E88EF2123F71900D40C9D /* MyOrderViewController.h */,
+				447E88F02123F71900D40C9D /* MyOrderViewController.m */,
+				447E88F72123FA5B00D40C9D /* MyOrderSubVC.h */,
+				447E88F82123FA5B00D40C9D /* MyOrderSubVC.m */,
+				447E88F22123F72F00D40C9D /* OrderTableViewCell.h */,
+				447E88F32123F72F00D40C9D /* OrderTableViewCell.m */,
+				447E88F42123F72F00D40C9D /* OrderTableViewCell.xib */,
+				447E88FA21241D2B00D40C9D /* MyCommentViewController.h */,
+				447E88FB21241D2B00D40C9D /* MyCommentViewController.m */,
+				447E88FD2124238200D40C9D /* MyCommentCell.h */,
+				447E88FE2124238200D40C9D /* MyCommentCell.m */,
+				447E88FF2124238200D40C9D /* MyCommentCell.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1936,6 +1967,7 @@
 				1E60BDDC206501A500071817 /* tabbar_3_h@3x.png in Resources */,
 				1E319704206A3473004B8574 /* Host_type3@3x.png in Resources */,
 				1E319712206A40F1004B8574 /* back@3x.png in Resources */,
+				447E88F62123F72F00D40C9D /* OrderTableViewCell.xib in Resources */,
 				1E3196D32069DE4C004B8574 /* headerBg@2x.png in Resources */,
 				69234B2C20728BEF007E7C99 /* TQ_D@3x.png in Resources */,
 				1AE2008B206799A40035F412 /* HostIcon7@2x.png in Resources */,
@@ -1986,6 +2018,7 @@
 				1E60BDE1206501A500071817 /* tabbar_4@2x.png in Resources */,
 				1AE20036206656300035F412 /* LoginViewController.xib in Resources */,
 				1EA88C8A2072353100E23098 /* arrow_up3@3x.png in Resources */,
+				447E89012124238200D40C9D /* MyCommentCell.xib in Resources */,
 				1E9444B7206CB721003FE3F6 /* MineCenterHeaderView.xib in Resources */,
 				1E319726206B3691004B8574 /* code@2x.png in Resources */,
 				1AE20085206799A40035F412 /* HostIcon4@2x.png in Resources */,
@@ -2093,6 +2126,7 @@
 				1AEF71872078A4E9003075B6 /* MySelCourseViewController.m in Sources */,
 				1E31969F2068CA34004B8574 /* HostCommendVideoView.m in Sources */,
 				1AEF717C2077286A003075B6 /* SettingTableViewController.m in Sources */,
+				447E89002124238200D40C9D /* MyCommentCell.m in Sources */,
 				1A1163692122FCF00053C10A /* learningTimeViewController.m in Sources */,
 				1A61320520633FF900C8B99B /* QuestionsViewController.m in Sources */,
 				440DC146211D95A30009EB19 /* CNCPlayerSetting.m in Sources */,
@@ -2101,6 +2135,7 @@
 				1AE2006720678FC60035F412 /* HostBannerView.m in Sources */,
 				1E37D9AA20624AAA000DAF65 /* UIView+MJExtension.m in Sources */,
 				1E37D9BB20624AAA000DAF65 /* MBProgressHUD.m in Sources */,
+				447E88F92123FA5B00D40C9D /* MyOrderSubVC.m in Sources */,
 				1E9444C0206CE119003FE3F6 /* ExamGuideViewController.m in Sources */,
 				1E37D9C220624AC1000DAF65 /* NetworkManager.m in Sources */,
 				1E407173206DE5E3002AF062 /* TeacherListViewController.m in Sources */,
@@ -2110,6 +2145,7 @@
 				1E37D9B120624AAA000DAF65 /* SDWebImageDownloaderOperation.m in Sources */,
 				1E37D99E20624AAA000DAF65 /* JSONKit.m in Sources */,
 				1AE200632067871B0035F412 /* SetPwdViewController.m in Sources */,
+				447E88FC21241D2B00D40C9D /* MyCommentViewController.m in Sources */,
 				69BE9DA320720A5D00EA6326 /* TQCell1.m in Sources */,
 				1E37D93F20624A61000DAF65 /* BaseViewController.m in Sources */,
 				1E9444C3206CECED003FE3F6 /* PreparationInformationViewController.m in Sources */,
@@ -2129,6 +2165,7 @@
 				1E3196A42068CC8B004B8574 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				1E37D99920624AAA000DAF65 /* AFNetworkReachabilityManager.m in Sources */,
 				1E319732206B6D86004B8574 /* HostInformationView.m in Sources */,
+				447E88F52123F72F00D40C9D /* OrderTableViewCell.m in Sources */,
 				440F24FD211E7F8200524F62 /* SBControlView.m in Sources */,
 				69468E5C20713464007ECDDC /* TQDayViewController.m in Sources */,
 				1E37D9A820624AAA000DAF65 /* UIScrollView+MJExtension.m in Sources */,
@@ -2177,6 +2214,7 @@
 				1AE20056206714590035F412 /* NSString+CJString.m in Sources */,
 				1AEF71902078B487003075B6 /* MySelCourseTableViewCell2.m in Sources */,
 				1E37D9B020624AAA000DAF65 /* SDWebImageDownloader.m in Sources */,
+				447E88F12123F71900D40C9D /* MyOrderViewController.m in Sources */,
 				1E37D9BD20624AAA000DAF65 /* Toast.m in Sources */,
 				1A6131FE20633FDF00C8B99B /* MineCenterViewController.m in Sources */,
 				1E31972F206B6CCD004B8574 /* ExamInformationViewController.m in Sources */,

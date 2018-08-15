@@ -1,8 +1,8 @@
 //
-//  learningTimeTableVC.h
+//  MyOrderSubVC.h
 //  ZJPlatform
 //
-//  Created by fengke on 2018/8/14.
+//  Created by fk on 2018/8/15.
 //  Copyright © 2018年 wzsd. All rights reserved.
 //
 
@@ -10,16 +10,18 @@
 
 typedef void (^notiBlock)(void);//通知主控制器页面可以滑动了
 
-@interface learningTimeTableVC : BaseTableViewController
+
+@interface MyOrderSubVC : BaseTableViewController
 {
-    
- 
+    UITableView *tableView;
 }
+
+
 
 @property (nonatomic,assign) NSInteger type;
 
 
- @property (nonatomic, assign) BOOL canScroll;
+@property (nonatomic, assign) BOOL canScroll;
 @property (nonatomic, copy) notiBlock block;
 
 @property (nonatomic,strong) NSMutableArray *dataSource;
@@ -29,5 +31,6 @@ typedef void (^notiBlock)(void);//通知主控制器页面可以滑动了
 -(void)requestDataSource;
 
 - (void)handlerBlock:(notiBlock)block;
+
 
 @end

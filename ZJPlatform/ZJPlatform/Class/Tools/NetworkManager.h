@@ -64,10 +64,12 @@ static NSString *const  kRequest_newsInformation_get           =      @"/newsInf
 //学生优惠券
 static NSString *const  kRequest_coupon_list             =      @"/coupon/list";
 static NSString *const  kRequest_studyduration_list      =     @"/studyduration/list";
+static NSString *const  kRequest_orders_list              =     @"/orders/list";
 
+static NSString *const  kRequest_comment_findSelf            =     @"/comment/findSelf";
+static NSString *const  kRequest_comment_delete           =     @"/comment/delete";
 
-
-
+ 
 @interface NSString (URL)
 - (NSString *)URLEncodedString;
 @end
