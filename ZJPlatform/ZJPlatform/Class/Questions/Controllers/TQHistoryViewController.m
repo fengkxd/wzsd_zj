@@ -67,9 +67,9 @@
 
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
+    TQTestViewController *vc = [[TQTestViewController alloc] init];
+    vc.testId = [self.dataArray[indexPath.row] objectForKey:@"id"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

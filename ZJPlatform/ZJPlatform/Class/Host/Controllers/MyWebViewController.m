@@ -13,10 +13,9 @@
 @interface MyWebViewController ()<UIWebViewDelegate>
 {
     UIWebView *myWebView;
-    
-    
 }
 
+@property (nonatomic,strong) NSString *htmlStr;
 @property (nonatomic,strong) NSString *webTitle;
 @end
 
@@ -30,7 +29,8 @@
         myWebView.delegate = self;
         myWebView.scalesPageToFit = YES;
         [self.view addSubview:myWebView];
-
+        
+ 
     }
     
     [self.navigationController setNavigationBarHidden:NO];
@@ -61,7 +61,7 @@
 
 -(void)loadHtmlStr:(NSString *)str{
     NSLog(@"加载Html：%@",str);
-
+    self.htmlStr = str;
     if ([Utility isBlank:str]) {
         return;
     }
@@ -73,7 +73,26 @@
     }
     
 //    [myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-    [myWebView loadHTMLString:str baseURL:nil];
+    
+    NSString *htmls = [NSString stringWithFormat:@"<html> \n"
+                       "<head> \n"
+                       "<style type=\"text/css\"> \n"
+                       "body {font-size:15px;}\n"
+                       "</style> \n"
+                       "</head> \n"
+                       "<body>"
+                       "<script type='text/javascript'>"
+                       "window.onload = function(){\n"
+                       "var $img = document.getElementsByTagName('img');\n"
+                       "for(var p in  $img){\n"
+                       " $img[p].style.width = '100%%';\n"
+                       "$img[p].style.height ='auto'\n"
+                       "}\n"
+                       "}"
+                       "</script>%@"
+                       "</body>"
+                       "</html>",self.htmlStr];
+    [myWebView loadHTMLString:htmls baseURL:nil];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
 }
@@ -119,10 +138,17 @@
 
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
+ 
+    
     if (self.webTitle == nil) {
         [self setTitleView:[webView stringByEvaluatingJavaScriptFromString:@"document.title"]];
     }
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
+//    NSString *lJs2 = @"document.documentElement.innerText"; //根据标识符获取不同内容
+//    NSString *lHtml2 = [webView stringByEvaluatingJavaScriptFromString:lJs2];
+    
+   
 }
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{

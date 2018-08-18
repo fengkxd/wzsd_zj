@@ -47,8 +47,6 @@
                                                            [Toast showWithText:errorMsg];
                                                            
                                                        }];
-    
-    
 }
 
 -(void)loadDataSource:(NSDictionary *)dict{
