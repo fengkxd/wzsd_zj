@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface TQHistoryCell : UITableViewCell
+{
+    IBOutlet UILabel *label1;
+    IBOutlet UILabel *label2;
+    
+}
+
+-(void)loadinfo:(NSDictionary *)dict;
+
 
 @end

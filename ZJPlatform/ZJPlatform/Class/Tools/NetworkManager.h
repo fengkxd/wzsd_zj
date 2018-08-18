@@ -65,11 +65,17 @@ static NSString *const  kRequest_newsInformation_get           =      @"/newsInf
 static NSString *const  kRequest_coupon_list             =      @"/coupon/list";
 static NSString *const  kRequest_studyduration_list      =     @"/studyduration/list";
 static NSString *const  kRequest_orders_list              =     @"/orders/list";
-
 static NSString *const  kRequest_comment_findSelf            =     @"/comment/findSelf";
 static NSString *const  kRequest_comment_delete           =     @"/comment/delete";
 
- 
+//考试
+static NSString *const  kRequest_subjects_eProject             =      @"/subjects/eProject";
+static NSString *const  kRequest_testPaper_list               =      @"/testPaper/list";
+static NSString *const  kRequest_testPaper_get                =      @"/testPaper/get";
+
+
+
+
 @interface NSString (URL)
 - (NSString *)URLEncodedString;
 @end

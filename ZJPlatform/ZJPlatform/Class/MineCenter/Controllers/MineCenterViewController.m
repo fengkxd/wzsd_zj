@@ -9,7 +9,7 @@
 #import "MineCenterViewController.h"
 #import "MineCenterHeaderView.h"
 #import "SettingTableViewController.h"
-#import "MyDetailTableViewController.h"
+#import "MyDetailViewController.h"
 
 
 @interface MineCenterViewController ()
@@ -80,6 +80,7 @@
     UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click:)];
      [headerView addGestureRecognizer:ges];
     
+    [self loginSuccess];
 }
 
 
@@ -87,7 +88,8 @@
     if (self.memberInfoDict == nil) {
         return;
     }
-    MyDetailTableViewController *vc = [[MyDetailTableViewController alloc] init];
+    MyDetailViewController *vc = [[MyDetailViewController alloc] init];
+    vc.userDict = [self.memberInfoDict objectForKey:@"member"];
     [vc setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -122,7 +124,7 @@
                                                        } failure:^(NSString *errorMsg) {
 
                                                            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-                                                           [Toast showWithText:errorMsg];
+                                                         //  [Toast showWithText:errorMsg];
 
                                                        }];
     

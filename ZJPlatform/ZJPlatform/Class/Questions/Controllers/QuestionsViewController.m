@@ -10,9 +10,10 @@
 #import "TQHistoryViewController.h"
 #import "TQDayViewController.h"
 #import "TQGGLXViewController.h"
-
 #import "TQItem.h"
 #import "TQItem1.h"
+
+#import "TQProjectTableViewController.h"
 
 @interface QuestionsViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -197,10 +198,14 @@
     NSLog(@"%@",title);
     
     if ([title isEqualToString:@"历年真题"]) {
-       
-        TQHistoryViewController *historyVc = [[TQHistoryViewController alloc] initWithNibName:@"TQHistoryViewController" bundle:nil];
+        TQProjectTableViewController *vc = [[TQProjectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        vc.type = 3;
+        [self.navigationController pushViewController:vc animated:YES];
         
-        [self.navigationController pushViewController:historyVc animated:YES];
+        //
+//        TQHistoryViewController *historyVc = [[TQHistoryViewController alloc] initWithNibName:@"TQHistoryViewController" bundle:nil];
+//
+//        [self.navigationController pushViewController:historyVc animated:YES];
     }else if ([title isEqualToString:@"巩固练习"]){
         
         TQGGLXViewController *lxVC = [[TQGGLXViewController alloc] initWithNibName:@"TQGGLXViewController" bundle:nil];

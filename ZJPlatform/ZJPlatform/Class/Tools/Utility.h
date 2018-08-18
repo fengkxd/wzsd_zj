@@ -80,12 +80,13 @@
 
 +(UIImage *) getImageUserType:(NSInteger)type;
 
-
++(NSData *)reSizeImageData:(UIImage *)sourceImage maxImageSize:(CGFloat)maxImageSize maxSizeWithKB:(CGFloat) maxSize;
 +(void)share:(NSString*)url withText:(NSString *)text;
 
 
 +(UIViewController *)getCurrentRootViewController;
 
++(NSData *)zipNSDataWithImage:(UIImage *)sourceImage;
 
 //将 &lt 等类似的字符转化为HTML中的“<”等
 + (NSString *)htmlEntityDecode:(NSString *)string;

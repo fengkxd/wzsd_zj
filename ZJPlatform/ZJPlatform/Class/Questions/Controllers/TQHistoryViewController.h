@@ -12,4 +12,10 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *myTable;
 
+@property (nonatomic,assign) NSInteger type;
+
+@property (nonatomic,strong) NSString *courseClassifyId;
+
+//1.巩固练习 2.全真模拟 3.历年真题
+
 @end

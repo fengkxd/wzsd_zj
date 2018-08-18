@@ -117,13 +117,13 @@
 - (void)setMainCrollView {
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(MainScreenWidth, MainScreenheight -kStatusBarHeight - 44-kTabbarHeight-40);
+    layout.itemSize = CGSizeMake(MainScreenWidth, MainScreenheight -kStatusBarHeight - 44-40);
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     layout.sectionInset = UIEdgeInsetsZero;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    self.mainCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenheight -kStatusBarHeight - 44-kTabbarHeight-40) collectionViewLayout:layout];
+    self.mainCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenheight -kStatusBarHeight - 44-40) collectionViewLayout:layout];
     self.mainCollection.delegate = self;
     self.mainCollection.dataSource = self;
     self.mainCollection.showsHorizontalScrollIndicator = NO;
@@ -220,8 +220,8 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCellID1" forIndexPath:indexPath];
     learningTimeTableVC *subVC = self.subVCs[indexPath.row];
-    subVC.view.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenheight-kStatusBarHeight - 44 - kTabbarHeight - 44);
-    subVC.tableView.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenheight-kStatusBarHeight - 44 - kTabbarHeight - 44);
+    subVC.view.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenheight-kStatusBarHeight - 44  - 44);
+    subVC.tableView.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenheight-kStatusBarHeight - 44  - 44);
     [cell.contentView addSubview:subVC.view];
     cell.contentView.backgroundColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor whiteColor];
