@@ -17,11 +17,23 @@
 
 -(void)loadinfo:(NSDictionary *)dict{
     label1.text = [dict objectForKey:@"title"];
-    if ([[dict objectForKey:@"testPay"] integerValue] == 0) {
-        label2.text = @"价格：免费";
+    
+    NSString *createDate = [dict objectForKey:@"createDate"];
+    if ([Utility isBlank:createDate]) {
+        if ([[dict objectForKey:@"testPay"] integerValue] == 0) {
+            label2.text = @"价格：免费";
+        }else{
+            label2.text = [NSString stringWithFormat:@"价格：%zi",[[dict objectForKey:@"testPay"] integerValue]];
+        }
     }else{
-        label2.text = [NSString stringWithFormat:@"价格：%zi",[[dict objectForKey:@"testPay"] integerValue]];
+        if ([[dict objectForKey:@"testPay"] integerValue] == 0) {
+            label2.text = [NSString stringWithFormat:@"价格：免费  最近考试时间：%@",createDate];
+        }else{
+            label2.text = [NSString stringWithFormat:@"价格：%zi  最近考试时间：%@",[[dict objectForKey:@"testPay"] integerValue],createDate];
+        }
+        
     }
+   
     
     
 }

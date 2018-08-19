@@ -23,6 +23,10 @@
 		1A61320C2063400E00C8B99B /* SelCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61320B2063400E00C8B99B /* SelCourseViewController.m */; };
 		1A9491EE2070740300E03D71 /* TeacherVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9491EC2070740300E03D71 /* TeacherVideoTableViewCell.m */; };
 		1A9491EF2070740300E03D71 /* TeacherVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9491ED2070740300E03D71 /* TeacherVideoTableViewCell.xib */; };
+		1AB575952128F53900874F9A /* TQResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB575942128F53900874F9A /* TQResultCell.m */; };
+		1AB5759821290E6200874F9A /* TQTestArticSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5759721290E6200874F9A /* TQTestArticSubVC.m */; };
+		1AB5759B21296A0700874F9A /* TQEveryDayStudyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5759A21296A0700874F9A /* TQEveryDayStudyTableViewController.m */; };
+		1AB5759E2129758200874F9A /* TQMemberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5759D2129758200874F9A /* TQMemberTableViewController.m */; };
 		1AE2002C206646960035F412 /* SourceHanSansSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2002B206646960035F412 /* SourceHanSansSC-Regular.otf */; };
 		1AE2002F20664EFE0035F412 /* shade@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2002D20664EFE0035F412 /* shade@2x.png */; };
 		1AE2003020664EFE0035F412 /* shade@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE2002E20664EFE0035F412 /* shade@3x.png */; };
@@ -335,7 +339,7 @@
 		44B4D8162122CAD5003DD7BA /* Coupon_bg4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B4D8142122CAD5003DD7BA /* Coupon_bg4@3x.png */; };
 		44B4D8172122CAD5003DD7BA /* Coupon_bg4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B4D8152122CAD5003DD7BA /* Coupon_bg4@2x.png */; };
 		44D988AA2127E14500E1D8B7 /* TQTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D988A92127E14500E1D8B7 /* TQTestViewController.m */; };
-		44D988AD2127E1E100E1D8B7 /* TQTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D988AC2127E1E100E1D8B7 /* TQTestView.m */; };
+		44D988AD2127E1E100E1D8B7 /* TQTestViewSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D988AC2127E1E100E1D8B7 /* TQTestViewSubVC.m */; };
 		69234B0A20728246007E7C99 /* TQGGLXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B0820728246007E7C99 /* TQGGLXViewController.m */; };
 		69234B0B20728246007E7C99 /* TQGGLXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69234B0920728246007E7C99 /* TQGGLXViewController.xib */; };
 		69234B0E207285EC007E7C99 /* TQGGLXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B0D207285EC007E7C99 /* TQGGLXCell.m */; };
@@ -433,6 +437,14 @@
 		1A9491EB2070740200E03D71 /* TeacherVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherVideoTableViewCell.h; sourceTree = "<group>"; };
 		1A9491EC2070740300E03D71 /* TeacherVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherVideoTableViewCell.m; sourceTree = "<group>"; };
 		1A9491ED2070740300E03D71 /* TeacherVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherVideoTableViewCell.xib; sourceTree = "<group>"; };
+		1AB575932128F53900874F9A /* TQResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQResultCell.h; sourceTree = "<group>"; };
+		1AB575942128F53900874F9A /* TQResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQResultCell.m; sourceTree = "<group>"; };
+		1AB5759621290E6200874F9A /* TQTestArticSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQTestArticSubVC.h; sourceTree = "<group>"; };
+		1AB5759721290E6200874F9A /* TQTestArticSubVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQTestArticSubVC.m; sourceTree = "<group>"; };
+		1AB5759921296A0700874F9A /* TQEveryDayStudyTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQEveryDayStudyTableViewController.h; sourceTree = "<group>"; };
+		1AB5759A21296A0700874F9A /* TQEveryDayStudyTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQEveryDayStudyTableViewController.m; sourceTree = "<group>"; };
+		1AB5759C2129758200874F9A /* TQMemberTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQMemberTableViewController.h; sourceTree = "<group>"; };
+		1AB5759D2129758200874F9A /* TQMemberTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQMemberTableViewController.m; sourceTree = "<group>"; };
 		1AE2002B206646960035F412 /* SourceHanSansSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceHanSansSC-Regular.otf"; sourceTree = "<group>"; };
 		1AE2002D20664EFE0035F412 /* shade@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shade@2x.png"; sourceTree = "<group>"; };
 		1AE2002E20664EFE0035F412 /* shade@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shade@3x.png"; sourceTree = "<group>"; };
@@ -881,8 +893,8 @@
 		44B4D8152122CAD5003DD7BA /* Coupon_bg4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coupon_bg4@2x.png"; sourceTree = "<group>"; };
 		44D988A82127E14500E1D8B7 /* TQTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQTestViewController.h; sourceTree = "<group>"; };
 		44D988A92127E14500E1D8B7 /* TQTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQTestViewController.m; sourceTree = "<group>"; };
-		44D988AB2127E1E100E1D8B7 /* TQTestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQTestView.h; sourceTree = "<group>"; };
-		44D988AC2127E1E100E1D8B7 /* TQTestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQTestView.m; sourceTree = "<group>"; };
+		44D988AB2127E1E100E1D8B7 /* TQTestViewSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQTestViewSubVC.h; sourceTree = "<group>"; };
+		44D988AC2127E1E100E1D8B7 /* TQTestViewSubVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQTestViewSubVC.m; sourceTree = "<group>"; };
 		69234B0720728246007E7C99 /* TQGGLXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQGGLXViewController.h; sourceTree = "<group>"; };
 		69234B0820728246007E7C99 /* TQGGLXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQGGLXViewController.m; sourceTree = "<group>"; };
 		69234B0920728246007E7C99 /* TQGGLXViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TQGGLXViewController.xib; sourceTree = "<group>"; };
@@ -1154,8 +1166,16 @@
 				69468E4B20712BC1007ECDDC /* TQHistoryViewController.h */,
 				69468E4C20712BC1007ECDDC /* TQHistoryViewController.m */,
 				69468E4D20712BC1007ECDDC /* TQHistoryViewController.xib */,
+				1AB5759C2129758200874F9A /* TQMemberTableViewController.h */,
+				1AB5759D2129758200874F9A /* TQMemberTableViewController.m */,
 				44D988A82127E14500E1D8B7 /* TQTestViewController.h */,
 				44D988A92127E14500E1D8B7 /* TQTestViewController.m */,
+				1AB5759921296A0700874F9A /* TQEveryDayStudyTableViewController.h */,
+				1AB5759A21296A0700874F9A /* TQEveryDayStudyTableViewController.m */,
+				1AB5759621290E6200874F9A /* TQTestArticSubVC.h */,
+				1AB5759721290E6200874F9A /* TQTestArticSubVC.m */,
+				44D988AB2127E1E100E1D8B7 /* TQTestViewSubVC.h */,
+				44D988AC2127E1E100E1D8B7 /* TQTestViewSubVC.m */,
 				69468E5920713464007ECDDC /* TQDayViewController.h */,
 				69468E5A20713464007ECDDC /* TQDayViewController.m */,
 				69468E5B20713464007ECDDC /* TQDayViewController.xib */,
@@ -1173,8 +1193,6 @@
 				692DA9BD21046A1800611A33 /* TQTestSingleViewController.xib */,
 				446C43B821269B3200866C42 /* TQProjectTableViewController.h */,
 				446C43B921269B3200866C42 /* TQProjectTableViewController.m */,
-				44D988AB2127E1E100E1D8B7 /* TQTestView.h */,
-				44D988AC2127E1E100E1D8B7 /* TQTestView.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1831,6 +1849,8 @@
 		69468E4220712895007ECDDC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1AB575932128F53900874F9A /* TQResultCell.h */,
+				1AB575942128F53900874F9A /* TQResultCell.m */,
 				69BE9D9F20720A5D00EA6326 /* TQCell1.h */,
 				69BE9DA120720A5D00EA6326 /* TQCell1.m */,
 				69BE9DA020720A5D00EA6326 /* TQCell1.xib */,
@@ -2251,6 +2271,7 @@
 				1E9444C3206CECED003FE3F6 /* PreparationInformationViewController.m in Sources */,
 				440F2529211E877100524F62 /* View+MASAdditions.m in Sources */,
 				1E37D9B920624AAA000DAF65 /* UIImageView+WebCache.m in Sources */,
+				1AB575952128F53900874F9A /* TQResultCell.m in Sources */,
 				1EF6313E2062316400385293 /* AppDelegate.m in Sources */,
 				1E63E7522074A885008B43E4 /* LiveBroadcastTableViewCell.m in Sources */,
 				1E37D99D20624AAA000DAF65 /* AFURLSessionManager.m in Sources */,
@@ -2260,7 +2281,7 @@
 				1A6131F020633F6A00C8B99B /* HostViewController.m in Sources */,
 				1E37D9B820624AAA000DAF65 /* UIImageView+HighlightedWebCache.m in Sources */,
 				1A11636C2122FDB10053C10A /* MainTableView.m in Sources */,
-				44D988AD2127E1E100E1D8B7 /* TQTestView.m in Sources */,
+				44D988AD2127E1E100E1D8B7 /* TQTestViewSubVC.m in Sources */,
 				692DA9C221046DE000611A33 /* TQTestCell1.m in Sources */,
 				1E3196A42068CC8B004B8574 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				1E37D99920624AAA000DAF65 /* AFNetworkReachabilityManager.m in Sources */,
@@ -2296,6 +2317,7 @@
 				440F2526211E877100524F62 /* MASViewConstraint.m in Sources */,
 				1E3E18DE20720A7800F5B71C /* CouponTableViewController.m in Sources */,
 				1E37D9B320624AAA000DAF65 /* SDWebImagePrefetcher.m in Sources */,
+				1AB5759821290E6200874F9A /* TQTestArticSubVC.m in Sources */,
 				1EE02E672068A1AA00BFC31B /* HostVideoView.m in Sources */,
 				1E37D9A920624AAA000DAF65 /* UIScrollView+MJRefresh.m in Sources */,
 				446C43AC21266CDC00866C42 /* QBSlomoIconView.m in Sources */,
@@ -2345,9 +2367,11 @@
 				1E407177206DE6F3002AF062 /* TeacherListTableViewCell.m in Sources */,
 				1E37D93E20624A61000DAF65 /* BaseTableViewController.m in Sources */,
 				1E37D9C320624AC1000DAF65 /* Utility.m in Sources */,
+				1AB5759B21296A0700874F9A /* TQEveryDayStudyTableViewController.m in Sources */,
 				446C438D212665BB00866C42 /* MyDetailViewController.m in Sources */,
 				446C43AB21266CDC00866C42 /* QBImagePickerController.m in Sources */,
 				1E37D9AD20624AAA000DAF65 /* SDImageCache.m in Sources */,
+				1AB5759E2129758200874F9A /* TQMemberTableViewController.m in Sources */,
 				1EF6313B2062316400385293 /* main.m in Sources */,
 				446C43B721266D0A00866C42 /* UploadManager.m in Sources */,
 				1E37D9A220624AAA000DAF65 /* MJRefreshFooter.m in Sources */,

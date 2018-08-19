@@ -8,6 +8,7 @@
 
 #import "TQProjectTableViewController.h"
 #import "TQHistoryViewController.h"
+#import "TQEveryDayStudyTableViewController.h"
 
 @interface TQProjectTableViewController ()
 @property (nonatomic,strong) NSMutableArray *dataSource;
@@ -57,10 +58,17 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-    TQHistoryViewController *vc = [[TQHistoryViewController alloc] init];
-    vc.courseClassifyId = [[[self.dataSource[section] objectForKey:@"courseClassifyList"] objectAtIndex:row] objectForKey:@"id"];
-    vc.type = self.type;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.type == 4) {
+        TQEveryDayStudyTableViewController *vc = [[TQEveryDayStudyTableViewController alloc] init];
+        vc.courseClassifyId = [[[self.dataSource[section] objectForKey:@"courseClassifyList"] objectAtIndex:row] objectForKey:@"id"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        TQHistoryViewController *vc = [[TQHistoryViewController alloc] init];
+        vc.courseClassifyId = [[[self.dataSource[section] objectForKey:@"courseClassifyList"] objectAtIndex:row] objectForKey:@"id"];
+        vc.type = self.type;
+        [self.navigationController pushViewController:vc animated:YES];
+
+    }
 }
 
 

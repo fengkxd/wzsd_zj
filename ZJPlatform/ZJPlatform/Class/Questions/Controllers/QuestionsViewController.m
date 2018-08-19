@@ -12,8 +12,9 @@
 #import "TQGGLXViewController.h"
 #import "TQItem.h"
 #import "TQItem1.h"
-
+#import "TQErrorsViewController.h"
 #import "TQProjectTableViewController.h"
+#import "TQMemberTableViewController.h"
 
 @interface QuestionsViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -162,27 +163,27 @@
             
             __weak __typeof(self) weakself = self;
             
-            CGFloat width = MainScreenWidth/3;
+            CGFloat width = MainScreenWidth/2;
             
-            TQItem1 *item1 = [[TQItem1 alloc] initWithTitle:@"试题收藏" icon:@"TQ_item7.png" frame:CGRectMake(0, 0, width, 115)];
-            item1.itemCallBack = ^(NSString *title) {
-                
-                [weakself item1Selected:title];
-            };
+//            TQItem1 *item1 = [[TQItem1 alloc] initWithTitle:@"试题收藏" icon:@"TQ_item7.png" frame:CGRectMake(0, 0, width, 115)];
+//            item1.itemCallBack = ^(NSString *title) {
+//
+//                [weakself item1Selected:title];
+//            };
             
-            TQItem1 *item2 = [[TQItem1 alloc] initWithTitle:@"错题集" icon:@"TQ_item7.png" frame:CGRectMake(width, 0, width, 115)];
+            TQItem1 *item2 = [[TQItem1 alloc] initWithTitle:@"错题集" icon:@"TQ_item7.png" frame:CGRectMake(0, 0, width, 115)];
             item2.itemCallBack = ^(NSString *title) {
                 
                 [weakself item1Selected:title];
             };
             
-            TQItem1 *item3 = [[TQItem1 alloc] initWithTitle:@"做题记录" icon:@"TQ_item7.png" frame:CGRectMake(width*2, 0, width, 115)];
+            TQItem1 *item3 = [[TQItem1 alloc] initWithTitle:@"做题记录" icon:@"TQ_item7.png" frame:CGRectMake(width, 0, width, 115)];
             item3.itemCallBack = ^(NSString *title) {
                 
                 [weakself item1Selected:title];
             };
             
-            [cell.contentView addSubview:item1];
+//            [cell.contentView addSubview:item1];
             [cell.contentView addSubview:item2];
             [cell.contentView addSubview:item3];
         }
@@ -201,28 +202,33 @@
         TQProjectTableViewController *vc = [[TQProjectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         vc.type = 3;
         [self.navigationController pushViewController:vc animated:YES];
-        
-        //
-//        TQHistoryViewController *historyVc = [[TQHistoryViewController alloc] initWithNibName:@"TQHistoryViewController" bundle:nil];
-//
-//        [self.navigationController pushViewController:historyVc animated:YES];
     }else if ([title isEqualToString:@"巩固练习"]){
-        
-        TQGGLXViewController *lxVC = [[TQGGLXViewController alloc] initWithNibName:@"TQGGLXViewController" bundle:nil];
-        
-        [self.navigationController pushViewController:lxVC animated:YES];
-        
+        TQProjectTableViewController *vc = [[TQProjectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        vc.type = 1;
+        [self.navigationController pushViewController:vc animated:YES];
+
+    }else if ([title isEqualToString:@"全真模拟"]){
+        TQProjectTableViewController *vc = [[TQProjectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        vc.type = 2;
+        [self.navigationController pushViewController:vc animated:YES];
     }else{
-        
-        TQDayViewController *dayVc = [[TQDayViewController alloc] initWithNibName:@"TQDayViewController" bundle:nil];
-        
-        [self.navigationController pushViewController:dayVc animated:YES];
+        TQProjectTableViewController *vc = [[TQProjectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        vc.type = 4;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
 - (void)item1Selected:(NSString *)title{
+    if ([title isEqualToString:@"错题集"]) {
+        TQErrorsViewController *vc = [[TQErrorsViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        TQMemberTableViewController *vc =[[TQMemberTableViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
-    NSLog(@"%@",title);
+    
+    
 }
 
 @end

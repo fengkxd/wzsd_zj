@@ -159,7 +159,6 @@
     NSDictionary *attribute = @{NSFontAttributeName: btn.titleLabel.font};
     CGSize textSize = [btn.titleLabel.text boundingRectWithSize:size options: NSStringDrawingTruncatesLastVisibleLine |NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
     
-    
     CGSize frameSize = CGSizeMake(ceilf(textSize.width), ceilf(textSize.height));
     if (titleSize.width + 0.5 < frameSize.width) {
         titleSize.width = frameSize.width;

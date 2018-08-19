@@ -94,6 +94,7 @@
 + (NSAttributedString *)attributedStringWithHTMLString:(NSString *)htmlString;
 //去掉 HTML 字符串中的标签
 + (NSString *)filterHTML:(NSString *)html;
++ (UIImage *)image:(UIImage *)image rotation:(UIImageOrientation)orientation;
 
 @end
 

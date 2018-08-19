@@ -71,9 +71,15 @@ static NSString *const  kRequest_comment_delete           =     @"/comment/delet
 //考试
 static NSString *const  kRequest_subjects_eProject             =      @"/subjects/eProject";
 static NSString *const  kRequest_testPaper_list               =      @"/testPaper/list";
+
+static NSString *const  kRequest_questions_consolidation               =      @"/questions/consolidation";
+
 static NSString *const  kRequest_testPaper_get                =      @"/testPaper/get";
+static NSString *const  kRequest_memberAnswer_verifying       =      @"/memberAnswer/verifying";
+static NSString *const  kRequest_questions_everyDayStudy       =      @"/questions/everyDayStudy";
+static NSString *const  kRequest_membererror_list             =      @"/membererror/list";
 
-
+static NSString *const  kRequest_testPaper_queryMemberTest       =      @"/testPaper/queryMemberTest";
 
 
 @interface NSString (URL)

@@ -1,82 +1,71 @@
 //
-//  TQHistoryViewController.m
+//  TQMemberTableViewController.m
 //  ZJPlatform
 //
-//  Created by Rongbo Li on 2018/4/1.
+//  Created by fengke on 2018/8/19.
 //  Copyright © 2018年 wzsd. All rights reserved.
 //
 
-#import "TQHistoryViewController.h"
-#import "TQTestInfoViewController.h"
+#import "TQMemberTableViewController.h"
 #import "MJRefresh.h"
 #import "TQHistoryCell.h"
+#import "TQTestInfoViewController.h"
 #import "TQTestViewController.h"
 
-
-@interface TQHistoryViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface TQMemberTableViewController ()
 @property (nonatomic,strong) NSMutableArray *dataArray;
 
 @property (nonatomic,assign) NSInteger page;
 @property (nonatomic,assign) NSInteger pageSize;
+
 @end
 
-@implementation TQHistoryViewController
+@implementation TQMemberTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.type == 1) {
-        [self setTitleView:@"巩固练习"];
-    }else if(self.type == 2){
-        [self setTitleView:@"全真模拟"];
-    }else{
-        [self setTitleView:@"历年真题"];
-    }
-    
-    [self createBackBtn];
     self.dataArray = [NSMutableArray array];
     self.page = 0;
     self.pageSize = 10;
 
+
     [self requestDataSource];
+    [self createBackBtn];
+    [self setTitleView:@"做题记录"];
+
 }
 
--(void)requestDataSource{
-    NSString *url;
-    if (self.type == 1) {
-        url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_questions_consolidation];
-    }else{
-        url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_testPaper_list];
 
-    }
-  
+
+-(void)requestDataSource{
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_testPaper_queryMemberTest];
     WS(weakSelf);
-    NSDictionary *dict =  @{@"courseClassify.id":self.courseClassifyId,@"pageNo":[NSString stringWithFormat:@"%zi",self.page],@"pageSize":[NSString stringWithFormat:@"%zi",self.pageSize],@"type":[NSString stringWithFormat:@"%zi",self.type]};
-    
-    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:nil relativePath:url
                                                        success:^(id responseObject) {
                                                            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
                                                            [weakSelf loadDataSource:responseObject];
-                                                           
                                                        } failure:^(NSString *errorMsg) {
                                                            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
                                                            [Toast showWithText:errorMsg];
                                                            
                                                        }];
+    
 }
 
 
 -(void)loadDataSource:(NSDictionary *)dict{
     NSLog(@"%@",dict);
     if ([[dict objectForKey:@"lastPage"] integerValue] == self.page+1) {
-        _myTable.footer.hidden = YES;
+        self.tableView.footer.hidden = YES;
     }else{
-        _myTable.footer.hidden = NO;
+        self.tableView.footer.hidden = NO;
     }
     [self.dataArray addObjectsFromArray:[dict objectForKey:@"list"]];
-    [_myTable reloadData];
+    [self.tableView reloadData];
 }
+
+
 
 
 #pragma mark - UITableViewDelegate
@@ -105,6 +94,7 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
     return [[self dataArray] count];
 }
 
