@@ -77,8 +77,10 @@ static NSString *const  kRequest_questions_consolidation               =      @"
 static NSString *const  kRequest_testPaper_get                =      @"/testPaper/get";
 static NSString *const  kRequest_memberAnswer_verifying       =      @"/memberAnswer/verifying";
 static NSString *const  kRequest_questions_everyDayStudy       =      @"/questions/everyDayStudy";
-static NSString *const  kRequest_membererror_list             =      @"/membererror/list";
+static NSString *const  kRequest_everydayPractise_updateupdateAnswer       =      @"/everydayPractise/updateupdateAnswer";
 
+
+static NSString *const  kRequest_membererror_list             =      @"/membererror/list";
 static NSString *const  kRequest_testPaper_queryMemberTest       =      @"/testPaper/queryMemberTest";
 
 

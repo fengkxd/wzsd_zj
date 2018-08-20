@@ -30,6 +30,30 @@
     return self;
 }
 
+-(void)loadEveryDayStudy:(NSDictionary *)dict{
+    
+    NSString *content = [dict objectForKey:@"resultInro"];
+    
+    CGSize size = CGSizeMake(MainScreenWidth - 8 - 21 - 8 - 8,2000); //设置一个行高上限
+    NSDictionary *attribute = @{NSFontAttributeName: Font(15)};
+    CGFloat height = [content boundingRectWithSize:size options: NSStringDrawingTruncatesLastVisibleLine |NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size.height;
+    
+    height = height + 20;
+    NSInteger rightAnswers = 0;
+    if ([dict objectForKey:@"rightAnswers"]) {
+        rightAnswers = [[dict objectForKey:@"rightAnswers"] integerValue];
+    }
+    checkBtn.frame = CGRectMake(8, (height - 21)/2.0, 21, 21);
+    
+    resultInro.frame = CGRectMake(8 + 21 + 8, 0, MainScreenWidth - 8 - 21 - 8 - 8, height);
+    resultInro.text = [dict objectForKey:@"resultInro"];
+ 
+    [checkBtn setImage:nil forState:UIControlStateNormal];
+    [checkBtn setTitle:[dict objectForKey:@"checkValue"] forState:UIControlStateNormal];
+    checkBtn.layer.borderWidth = 0.5;
+    checkBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    resultInro.textColor = [UIColor blackColor];
+ }
 
 -(void)loadInfo:(NSDictionary *)dict{
     NSString *content = [dict objectForKey:@"resultInro"];
@@ -60,13 +84,36 @@
         checkBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
         resultInro.textColor = [UIColor blackColor];
     }
+}
 
+-(void)loadReuslt:(NSDictionary *)dict{
+    NSInteger rightAnswers = 0;
+    if ([dict objectForKey:@"rightAnswers"]) {
+        rightAnswers = [[dict objectForKey:@"rightAnswers"] integerValue];
+    }
+    if (rightAnswers == 1) {
+        [checkBtn setImage:[UIImage imageNamed:@"TQ_R1"] forState:UIControlStateNormal];
+        [checkBtn setTitle:nil forState:UIControlStateNormal];
+        resultInro.textColor = MainBlueColor;
+        
+    }else if(self.isSel && rightAnswers == 2){
+        [checkBtn setImage:[UIImage imageNamed:@"TQ_F"] forState:UIControlStateNormal];
+        [checkBtn setTitle:nil forState:UIControlStateNormal];
+        resultInro.textColor = [UIColor redColor];
+        
+    }
+   
+    
+    
+    
     
 }
 
+
 -(void)setAnswer:(BOOL)flag{
+    self.isSel = flag;
     if (flag) {
-        resultInro.textColor = MainBlueColor;
+         resultInro.textColor = MainBlueColor;
         checkBtn.layer.borderColor = MainBlueColor.CGColor;
         [checkBtn setTitleColor:MainBlueColor forState:UIControlStateNormal];
     }else{

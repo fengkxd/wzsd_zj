@@ -9,6 +9,8 @@
 #import "TQTestViewController.h"
 #import "TQTestViewSubVC.h"
 #import "TQTestArticSubVC.h"
+#import "JSONKit.h"
+#import "TQResultViewController.h"
 
 @interface TQTestViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate>{
     NSInteger page;
@@ -75,11 +77,13 @@
         UIViewController *vc = self.subVCs[i];
         if ([vc isKindOfClass:[TQTestViewSubVC class]]) {
             NSDictionary *questionDict = [self.array1 objectAtIndex:i];
+            NSArray *array = [[questionDict objectForKey:@"questions"] objectForKey:@"resultList"];
             TQTestViewSubVC *subVc = (TQTestViewSubVC *)vc;
             if ([subVc.selIndexPaths count] == 0) {
+                NSDictionary *answer = @{@"answer":@"",@"questionId":[[[array lastObject] objectForKey:@"questions"] objectForKey:@"id"]};
+                [listAnswer addObject:answer];
                 continue;
             }
-            NSArray *array = [[questionDict objectForKey:@"questions"] objectForKey:@"resultList"];
             NSMutableString *str = [NSMutableString string];
             for (NSIndexPath *indexPath in subVc.selIndexPaths) {
                 NSDictionary *dict = [array objectAtIndex:indexPath.row - 2];
@@ -99,6 +103,9 @@
             if ([Utility isNotBlank:subVc.myTextView.text]) {
                 NSDictionary *answer = @{@"answer":subVc.myTextView.text,@"questionId":[[[questionDict objectForKey:@"questionsArticle"] objectForKey:@"questions"] objectForKey:@"id"]};
                 [listAnswer addObject:answer];
+            }else{
+                NSDictionary *answer = @{@"answer":@"",@"questionId":[[[questionDict objectForKey:@"questionsArticle"] objectForKey:@"questions"] objectForKey:@"id"]};
+                [listAnswer addObject:answer];
             }
         }
     }
@@ -109,7 +116,7 @@
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSDictionary *commitDict = @{@"listAnswer":listAnswer,@"testPaper.id":self.testId};
+        NSDictionary *commitDict = @{@"listAnswer":[listAnswer JSONString],@"testPaper.id":self.testId};
         [self requestAnswer:commitDict];
         
     }];
@@ -138,7 +145,13 @@
 -(void)loadResult:(NSDictionary *)dict{
     NSLog(@"loadResult:%@",dict);
     
+    TQResultViewController *vc = [[TQResultViewController alloc] initWithNibName:nil bundle:nil];
+    vc.rateDict = dict;
+    NSMutableArray *vcs = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
+    [vcs replaceObjectAtIndex:[vcs count]-1 withObject:vc];
+    [self.navigationController setViewControllers:vcs animated:YES];
 }
+
 
 
 -(void)up{

@@ -12,10 +12,15 @@
 {
     UIButton *checkBtn;
     UILabel *resultInro;
-    
-    
 }
--(void)loadInfo:(NSDictionary *)dict;
 
+@property (nonatomic,assign)BOOL isSel;
+
+-(void)loadInfo:(NSDictionary *)dict;
+-(void)loadEveryDayStudy:(NSDictionary *)dict;
 -(void)setAnswer:(BOOL)flag;
+
+
+-(void)loadReuslt:(NSDictionary *)dict;
+
 @end

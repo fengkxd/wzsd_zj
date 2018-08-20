@@ -59,7 +59,7 @@
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (self.type == 4) {
-        TQEveryDayStudyTableViewController *vc = [[TQEveryDayStudyTableViewController alloc] init];
+        TQEveryDayStudyTableViewController *vc = [[TQEveryDayStudyTableViewController alloc] initWithNibName:@"TQEveryDayStudyTableViewController" bundle:nil];
         vc.courseClassifyId = [[[self.dataSource[section] objectForKey:@"courseClassifyList"] objectAtIndex:row] objectForKey:@"id"];
         [self.navigationController pushViewController:vc animated:YES];
     }else{

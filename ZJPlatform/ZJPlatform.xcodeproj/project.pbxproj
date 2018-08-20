@@ -327,6 +327,8 @@
 		446C43B721266D0A00866C42 /* UploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 446C43B421266D0A00866C42 /* UploadManager.m */; };
 		446C43BA21269B3200866C42 /* TQProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 446C43B921269B3200866C42 /* TQProjectTableViewController.m */; };
 		44765EFE211D731400D3F962 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 44765EFD211D731400D3F962 /* libz.tbd */; };
+		447E3215212A64A2002B2F92 /* TQEveryDayStudyTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447E3214212A64A2002B2F92 /* TQEveryDayStudyTableViewController.xib */; };
+		447E3219212A9AE8002B2F92 /* TQResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E3217212A9AE8002B2F92 /* TQResultViewController.m */; };
 		447E88F12123F71900D40C9D /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E88F02123F71900D40C9D /* MyOrderViewController.m */; };
 		447E88F52123F72F00D40C9D /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E88F32123F72F00D40C9D /* OrderTableViewCell.m */; };
 		447E88F62123F72F00D40C9D /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447E88F42123F72F00D40C9D /* OrderTableViewCell.xib */; };
@@ -873,6 +875,9 @@
 		446C43B821269B3200866C42 /* TQProjectTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQProjectTableViewController.h; sourceTree = "<group>"; };
 		446C43B921269B3200866C42 /* TQProjectTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQProjectTableViewController.m; sourceTree = "<group>"; };
 		44765EFD211D731400D3F962 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		447E3214212A64A2002B2F92 /* TQEveryDayStudyTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TQEveryDayStudyTableViewController.xib; sourceTree = "<group>"; };
+		447E3216212A9AE8002B2F92 /* TQResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQResultViewController.h; sourceTree = "<group>"; };
+		447E3217212A9AE8002B2F92 /* TQResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQResultViewController.m; sourceTree = "<group>"; };
 		447E88EF2123F71900D40C9D /* MyOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
 		447E88F02123F71900D40C9D /* MyOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
 		447E88F22123F72F00D40C9D /* OrderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderTableViewCell.h; sourceTree = "<group>"; };
@@ -1172,6 +1177,7 @@
 				44D988A92127E14500E1D8B7 /* TQTestViewController.m */,
 				1AB5759921296A0700874F9A /* TQEveryDayStudyTableViewController.h */,
 				1AB5759A21296A0700874F9A /* TQEveryDayStudyTableViewController.m */,
+				447E3214212A64A2002B2F92 /* TQEveryDayStudyTableViewController.xib */,
 				1AB5759621290E6200874F9A /* TQTestArticSubVC.h */,
 				1AB5759721290E6200874F9A /* TQTestArticSubVC.m */,
 				44D988AB2127E1E100E1D8B7 /* TQTestViewSubVC.h */,
@@ -1193,6 +1199,8 @@
 				692DA9BD21046A1800611A33 /* TQTestSingleViewController.xib */,
 				446C43B821269B3200866C42 /* TQProjectTableViewController.h */,
 				446C43B921269B3200866C42 /* TQProjectTableViewController.m */,
+				447E3216212A9AE8002B2F92 /* TQResultViewController.h */,
+				447E3217212A9AE8002B2F92 /* TQResultViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2136,6 +2144,7 @@
 				1EA88C8A2072353100E23098 /* arrow_up3@3x.png in Resources */,
 				447E89012124238200D40C9D /* MyCommentCell.xib in Resources */,
 				1E9444B7206CB721003FE3F6 /* MineCenterHeaderView.xib in Resources */,
+				447E3215212A64A2002B2F92 /* TQEveryDayStudyTableViewController.xib in Resources */,
 				1E319726206B3691004B8574 /* code@2x.png in Resources */,
 				1AE20085206799A40035F412 /* HostIcon4@2x.png in Resources */,
 				1E3E18EF20720B9600F5B71C /* Coupon_bg1@3x.png in Resources */,
@@ -2338,6 +2347,7 @@
 				1E37D99820624AAA000DAF65 /* AFHTTPSessionManager.m in Sources */,
 				440F2527211E877100524F62 /* NSArray+MASAdditions.m in Sources */,
 				1E31972B206B3B86004B8574 /* ForgetPwdNextViewController.m in Sources */,
+				447E3219212A9AE8002B2F92 /* TQResultViewController.m in Sources */,
 				1AE20056206714590035F412 /* NSString+CJString.m in Sources */,
 				1AEF71902078B487003075B6 /* MySelCourseTableViewCell2.m in Sources */,
 				1E37D9B020624AAA000DAF65 /* SDWebImageDownloader.m in Sources */,
