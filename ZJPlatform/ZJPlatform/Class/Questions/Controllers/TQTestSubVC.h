@@ -1,15 +1,14 @@
 //
-//  TQTestView.h
+//  TQTestSubVC.h
 //  ZJPlatform
 //
-//  Created by fk on 2018/8/18.
+//  Created by fk on 2018/8/21.
 //  Copyright © 2018年 wzsd. All rights reserved.
 //
 
 #import "BaseTableViewController.h"
 
-@interface TQTestViewSubVC : BaseTableViewController
-
+@interface TQTestSubVC : BaseTableViewController
 
 @property (nonatomic,assign) BOOL isAnswers;
 
@@ -21,10 +20,4 @@
 @property (nonatomic,strong) NSDictionary *question;
 
 @property (nonatomic,strong) NSMutableArray *selIndexPaths;
-
-
-@property (nonatomic,assign)  BOOL isResult;
-
--(void)checkAnswer;
-
 @end

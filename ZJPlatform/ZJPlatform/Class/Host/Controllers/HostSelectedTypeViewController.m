@@ -73,7 +73,7 @@
     if ([Utility objectForKey:Sel_Subject]) {
         self.selRow = [self.datas indexOfObject:[Utility objectForKey:Sel_Subject]];
     }
-    
+    [Utility saveObject:arrar withKey:Subject_List];
     [myCollectionView reloadData];
 }
 

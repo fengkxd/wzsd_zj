@@ -17,6 +17,9 @@
     IBOutlet UIButton *codeBtn;
     IBOutlet UIButton *registerBtn;
 
+    IBOutlet UITextField *phoneTextFeild;
+    IBOutlet UITextField *checkCodeTextFeild;
+    IBOutlet UITextField *passwordTextFeild;
 
 }
 @end

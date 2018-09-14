@@ -24,7 +24,8 @@
     
     
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    
+    session.requestSerializer = [AFHTTPRequestSerializer serializer];
+    session.responseSerializer = [AFHTTPResponseSerializer serializer];
 //    if ([Utility isNotBlank:[Utility getObjectForkey:MYTOKEN]]) {
 //        [session.requestSerializer setValue:[Utility getObjectForkey:MYTOKEN] forHTTPHeaderField:@"token"];
 //    }
@@ -42,7 +43,7 @@
          参数4:告诉服务器上传的文件类型
          */
         
-        [formData appendPartWithFileData:fileData name:picFileName fileName:@"1.png" mimeType:@"image/png"];
+        [formData appendPartWithFileData:fileData name:picFileName fileName:@"file" mimeType:@"image/png"];
     } progress:^(NSProgress *uploadProgress) {
         
     } success:^(NSURLSessionDataTask *task, id responseObject) {

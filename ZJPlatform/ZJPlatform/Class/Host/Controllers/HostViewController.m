@@ -19,6 +19,9 @@
 #import "PreparationInformationTableViewCell.h"
 #import "TestRelevantViewController.h"
 #import "SelCourseDetailViewController.h"
+#import "HomeSearchViewController.h"
+#import "SelCourseViewController.h"
+
 
 @interface HostViewController ()<UITextFieldDelegate>
 {
@@ -44,8 +47,8 @@
     [self initTitleView];
     [self autoLogin];
     [self requestBanner1];
-    [self requestNotice];
-    [self requestBanner2];
+//    [self requestNotice];
+//    [self requestBanner2];
     [self requestCourseList1];
     [self requestCourseList2];
     [self requestExamNews];
@@ -53,8 +56,8 @@
     WS(weakSelf);
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
         [weakSelf requestBanner1];
-        [weakSelf requestNotice];
-        [weakSelf requestBanner2];
+//        [weakSelf requestNotice];
+//        [weakSelf requestBanner2];
         [weakSelf requestCourseList1];
         [weakSelf requestCourseList2];
         [weakSelf requestExamNews];
@@ -79,7 +82,7 @@
 
 -(void)requestCourseList1{
     NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_video_list];
-    NSDictionary *dict =  @{@"pageNo":@"0",@"pageSize":@"4",@"subjects.id":Subject_Id,@"questionType":@"1",@"hotRecommend":@"1"};
+    NSDictionary *dict =  @{@"pageNo":@"0",@"pageSize":@"4",@"subjects.id":Subject_Id,@"questionType":@"2",@"hotRecommend":@"1"};
     WS(weakSelf);
     [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
         NSLog(@"限时免费：%@",responseObject);
@@ -255,10 +258,30 @@
     self.navigationItem.titleView = titleView;
 }
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    [self showSearch];
+    return NO;
+}
+
+-(void)showSearch{
+    HomeSearchViewController *vc = [[HomeSearchViewController alloc] init];
+    MyNavigationController *nav = [[MyNavigationController alloc] initWithRootViewController:vc];
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
+}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0 || section == 1) {
+    if (section == 0) {
+        return 0;
+    }
+    
+    
+    if ( section == 1) {
         return 5;
+    }
+    
+    if (section == 2) {
+        return 0;
     }
     
     return 10;
@@ -535,6 +558,11 @@
         }
     }else if(section == 4){
         if (row == 0) {
+            SelCourseViewController *vc = [[SelCourseViewController alloc] init];
+            [vc setHidesBottomBarWhenPushed:YES];
+            vc.type = 1;
+            [self.navigationController pushViewController:vc animated:YES];
+
         }else{
             [self clickPlay:[self.videoList2 objectAtIndex:indexPath.row - 1]];
 
@@ -542,7 +570,6 @@
         
     }else if(section == 3){
         if (row == 0) {
-            
             BaseViewController *vc = [[NSClassFromString(@"SelCourseViewController") alloc] init];
             [vc setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:vc animated:YES];

@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface SetPwdViewController : BaseViewController
+@interface  SetPwdViewController: BaseViewController
 {
 
     IBOutlet UIView *view1;

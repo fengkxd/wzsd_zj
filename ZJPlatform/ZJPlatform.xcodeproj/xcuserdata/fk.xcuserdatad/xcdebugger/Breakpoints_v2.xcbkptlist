@@ -35,22 +35,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZJPlatform/Class/SBPlayer/SBPlayer.m"
-            timestampString = "555666205.72291"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "-refreshMediaControl"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ZJPlatform/Class/MineCenter/Views/MyDetailTableViewController.m"
             timestampString = "556164193.84174"
             startingColumnNumber = "9223372036854775807"
@@ -67,13 +51,140 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZJPlatform/Class/Questions/Controllers/TQEveryDayStudyTableViewController.m"
-            timestampString = "556444404.828585"
+            filePath = "ZJPlatform/Class/Tools/NetworkManager.m"
+            timestampString = "557396607.477708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "-initWebView"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "-requestWithMethod:headParameter:bodyParameter:relativePath:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZJPlatform/Class/Tools/NetworkManager.m"
+            timestampString = "557396607.47777"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "NetworkManager"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZJPlatform/Class/Host/Controllers/HostViewController.m"
+            timestampString = "557225965.710266"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-requestBanner2"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZJPlatform/Class/Questions/Controllers/TQEveryDayStudyTableViewController.m"
+            timestampString = "557225965.710338"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
+            landmarkName = "-tableView:numberOfRowsInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZJPlatform/Class/Tools/NetworkManager.m"
+            timestampString = "557396607.477868"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "-requestWithMethod:headParameter:bodyParameter:relativePath:success:failure:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__93-[NetworkManager requestWithMethod:headParameter:bodyParameter:relativePath:success:failure:]_block_invoke_2.185"
+                  moduleName = "ZJPlatform"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sostag/Desktop/wzsd_zj/ZJPlatform/ZJPlatform/Class/Tools/NetworkManager.m"
+                  timestampString = "557397124.214161"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "1420">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__93-[NetworkManager requestWithMethod:headParameter:bodyParameter:relativePath:success:failure:]_block_invoke_3"
+                  moduleName = "ZJPlatform"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sostag/Desktop/wzsd_zj/ZJPlatform/ZJPlatform/Class/Tools/NetworkManager.m"
+                  timestampString = "557397124.216554"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.187"
+                  moduleName = "ZJPlatform"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sostag/Desktop/wzsd_zj/ZJPlatform/ZJPlatform/Class/Tools/NetworkManager.m"
+                  timestampString = "557397124.218747"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZJPlatform/Class/Tools/NetworkManager.m"
+            timestampString = "557396607.4779119"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "-requestWithMethod:headParameter:bodyParameter:relativePath:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

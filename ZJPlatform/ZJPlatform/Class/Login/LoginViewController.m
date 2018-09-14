@@ -149,7 +149,20 @@
     accountTextField.text = [Utility objectForKey:USERNAME];
     pwdtextField.text = [Utility objectForKey:PASSWORD];
 
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerSuccess) name:kNotification_Register_Success object:nil];
+
 }
+
+
+
+
+-(void)registerSuccess{
+    accountTextField.text = [Utility objectForKey:USERNAME];
+    pwdtextField.text = [Utility objectForKey:PASSWORD];
+}
+
 
 
 -(IBAction)forgetPwd:(id)sender
@@ -173,8 +186,7 @@
 
 
 -(IBAction)login{
-    accountTextField.text = @"18566262667";
-    pwdtextField.text = @"1234509876";
+
     
     if ([Utility isBlank:accountTextField.text] || [Utility isBlank:pwdtextField.text]) {
         [Toast showWithText:@"请输入正确信息"];

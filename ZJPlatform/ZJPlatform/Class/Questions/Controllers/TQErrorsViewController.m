@@ -72,6 +72,7 @@
     page = 1;
 }
 
+-(void)commit{}
 
 
 -(void)up{
@@ -137,9 +138,10 @@
  
     self.array1 = [NSMutableArray arrayWithArray:array];
     for (NSInteger i = 0; i < [self.array1 count]; i++) {
-        TQTestViewSubVC *subVC = [[TQTestViewSubVC alloc] init];
+        TQTestViewSubVC *subVC = [[TQTestViewSubVC alloc] initWithNibName:@"TQTestViewSubVC" bundle:nil];
         subVC.question = [self.array1 objectAtIndex:i];
         subVC.curNum = i;
+        subVC.isResult = YES;
         subVC.isAnswers = YES;
         subVC.totalCount = [self.array1 count] ;
         [self.subVCs addObject:subVC];

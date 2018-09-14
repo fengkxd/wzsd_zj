@@ -72,4 +72,11 @@
     }
 }
 
+-(void)nonClickable{
+    self.imageBtn.enabled = NO;
+    self.moreButton.enabled = NO;
+
+}
+
+
 @end

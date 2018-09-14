@@ -7,6 +7,7 @@
 //
 
 #import "UploadManager.h"
+#import "JSONKit.h"
 
 @implementation UploadManager
 static UploadManager *sharedInstance;
@@ -74,9 +75,11 @@ static dispatch_once_t onceToken;
 - (void)upload:(UploadOperation *)operation didFinishWithSuccessWithPath:(NSString *)pathToFile withObject:(id)responseObject
 {
     
-     NSDictionary *dict = (NSDictionary *)responseObject;
-    if ([dict isKindOfClass:[NSDictionary class]]) {
-        NSString *keyId = [dict objectForKey:@"picType"];
+ 
+    if ([responseObject isKindOfClass:[NSData class]]) {
+        NSDictionary *dict = [[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding] objectFromJSONString];
+        
+        NSString *keyId = [[dict objectForKey:@"data"] objectForKey:@"url"];
         [self.ids addObject:keyId];
     }
     if (myOperationQueue.operationCount == 1 && [self.ids count]) {

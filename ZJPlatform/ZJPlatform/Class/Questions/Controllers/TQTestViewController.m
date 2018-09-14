@@ -109,7 +109,7 @@
             }
         }
     }
-    NSString *str = [NSString stringWithFormat:@"共%zi题,已完成%zi,确定要交卷吗？",[self.array1 count]+ [self.array2 count],[listAnswer count]];
+    NSString *str = @"确定要交卷吗？";
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:str preferredStyle:UIAlertControllerStyleAlert];
     //创建提示按钮
@@ -142,9 +142,7 @@
                                                        }];
 }
 
--(void)loadResult:(NSDictionary *)dict{
-    NSLog(@"loadResult:%@",dict);
-    
+-(void)loadResult:(NSDictionary *)dict{    
     TQResultViewController *vc = [[TQResultViewController alloc] initWithNibName:nil bundle:nil];
     vc.rateDict = dict;
     NSMutableArray *vcs = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
@@ -245,7 +243,7 @@
     }
     
     for (NSInteger i = 0; i < [self.array1 count]; i++) {
-        TQTestViewSubVC *subVC = [[TQTestViewSubVC alloc] init];
+        TQTestViewSubVC *subVC = [[TQTestViewSubVC alloc] initWithNibName:@"TQTestViewSubVC" bundle:nil];
         subVC.question = [self.array1 objectAtIndex:i];
         subVC.curNum = i;
         subVC.totalCount = [self.array1 count] + [self.array2 count];

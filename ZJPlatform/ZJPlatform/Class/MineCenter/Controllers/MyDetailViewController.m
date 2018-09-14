@@ -15,6 +15,8 @@
 #import "QBImagePickerController.h"
 #import "UIImageView+WebCache.h"
 #import "UploadManager.h"
+#import "ChangePwdViewController.h"
+
 //#import "RegisterViewController.h"
 
 @interface MyDetailViewController ()<UITextViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,QBImagePickerControllerDelegate>
@@ -60,6 +62,36 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadFinish:) name:kNotification_UploadFileFinish object:nil];
     
 
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, 54)];
+    view.backgroundColor = [UIColor clearColor];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(15, 10, MainScreenWidth - 30, 44);
+    [btn setTitle:@"退出当前帐号" forState:UIControlStateNormal];
+    btn.titleLabel.font = Font(15);
+    [btn setBackgroundColor:MainBlueColor];
+    btn.layer.masksToBounds = YES;
+    btn.layer.cornerRadius = 4;
+    [view addSubview:btn];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.tableView.tableFooterView = view;
+    [btn addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+
+-(void)logout{
+    SHOW_HUD;
+    [Utility removeForkey:KUID];
+    [Utility removeForkey:PASSWORD];
+    [Utility removeForkey:LoginType];
+    [Utility removeForkey:DeriverID];
+    [Utility deleteCookies];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_LOGIN_OUT object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+    HIDDEN_HUD;
+    
 }
 
 -(void)dealloc{
@@ -107,64 +139,37 @@
 }
 
 -(void)saveUserInformation:(NSArray *)array{
-    
-    if (emailTextField.text.length > 4) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        [Toast showWithText:@"真实姓名不能超过4位"];
-        return;
-    }
-    if (nameTextField.text.length > 10) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        [Toast showWithText:@"昵称不能超过10位"];
-        return;
-    }
-    if (nameTextField.text.length == 0) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        [Toast showWithText:@"昵称不能为空"];
-        return;
-    }
-    
-
-    
-    NSMutableDictionary *dict = [NSMutableDictionary  dictionary];
-    if (array) {
-        [dict setObject:[array lastObject] forKey:@"icon"];
-    }
-    
-    if (![[self.userDict objectForKey:@"trueName"] isEqualToString:nameTextField.text]) {
-        [dict setObject:nameTextField.text forKey:@"trueName"];
-    }
-
-    if (manBtn.selected) {
-        [dict setObject:@"男" forKey:@"sex"];
-    }
-    if (womanBtn.selected) {
-        [dict setObject:@"女" forKey:@"sex"];
-    }
-    if (emailTextField.text.length) {
-        [dict setObject:emailTextField.text forKey:@"realName"];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+  
+    if ([array count]) {
+        [dict setObject:[array lastObject] forKey:@"portrait"];
     }else{
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        [Toast showWithText:@"真实姓名不能为空"];
-        return;
+        if ([Utility isNotBlank:[self.userDict objectForKey:@"headPortrait"]]) {
+            [dict setObject:[self.userDict objectForKey:@"headPortrait"] forKey:@"portrait"];
+        }
     }
     
- 
-//
-//    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kURL_UserInfoEdit];
-//    WS(weakSelf);
-//    [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
-//                                                 headParameter:nil
-//                                                 bodyParameter:dict
-//                                                  relativePath:url
-//                                                       success:^(id responseObject) {
-//                                                           [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
-//                                                           [Toast showWithText:@"修改成功"];
-//                                                           [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_Refresh_UserInfo object:nil];
-//                                                           [weakSelf.navigationController popViewControllerAnimated:YES];
-//                                                       } failure:^(NSString *errorMsg) {
-//                                                           [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
-//                                                       }];
+    if ([Utility isNotBlank:nameTextField.text]) {
+        [dict setObject:nameTextField.text forKey:@"perfectNickname"];
+    }else{
+        [dict setObject:@"" forKey:@"perfectNickname"];
+    }
+    
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_student_updateStudent];
+    WS(weakSelf);
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
+                                                 headParameter:nil
+                                                 bodyParameter:dict
+                                                  relativePath:url
+                                                       success:^(id responseObject) {
+                                                           [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+                                                           [Toast showWithText:@"修改成功"];
+                                                           [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_Refresh_UserInfo object:nil];
+                                                           [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                       } failure:^(NSString *errorMsg) {
+                                                           [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+                                                       }];
 
 }
 
@@ -298,10 +303,19 @@
 #pragma mark -- tableview delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 && indexPath.row == 0) {
         [self showImage];
-    }else if(indexPath.section == 1 && indexPath.row == 3){
-//        RegisterViewController *vc = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
+    }else if(indexPath.section == 1){
+        if (indexPath.row == 1) {
+            ChangePwdViewController *vc = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            
+            
+        }
+        
+        
+        //        RegisterViewController *vc = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
 //        vc.isChangeMobile = YES;
 //        [self.navigationController pushViewController:vc animated:YES];
     }
@@ -437,9 +451,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-   if(section == 0){
-        return 4;
-    }
+
     return 2;
 }
 

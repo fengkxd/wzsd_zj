@@ -72,8 +72,9 @@ static NSMutableDictionary *taskDict;
 
     session.requestSerializer = [AFHTTPRequestSerializer serializer];
     session.requestSerializer.timeoutInterval = 15;
-//    [session.requestSerializer setValue:@"text/html;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    
+//  [session.requestSerializer setValue:@"text/html;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+[session.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=utf8" forHTTPHeaderField:@"Content-Type"];
+
     session.responseSerializer = [AFHTTPResponseSerializer serializer];
 //    session.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
 
@@ -125,7 +126,7 @@ static NSMutableDictionary *taskDict;
                                     success:success failure:failure];
                 } failure:^{
                     
-                    failure([responseObject objectForKey:@"errorMessage"]);
+                    failure(@"");
                     [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SHOW_LOGIN object:nil];
                     
                 }];
@@ -286,6 +287,9 @@ static NSMutableDictionary *taskDict;
 
 -(void)refreshAccessToken:(void (^)(void))success
                   failure:(void (^)(void))failure{
+    NSLog(@"%@",[Utility objectForKey:USERNAME]);
+    NSLog(@"%@",[Utility objectForKey:PASSWORD]);
+
     if([Utility isNotBlank:[Utility objectForKey:USERNAME]] &&
              [Utility isNotBlank:[Utility objectForKey:PASSWORD]]){
         

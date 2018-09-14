@@ -308,6 +308,13 @@
 		440F252A211E877100524F62 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 440F2520211E877100524F62 /* ViewController+MASAdditions.m */; };
 		440F2530211E9DA000524F62 /* CNCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 440F252D211E9DA000524F62 /* CNCNavigationController.m */; };
 		440F2531211E9DA000524F62 /* CNCPlayerCommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 440F252F211E9DA000524F62 /* CNCPlayerCommonFunc.m */; };
+		4410EA752137EFAC009BA699 /* ChangePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4410EA732137EFAB009BA699 /* ChangePwdViewController.m */; };
+		4410EA762137EFAC009BA699 /* ChangePwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4410EA742137EFAC009BA699 /* ChangePwdViewController.xib */; };
+		4429673C212BEF1E0038DBD5 /* TQTestSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4429673B212BEF1E0038DBD5 /* TQTestSubVC.m */; };
+		4429673E212BFC910038DBD5 /* TQTestViewSubVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4429673D212BFC910038DBD5 /* TQTestViewSubVC.xib */; };
+		44296741212C072F0038DBD5 /* MyTQTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44296740212C072F0038DBD5 /* MyTQTableViewController.m */; };
+		4451F243213649B700C72E2B /* HomeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4451F242213649B700C72E2B /* HomeSearchViewController.m */; };
+		4451F24621368F1A00C72E2B /* MenuAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4451F24521368F1A00C72E2B /* MenuAlert.m */; };
 		445C259F20DF9CD100B03500 /* TestRelevantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 445C259E20DF9CD100B03500 /* TestRelevantViewController.m */; };
 		446C438C212665BB00866C42 /* MyDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446C4389212665BA00866C42 /* MyDetailViewController.xib */; };
 		446C438D212665BB00866C42 /* MyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 446C438A212665BB00866C42 /* MyDetailViewController.m */; };
@@ -340,6 +347,8 @@
 		448012B320D89C3F007B11DB /* MyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448012B220D89C3F007B11DB /* MyWebViewController.m */; };
 		44B4D8162122CAD5003DD7BA /* Coupon_bg4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B4D8142122CAD5003DD7BA /* Coupon_bg4@3x.png */; };
 		44B4D8172122CAD5003DD7BA /* Coupon_bg4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B4D8152122CAD5003DD7BA /* Coupon_bg4@2x.png */; };
+		44C643262139353000A64981 /* ChangePhoneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C643242139353000A64981 /* ChangePhoneTableViewController.m */; };
+		44C643272139353000A64981 /* ChangePhoneTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C643252139353000A64981 /* ChangePhoneTableViewController.xib */; };
 		44D988AA2127E14500E1D8B7 /* TQTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D988A92127E14500E1D8B7 /* TQTestViewController.m */; };
 		44D988AD2127E1E100E1D8B7 /* TQTestViewSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D988AC2127E1E100E1D8B7 /* TQTestViewSubVC.m */; };
 		69234B0A20728246007E7C99 /* TQGGLXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69234B0820728246007E7C99 /* TQGGLXViewController.m */; };
@@ -840,6 +849,18 @@
 		440F252D211E9DA000524F62 /* CNCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNCNavigationController.m; sourceTree = "<group>"; };
 		440F252E211E9DA000524F62 /* CNCPlayerCommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNCPlayerCommonFunc.h; sourceTree = "<group>"; };
 		440F252F211E9DA000524F62 /* CNCPlayerCommonFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNCPlayerCommonFunc.m; sourceTree = "<group>"; };
+		4410EA722137EFAB009BA699 /* ChangePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePwdViewController.h; sourceTree = "<group>"; };
+		4410EA732137EFAB009BA699 /* ChangePwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePwdViewController.m; sourceTree = "<group>"; };
+		4410EA742137EFAC009BA699 /* ChangePwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePwdViewController.xib; sourceTree = "<group>"; };
+		4429673A212BEF1E0038DBD5 /* TQTestSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQTestSubVC.h; sourceTree = "<group>"; };
+		4429673B212BEF1E0038DBD5 /* TQTestSubVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQTestSubVC.m; sourceTree = "<group>"; };
+		4429673D212BFC910038DBD5 /* TQTestViewSubVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TQTestViewSubVC.xib; sourceTree = "<group>"; };
+		4429673F212C072F0038DBD5 /* MyTQTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTQTableViewController.h; sourceTree = "<group>"; };
+		44296740212C072F0038DBD5 /* MyTQTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTQTableViewController.m; sourceTree = "<group>"; };
+		4451F241213649B700C72E2B /* HomeSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSearchViewController.h; sourceTree = "<group>"; };
+		4451F242213649B700C72E2B /* HomeSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSearchViewController.m; sourceTree = "<group>"; };
+		4451F24421368F1A00C72E2B /* MenuAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuAlert.h; sourceTree = "<group>"; };
+		4451F24521368F1A00C72E2B /* MenuAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuAlert.m; sourceTree = "<group>"; };
 		445C259D20DF9CD100B03500 /* TestRelevantViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestRelevantViewController.h; sourceTree = "<group>"; };
 		445C259E20DF9CD100B03500 /* TestRelevantViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestRelevantViewController.m; sourceTree = "<group>"; };
 		446C4389212665BA00866C42 /* MyDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDetailViewController.xib; sourceTree = "<group>"; };
@@ -896,6 +917,9 @@
 		448012B220D89C3F007B11DB /* MyWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebViewController.m; sourceTree = "<group>"; };
 		44B4D8142122CAD5003DD7BA /* Coupon_bg4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coupon_bg4@3x.png"; sourceTree = "<group>"; };
 		44B4D8152122CAD5003DD7BA /* Coupon_bg4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coupon_bg4@2x.png"; sourceTree = "<group>"; };
+		44C643232139353000A64981 /* ChangePhoneTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePhoneTableViewController.h; sourceTree = "<group>"; };
+		44C643242139353000A64981 /* ChangePhoneTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePhoneTableViewController.m; sourceTree = "<group>"; };
+		44C643252139353000A64981 /* ChangePhoneTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePhoneTableViewController.xib; sourceTree = "<group>"; };
 		44D988A82127E14500E1D8B7 /* TQTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQTestViewController.h; sourceTree = "<group>"; };
 		44D988A92127E14500E1D8B7 /* TQTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQTestViewController.m; sourceTree = "<group>"; };
 		44D988AB2127E1E100E1D8B7 /* TQTestViewSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQTestViewSubVC.h; sourceTree = "<group>"; };
@@ -1111,6 +1135,8 @@
 				448012AF20D89846007B11DB /* NewsZJTableViewController.m */,
 				445C259D20DF9CD100B03500 /* TestRelevantViewController.h */,
 				445C259E20DF9CD100B03500 /* TestRelevantViewController.m */,
+				4451F241213649B700C72E2B /* HomeSearchViewController.h */,
+				4451F242213649B700C72E2B /* HomeSearchViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1120,6 +1146,14 @@
 			children = (
 				1AEF71852078A4E9003075B6 /* MySelCourseViewController.h */,
 				1AEF71862078A4E9003075B6 /* MySelCourseViewController.m */,
+				4410EA722137EFAB009BA699 /* ChangePwdViewController.h */,
+				4410EA732137EFAB009BA699 /* ChangePwdViewController.m */,
+				4410EA742137EFAC009BA699 /* ChangePwdViewController.xib */,
+				44C643232139353000A64981 /* ChangePhoneTableViewController.h */,
+				44C643242139353000A64981 /* ChangePhoneTableViewController.m */,
+				44C643252139353000A64981 /* ChangePhoneTableViewController.xib */,
+				4451F24421368F1A00C72E2B /* MenuAlert.h */,
+				4451F24521368F1A00C72E2B /* MenuAlert.m */,
 				1A6131FC20633FDF00C8B99B /* MineCenterViewController.h */,
 				1A6131FD20633FDF00C8B99B /* MineCenterViewController.m */,
 				446C438B212665BB00866C42 /* MyDetailViewController.h */,
@@ -1158,6 +1192,8 @@
 				447E88FD2124238200D40C9D /* MyCommentCell.h */,
 				447E88FE2124238200D40C9D /* MyCommentCell.m */,
 				447E88FF2124238200D40C9D /* MyCommentCell.xib */,
+				4429673F212C072F0038DBD5 /* MyTQTableViewController.h */,
+				44296740212C072F0038DBD5 /* MyTQTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1182,6 +1218,9 @@
 				1AB5759721290E6200874F9A /* TQTestArticSubVC.m */,
 				44D988AB2127E1E100E1D8B7 /* TQTestViewSubVC.h */,
 				44D988AC2127E1E100E1D8B7 /* TQTestViewSubVC.m */,
+				4429673D212BFC910038DBD5 /* TQTestViewSubVC.xib */,
+				4429673A212BEF1E0038DBD5 /* TQTestSubVC.h */,
+				4429673B212BEF1E0038DBD5 /* TQTestSubVC.m */,
 				69468E5920713464007ECDDC /* TQDayViewController.h */,
 				69468E5A20713464007ECDDC /* TQDayViewController.m */,
 				69468E5B20713464007ECDDC /* TQDayViewController.xib */,
@@ -1970,7 +2009,7 @@
 				TargetAttributes = {
 					1EF631352062316400385293 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = RLD2GK46J3;
+						DevelopmentTeam = FQUJK4G93P;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -2114,6 +2153,7 @@
 				1E319703206A3473004B8574 /* Host_type3@2x.png in Resources */,
 				1EA88C7F2072234900E23098 /* course_icon5@3x.png in Resources */,
 				1E319737206B9567004B8574 /* ExamInformationTableViewCell.xib in Resources */,
+				4429673E212BFC910038DBD5 /* TQTestViewSubVC.xib in Resources */,
 				1AE200642067871B0035F412 /* SetPwdViewController.xib in Resources */,
 				694B8E55206BF0A700DC988E /* TQ_item3@2x.png in Resources */,
 				1AE20045206663690035F412 /* pwd@3x.png in Resources */,
@@ -2128,6 +2168,7 @@
 				69234B2720728BEF007E7C99 /* TQ_F@2x.png in Resources */,
 				440F2501211E7F8200524F62 /* full_screen@2x.png in Resources */,
 				694B8E56206BF0A700DC988E /* TQ_item3@3x.png in Resources */,
+				44C643272139353000A64981 /* ChangePhoneTableViewController.xib in Resources */,
 				44B4D8162122CAD5003DD7BA /* Coupon_bg4@3x.png in Resources */,
 				1AE2004D206713670035F412 /* qq@3x.png in Resources */,
 				1E60BDDF206501A500071817 /* tabbar_4_h@2x.png in Resources */,
@@ -2166,6 +2207,7 @@
 				692DA9BA21042FDD00611A33 /* TQTestInfoViewController.xib in Resources */,
 				440F2504211E7F8200524F62 /* pause@2x.png in Resources */,
 				1AE2003A20665BF80035F412 /* back_black@2x.png in Resources */,
+				4410EA762137EFAC009BA699 /* ChangePwdViewController.xib in Resources */,
 				1E319717206A44E6004B8574 /* Host_type6@2x.png in Resources */,
 				1E60BDE3206501A500071817 /* tabbar_5_h@2x.png in Resources */,
 				1E319709206A3473004B8574 /* Host_type9@2x.png in Resources */,
@@ -2244,6 +2286,7 @@
 				1AE2005E20677FC20035F412 /* RegisterViewViewController.m in Sources */,
 				692DA9B921042FDD00611A33 /* TQTestInfoViewController.m in Sources */,
 				446C43A421266CDC00866C42 /* QBAlbumCell.m in Sources */,
+				44C643262139353000A64981 /* ChangePhoneTableViewController.m in Sources */,
 				440F2528211E877100524F62 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				1E563E132073610800AE1A93 /* SelCourseDetailViewController.m in Sources */,
 				1E9444B6206CB721003FE3F6 /* MineCenterHeaderView.m in Sources */,
@@ -2293,6 +2336,7 @@
 				44D988AD2127E1E100E1D8B7 /* TQTestViewSubVC.m in Sources */,
 				692DA9C221046DE000611A33 /* TQTestCell1.m in Sources */,
 				1E3196A42068CC8B004B8574 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
+				4451F243213649B700C72E2B /* HomeSearchViewController.m in Sources */,
 				1E37D99920624AAA000DAF65 /* AFNetworkReachabilityManager.m in Sources */,
 				1E319732206B6D86004B8574 /* HostInformationView.m in Sources */,
 				447E88F52123F72F00D40C9D /* OrderTableViewCell.m in Sources */,
@@ -2306,6 +2350,7 @@
 				692DA9BE21046A1800611A33 /* TQTestSingleViewController.m in Sources */,
 				1AEF718320775989003075B6 /* MyLiveBroadcastTableViewCell.m in Sources */,
 				446C43A721266CDC00866C42 /* QBAssetsViewController.m in Sources */,
+				44296741212C072F0038DBD5 /* MyTQTableViewController.m in Sources */,
 				1E0EE8B620734CC9002F5D3E /* SelCourseTableViewCell.m in Sources */,
 				1E37D9B520624AAA000DAF65 /* UIImage+GIF.m in Sources */,
 				1E37D9B620624AAA000DAF65 /* UIImage+MultiFormat.m in Sources */,
@@ -2350,6 +2395,7 @@
 				447E3219212A9AE8002B2F92 /* TQResultViewController.m in Sources */,
 				1AE20056206714590035F412 /* NSString+CJString.m in Sources */,
 				1AEF71902078B487003075B6 /* MySelCourseTableViewCell2.m in Sources */,
+				4429673C212BEF1E0038DBD5 /* TQTestSubVC.m in Sources */,
 				1E37D9B020624AAA000DAF65 /* SDWebImageDownloader.m in Sources */,
 				447E88F12123F71900D40C9D /* MyOrderViewController.m in Sources */,
 				446C43AE21266CDC00866C42 /* QBVideoIndicatorView.m in Sources */,
@@ -2360,7 +2406,9 @@
 				440F24FF211E7F8200524F62 /* SBPlayer.m in Sources */,
 				446C43B621266D0A00866C42 /* RequestPostUploadHelper.m in Sources */,
 				1E3E18E220720AF300F5B71C /* CouponTableViewCell.m in Sources */,
+				4451F24621368F1A00C72E2B /* MenuAlert.m in Sources */,
 				446C43A621266CDC00866C42 /* QBAssetCell.m in Sources */,
+				4410EA752137EFAC009BA699 /* ChangePwdViewController.m in Sources */,
 				1A1813012121D13200D4E2CB /* AboutViewController.m in Sources */,
 				1E37D9B420624AAA000DAF65 /* UIButton+WebCache.m in Sources */,
 				1A9491EE2070740300E03D71 /* TeacherVideoTableViewCell.m in Sources */,
@@ -2514,7 +2562,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RLD2GK46J3;
+				DEVELOPMENT_TEAM = FQUJK4G93P;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZJPlatform/Class/OthersThirdLibs",
@@ -2533,7 +2582,7 @@
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zj.zjplatform;
+				PRODUCT_BUNDLE_IDENTIFIER = com.longqingshiyi.lqsy1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -2545,7 +2594,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RLD2GK46J3;
+				DEVELOPMENT_TEAM = FQUJK4G93P;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZJPlatform/Class/OthersThirdLibs",
@@ -2564,7 +2614,7 @@
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zj.zjplatform;
+				PRODUCT_BUNDLE_IDENTIFIER = com.longqingshiyi.lqsy1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

@@ -10,7 +10,7 @@
 
 @interface MineCenterHeaderView : UIView
 
-
+@property (nonatomic,strong) IBOutlet UIImageView *imgView;
 
 @property (nonatomic,strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic,strong) IBOutlet UILabel *sourceLabel;

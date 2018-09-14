@@ -42,7 +42,6 @@
 }
 
 -(void)requestDataSource{
-    
     NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_questions_everyDayStudy];
     WS(weakSelf);
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -50,6 +49,7 @@
                                                        success:^(id responseObject) {
                                                            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
                                                             weakSelf.questionDict = responseObject;
+                                                           
                                                            [weakSelf initWebView];
                                                        } failure:^(NSString *errorMsg) {
                                                            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
@@ -116,6 +116,9 @@
 
 
 -(void)initWebView{
+    if ([self.questionDict isKindOfClass:[NSNull class]]) {
+        return;
+    }
     NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
     WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
     WKUserContentController *wkUController = [[WKUserContentController alloc] init];
@@ -338,9 +341,9 @@
     NSInteger row = indexPath.row;
     if (pageType < 3) {
         if (row == 2 + [[self.questionDict objectForKey:@"resultList"] count]) {
-            return answerCell.frame.size.height;
+            return 60;
         }else if(row == 2 + [[self.questionDict objectForKey:@"resultList"] count] + 1){
-            return resultCell.frame.size.height;
+            return 180;
         }
         if (indexPath.row == 0) {
             return 44;

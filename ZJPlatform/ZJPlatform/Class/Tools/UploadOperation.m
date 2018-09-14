@@ -41,44 +41,44 @@
 
 
 -(void)main{
-//    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_SaveFile];
-//    __weak __typeof(self) weakSelf = self;
-//    
-//    
-//    if (self.curImg) {
-//        self.myTast =  [RequestPostUploadHelper postRequestWithURL:url
-//                                                        postParems:@{@"fileType":@"imageAll"}
-//                                                           picFile:self.curImg  // IN 上传图片
-//                                                       picFileName:@"file"
-//                                                           success:^(id responseObject) {
-//                                                               [weakSelf.delegate upload:self didFinishWithSuccessWithPath:self.curPath withObject:responseObject];
-//                                                               weakSelf.isFinish = YES;
-//                                                           } failure:^(NSError *error) {
-//                                                               [weakSelf.delegate upload:self didStopWithError:error];
-//                                                               weakSelf.isFinish = YES;
-//                                                           }];
-//    }else{
-//        self.myTast =  [RequestPostUploadHelper postRequestWithURL:url
-//                                                        postParems:@{@"fileType":@"imageAll"}
-//                                                       picFilePath:self.curPath
-//                                                       picFileName:@"file"
-//                                                           success:^(id responseObject) {
-//                                                               [weakSelf.delegate upload:self didFinishWithSuccessWithPath:self.curPath withObject:responseObject];
-//                                                               weakSelf.isFinish = YES;
-//                                                           } failure:^(NSError *error) {
-//                                                               [weakSelf.delegate upload:self didStopWithError:error];
-//                                                               weakSelf.isFinish = YES;
-//                                                           }];
-//    
-//    }
-//    
-//    
-//    
-//    
-//    
-//    while (!self.isFinish) {
-//        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-//    }
+    NSString *url = [NSString stringWithFormat:@"%@/%@",ProxyUrl,@"file"];
+    __weak __typeof(self) weakSelf = self;
+    
+    
+    if (self.curImg) {
+        self.myTast =  [RequestPostUploadHelper postRequestWithURL:url
+                                                        postParems:@{@"handler":@"id",@"name":@"1.png"}
+                                                           picFile:self.curImg  // IN 上传图片
+                                                       picFileName:@"file"
+                                                           success:^(id responseObject) {
+                                                               [weakSelf.delegate upload:self didFinishWithSuccessWithPath:self.curPath withObject:responseObject];
+                                                               weakSelf.isFinish = YES;
+                                                           } failure:^(NSError *error) {
+                                                               [weakSelf.delegate upload:self didStopWithError:error];
+                                                               weakSelf.isFinish = YES;
+                                                           }];
+    }else{
+        self.myTast =  [RequestPostUploadHelper postRequestWithURL:url
+                                                        postParems:@{@"handler":@"id"}
+                                                       picFilePath:self.curPath
+                                                       picFileName:@"name"
+                                                           success:^(id responseObject) {
+                                                               [weakSelf.delegate upload:self didFinishWithSuccessWithPath:self.curPath withObject:responseObject];
+                                                               weakSelf.isFinish = YES;
+                                                           } failure:^(NSError *error) {
+                                                               [weakSelf.delegate upload:self didStopWithError:error];
+                                                               weakSelf.isFinish = YES;
+                                                           }];
+    
+    }
+    
+    
+    
+    
+    
+    while (!self.isFinish) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }
 }
 
 -(void)cancelTask{

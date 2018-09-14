@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,7 +16,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewViewController">
             <connections>
+                <outlet property="checkCodeTextFeild" destination="5Hu-3l-7YN" id="l9d-7u-fYa"/>
                 <outlet property="codeBtn" destination="M2E-Bm-Lxf" id="j6e-zr-clE"/>
+                <outlet property="passwordTextFeild" destination="Vzr-Ql-fGF" id="fdm-MQ-ygE"/>
+                <outlet property="phoneTextFeild" destination="hP1-LQ-CrH" id="WA9-Gw-MDl"/>
                 <outlet property="registerBtn" destination="jxJ-ub-Pe7" id="hXP-xv-wt9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="view1" destination="sGB-p8-LiX" id="CwZ-sj-CgM"/>
@@ -103,6 +106,9 @@
                     <state key="normal" title="注册">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="bundlingMobile:" destination="-1" eventType="touchUpInside" id="12j-iW-gpS"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

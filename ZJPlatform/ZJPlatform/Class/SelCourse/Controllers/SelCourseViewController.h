@@ -12,4 +12,7 @@
 
 @property (nonatomic,strong) NSString *questionType;
 
+
+@property (nonatomic,assign) NSInteger  type;   
+
 @end

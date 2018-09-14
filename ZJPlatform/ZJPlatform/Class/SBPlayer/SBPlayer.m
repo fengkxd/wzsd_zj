@@ -411,6 +411,7 @@
         case CNC_PLAYER_STATE_ON_MEDIA_START: {
             [self showLog:@"开始播放"];
             [_pauseOrPlayView.imageBtn setSelected:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ShiKan object:nil];
             [self refreshMediaControl];
         }
             break;

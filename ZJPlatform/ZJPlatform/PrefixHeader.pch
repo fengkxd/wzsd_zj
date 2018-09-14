@@ -106,6 +106,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define kNotification_LOGIN_OUT             @"kNotification_LOGIN_OUT"
 
 
+#define kNotification_ShiKan             @"kNotification_ShiKan"
+
+
 #define kNotification_LOGIN_FAILE           @"kNotification_LOGIN_FAILE"
 #define kNotification_SHOW_LOGIN            @"kNotification_SHOW_LOGIN"
 #define kNotification_Register_Success      @"kNotification_Register_Success"
@@ -128,8 +131,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 
-
+#define Subject_List  @"Subject_List"
 #define Sel_Subject  @"Sel_Subject"
+
+
 #define Subject_Id   [[Utility objectForKey:Sel_Subject] objectForKey:@"id"]
 #define Subject_Dict @{@"subjects.id":Subject_Id}
 

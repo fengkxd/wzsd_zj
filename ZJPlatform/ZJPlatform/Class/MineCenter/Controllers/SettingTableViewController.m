@@ -23,6 +23,7 @@
     [super viewDidLoad];
     [self createBackBtn];
     [self setTitleView:@"设置"];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -28,6 +28,9 @@
     IBOutlet UILabel *priceLabel;
     IBOutlet UILabel *browsingNumberLabel;
     
+    NSInteger memberBuyStatu;  // 1购买
+    
+    NSInteger watchMin;
 }
 @property (nonatomic,strong) SBPlayer *play;
 @property (nonatomic,strong) NSString *videoAddress;
@@ -42,6 +45,12 @@
 
 @property (nonatomic,strong) NSMutableArray *courseList;
 @property (nonatomic,strong) NSArray *commentList;
+
+@property (nonatomic, weak) NSTimer *timer;
+@property (nonatomic, weak) NSTimer *watchTime;
+
+
+
 @end
 
 @implementation SelCourseDetailViewController
@@ -131,7 +140,73 @@
     
     [self requestVideoDetails];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startTime) name:kNotification_ShiKan object:nil];
+
+
 }
+
+-(void)startTime{
+    if (self.timer == nil) {
+         
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(timerStop) userInfo:nil repeats:NO];
+    }
+    if (self.watchTime == nil) {
+        self.watchTime = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(requestWatchMin) userInfo:nil repeats:YES];
+    }
+}
+
+-(void)requestWatchMin{
+    watchMin ++;
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_studyduration_save];
+    NSDictionary *dict =  @{@"watchTime":@(watchMin),@"course.id":[[[self.courseList firstObject] objectForKey:@"course"] objectForKey:@"id"],@"video.id":self.videoId,@"subjects.id":Subject_Id,@"type":@"1"};
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST" headParameter:nil bodyParameter:dict relativePath:url success:^(id responseObject) {
+        NSLog(@"时间%@",responseObject);
+    } failure:^(NSString *errorMsg) {
+        [self.watchTime invalidate];
+        self.watchTime = nil;
+    }];
+
+    
+}
+
+
+
+-(void)invalidateTime{
+    [self.watchTime invalidate];
+    self.watchTime = nil;
+    [self.timer invalidate];
+    self.timer = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:kNotification_ShiKan];
+
+}
+
+
+
+
+-(void)timerStop{
+    if (memberBuyStatu == 1) {
+        return;
+    }
+    [self invalidateTime];
+    self.play.controlView.userInteractionEnabled = NO;
+    [self.play.pauseOrPlayView nonClickable];
+    [self.play stop];
+
+    UIAlertController *alertController =[UIAlertController alertControllerWithTitle:@"提示" message:@"试看结束，是否购买？" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
 
 -(void)requestVideoDetails{
     
@@ -155,6 +230,10 @@
 
 -(void)loadVideoInfo:(NSDictionary *)dict{
     self.videoDict = [NSDictionary  dictionaryWithDictionary:dict];
+    
+    
+    memberBuyStatu = [[dict objectForKey:@"memberBuyStatu"] integerValue];
+    
     titleLabel.text = [dict objectForKey:@"name"];
     priceLabel.text = [NSString stringWithFormat:@"¥%.2f",[[dict objectForKey:@"price"] floatValue]];
     teachLabel.text = [NSString stringWithFormat:@"名师：%@",[[dict objectForKey:@"famousTeacher"] objectForKey:@"name"]];
@@ -423,6 +502,7 @@
         }
     }
     if ([self.courseList count] == 0) {
+        [self invalidateTime];
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }else{
         self.videoAddress = [[[[self.courseList firstObject] objectForKey:@"videoList"] firstObject] objectForKey:@"videoAddress"];
@@ -446,6 +526,8 @@
     }
     WS(weakSelf);
     self.play.dismissBlock = ^{
+       
+        [weakSelf invalidateTime];
         [weakSelf.play stop];
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
     };

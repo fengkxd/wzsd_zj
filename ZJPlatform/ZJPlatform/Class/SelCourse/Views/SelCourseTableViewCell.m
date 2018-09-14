@@ -19,8 +19,17 @@
 -(void)loadCourseInfo:(NSDictionary *)dict{
     
     nameLabel.text = [dict objectForKey:@"name"];
-    priceLabel.text = [NSString stringWithFormat:@"¥%.2f",[[dict objectForKey:@"price"] floatValue]];
-    teachLabel.text = [NSString stringWithFormat:@"主讲师：%@",[[dict objectForKey:@"famousTeacher"] objectForKey:@"name"]];
+    if ([[dict objectForKey:@"price"] floatValue] == 0) {
+        priceLabel.text = @"免费";
+    }else{
+        priceLabel.text = [NSString stringWithFormat:@"¥%.2f",[[dict objectForKey:@"price"] floatValue]];
+
+    }
+    if ([Utility isBlank:[[dict objectForKey:@"famousTeacher"] objectForKey:@"name"]]) {
+        teachLabel.text = @"";
+    }else{
+        teachLabel.text = [NSString stringWithFormat:@"主讲师：%@",[[dict objectForKey:@"famousTeacher"] objectForKey:@"name"]];
+    }
     [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgProxyUrl,[dict objectForKey:@"frontCover"]]]];
     label.hidden = YES;
     browsingNumberLabel.text = [dict objectForKey:@""];

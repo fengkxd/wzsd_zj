@@ -27,6 +27,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>我们将访问您的媒体资料库，并将您选择的相片做为您的头像</string>
+	<key>NSCameraUsageDescription</key>
+	<string>我们将访问您的相机，并将您的相片做为您的头像</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>我们将访问您的相册，并将您的相片做为您的头像</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SourceHanSansSC-Regular.otf</string>

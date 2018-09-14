@@ -12,9 +12,7 @@
 #define WX_TOKEN  @"WX_TOKEN"
 
 
-//static NSString *const  ProxyUrl                                 =   @"http://192.168.1.107:8007/longshihui/a";
-//static NSString *const  ProxyUrl                                 =   @"http://39.108.102.49:8007/longshihui/a";
-//static NSString *const  ShareProxy                               =   @"http://39.108.102.49:8007/longshihui";
+
 
 static NSString *const  ProxyUrl                                  =   @"http://admin.tect365.com.cn/api";
 static NSString *const  ImgProxyUrl                                =   @"http://admin.tect365.com.cn";
@@ -25,9 +23,13 @@ static NSString *const  ImgProxyUrl                                =   @"http://
 static NSString *const  kRequest_signin                            = @"/signin";
 //获取用户信息
 static NSString *const  kRequest_member_getMemberMessage           = @"/member/getMemberMessage";
-
 //banner
 static NSString *const  kRequest_adv_list                          = @"/adv/list";
+
+
+static NSString *const  kRequest_identifyingCode      =   @"/identifyingCode";
+
+static NSString *const  kRequest_signup      =   @"/signup";
 
 
 
@@ -37,6 +39,11 @@ static NSString *const  kRequest_subjects_secondLevel          = @"/subjects/sec
 
 static NSString *const  kRequest_video_list                       = @"/course/list";
 static NSString *const  kRequest_video_details                    = @"/course/details";
+static NSString *const  kRequest_studyduration_save                    = @"/studyduration/save";
+
+
+
+
 static NSString *const  kRequest_catalogue_list                    = @"/catalogue/list";
 static NSString *const  kRequest_comment_list                    = @"/comment/list";
 static NSString *const  kRequest_newsbulletin_findList         = @"/newsbulletin/findList";
@@ -53,6 +60,7 @@ static NSString *const  kRequest_testvalues_get                          =      
 #pragma mark 中教名师
 //名师列表
 static NSString *const  kRequest_famousTeacher_queryList                  =      @"/famousTeacher/queryList";
+
 
 
 static NSString *const  kRequest_sysDict_list                  =      @"/sysDict/list";
@@ -72,7 +80,7 @@ static NSString *const  kRequest_comment_delete           =     @"/comment/delet
 static NSString *const  kRequest_subjects_eProject             =      @"/subjects/eProject";
 static NSString *const  kRequest_testPaper_list               =      @"/testPaper/list";
 
-static NSString *const  kRequest_questions_consolidation               =      @"/questions/consolidation";
+static NSString *const  kRequest_questions_consolidation      =      @"/questions/consolidation";
 
 static NSString *const  kRequest_testPaper_get                =      @"/testPaper/get";
 static NSString *const  kRequest_memberAnswer_verifying       =      @"/memberAnswer/verifying";
@@ -82,6 +90,14 @@ static NSString *const  kRequest_everydayPractise_updateupdateAnswer       =    
 
 static NSString *const  kRequest_membererror_list             =      @"/membererror/list";
 static NSString *const  kRequest_testPaper_queryMemberTest       =      @"/testPaper/queryMemberTest";
+
+static NSString *const  kRequest_questions_verifying       =      @"/questions/verifying";
+
+static NSString *const  kRequest_student_updateStudent       =      @"/student/updateStudent";
+
+
+static NSString *const  kRequest_member_updatePassword       =      @"/member/updatePassword";
+
 
 
 @interface NSString (URL)

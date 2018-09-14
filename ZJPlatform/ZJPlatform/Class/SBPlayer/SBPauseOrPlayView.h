@@ -35,4 +35,6 @@
 
 -(void)handleImageTapAction:(UIButton *)button;
 
+-(void)nonClickable;
+
 @end

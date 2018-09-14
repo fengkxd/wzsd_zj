@@ -57,7 +57,10 @@
     self.tableView.contentOffset = CGPointMake(0, -20);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kNotification_LOGIN_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNotification_UPDATE_SUBJECT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kNotification_Refresh_UserInfo object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logout) name:kNotification_LOGIN_OUT object:nil];
 
+    
     
     headerView = [[[NSBundle mainBundle] loadNibNamed:@"MineCenterHeaderView" owner:self options:nil] lastObject];
     self.tableView.tableHeaderView = headerView;
@@ -82,6 +85,8 @@
     
     [self loginSuccess];
 }
+
+
 
 
 -(void)click:(UIGestureRecognizer *)ges{
@@ -138,6 +143,11 @@
     
 }
 
+-(void)logout{
+    self.memberInfoDict =  nil;
+    [headerView loadInfo:self.memberInfoDict];
+    [self.tableView reloadData];
+}
 
 -(void)clickItem:(UIButton *)btn{
     NSArray *vcs =@[@"ExamInformationViewController",@"MyCourseTableViewController",@"CouponTableViewController"];
@@ -176,7 +186,7 @@
     NSInteger row = indexPath.row;
     
     NSArray *vcs = @[@"ExamInformationViewController",@"learningTimeViewController",@"MyOrderViewController"
-                     ,@"MyCommentViewController",@"CouponTableViewController",@"CouponTableViewController",@"CouponTableViewController"];
+                     ,@"MyCommentViewController",@"CouponTableViewController",@"MyTQTableViewController",@"CouponTableViewController"];
     
     BaseViewController *vc = [[NSClassFromString([vcs objectAtIndex:row]) alloc] init];
     [vc setHidesBottomBarWhenPushed:YES];

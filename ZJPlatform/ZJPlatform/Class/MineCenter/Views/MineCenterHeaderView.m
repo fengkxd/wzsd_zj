@@ -7,6 +7,7 @@
 //
 
 #import "MineCenterHeaderView.h"
+#import "UIImageView+WebCache.h"
 
 @implementation MineCenterHeaderView
 
@@ -23,7 +24,14 @@
         
         _nameLabel.text = [[dict objectForKey:@"member"] objectForKey:@"account"];
         _sourceLabel.text = [NSString stringWithFormat:@"%zi", [[[dict objectForKey:@"student"] objectForKey:@"integral"] integerValue]];
-        
+        if ([Utility isNotBlank:[[dict objectForKey:@"member"] objectForKey:@"headPortrait"]]) {
+            [_imgView sd_setImageWithURL:[NSURL URLWithString:[[dict objectForKey:@"member"] objectForKey:@"headPortrait"]]];
+        }else{
+            [_imgView setImage:[UIImage imageNamed:@"head_default"]];
+        }
+
+        _imgView.layer.masksToBounds = YES;
+        _imgView.layer.cornerRadius = _imgView.frame.size.height/2.0;
     }
     
 }

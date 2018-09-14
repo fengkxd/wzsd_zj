@@ -104,31 +104,70 @@
 
 
 -(IBAction)sendMsg:(id)sender{
+    if ([Utility isBlank:phoneTextFeild.text]) {
+        [Toast showWithText:@"请输入手机号"];
+        return;
+    }
+    
     WS(weakSelf);
-    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_famousTeacher_queryList];
-    NSDictionary *dict ;
-   
-    countDown = 60;
-    [self clickBtn];
-
-    return;
-    SHOW_HUD;
-    [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_identifyingCode];
+     SHOW_HUD;
+    
+    NSDictionary *dict = @{@"phone":phoneTextFeild.text,@"type":@"register"};
+    
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"GET"
                                                  headParameter:nil
                                                  bodyParameter:dict
                                                   relativePath:url
                                                        success:^(id responseObject) {
                                                            HIDDEN_HUD;
                                                            NSLog(@"验证码发送：%@",responseObject);
-                                                           countDown = 60;
+                                                           self->countDown = 60;
                                                            [weakSelf clickBtn];
                                                        } failure:^(NSString *errorMsg) {
-                                                           
-                                                           
+                                                           [Toast showWithText:errorMsg];
+                                                           HIDDEN_HUD;
                                                        }];
     
 }
 
+
+
+-(IBAction)bundlingMobile:(id)sender{
+    if ([Utility isBlank:phoneTextFeild.text]) {
+        [Toast showWithText:@"请输入手机号"];
+        return;
+    }
+    if ([Utility isBlank:phoneTextFeild.text]) {
+        [Toast showWithText:@"请输入验证码"];
+        return;
+    }
+    if ([Utility isBlank:phoneTextFeild.text]) {
+        [Toast showWithText:@"请输入密码号"];
+        return;
+    }
+    
+    WS(weakSelf);
+    NSString *url = [NSString stringWithFormat:@"%@%@",ProxyUrl,kRequest_signup];
+    SHOW_HUD;
+    
+    NSDictionary *dict = @{@"account":phoneTextFeild.text,@"password":[[Utility md5:passwordTextFeild.text] lowercaseString],@"checkCode":checkCodeTextFeild.text};
+    
+    [[NetworkManager shareNetworkingManager] requestWithMethod:@"POST"
+                                                 headParameter:nil
+                                                 bodyParameter:dict
+                                                  relativePath:url
+                                                       success:^(id responseObject) {
+                                                           HIDDEN_HUD;
+                                                           [Toast showWithText:@"注册成功"];
+                                                           [Utility saveObject:self->phoneTextFeild.text withKey:USERNAME];
+                                                           [Utility saveObject:self->passwordTextFeild.text withKey:PASSWORD];
+                                                           [weakSelf.navigationController popViewControllerAnimated:YES];                                                           [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_Register_Success object:nil];
+                                                       } failure:^(NSString *errorMsg) {
+                                                           [Toast showWithText:errorMsg];
+                                                           HIDDEN_HUD;
+                                                       }];
+}
 
 
 
